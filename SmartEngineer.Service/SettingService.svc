@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SmartEngineer.Service.SettingService" CodeBehind="SettingService.svc.cs" %>

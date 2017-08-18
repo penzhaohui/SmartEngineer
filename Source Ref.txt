@@ -1,0 +1,11 @@
+﻿SmartSql: https://github.com/Ahoo-Wang/SmartSql
+SQLLiteExpert: http://www.sqliteexpert.com/download.html
+zookeeper原理（转） http://cailin.iteye.com/blog/2014486/
+Windows安装和使用zookeeper http://www.cnblogs.com/shanyou/p/3221990.html
+Redis在C#中的使用及Redis的封装: http://www.cnblogs.com/jx270/p/6444075.html
+General框架如何实现多数据库支持 http://www.bubuko.com/infodetail-947838.html
+兼容SQLSERVER、Oracle、MYSQL、SQLITE的超级DBHelper http://blog.csdn.net/sqqyq/article/details/50374864
+WCF进阶：将消息正文Base64编码: http://www.cnblogs.com/jillzhang/archive/2010/04/11/1709311.html
+WCF进阶:为每个操作附加身份信息: http://www.cnblogs.com/jillzhang/archive/2010/04/11/1709397.html
+c# 泛型 类型参数上的限制（where T:class,new()）: http://blog.csdn.net/hzh_csdn/article/details/53264497
+C#的泛型的类型参数可以有带参数的构造函数的约束方式吗？: http://www.cnblogs.com/indream/p/3667279.html

@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TechTalk.JiraRestClient</name>
+    </assembly>
+    <members>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetMySelf">
+            Returns the currently logged user
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetIssues(System.String)">
+            <summary>Returns all issues for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetIssues(System.String,System.String)">
+            <summary>Returns all issues of the specified type for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetIssuesByQuery(System.String,System.String,System.String)">
+            <summary>Returns all issues of the given type and the given project filtered by the given JQL query</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.EnumerateIssues(System.String)">
+            <summary>Enumerates through all issues for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.EnumerateIssues(System.String,System.String)">
+            <summary>Enumerates through all issues of the specified type for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.LoadIssue(System.String)">
+            <summary>Returns the issue identified by the given ref</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.LoadIssue(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns the issue identified by the given ref</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.CreateIssue(System.String,System.String,System.String)">
+            <summary>Creates an issue of the specified type for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.CreateIssue(System.String,System.String,TechTalk.JiraRestClient.IssueFields)">
+            <summary>Creates an issue of the specified type for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.UpdateIssue(TechTalk.JiraRestClient.Issue)">
+            <summary>Updates the given issue on the remote system</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.DeleteIssue(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Deletes the given issue from the remote system</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.CreateSubTask(System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates an sub task of the specified jira key for the given project
+            </summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetTransitions(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all transitions available to the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.TransitionIssue(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.Transition)">
+            <summary>Changes the state of the given issue as described by the transition</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetWatchers(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all watchers for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetComments(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all comments for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.CreateComment(TechTalk.JiraRestClient.IssueRef,System.String)">
+            <summary>Adds a comment to the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.DeleteComment(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.Comment)">
+            <summary>Deletes the given comment</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetWorklogs(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all work logs for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetAttachments(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Return all attachments for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.CreateAttachment(TechTalk.JiraRestClient.IssueRef,System.Byte[],System.String)">
+            <summary>Creates an attachment to the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.DeleteAttachment(TechTalk.JiraRestClient.Attachment)">
+            <summary>Deletes the given attachment</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetIssueLinks(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all links for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.LoadIssueLink(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.IssueRef,System.String)">
+            <summary>Returns the link between two issues of the given relation</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.CreateIssueLink(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.IssueRef,System.String)">
+            <summary>Creates a link between two issues with the given relation</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.DeleteIssueLink(TechTalk.JiraRestClient.IssueLink)">
+            <summary>Removes the given link of two issues</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetRemoteLinks(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all remote links (attached urls) for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.CreateRemoteLink(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.RemoteLink)">
+            <summary>Creates a remote link (attached url) for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.UpdateRemoteLink(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.RemoteLink)">
+            <summary>Updates the given remote link (attached url) of the specified issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.DeleteRemoteLink(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.RemoteLink)">
+            <summary>Removes the given remote link (attached url) of the specified issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetIssueTypes">
+            <summary>Returns all issue types</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetServerInfo">
+            <summary>Returns information about the JIRA server</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.JiraClient.GetMySelf">
+            Returns the currently logged user
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetMySelf">
+            Returns the currently logged user
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetIssues(System.String)">
+            <summary>Returns all issues for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetIssues(System.String,System.String)">
+            <summary>Returns all issues of the specified type for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetIssuesByQuery(System.String,System.String,System.String)">
+            <summary>Returns all issues of the given type and the given project filtered by the given JQL query</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.EnumerateIssues(System.String)">
+            <summary>Enumerates through all issues for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.EnumerateIssues(System.String,System.String)">
+            <summary>Enumerates through all issues of the specified type for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.LoadIssue(System.String)">
+            <summary>Returns the issue identified by the given ref</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.LoadIssue(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns the issue identified by the given ref</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.CreateIssue(System.String,System.String,System.String)">
+            <summary>Creates an issue of the specified type for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.CreateIssue(System.String,System.String,`0)">
+            <summary>Creates an issue of the specified type for the given project</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.UpdateIssue(TechTalk.JiraRestClient.Issue{`0})">
+            <summary>Updates the given issue on the remote system</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.DeleteIssue(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Deletes the given issue from the remote system</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.CreateSubTask(System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates an sub task of the specified jira key for the given project
+            </summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetTransitions(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all transitions avilable to the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.TransitionIssue(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.Transition)">
+            <summary>Changes the state of the given issue as described by the transition</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetWatchers(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all watchers for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetComments(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all comments for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.CreateComment(TechTalk.JiraRestClient.IssueRef,System.String)">
+            <summary>Adds a comment to the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.DeleteComment(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.Comment)">
+            <summary>Deletes the given comment</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetWorklogs(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all work logs for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetAttachments(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Return all attachments for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.CreateAttachment(TechTalk.JiraRestClient.IssueRef,System.Byte[],System.String)">
+            <summary>Creates an attachment to the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.DeleteAttachment(TechTalk.JiraRestClient.Attachment)">
+            <summary>Deletes the given attachment</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetIssueLinks(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all links for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.LoadIssueLink(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.IssueRef,System.String)">
+            <summary>Returns the link between two issues of the given relation</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.CreateIssueLink(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.IssueRef,System.String)">
+            <summary>Creates a link between two issues with the given relation</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.DeleteIssueLink(TechTalk.JiraRestClient.IssueLink)">
+            <summary>Removes the given link of two issues</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetRemoteLinks(TechTalk.JiraRestClient.IssueRef)">
+            <summary>Returns all remote links (attached urls) for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.CreateRemoteLink(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.RemoteLink)">
+            <summary>Creates a remote link (attached url) for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.UpdateRemoteLink(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.RemoteLink)">
+            <summary>Updates the given remote link (attached url) of the specified issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.DeleteRemoteLink(TechTalk.JiraRestClient.IssueRef,TechTalk.JiraRestClient.RemoteLink)">
+            <summary>Removes the given remote link (attached url) of the specified issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetIssueTypes">
+            <summary>Returns all issue types</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetServerInfo">
+            <summary>Returns information about the JIRA server</summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.issueType">
+            <summary>
+            Issue Type
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.summary">
+            <summary>
+            Case Subject
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.description">
+            <summary>
+            Case Description
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_10600">
+            <summary>
+            Case Number
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_10907">
+            <summary>
+            Build Version
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:TechTalk.JiraRestClient.IssueFields.customfield_11501" -->
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_11502">
+            <summary>
+            Issue Category
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_10900">
+            <summary>
+            SF-Customer
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_10901">
+            <summary>
+            SF-Current Version
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_10902">
+            <summary>
+            SF-Open
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_10903">
+            <summary>
+            SF-Last Modified
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_10904">
+            <summary>
+            SF-Product
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_12400">
+            <summary>
+            SF-Reopen Count
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_12300">
+            <summary>
+            SF-Targeted Release
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_11506">
+            <summary>
+            Estimated Effort
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.subtasks">
+            <summary>
+            Sub Tasks
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.parent">
+            <summary>
+            Parent Tasks
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_10905">
+            <summary>
+            SF-Priority
+            
+            Critical - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10200
+            High - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10201
+            Medium - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10202
+            Low - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10203
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_10906">
+            <summary>
+            SF-Salesforce Link
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_11106">
+            <summary>
+            Severity
+            
+            Critical - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10413
+            Major - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10414
+            Medium - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10415
+            Low - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10416
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_12801">
+            <summary>
+            SF-Priority
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_11702">
+            <summary>
+            Assigned QA
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.customfield_11900">
+            <summary>
+            SF-Origin
+            
+            Bugzilla - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11401
+            Phone - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11402
+            Email - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11403
+            Engineering - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11404
+            Other - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11405
+            Partner - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11406
+            Product Management - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11407
+            Sales - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11408
+            Services - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11409
+            Web - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11410
+            Chatter Answers - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11411
+            Customer Support - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11412
+            Success Community - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11413
+            </summary>
+        </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.Priority">
+            <summary>
+            Low - https://accelaeng.atlassian.net/rest/api/2/priority/8
+            High - https://accelaeng.atlassian.net/rest/api/2/priority/7
+            Medium - https://accelaeng.atlassian.net/rest/api/2/priority/6
+            Trivial - https://accelaeng.atlassian.net/rest/api/2/priority/5
+            Minor - https://accelaeng.atlassian.net/rest/api/2/priority/4
+            Major - https://accelaeng.atlassian.net/rest/api/2/priority/3
+            Critical - https://accelaeng.atlassian.net/rest/api/2/priority/2
+            Blocker - https://accelaeng.atlassian.net/rest/api/2/priority/1
+            </summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.JiraClient`1.GetMySelf">
+            Returns the currently logged user
+        </member>
+    </members>
+</doc>

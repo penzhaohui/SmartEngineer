@@ -1,0 +1,14 @@
+F:\SmartWorkCenter\DailyCaseHelper\dlls\RestSharp.xml
+F:\SmartWorkCenter\DailyCaseHelper\dlls\RestSharp.dll
+F:\SmartWorkCenter\DailyCaseHelper\dlls\RestSharp.pdb
+F:\SmartWorkCenter\RestSharp\obj\Debug\RestSharp.csprojResolveAssemblyReference.cache
+F:\SmartWorkCenter\RestSharp\obj\Debug\RestSharp.dll
+F:\SmartWorkCenter\RestSharp\obj\Debug\RestSharp.pdb
+D:\SmartEngineer\JIRA\DailyCaseHelper\dlls\RestSharp.xml
+D:\SmartEngineer\JIRA\DailyCaseHelper\dlls\RestSharp.dll
+D:\SmartEngineer\JIRA\DailyCaseHelper\dlls\RestSharp.pdb
+D:\SmartEngineer\SmartEngineer.Service\DLLs\RestSharp.dll
+D:\SmartEngineer\SmartEngineer.Service\DLLs\RestSharp.pdb
+D:\SmartEngineer\SmartEngineer.Service\DLLs\DLLs.xml
+D:\SmartEngineer\JIRA\RestSharp\obj\Debug\RestSharp.dll
+D:\SmartEngineer\JIRA\RestSharp\obj\Debug\RestSharp.pdb
