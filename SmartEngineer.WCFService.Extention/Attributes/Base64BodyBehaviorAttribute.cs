@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ServiceModel;
 using System.ServiceModel.Description;
+using SmartEngineer.WCFService.Ext.Adapters;
 
-namespace SmartEngineer.Ext
+namespace SmartEngineer.WCFService.Ext.Attributes
 {
-    /// <summary>
-    /// 将消息主题序列为base64的OperationBehavior
-    /// </summary>
-    public class Base64BodyBehavior : IOperationBehavior
+    public class Base64BodyBehaviorAttribute : Attribute, IOperationBehavior
     {
         #region IOperationBehavior 成员
 
@@ -22,14 +21,14 @@ namespace SmartEngineer.Ext
         {
             clientOperation.SerializeRequest = true;
             clientOperation.DeserializeReply = true;
-            clientOperation.Formatter = new Base64BodyFormatter(clientOperation.Formatter);
+            clientOperation.Formatter = new Base64BodyFormatterAdapter(clientOperation.Formatter);
         }
 
         public void ApplyDispatchBehavior(OperationDescription operationDescription, System.ServiceModel.Dispatcher.DispatchOperation dispatchOperation)
         {
             dispatchOperation.DeserializeRequest = true;
             dispatchOperation.SerializeReply = true;
-            dispatchOperation.Formatter = new Base64BodyFormatter(dispatchOperation.Formatter);
+            dispatchOperation.Formatter = new Base64BodyFormatterAdapter(dispatchOperation.Formatter);
         }
 
         public void Validate(OperationDescription operationDescription)

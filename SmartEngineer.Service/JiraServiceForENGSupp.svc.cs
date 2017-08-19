@@ -14,7 +14,7 @@ namespace SmartEngineer.Service
     {
         public void GetIssuesByLabelList(List<string> labelList)
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public void GetIssuesBySalesforceIDList(List<string> caseIDList)

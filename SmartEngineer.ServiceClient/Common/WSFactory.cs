@@ -4,6 +4,7 @@ using System.ServiceModel;
 using System.Web.Services.Protocols;
 using Microsoft.Web.Services3;
 using SmartEngineer.Config;
+using SmartEngineer.WCFService.Ext.Behaviors;
 
 namespace SmartEngineer.Common
 {
@@ -144,7 +145,7 @@ namespace SmartEngineer.Common
                         clientInstance = (TClient)Activator.CreateInstance(typeof(TClient), callbackInstance);
 
                         //cast it as ClientBace<T> to allow access to the configuration (e.g. end-point. binding etc.)
-                        var client = clientInstance as DuplexClientBase<TChannel>;
+                        var client = clientInstance as DuplexClientBase<TService>;
 
                         //set end-point address and some other settings
                         var endpointUrl = client.Endpoint.Address != null ? client.Endpoint.Address.ToString() : "";
@@ -156,7 +157,7 @@ namespace SmartEngineer.Common
                             //clear all trailing slashes
                             endpointUrl = endpointUrl.TrimEnd('/');
 
-                            endpointUrl = string.Format("{0}/{1}", endpointUrl, endpointMethod);
+                           //endpointUrl = string.Format("{0}/{1}", endpointUrl, endpointMethod);
                         }
                         else
                         {
@@ -214,10 +215,16 @@ namespace SmartEngineer.Common
                        clientInstance = new TClient();
 
                         //cast it as ClientBace<T> to allow access to the configuration (e.g. end-point. binding etc.)
-                        var client = clientInstance as ClientBase<TChannel>;
+                        var client = clientInstance as ClientBase<TService>;
+                        client.Endpoint.EndpointBehaviors.Add(new Base64BodyFormatterEndpointBehavior());
+                        foreach (var op in client.Endpoint.Contract.Operations)
+                        {
+                            op.Behaviors.Add(new Base64BodyFormatterOperationBehavior());
+                        }
 
                         //set end-point address and some other settings
                         var endpointUrl = client.Endpoint.Address != null ? client.Endpoint.Address.ToString() : "";
+                        
 
                         if (!string.IsNullOrWhiteSpace(endpointUrl))
                         {
@@ -226,7 +233,7 @@ namespace SmartEngineer.Common
                             //clear all trailing slashes
                             endpointUrl = endpointUrl.TrimEnd('/');
 
-                            endpointUrl = string.Format("{0}/{1}", endpointUrl, endpointMethod);
+                            //endpointUrl = string.Format("{0}/{1}", endpointUrl, endpointMethod);
                         }
                         else
                         {

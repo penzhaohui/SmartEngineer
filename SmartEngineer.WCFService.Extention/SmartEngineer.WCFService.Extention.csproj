@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A9CA159C-7B0E-465A-AF9B-A9E4A62F0405}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>SmartEngineer.ServiceHost</RootNamespace>
-    <AssemblyName>SmartEngineer.ServiceHost</AssemblyName>
+    <ProjectGuid>{DAFC827A-C922-4CFD-B74D-CBD05EB94173}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartEngineer.WCFService.Ext</RootNamespace>
+    <AssemblyName>SmartEngineer.WCFService.Extention</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -45,26 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ext\AssemblyQualifiedTypeNameConverter.cs" />
-    <Compile Include="Ext\BatchingHostingSettings.cs" />
-    <Compile Include="Ext\ServiceHostCollection.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Adapters\MessageBodyWriter.cs" />
+    <Compile Include="Behaviors\Base64BodyFormatterOperationBehavior.cs" />
+    <Compile Include="Attributes\Base64BodyBehaviorAttribute.cs" />
+    <Compile Include="Behaviors\BinaryFormatterOperationBehavior.cs" />
+    <Compile Include="Behaviors\BinaryFormatterEndpointBehavior.cs" />
+    <Compile Include="Behaviors\EnableBinaryFormatterBehaviorElement.cs" />
+    <Compile Include="Adapters\Serializer.cs" />
+    <Compile Include="Adapters\Base64BodyFormatterAdapter.cs" />
+    <Compile Include="Adapters\BinaryFormatterAdapter.cs" />
+    <Compile Include="Inspectors\MessageInspector.cs" />
+    <Compile Include="Behaviors\Base64BodyFormatterEndpointBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SmartEngineer.Service\SmartEngineer.Service.csproj">
-      <Project>{39d6c65b-c2ec-4242-967a-9c95fa44d428}</Project>
-      <Name>SmartEngineer.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SmartEngineer.WCF.Extention\SmartEngineer.WCFService.Extention.csproj">
-      <Project>{dafc827a-c922-4cfd-b74d-cbd05eb94173}</Project>
-      <Name>SmartEngineer.WCFService.Extention</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using SmartEngineer.Ext;
+using SmartEngineer.WCFService.Ext.Behaviors;
 
 namespace SmartEngineer
 {
@@ -38,15 +39,16 @@ namespace SmartEngineer
                 svcMetaBehavior.HttpGetUrl = new Uri($"http://127.0.0.1:{port}/mex");
                 host.Description.Behaviors.Add(svcMetaBehavior);
             }
-
+            
             foreach (var endpoint in host.Description.Endpoints)
             {
-                endpoint.Behaviors.Add(new OutputMessageBehavior());
+                endpoint.Behaviors.Add(new Base64BodyFormatterEndpointBehavior());
+                //endpoint.Behaviors.Add(new BinaryFormatterEndpointBehavior());
                 foreach (var op in endpoint.Contract.Operations)
                 {
-                    op.Behaviors.Add(new Base64BodyBehavior());
+                    op.Behaviors.Add(new Base64BodyFormatterOperationBehavior());
                 }
-            }
+            }            
         }
     }
 }

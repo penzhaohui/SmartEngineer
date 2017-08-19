@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.ServiceModel.Channels;
+using System.Text;
+using System.Threading.Tasks;
 using System.Xml;
 
-namespace SmartEngineer.Ext
+namespace SmartEngineer.WCFService.Ext.Adapters
 {
-    public class MyBodyWriter : BodyWriter
+    internal class MessageBodyWriter : BodyWriter
     {
         string body = "";
         XmlDocument doc;
-        public MyBodyWriter(string body)
+        public MessageBodyWriter(string body)
             : base(true)
         {
             this.body = body;
         }
 
-        public MyBodyWriter(XmlDocument doc)
+        public MessageBodyWriter(XmlDocument doc)
             : base(true)
         {
             this.doc = doc;
@@ -28,10 +29,12 @@ namespace SmartEngineer.Ext
             XmlWriterSettings setting = new XmlWriterSettings();
             setting.NewLineHandling = NewLineHandling.Entitize;
             setting.CheckCharacters = false;
+
             if (!string.IsNullOrEmpty(body))
             {
                 writer.WriteRaw(body);
             }
+
             if (doc != null)
             {
                 doc.WriteContentTo(writer);

@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEngineer.ServiceHost",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEngineer.ServiceClient", "SmartEngineer.ServiceClient\SmartEngineer.ServiceClient.csproj", "{3633FCD9-AAE5-4815-AB13-EBD4925A8864}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEngineer.WCFService.Extention", "SmartEngineer.WCF.Extention\SmartEngineer.WCFService.Extention.csproj", "{DAFC827A-C922-4CFD-B74D-CBD05EB94173}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{3633FCD9-AAE5-4815-AB13-EBD4925A8864}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3633FCD9-AAE5-4815-AB13-EBD4925A8864}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3633FCD9-AAE5-4815-AB13-EBD4925A8864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAFC827A-C922-4CFD-B74D-CBD05EB94173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAFC827A-C922-4CFD-B74D-CBD05EB94173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAFC827A-C922-4CFD-B74D-CBD05EB94173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAFC827A-C922-4CFD-B74D-CBD05EB94173}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

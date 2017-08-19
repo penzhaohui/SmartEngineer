@@ -1,8 +1,9 @@
-﻿using System.ServiceModel.Description;
+﻿using SmartEngineer.WCFService.Ext.Inspectors;
+using System.ServiceModel.Description;
 
-namespace SmartEngineer.Ext
+namespace SmartEngineer.WCFService.Ext.Behaviors
 {
-    public class OutputMessageBehavior : IEndpointBehavior
+    public class Base64BodyFormatterEndpointBehavior : IEndpointBehavior
     {
 
         #region IEndpointBehavior 成员

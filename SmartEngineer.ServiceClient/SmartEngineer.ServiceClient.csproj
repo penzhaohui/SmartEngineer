@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\IAccountAdapter.cs" />
+    <Compile Include="Adapters\IJiraAdapter4ENGSUPP.cs" />
     <Compile Include="Adapters\imp\AccountAdapter.cs" />
+    <Compile Include="Adapters\imp\JiraAdapter4ENGSUPP.cs" />
     <Compile Include="Config\WebServiceConfig.cs" />
     <Compile Include="Config\WebServiceNode.cs" />
     <Compile Include="Config\WebServiceNodeCollection.cs" />
@@ -107,6 +109,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SmartEngineer.WCF.Extention\SmartEngineer.WCFService.Extention.csproj">
+      <Project>{dafc827a-c922-4cfd-b74d-cbd05eb94173}</Project>
+      <Name>SmartEngineer.WCFService.Extention</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

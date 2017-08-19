@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceModel.Dispatcher;
 
-namespace SmartEngineer.Ext
+namespace SmartEngineer.WCFService.Ext.Inspectors
 {
     public class MessageInspector : IClientMessageInspector, IDispatchMessageInspector
     {
