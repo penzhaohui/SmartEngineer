@@ -61,7 +61,7 @@
       <Project>{39d6c65b-c2ec-4242-967a-9c95fa44d428}</Project>
       <Name>SmartEngineer.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartEngineer.WCF.Extention\SmartEngineer.WCFService.Extention.csproj">
+    <ProjectReference Include="..\SmartEngineer.WCFService.Extention\SmartEngineer.WCFService.Extention.csproj">
       <Project>{dafc827a-c922-4cfd-b74d-cbd05eb94173}</Project>
       <Name>SmartEngineer.WCFService.Extention</Name>
     </ProjectReference>

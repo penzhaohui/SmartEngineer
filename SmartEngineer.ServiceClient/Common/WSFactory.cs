@@ -5,6 +5,7 @@ using System.Web.Services.Protocols;
 using Microsoft.Web.Services3;
 using SmartEngineer.Config;
 using SmartEngineer.WCFService.Ext.Behaviors;
+using System.ServiceModel.Channels;
 
 namespace SmartEngineer.Common
 {
@@ -63,7 +64,7 @@ namespace SmartEngineer.Common
                     if (!_wsInstances.ContainsKey(wsName))
                     {
                         t = new T();
-                        WebServiceParameter p = WebServiceConfig.GetWebServiceParameter(typeof(T));
+                        WebServiceParameter p = WebServiceConfig.GetWebServiceParameter(typeof(T).Name);
                         t.Url = p.Url;
                         t.Timeout = p.Timeout;
                         _wsInstances.Add(wsName, t);
@@ -99,7 +100,7 @@ namespace SmartEngineer.Common
                     if (!_ws3Instances.ContainsKey(wsName))
                     {
                         t = new T();
-                        WebServiceParameter p = WebServiceConfig.GetWebServiceParameter(typeof(T));
+                        WebServiceParameter p = WebServiceConfig.GetWebServiceParameter(typeof(T).Name);
                         t.Url = p.Url;
                         t.Timeout = p.Timeout;
                         _ws3Instances.Add(wsName, t);
@@ -120,9 +121,8 @@ namespace SmartEngineer.Common
         /// <typeparam name="TClient"></typeparam>
         /// <typeparam name="TChannel"></typeparam>
         /// <returns></returns>
-        public TClient GetWCFClient<TClient, TChannel, TService>(InstanceContext callbackInstance)
-            where TClient : DuplexClientBase<TService>
-            where TChannel : class
+        public TClient GetWCFClient<TClient, TService>(InstanceContext callbackInstance = null)
+            where TClient : class
             where TService : class
         {
             TClient clientInstance;
@@ -141,112 +141,33 @@ namespace SmartEngineer.Common
                 {
                     if (!_wcfInstances.ContainsKey(wsName))
                     {
-                        //create a new instance of T
-                        clientInstance = (TClient)Activator.CreateInstance(typeof(TClient), callbackInstance);
-
-                        //cast it as ClientBace<T> to allow access to the configuration (e.g. end-point. binding etc.)
-                        var client = clientInstance as DuplexClientBase<TService>;
-
-                        //set end-point address and some other settings
-                        var endpointUrl = client.Endpoint.Address != null ? client.Endpoint.Address.ToString() : "";
-
-                        if (!string.IsNullOrWhiteSpace(endpointUrl))
+                        var serviceName = typeof(TClient).Name.Replace("Client", "");
+                        var endpointUrl = $"net.tcp://127.0.0.1:3721/{serviceName}";
+                        var config = WebServiceConfig.GetWebServiceParameter(serviceName);
+                        if (config != null)
                         {
-                            var endpointMethod = typeof(TChannel).Name;
-
-                            //clear all trailing slashes
-                            endpointUrl = endpointUrl.TrimEnd('/');
-
-                           //endpointUrl = string.Format("{0}/{1}", endpointUrl, endpointMethod);
-                        }
-                        else
-                        {
-                            var config = WebServiceConfig.GetWebServiceParameter(typeof(TClient));
-
-                            if (config != null)
-                                endpointUrl = config.Url;
-                            else
-                                throw new Exception("Web service configuration is missing or invalid");
+                            endpointUrl = config.Url;
                         }
 
-                        client.Endpoint.Address = new EndpointAddress(endpointUrl);
+                        EndpointAddress remoteAddress = new EndpointAddress(endpointUrl);
+                        NetTcpBinding binding = new NetTcpBinding();
 
-                        //add instance to the dictionary
-                        _wcfInstances.Add(wsName, client);
-                    }
-                    else
-                    {
-                        clientInstance = _wcfInstances[wsName] as TClient;
-                    }
-                }
-            }
-
-            return clientInstance;
-        }
-
-        /// <summary>
-        /// Returns instance of WCF client
-        /// </summary>
-        /// <typeparam name="TClient"></typeparam>
-        /// <typeparam name="TChannel"></typeparam>
-        /// <returns></returns>
-        public TClient GetWCFClient<TClient, TChannel, TService>()
-            where TClient : ClientBase<TService>, new()
-            where TChannel : class
-            where TService : class
-        {
-            TClient clientInstance;
-
-            //get name of the class to be used as key
-            string wsName = typeof(TClient).FullName;
-
-            //if instance already exists, use it
-            if (_wcfInstances.ContainsKey(wsName) && _wcfInstances[wsName] is TClient)
-            {
-                clientInstance = _wcfInstances[wsName] as TClient;
-            }
-            else
-            {
-                lock (typeof(TClient))
-                {
-                    if (!_wcfInstances.ContainsKey(wsName))
-                    {
                         //create a new instance of T
-                       clientInstance = new TClient();
+                        clientInstance = (TClient)Activator.CreateInstance(typeof(TClient), callbackInstance, binding, remoteAddress);
 
-                        //cast it as ClientBace<T> to allow access to the configuration (e.g. end-point. binding etc.)
+                        //cast it as ClientBace<T> to allow access to the configuration (e.g. end-point. binding etc.) 
                         var client = clientInstance as ClientBase<TService>;
+                        if (client == null && callbackInstance != null)
+                        {
+                            client = clientInstance as DuplexClientBase<TService>;
+                        }                        
+
                         client.Endpoint.EndpointBehaviors.Add(new Base64BodyFormatterEndpointBehavior());
                         foreach (var op in client.Endpoint.Contract.Operations)
                         {
                             op.Behaviors.Add(new Base64BodyFormatterOperationBehavior());
                         }
 
-                        //set end-point address and some other settings
-                        var endpointUrl = client.Endpoint.Address != null ? client.Endpoint.Address.ToString() : "";
-                        
-
-                        if (!string.IsNullOrWhiteSpace(endpointUrl))
-                        {
-                            var endpointMethod = typeof(TChannel).Name;
-
-                            //clear all trailing slashes
-                            endpointUrl = endpointUrl.TrimEnd('/');
-
-                            //endpointUrl = string.Format("{0}/{1}", endpointUrl, endpointMethod);
-                        }
-                        else
-                        {
-                            var config = WebServiceConfig.GetWebServiceParameter(typeof(TClient));
-
-                            if (config != null)
-                                endpointUrl = config.Url;
-                            else
-                                throw new Exception("Web service configuration is missing or invalid");
-                        }
-
-                        client.Endpoint.Address = new EndpointAddress(endpointUrl);
-
                         //add instance to the dictionary
                         _wcfInstances.Add(wsName, client);
                     }
@@ -258,6 +179,6 @@ namespace SmartEngineer.Common
             }
 
             return clientInstance;
-        }
+        }        
     }
 }

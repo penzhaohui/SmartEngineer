@@ -48,9 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\IAccountAdapter.cs" />
-    <Compile Include="Adapters\IJiraAdapter4ENGSUPP.cs" />
     <Compile Include="Adapters\imp\AccountAdapter.cs" />
-    <Compile Include="Adapters\imp\JiraAdapter4ENGSUPP.cs" />
     <Compile Include="Config\WebServiceConfig.cs" />
     <Compile Include="Config\WebServiceNode.cs" />
     <Compile Include="Config\WebServiceNodeCollection.cs" />
@@ -84,7 +82,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AccountService\" />
@@ -110,7 +110,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartEngineer.WCF.Extention\SmartEngineer.WCFService.Extention.csproj">
+    <ProjectReference Include="..\SmartEngineer.WCFService.Extention\SmartEngineer.WCFService.Extention.csproj">
       <Project>{dafc827a-c922-4cfd-b74d-cbd05eb94173}</Project>
       <Name>SmartEngineer.WCFService.Extention</Name>
     </ProjectReference>

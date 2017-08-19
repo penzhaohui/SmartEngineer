@@ -21,7 +21,7 @@ namespace SmartEngineer.ServiceClient.Adapters
         public string Login(AccountType accountType, string userName, string Password)
         {
             InstanceContext callbackInstance = new InstanceContext(new AccountServiceCallback());
-            AccountServiceClient client = WSFactory.Instance.GetWCFClient<AccountServiceClient, IAccountServiceChannel, IAccountService>(callbackInstance);
+            AccountServiceClient client = WSFactory.Instance.GetWCFClient<AccountServiceClient, IAccountService>(callbackInstance);
             return client.Login(accountType, userName, Password);
         }
 

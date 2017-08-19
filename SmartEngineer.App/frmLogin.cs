@@ -53,12 +53,14 @@ namespace SmartEngineer.Forms
                 this.Update();//必须
                 this.ShowConnectInfo("Processing to validate user and password");
 
+                /*
                 IJiraAdapter4ENGSUPP adapter1 = new JiraAdapter4ENGSUPP();
                 List<string> labels = new List<string>();
                 labels.Add("Resolved");
                 labels.Add("Closed");
                 labels.Add("In Progress");
                 adapter1.GetIssuesByLabelList(labels.ToArray());
+                */
 
                 IAccountAdapter adapter = new AccountAdapter();
                 adapter.Login(AccountType.Normal, this.txtUser.Text, this.txtPassword.Text);
