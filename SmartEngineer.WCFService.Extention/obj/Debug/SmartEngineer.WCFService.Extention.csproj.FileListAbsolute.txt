@@ -6,3 +6,4 @@ D:\SmartEngineer\SmartEngineer.WCFService.Extention\bin\Debug\SmartEngineer.WCFS
 D:\SmartEngineer\SmartEngineer.WCFService.Extention\bin\Debug\SmartEngineer.WCFService.Extention.pdb
 D:\SmartEngineer\SmartEngineer.WCFService.Extention\obj\Debug\SmartEngineer.WCFService.Extention.dll
 D:\SmartEngineer\SmartEngineer.WCFService.Extention\obj\Debug\SmartEngineer.WCFService.Extention.pdb
+D:\SmartEngineer\SmartEngineer.WCFService.Extention\obj\Debug\SmartEngineer.WCFService.Extention.csprojResolveAssemblyReference.cache

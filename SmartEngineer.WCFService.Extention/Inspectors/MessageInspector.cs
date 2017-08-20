@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ServiceModel;
 using System.ServiceModel.Dispatcher;
 
 namespace SmartEngineer.WCFService.Ext.Inspectors
@@ -24,6 +25,7 @@ namespace SmartEngineer.WCFService.Ext.Inspectors
 
         public object AfterReceiveRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel, System.ServiceModel.InstanceContext instanceContext)
         {
+            Console.WriteLine("Session ID: " + OperationContext.Current.SessionId);
             Console.WriteLine(request.ToString());
             return null;
         }

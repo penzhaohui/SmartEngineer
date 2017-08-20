@@ -1,6 +1,10 @@
-﻿using SmartEngineer.Notification;
+﻿using log4net;
+using SmartEngineer.Framework.Logger;
+using SmartEngineer.Notification;
 using SmartEngineer.ServiceClient.Adapters;
 using SmartEngineer.ServiceClient.Enums;
+using SmartSql;
+using SmartSql.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +19,11 @@ namespace SmartEngineer.Forms
 {
     public partial class frmLogin : Form
     {
+        /// <summary>
+        /// Logger object.
+        /// </summary>
+        private static readonly ILog Logger = LogFactory.Instance.GetLogger(typeof(frmLogin));
+
         public frmLogin()
         {
             InitializeComponent();
@@ -62,8 +71,12 @@ namespace SmartEngineer.Forms
                 adapter1.GetIssuesByLabelList(labels.ToArray());
                 */
 
+                ISmartSqlMapper sqlMapperManager = SQLMapperManager.Instance.GetSQLMapper(AppDomain.CurrentDomain.BaseDirectory + "\\Config\\SmartSqlMapConfig.xml");
+
+                Logger.Info("Debug");
                 IAccountAdapter adapter = new AccountAdapter();
                 adapter.Login(AccountType.Normal, this.txtUser.Text, this.txtPassword.Text);
+                
 
                 if (this.ValidateInput()) //调用系统安全管理模块登录方法
                 {
@@ -85,6 +98,7 @@ namespace SmartEngineer.Forms
             }
             catch(Exception ex)
             {
+                Logger.Error("Failed to login, the detailed exception is listed as below:\n" + ex);
                 this.SetButtonEnable(true);
                 this.ShowConnectInfo("Failed to connect, please contact the system administrator!");
                 SystemMessageBox.ShowWarning("Failed to connect, please contact the system administrator!");

@@ -1,0 +1,4 @@
+D:\SmartEngineer\Dapper1\bin\Debug\Dapper1.dll
+D:\SmartEngineer\Dapper1\bin\Debug\Dapper1.pdb
+D:\SmartEngineer\Dapper1\obj\Debug\Dapper1.dll
+D:\SmartEngineer\Dapper1\obj\Debug\Dapper1.pdb

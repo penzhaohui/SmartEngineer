@@ -1,4 +1,9 @@
 ﻿SmartSql: https://github.com/Ahoo-Wang/SmartSql
+Zookeeper系列（一）： http://blog.csdn.net/tswisdom/article/details/41522069
+ZooKeeper系列（二）： http://blog.csdn.net/tswisdom/article/details/41522041
+ZooKeeper系列（三）： http://blog.csdn.net/tswisdom/article/details/41522099
+ZooKeeper系列（四）： http://blog.csdn.net/tswisdom/article/details/41522037
+
 SQLLiteExpert: http://www.sqliteexpert.com/download.html
 zookeeper原理（转） http://cailin.iteye.com/blog/2014486/
 Windows安装和使用zookeeper http://www.cnblogs.com/shanyou/p/3221990.html
@@ -9,3 +14,5 @@ WCF进阶：将消息正文Base64编码: http://www.cnblogs.com/jillzhang/archiv
 WCF进阶:为每个操作附加身份信息: http://www.cnblogs.com/jillzhang/archive/2010/04/11/1709397.html
 c# 泛型 类型参数上的限制（where T:class,new()）: http://blog.csdn.net/hzh_csdn/article/details/53264497
 C#的泛型的类型参数可以有带参数的构造函数的约束方式吗？: http://www.cnblogs.com/indream/p/3667279.html
+
+MyBatis.NET: https://github.com/lupg0214/mybatis.net

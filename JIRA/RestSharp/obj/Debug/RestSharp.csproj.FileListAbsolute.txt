@@ -10,5 +10,6 @@ D:\SmartEngineer\JIRA\DailyCaseHelper\dlls\RestSharp.pdb
 D:\SmartEngineer\SmartEngineer.Service\DLLs\RestSharp.dll
 D:\SmartEngineer\SmartEngineer.Service\DLLs\RestSharp.pdb
 D:\SmartEngineer\SmartEngineer.Service\DLLs\DLLs.xml
+D:\SmartEngineer\JIRA\RestSharp\obj\Debug\RestSharp.csprojResolveAssemblyReference.cache
 D:\SmartEngineer\JIRA\RestSharp\obj\Debug\RestSharp.dll
 D:\SmartEngineer\JIRA\RestSharp\obj\Debug\RestSharp.pdb

@@ -4,6 +4,7 @@ F:\SmartWorkCenter\DailyCaseHelper\dlls\TechTalk.JiraRestClient.dll
 F:\SmartWorkCenter\DailyCaseHelper\dlls\TechTalk.JiraRestClient.pdb
 F:\SmartWorkCenter\TechTalk.JiraRestClient\obj\Debug\TechTalk.JiraRestClient.dll
 F:\SmartWorkCenter\TechTalk.JiraRestClient\obj\Debug\TechTalk.JiraRestClient.pdb
+D:\SmartEngineer\JIRA\TechTalk.JiraRestClient\obj\Debug\TechTalk.JiraRestClient.csprojResolveAssemblyReference.cache
 D:\SmartEngineer\SmartEngineer.Service\DLLs\TechTalk.JiraRestClient.dll
 D:\SmartEngineer\SmartEngineer.Service\DLLs\TechTalk.JiraRestClient.pdb
 D:\SmartEngineer\SmartEngineer.Service\DLLs\DLLs.xml
