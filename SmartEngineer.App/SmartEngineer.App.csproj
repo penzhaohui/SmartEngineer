@@ -283,7 +283,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Config\Maps\" />
     <Folder Include="Github\" />
     <Folder Include="TestRail\" />
   </ItemGroup>
@@ -302,9 +301,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\SmartSqlMapConfig.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="DLLs\Microsoft.Web.Services2.dll" />
     <Content Include="DLLs\Microsoft.Web.Services3.dll" />
   </ItemGroup>

@@ -25,6 +25,9 @@ namespace SmartEngineer.Service
 
                 if (account != null)
                 {
+                    // Generate one access token
+                    // Disable other access token associated to the current user
+                    // Update access token
                 }
             }
             else
@@ -36,11 +39,13 @@ namespace SmartEngineer.Service
 
         void IAccountService.Logout(string accessToken)
         {
+            // Disable this access token
             throw new NotImplementedException();
         }
 
         bool IAccountService.ValidateToken(string accessToken)
         {
+            // Check if this access token is valid or not
             throw new NotImplementedException();
         }
 

@@ -1,20 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SmartSql.Abstractions;
+﻿using SmartEngineer.Core.Models;
 using SmartSql;
+using SmartSql.Abstractions;
 
 namespace SmartEngineer.Core.DAOs
 {
     public class AccountDAO<T> : BaseDAO<T>
+        where T : Account
     {
         public override ISmartSqlMapper SQLMapper
         {
             get {
                 return SQLMapperManager.Instance.GetSQLMapper(@"D:\SmartEngineer\SmartEngineer.Core\Config\SmartSqlMapConfig.xml");
             }
+        }
+
+        public override string TableName
+        {
+            get {
+                return "sys_Account";
+            }
+        }
+
+        public override T Insert(T entity)
+        {
+            entity.ID = this.NewID();
+            base.Insert(entity);
+
+            return entity;
         }
     }
 }

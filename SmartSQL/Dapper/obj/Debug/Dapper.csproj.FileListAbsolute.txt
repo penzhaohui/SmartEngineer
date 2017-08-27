@@ -6,4 +6,3 @@ D:\SmartEngineer\SmartSQL\Dapper\bin\Debug\Dapper.dll
 D:\SmartEngineer\SmartSQL\Dapper\bin\Debug\Dapper.pdb
 D:\SmartEngineer\SmartSQL\Dapper\obj\Debug\Dapper.dll
 D:\SmartEngineer\SmartSQL\Dapper\obj\Debug\Dapper.pdb
-D:\SmartEngineer\SmartSQL\Dapper\obj\Debug\Dapper.csprojResolveAssemblyReference.cache

@@ -10,13 +10,14 @@ namespace SmartEngineer.Core.DAOs
         public abstract ISmartSqlMapper SQLMapper { get; }
 
         public string Scope => typeof(TEntity).Name;
+        public virtual string TableName { get; }
 
         public int Delete<TPrimary>(TPrimary entity)
         {
             throw new NotImplementedException();
         }
 
-        public TEntity GetEntity<TPrimary>(TPrimary ID, DataSourceChoice sourceChoice = DataSourceChoice.Read)
+        public TEntity GetEntityByID<TPrimary>(TPrimary ID, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
             return SQLMapper.QuerySingle<TEntity>(new RequestContext
             {
@@ -26,29 +27,78 @@ namespace SmartEngineer.Core.DAOs
             }, sourceChoice);
         }
 
+        public TEntity GetEntity(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
+        {
+            return SQLMapper.QuerySingle<TEntity>(new RequestContext
+            {
+                Scope = this.Scope,
+                SqlId = DefaultSqlId.GetEntity,
+                Request = paramObj
+            }, sourceChoice);
+        }
+
         public IEnumerable<TResponse> GetList<TResponse>(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
-            throw new NotImplementedException();
+            return SQLMapper.Query<TResponse>(new RequestContext
+            {
+                Scope = this.Scope,
+                SqlId = DefaultSqlId.GetList,
+                Request = paramObj
+            }, sourceChoice);
         }
 
         public IEnumerable<TResponse> GetListByPage<TResponse>(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
-            throw new NotImplementedException();
+            return SQLMapper.Query<TResponse>(new RequestContext
+            {
+                Scope = this.Scope,
+                SqlId = DefaultSqlId.GetListByPage,
+                Request = paramObj
+            }, sourceChoice);
         }
 
-        public TEntity Insert(TEntity entity)
+        public virtual TEntity Insert(TEntity entity)
         {
-            throw new NotImplementedException();
+            SQLMapper.Execute(new RequestContext
+            {
+                Scope = this.Scope,
+                SqlId = DefaultSqlId.Insert,
+                Request = entity
+            });
+
+            return default(TEntity);
         }
 
         public bool IsExist(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
-            throw new NotImplementedException();
+            return SQLMapper.QuerySingle<int>(new RequestContext
+            {
+                Scope = this.Scope,
+                SqlId = DefaultSqlId.IsExist,
+                Request = paramObj
+            }, sourceChoice) > 0;
         }
 
         public int Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            return SQLMapper.Execute(new RequestContext
+            {
+                Scope = this.Scope,
+                SqlId = DefaultSqlId.Update,
+                Request = entity
+            });
+        }
+
+        public int NewID()
+        {
+            int maxID = SQLMapper.ExecuteScalar<int>(new RequestContext
+            {
+                Scope = "IDStore",
+                SqlId = DefaultSqlId.GetRecord,
+                Request = new { TableName = this.TableName }
+            });
+
+            return maxID + 1;
         }
     }
 }

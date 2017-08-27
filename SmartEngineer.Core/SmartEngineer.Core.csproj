@@ -33,6 +33,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SmartEngineer.Framework\DLLs\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,17 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\IAccountAdapter.cs" />
     <Compile Include="Adapter\IJiraAdapter.cs" />
+    <Compile Include="Adapter\imp\AccountAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.cs" />
     <Compile Include="DAO\IAccountDAO.cs" />
+    <Compile Include="DAO\IAccountSessionDAO.cs" />
     <Compile Include="DAO\IBaseDAO.cs" />
+    <Compile Include="DAO\IIdentifierDAO.cs" />
     <Compile Include="DAO\imp\AccountDAO.cs" />
+    <Compile Include="DAO\imp\AccountSessionDAO.cs" />
     <Compile Include="DAO\imp\BaseDAO.cs" />
+    <Compile Include="DAO\imp\IdentifierDAO.cs" />
     <Compile Include="Model\Account\Account.cs" />
+    <Compile Include="Model\Account\AccountSession.cs" />
     <Compile Include="Model\Account\Permission.cs" />
     <Compile Include="Model\Account\Role.cs" />
     <Compile Include="Model\Common\Config.cs" />
     <Compile Include="Model\Common\ConfigOption.cs" />
+    <Compile Include="Model\Common\Identifier.cs" />
     <Compile Include="Model\Common\Tenant.cs" />
     <Compile Include="Model\enum\AccountType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,9 +88,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\Maps\Permission.xml" />
-    <Content Include="Config\Maps\Role.xml" />
-    <Content Include="Config\Maps\Account.xml" />
+    <Content Include="Config\Maps\AccountSession.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\IDStore.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\Permission.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\Role.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\Account.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Config\SmartSqlMapConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
