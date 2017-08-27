@@ -52,8 +52,10 @@
     <Compile Include="Adapters\Serializer.cs" />
     <Compile Include="Adapters\Base64BodyFormatterAdapter.cs" />
     <Compile Include="Adapters\BinaryFormatterAdapter.cs" />
+    <Compile Include="Handlers\GlobalErrorBehaviorAttribute.cs" />
+    <Compile Include="Handlers\GlobalErrorHandler.cs" />
     <Compile Include="Inspectors\MessageInspector.cs" />
-    <Compile Include="Behaviors\Base64BodyFormatterEndpointBehavior.cs" />
+    <Compile Include="Behaviors\GlobalEndpointBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

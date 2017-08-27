@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SmartSqlMapConfig xmlns="http://SmartSql.net/schemas/SmartSqlMapConfig.xsd">
+  <Settings IsWatchConfigFile="true"/>
+  <Database>
+    <DbProvider Name="SQLiteFactory" ParameterPrefix="@" Type="System.Data.SQLite.SQLiteFactory, System.Data.SQLite"/>
+    <Write Name="WriteDB" ConnectionString="{0}App_Data\MyQQ.db"/>
+    <Read Name="ReadDB-0" ConnectionString="Data Source=.;database=TestDB;uid=sa;pwd=SmartSql.net" Weight="80"/>
+    <Read Name="ReadDB-1" ConnectionString="Data Source=.;database=TestDB;uid=sa;pwd=SmartSql.net" Weight="20"/>
+  </Database>
+  <SmartSqlMaps>
+    <SmartSqlMap Path="Maps" Type="Directory"></SmartSqlMap>
+    <SmartSqlMap Path="Maps/T_Test.xml" Type="File"></SmartSqlMap>
+  </SmartSqlMaps>
+</SmartSqlMapConfig>

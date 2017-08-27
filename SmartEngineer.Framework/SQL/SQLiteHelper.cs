@@ -30,7 +30,7 @@ namespace SmartEngineer.Framework.Logger.SQL
             this.sqlCom = null;
             this.sqlCon = null;
             this.dbIsOpend = false;
-            this.strConn = connStr;
+            this.strConn = connStr;            
         }
 
 

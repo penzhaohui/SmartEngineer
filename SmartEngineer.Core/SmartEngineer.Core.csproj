@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42D6CF47-7776-4EF5-ABD7-BB1A9330D143}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartEngineer.Core</RootNamespace>
+    <AssemblyName>SmartEngineer.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adapter\IJiraAdapter.cs" />
+    <Compile Include="Adapter\imp\JiraAdapter.cs" />
+    <Compile Include="DAO\IAccountDAO.cs" />
+    <Compile Include="DAO\IBaseDAO.cs" />
+    <Compile Include="DAO\imp\AccountDAO.cs" />
+    <Compile Include="DAO\imp\BaseDAO.cs" />
+    <Compile Include="Model\Account\Account.cs" />
+    <Compile Include="Model\Account\Permission.cs" />
+    <Compile Include="Model\Account\Role.cs" />
+    <Compile Include="Model\Common\Config.cs" />
+    <Compile Include="Model\Common\ConfigOption.cs" />
+    <Compile Include="Model\Common\Tenant.cs" />
+    <Compile Include="Model\enum\AccountType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JIRA\TechTalk.JiraRestClient\TechTalk.JiraRestClient.csproj">
+      <Project>{210529fa-454e-4c32-a2c8-353ecbd4da05}</Project>
+      <Name>TechTalk.JiraRestClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger\Log4Net\log4net.vs2012.csproj">
+      <Project>{181FE707-E161-4722-9F38-6AAAB6FAA106}</Project>
+      <Name>log4net.vs2012</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartEngineer.Framework\SmartEngineer.Framework.csproj">
+      <Project>{be23deca-79d2-4899-8d74-732f97b7a528}</Project>
+      <Name>SmartEngineer.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartSQL\SmartSql\SmartSQL.csproj">
+      <Project>{ab6571f6-86a1-4a01-b220-df36a83ac5a7}</Project>
+      <Name>SmartSQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Maps\Permission.xml" />
+    <Content Include="Config\Maps\Role.xml" />
+    <Content Include="Config\Maps\Account.xml" />
+    <Content Include="Config\SmartSqlMapConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

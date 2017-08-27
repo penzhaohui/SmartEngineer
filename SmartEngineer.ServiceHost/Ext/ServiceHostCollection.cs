@@ -10,7 +10,7 @@ namespace SmartEngineer.Ext
         {
             BatchingHostingSettings settings = BatchingHostingSettings.GetSection();
             foreach (ServiceTypeElement element in settings.ServiceTypes)
-            {
+            {             
                 this.Add(element.ServiceType);
             }
 

@@ -5,3 +5,5 @@ D:\SmartEngineer\SmartSQL\SmartSql\bin\Debug\Dapper.pdb
 D:\SmartEngineer\SmartSQL\SmartSql\obj\Debug\SmartSQL.csprojResolveAssemblyReference.cache
 D:\SmartEngineer\SmartSQL\SmartSql\obj\Debug\SmartSql.dll
 D:\SmartEngineer\SmartSQL\SmartSql\obj\Debug\SmartSql.pdb
+D:\SmartEngineer\SmartSQL\SmartSql\bin\Debug\System.Data.DataSetExtensions.dll
+D:\SmartEngineer\SmartSQL\SmartSql\bin\Debug\System.Data.dll

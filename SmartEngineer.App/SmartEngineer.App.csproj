@@ -300,10 +300,6 @@
       <Project>{3633fcd9-aae5-4815-ab13-ebd4925a8864}</Project>
       <Name>SmartEngineer.ServiceClient</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartSQL\SmartSql\SmartSQL.csproj">
-      <Project>{ab6571f6-86a1-4a01-b220-df36a83ac5a7}</Project>
-      <Name>SmartSQL</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\SmartSqlMapConfig.xml">

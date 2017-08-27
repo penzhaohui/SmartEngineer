@@ -3,8 +3,6 @@ using SmartEngineer.Framework.Logger;
 using SmartEngineer.Notification;
 using SmartEngineer.ServiceClient.Adapters;
 using SmartEngineer.ServiceClient.Enums;
-using SmartSql;
-using SmartSql.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -61,17 +59,6 @@ namespace SmartEngineer.Forms
                 this.SetButtonEnable(false);
                 this.Update();//必须
                 this.ShowConnectInfo("Processing to validate user and password");
-
-                /*
-                IJiraAdapter4ENGSUPP adapter1 = new JiraAdapter4ENGSUPP();
-                List<string> labels = new List<string>();
-                labels.Add("Resolved");
-                labels.Add("Closed");
-                labels.Add("In Progress");
-                adapter1.GetIssuesByLabelList(labels.ToArray());
-                */
-
-                ISmartSqlMapper sqlMapperManager = SQLMapperManager.Instance.GetSQLMapper(AppDomain.CurrentDomain.BaseDirectory + "\\Config\\SmartSqlMapConfig.xml");
 
                 Logger.Info("Debug");
                 IAccountAdapter adapter = new AccountAdapter();

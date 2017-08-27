@@ -42,7 +42,7 @@ namespace SmartEngineer
             
             foreach (var endpoint in host.Description.Endpoints)
             {
-                endpoint.Behaviors.Add(new Base64BodyFormatterEndpointBehavior());
+                endpoint.Behaviors.Add(new GlobalEndpointBehavior());
                 //endpoint.Behaviors.Add(new BinaryFormatterEndpointBehavior());
                 foreach (var op in endpoint.Contract.Operations)
                 {

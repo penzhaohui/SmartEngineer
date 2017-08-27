@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using SmartEngineer.Service.Model;
+﻿using SmartEngineer.Core.Adapters;
+using SmartEngineer.Core.Models;
 using SmartEngineer.Service.Adapter;
+using System;
 
 namespace SmartEngineer.Service
 {

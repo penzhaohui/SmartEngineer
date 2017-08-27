@@ -34,9 +34,13 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -67,6 +71,7 @@
     <Compile Include="DataSourceManager.cs" />
     <Compile Include="DbSession\DbConnectionSession.cs" />
     <Compile Include="DbSession\DbConnectionSessionStore.cs" />
+    <Compile Include="DefaultSqlId.cs" />
     <Compile Include="Exceptions\SmartSqlException.cs" />
     <Compile Include="LocalFileConfigLoader.cs" />
     <Compile Include="MapperContainer.cs" />

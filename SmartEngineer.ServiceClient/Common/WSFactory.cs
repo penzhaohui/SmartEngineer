@@ -162,7 +162,7 @@ namespace SmartEngineer.Common
                             client = clientInstance as DuplexClientBase<TService>;
                         }                        
 
-                        client.Endpoint.EndpointBehaviors.Add(new Base64BodyFormatterEndpointBehavior());
+                        client.Endpoint.EndpointBehaviors.Add(new GlobalEndpointBehavior());
                         foreach (var op in client.Endpoint.Contract.Operations)
                         {
                             op.Behaviors.Add(new Base64BodyFormatterOperationBehavior());

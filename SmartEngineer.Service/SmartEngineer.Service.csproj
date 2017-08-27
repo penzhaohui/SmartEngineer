@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SmartEngineer.Service</RootNamespace>
     <AssemblyName>SmartEngineer.Service</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <UseIISExpress>true</UseIISExpress>
@@ -70,6 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AccountService.svc" />
+    <Content Include="Config\SmartSqlMapConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="DLLs\RestSharp.dll" />
     <Content Include="DLLs\TechTalk.JiraRestClient.dll" />
     <Content Include="GithubService.svc" />
@@ -86,8 +89,6 @@
     <Compile Include="AccountService.svc.cs">
       <DependentUpon>AccountService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Adapter\IJiraAdapter.cs" />
-    <Compile Include="Adapter\imp\JiraAdapter.cs" />
     <Compile Include="GithubService.svc.cs">
       <DependentUpon>GithubService.svc</DependentUpon>
     </Compile>
@@ -109,13 +110,6 @@
     <Compile Include="JiraServiceForENGSupp.svc.cs">
       <DependentUpon>JiraServiceForENGSupp.svc</DependentUpon>
     </Compile>
-    <Compile Include="Model\Account\Account.cs" />
-    <Compile Include="Model\Account\Permission.cs" />
-    <Compile Include="Model\Account\Role.cs" />
-    <Compile Include="Model\Common\Config.cs" />
-    <Compile Include="Model\Common\ConfigOption.cs" />
-    <Compile Include="Model\Common\Tenant.cs" />
-    <Compile Include="Model\enum\AccountType.cs" />
     <Compile Include="ReportService.svc.cs">
       <DependentUpon>ReportService.svc</DependentUpon>
     </Compile>
@@ -148,6 +142,13 @@
       <Project>{210529FA-454E-4C32-A2C8-353ECBD4DA05}</Project>
       <Name>TechTalk.JiraRestClient</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SmartEngineer.Core\SmartEngineer.Core.csproj">
+      <Project>{42d6cf47-7776-4ef5-abd7-bb1a9330d143}</Project>
+      <Name>SmartEngineer.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\Maps\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
