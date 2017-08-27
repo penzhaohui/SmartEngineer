@@ -4,6 +4,7 @@ namespace SmartEngineer.Core.Models
 {
     public class AccountSession
     {
+        public int ID { get; set; }
         public string TenantCode { get; set; }
         public int UserID { get; set; }
         public string UserName { get; set; }

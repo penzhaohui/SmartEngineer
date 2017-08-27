@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\AccountAdapterTest.cs" />
     <Compile Include="DAO\AccountDAOTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +72,10 @@
     <ProjectReference Include="..\SmartEngineer.Core\SmartEngineer.Core.csproj">
       <Project>{42d6cf47-7776-4ef5-abd7-bb1a9330d143}</Project>
       <Name>SmartEngineer.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartEngineer.Framework\SmartEngineer.Framework.csproj">
+      <Project>{be23deca-79d2-4899-8d74-732f97b7a528}</Project>
+      <Name>SmartEngineer.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartSQL\SmartSql\SmartSQL.csproj">
       <Project>{ab6571f6-86a1-4a01-b220-df36a83ac5a7}</Project>

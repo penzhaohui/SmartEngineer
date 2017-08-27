@@ -15,5 +15,21 @@ namespace SmartEngineer.Core.DAOs
                 return SQLMapperManager.Instance.GetSQLMapper(@"D:\SmartEngineer\SmartEngineer.Core\Config\SmartSqlMapConfig.xml");
             }
         }
+
+        public override string TableName
+        {
+            get
+            {
+                return "sys_AccountSession";
+            }
+        }
+
+        public override T Insert(T entity)
+        {
+            entity.ID = this.NewID();
+            base.Insert(entity);
+
+            return entity;
+        }
     }
 }

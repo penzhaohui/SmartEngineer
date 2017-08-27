@@ -50,7 +50,7 @@
       <Include RefId="QueryParams"/>
     </Statement>
 
-    <!--是否存在该记录-->
+    <!--获取单条记录 -->
     <Statement Id="GetEntity">
       Select ID, UserName, Password, EmailAddress, DisplayName From sys_Account A
       <Include RefId="QueryParams"/>

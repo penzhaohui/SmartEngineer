@@ -14,5 +14,6 @@
     <SmartSqlMap Path="D:/SmartEngineer/SmartEngineer.Core/Config/Maps/Account.xml" Type="File"></SmartSqlMap>
     <SmartSqlMap Path="D:/SmartEngineer/SmartEngineer.Core/Config/Maps/Permission.xml" Type="File"></SmartSqlMap>
     <SmartSqlMap Path="D:/SmartEngineer/SmartEngineer.Core/Config/Maps/Role.xml" Type="File"></SmartSqlMap>
+    <SmartSqlMap Path="D:/SmartEngineer/SmartEngineer.Core/Config/Maps/AccountSession.xml" Type="File"></SmartSqlMap>
   </SmartSqlMaps>
 </SmartSqlMapConfig>

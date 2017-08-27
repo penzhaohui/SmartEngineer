@@ -1,11 +1,10 @@
-﻿using System;
-using SmartEngineer.Core.Adapter;
+﻿using SmartEngineer.Core.DAO;
+using SmartEngineer.Core.DAOs;
 using SmartEngineer.Core.Models;
 using SmartEngineer.Framework.Context;
-using SmartEngineer.Core.DAOs;
-using SmartEngineer.Core.DAO;
+using System;
 
-namespace SmartEngineer.Service.Adapter
+namespace SmartEngineer.Core.Adapter
 {
     public class AccountAdapter : IAccountAdapter
     {
@@ -47,9 +46,13 @@ namespace SmartEngineer.Service.Adapter
 
             AccountSession result = AccountSessionDAO.GetEntity(session);
 
-            Account account = new Account();
-            account.UserName = result.UserName;
-            account.ID = result.UserID;
+            Account account = null;
+            if (result.Active)
+            {
+                account = new Account();
+                account.UserName = result.UserName;
+                account.ID = result.UserID;
+            }
 
             return account;
         }

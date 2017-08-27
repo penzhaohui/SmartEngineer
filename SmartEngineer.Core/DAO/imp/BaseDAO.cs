@@ -98,6 +98,13 @@ namespace SmartEngineer.Core.DAOs
                 Request = new { TableName = this.TableName }
             });
 
+            SQLMapper.ExecuteAsync(new RequestContext
+            {
+                Scope = "IDStore",
+                SqlId = DefaultSqlId.Update,
+                Request = new { MaxID = maxID + 1, Increment = 1, TableName = this.TableName }
+            });
+
             return maxID + 1;
         }
     }

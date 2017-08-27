@@ -16,3 +16,5 @@ c# 泛型 类型参数上的限制（where T:class,new()）: http://blog.csdn.ne
 C#的泛型的类型参数可以有带参数的构造函数的约束方式吗？: http://www.cnblogs.com/indream/p/3667279.html
 
 MyBatis.NET: https://github.com/lupg0214/mybatis.net
+Selenium For C# 教程目录: http://www.cnblogs.com/NorthAlan/p/5183947.html
+玩转 xUnit.Net: http://www.cnblogs.com/NorthAlan/category/786472.html
