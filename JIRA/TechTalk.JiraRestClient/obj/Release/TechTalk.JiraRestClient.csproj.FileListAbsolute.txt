@@ -1,1 +1,0 @@
-D:\SmartEngineer\JIRA\TechTalk.JiraRestClient\obj\Release\TechTalk.JiraRestClient.csprojResolveAssemblyReference.cache

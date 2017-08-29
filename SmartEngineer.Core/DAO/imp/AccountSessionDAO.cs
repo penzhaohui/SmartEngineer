@@ -1,4 +1,5 @@
-﻿using SmartEngineer.Core.DAO;
+﻿using System;
+using SmartEngineer.Core.DAO;
 using SmartEngineer.Core.Models;
 using SmartSql;
 using SmartSql.Abstractions;
@@ -12,7 +13,7 @@ namespace SmartEngineer.Core.DAOs
         {
             get
             {
-                return SQLMapperManager.Instance.GetSQLMapper(@"D:\SmartEngineer\SmartEngineer.Core\Config\SmartSqlMapConfig.xml");
+                return SQLMapperManager.Instance.GetSQLMapper(@"F:\MyWorkspace\SmartEngineer\SmartEngineer.Core\Config\SmartSqlMapConfig.xml");
             }
         }
 

@@ -1,5 +1,0 @@
-D:\SmartEngineer\SmartEngineer.WCF.Extention\obj\Debug\SmartEngineer.WCF.Extention.csprojResolveAssemblyReference.cache
-D:\SmartEngineer\SmartEngineer.WCF.Extention\bin\Debug\SmartEngineer.WCF.Extention.dll
-D:\SmartEngineer\SmartEngineer.WCF.Extention\bin\Debug\SmartEngineer.WCF.Extention.pdb
-D:\SmartEngineer\SmartEngineer.WCF.Extention\obj\Debug\SmartEngineer.WCF.Extention.dll
-D:\SmartEngineer\SmartEngineer.WCF.Extention\obj\Debug\SmartEngineer.WCF.Extention.pdb

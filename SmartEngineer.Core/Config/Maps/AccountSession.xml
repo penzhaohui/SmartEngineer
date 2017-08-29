@@ -19,6 +19,12 @@
         <IsNotEmpty Property="TenantCode" Prepend="And">
           TenantCode = @TenantCode
         </IsNotEmpty>
+        <IsGreaterThan CompareValue="0" Property="UserID" Prepend="And">
+          UserID = @UserID
+        </IsGreaterThan>
+        <IsGreaterThan CompareValue="0" Property="AccessToken" Prepend="And">
+          AccessToken = @AccessToken
+        </IsGreaterThan>
       </Dynamic>
       
     </Statement>
@@ -42,7 +48,7 @@
       SET
         ExpiredTime = @ExpiredTime,
         Active = @Active
-      Where AccessToken=@AccessToken
+      <Include RefId="QueryParams"/>
     </Statement>
    
     <!--是否存在该记录-->

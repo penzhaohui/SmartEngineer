@@ -1,7 +1,0 @@
-D:\SmartEngineer\SmartSQL1\obj\Debug\SmartSQL1.csprojResolveAssemblyReference.cache
-D:\SmartEngineer\SmartSQL1\bin\Debug\SmartSQL1.dll
-D:\SmartEngineer\SmartSQL1\bin\Debug\SmartSQL1.pdb
-D:\SmartEngineer\SmartSQL1\bin\Debug\Dapper1.dll
-D:\SmartEngineer\SmartSQL1\bin\Debug\Dapper1.pdb
-D:\SmartEngineer\SmartSQL1\obj\Debug\SmartSQL1.dll
-D:\SmartEngineer\SmartSQL1\obj\Debug\SmartSQL1.pdb

@@ -32,7 +32,7 @@ namespace SmartEngineer.Service.Adapter
 
                 // Check if Account is registered in smart engineer
                 // if not, then register it automatically now
-                if (AccountDAO.IsExist(account))
+                if (!AccountDAO.IsExist(account))
                 {
                     AccountDAO.Insert(account);
                 }

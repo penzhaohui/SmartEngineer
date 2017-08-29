@@ -1,9 +1,0 @@
-D:\SmartEngineer\SmartEngineer.WCF.Extention\bin\Debug\SmartEngineer.WCFService.Extention.dll
-D:\SmartEngineer\SmartEngineer.WCF.Extention\bin\Debug\SmartEngineer.WCFService.Extention.pdb
-D:\SmartEngineer\SmartEngineer.WCF.Extention\obj\Debug\SmartEngineer.WCFService.Extention.dll
-D:\SmartEngineer\SmartEngineer.WCF.Extention\obj\Debug\SmartEngineer.WCFService.Extention.pdb
-D:\SmartEngineer\SmartEngineer.WCFService.Extention\bin\Debug\SmartEngineer.WCFService.Extention.dll
-D:\SmartEngineer\SmartEngineer.WCFService.Extention\bin\Debug\SmartEngineer.WCFService.Extention.pdb
-D:\SmartEngineer\SmartEngineer.WCFService.Extention\obj\Debug\SmartEngineer.WCFService.Extention.dll
-D:\SmartEngineer\SmartEngineer.WCFService.Extention\obj\Debug\SmartEngineer.WCFService.Extention.pdb
-D:\SmartEngineer\SmartEngineer.WCFService.Extention\obj\Debug\SmartEngineer.WCFService.Extention.csprojResolveAssemblyReference.cache
