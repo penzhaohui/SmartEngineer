@@ -53,7 +53,7 @@ namespace TechTalk.JiraRestClient
         {
             try
             {
-                var path = "/rest/api/2/myself";
+                var path = "myself";
                 var request = CreateRequest(Method.GET, path);
 
                 var response = ExecuteRequest(request);

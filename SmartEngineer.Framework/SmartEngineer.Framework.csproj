@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SmartEngineer.Framework</RootNamespace>
     <AssemblyName>SmartEngineer.Framework</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -69,9 +69,7 @@
     <Compile Include="SQL\SQLiteHelper.cs" />
     <Compile Include="ZooKeeper\ZooKeeperManager.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Encryption\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Logger\Log4Net\log4net.vs2012.csproj">
       <Project>{181fe707-e161-4722-9f38-6aaab6faa106}</Project>
@@ -80,10 +78,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Encryption\SmartEngineerCA.cer" />
+    <None Include="Encryption\SmartEngineerCA.pvk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DLLs\System.Data.SQLite.dll" />
+    <Content Include="Encryption\makecert.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

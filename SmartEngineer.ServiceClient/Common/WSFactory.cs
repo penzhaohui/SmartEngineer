@@ -6,6 +6,8 @@ using Microsoft.Web.Services3;
 using SmartEngineer.Config;
 using SmartEngineer.WCFService.Ext.Behaviors;
 using System.ServiceModel.Channels;
+using System.ServiceModel.Description;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SmartEngineer.Common
 {
@@ -142,7 +144,7 @@ namespace SmartEngineer.Common
                     if (!_wcfInstances.ContainsKey(wsName))
                     {
                         var serviceName = typeof(TClient).Name.Replace("Client", "");
-                        var endpointUrl = $"net.tcp://127.0.0.1:3721/{serviceName}";
+                        var endpointUrl = $"net.tcp://peter.peng:3721/{serviceName}";
                         var config = WebServiceConfig.GetWebServiceParameter(serviceName);
                         if (config != null)
                         {
@@ -152,6 +154,9 @@ namespace SmartEngineer.Common
                         EndpointAddress remoteAddress = new EndpointAddress(endpointUrl);
                         NetTcpBinding binding = new NetTcpBinding();
 
+                        binding.Security.Mode = SecurityMode.Transport;
+                        binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
+
                         //create a new instance of T
                         clientInstance = (TClient)Activator.CreateInstance(typeof(TClient), callbackInstance, binding, remoteAddress);
 
@@ -160,7 +165,18 @@ namespace SmartEngineer.Common
                         if (client == null && callbackInstance != null)
                         {
                             client = clientInstance as DuplexClientBase<TService>;
-                        }                        
+                        }
+
+                        // 设置客户端证书
+                        client.ClientCredentials.ClientCertificate.SetCertificate("CN=SmartEngineer_Test", StoreLocation.CurrentUser, StoreName.My);
+                        // 设置不验证服务端证书有效性
+                        client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = System.ServiceModel.Security.X509CertificateValidationMode.None;
+
+                        // http://www.cnblogs.com/chnking/archive/2008/10/07/1305891.html
+                        // http://www.cnblogs.com/artech/archive/2008/09/17/1292198.html
+                        //为使用TcpTrace跟踪消息设置的TcpTrace监听端口
+                        //ClientViaBehavior clientViaBehavior = new ClientViaBehavior(new Uri($"net.tcp://127.0.0.1:3722/{serviceName}"));
+                        //client.Endpoint.Behaviors.Add(clientViaBehavior);
 
                         client.Endpoint.EndpointBehaviors.Add(new GlobalEndpointBehavior());
                         foreach (var op in client.Endpoint.Contract.Operations)

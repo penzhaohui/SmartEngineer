@@ -93,17 +93,17 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(84, 104);
+            this.txtPassword.Location = new System.Drawing.Point(84, 77);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(121, 20);
             this.txtPassword.TabIndex = 5;
-            this.txtPassword.Text = "admin";
+            this.txtPassword.Text = "peter.peng";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(19, 107);
+            this.lblPassword.Location = new System.Drawing.Point(16, 84);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(53, 13);
             this.lblPassword.TabIndex = 4;
@@ -111,16 +111,16 @@
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(84, 70);
+            this.txtUser.Location = new System.Drawing.Point(84, 39);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(121, 20);
             this.txtUser.TabIndex = 3;
-            this.txtUser.Text = "admin";
+            this.txtUser.Text = "peter.peng@missionsky.com";
             // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(40, 73);
+            this.lblUser.Location = new System.Drawing.Point(38, 46);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(29, 13);
             this.lblUser.TabIndex = 2;
@@ -130,11 +130,7 @@
             // 
             this.cmbAccountType.BackColor = System.Drawing.Color.White;
             this.cmbAccountType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAccountType.FormattingEnabled = true;
-            this.cmbAccountType.Items.AddRange(new object[] {
-            "Normal Account",
-            "Jira Account"});
-            this.cmbAccountType.Location = new System.Drawing.Point(84, 35);
+            this.cmbAccountType.Location = new System.Drawing.Point(84, 108);
             this.cmbAccountType.Name = "cmbAccountType";
             this.cmbAccountType.Size = new System.Drawing.Size(121, 21);
             this.cmbAccountType.TabIndex = 1;
@@ -142,7 +138,7 @@
             // lblAccountType
             // 
             this.lblAccountType.AutoSize = true;
-            this.lblAccountType.Location = new System.Drawing.Point(38, 38);
+            this.lblAccountType.Location = new System.Drawing.Point(38, 116);
             this.lblAccountType.Name = "lblAccountType";
             this.lblAccountType.Size = new System.Drawing.Size(31, 13);
             this.lblAccountType.TabIndex = 0;

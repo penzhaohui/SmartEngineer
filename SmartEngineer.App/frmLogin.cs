@@ -1,16 +1,10 @@
 ﻿using log4net;
+using SmartEngineer.Framework.Context;
 using SmartEngineer.Framework.Logger;
 using SmartEngineer.Notification;
 using SmartEngineer.ServiceClient.Adapters;
 using SmartEngineer.ServiceClient.Enums;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SmartEngineer.Forms
@@ -26,6 +20,11 @@ namespace SmartEngineer.Forms
         {
             InitializeComponent();
             CheckRemotServer();
+
+            this.cmbAccountType.Items.Clear();
+            this.cmbAccountType.Items.Add("Jira Account");
+            this.cmbAccountType.Items.Add("Normal Account");
+            this.cmbAccountType.SelectedIndex = 1;
         }
 
         private void CheckRemotServer()
@@ -60,11 +59,12 @@ namespace SmartEngineer.Forms
                 this.Update();//必须
                 this.ShowConnectInfo("Processing to validate user and password");
 
+                SmartContext.TenantID = "Accela";
                 Logger.Info("Debug");
                 IAccountAdapter adapter = new AccountAdapter();
-                adapter.Login(AccountType.Normal, this.txtUser.Text, this.txtPassword.Text);
+                AccountType accountType = this.cmbAccountType.SelectedIndex == 1 ? AccountType.Normal : AccountType.Jira;
+                string accessToken = adapter.Login(accountType, this.txtUser.Text, this.txtPassword.Text);
                 
-
                 if (this.ValidateInput()) //调用系统安全管理模块登录方法
                 {
                     //

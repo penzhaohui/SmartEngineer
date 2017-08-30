@@ -32,6 +32,11 @@ namespace SmartEngineer
 
         private static void ExtServiceHost(ServiceHost host, int port)
         {
+            // 设置服务端证书
+            host.Credentials.ServiceCertificate.SetCertificate("CN=peter.peng");
+            // 设置不验证客户端证书的有效性
+            host.Credentials.ClientCertificate.Authentication.CertificateValidationMode = System.ServiceModel.Security.X509CertificateValidationMode.None;
+
             if (host.Description.Behaviors.Find<System.ServiceModel.Description.ServiceMetadataBehavior>() == null)
             {
                 System.ServiceModel.Description.ServiceMetadataBehavior svcMetaBehavior = new System.ServiceModel.Description.ServiceMetadataBehavior();
@@ -48,7 +53,7 @@ namespace SmartEngineer
                 {
                     op.Behaviors.Add(new Base64BodyFormatterOperationBehavior());
                 }
-            }            
+            }
         }
     }
 }
