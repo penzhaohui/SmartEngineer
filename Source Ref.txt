@@ -18,3 +18,6 @@ C#的泛型的类型参数可以有带参数的构造函数的约束方式吗？
 MyBatis.NET: https://github.com/lupg0214/mybatis.net
 Selenium For C# 教程目录: http://www.cnblogs.com/NorthAlan/p/5183947.html
 玩转 xUnit.Net: http://www.cnblogs.com/NorthAlan/category/786472.html
+
+Remoting CallContext 实现客户端识别: http://blog.csdn.net/fangxing80/article/details/6168458
+WCF系列（七） - WCF安全系列（二） - netTCPBinding绑定之Transport安全模式 : http://www.cnblogs.com/chnking/archive/2008/10/07/1305891.html

@@ -3,6 +3,7 @@ using SmartEngineer.Core.Adapters;
 using SmartEngineer.Core.Models;
 using SmartEngineer.Service.Adapter;
 using System;
+using System.ServiceModel;
 
 namespace SmartEngineer.Service
 {
@@ -36,6 +37,10 @@ namespace SmartEngineer.Service
             // Generate one access token 
             accountAdapter.DisableAccessToken(account.ID);
             accessToken = accountAdapter.CreateAccessToken(account);
+
+            System.Console.WriteLine("ServiceSecurityContext.Current. PrimaryIdentity.Name = " + ServiceSecurityContext.Current.PrimaryIdentity.Name);
+            // ServiceSecurityContext.IsAnonymous returns true if the caller is not authenticated
+            System.Console.WriteLine("ServiceSecurityContext.Current.IsAnonymous = " + ServiceSecurityContext.Current.IsAnonymous);
 
             return accessToken;
         }

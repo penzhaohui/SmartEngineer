@@ -1,0 +1,14 @@
+﻿http://jingyan.baidu.com/article/8065f87fe106332330249858.html
+
+makecert -n "CN=SmartEngineerCA" -r -sv D:\SmartEngineerCA.pvk D:\SmartEngineerCA.cer
+
+Password: smartengineer
+
+makecert -n "CN=peter.peng" -ic D:\SmartEngineerCA.cer -iv D:\SmartEngineerCA.pvk -sr LocalMachine -ss My -pe -sky exchange
+
+Note:
+File: C:\Windows\System32\drivers\etc\host
+127.0.0.1           peter.peng
+
+makecert -n "CN=SmartEngineer_Release" -ic D:\SmartEngineerCA.cer -iv D:\SmartEngineerCA.pvk -sr CurrentUser -ss My -pe -sky exchange
+makecert -n "CN=SmartEngineer_Test" -ic D:\SmartEngineerCA.cer -iv D:\SmartEngineerCA.pvk -sr CurrentUser -ss My -pe -sky exchange

@@ -5,7 +5,9 @@ using SmartEngineer.ServiceClient.Enums;
 using SmartEngineer.ServiceClient.Models;
 using SmartEngineer.ServiceClient.Services;
 using System;
+using System.Security.Principal;
 using System.ServiceModel;
+using System.ServiceModel.Channels;
 
 namespace SmartEngineer.ServiceClient.Adapters
 {
@@ -24,6 +26,7 @@ namespace SmartEngineer.ServiceClient.Adapters
         public string Login(AccountType accountType, string userName, string Password)
         {
             Logger.Info("User Name:" + userName);
+            System.Console.WriteLine("WindowsIdentity.GetCurrent().Name = " + WindowsIdentity.GetCurrent().Name);
             InstanceContext callbackInstance = new InstanceContext(new AccountServiceCallback());
             AccountServiceClient client = WSFactory.Instance.GetWCFClient<AccountServiceClient, IAccountService>(callbackInstance);
             return client.Login(accountType, userName, Password);
