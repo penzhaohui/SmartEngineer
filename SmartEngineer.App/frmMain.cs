@@ -30,6 +30,7 @@ namespace SmartEngineer.Forms
             if (_CurrentMainForm != null) _OldMainForm = _CurrentMainForm;
 
             _CurrentMainForm = new frmMain();
+            _CurrentMainForm.StartPosition = FormStartPosition.CenterScreen;
 
             //
             //其它操作
@@ -240,12 +241,7 @@ namespace SmartEngineer.Forms
                 {
                     form = new frmVersionInfo();
                 }
-
-                foreach (Form child in this.MdiChildren)
-                {
-                    child.Close();
-                    child.Dispose();
-                }
+                
 
                 if (form != null)
                 {
@@ -253,19 +249,30 @@ namespace SmartEngineer.Forms
                     form.MaximizeBox = false;
                     form.MinimizeBox = false;
 
-                    if (funcTag == "Contact"
+                    if (funcTag == "Database Server Setting"
+                        || funcTag == "Email Server Setting"
+                        || funcTag == "Contact"
                         || funcTag == "License"
                         || funcTag == "Version")
-                    {
+                    {                        
+                        form.StartPosition = FormStartPosition.CenterParent;
                         form.ShowDialog();
-                        form.StartPosition = FormStartPosition.CenterScreen;
                     }
                     else
                     {
-                        form.WindowState = FormWindowState.Maximized;
+                        foreach (Form child in this.MdiChildren)
+                        {
+                            child.Close();
+                            child.Dispose();
+                        }
+                                                
+                        //form.Dock = DockStyle.Fill;
                         form.MdiParent = this;
                         form.ControlBox = true;
                         form.ShowIcon = false;
+                        form.MaximizeBox = false;
+                        form.MinimizeBox = false;
+                        form.WindowState = FormWindowState.Maximized;
                         form.Show();
                     }
                 }
@@ -274,6 +281,26 @@ namespace SmartEngineer.Forms
                     SystemMessageBox.ShowError("No form is initialized.");
                 }
             }
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length == 0)
+            {
+                frmDashboard form = new frmDashboard();
+                form.WindowState = FormWindowState.Maximized;
+                form.MdiParent = this;
+                form.ControlBox = true;
+                form.ShowIcon = false;
+                form.Show();
+            }
+        }
+
+        private void toolMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSmartTask form = new frmSmartTask();
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.ShowDialog();
         }
     }
 }

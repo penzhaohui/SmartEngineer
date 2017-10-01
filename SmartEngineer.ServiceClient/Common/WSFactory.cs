@@ -153,11 +153,19 @@ namespace SmartEngineer.Common
 
                         EndpointAddress remoteAddress = new EndpointAddress(endpointUrl);
                         NetTcpBinding binding = new NetTcpBinding();
+                        // WCF Security基本概念: http://www.cnblogs.com/jfzhu/p/4066178.html
+                        // None: 不采取任何安全措施，仅适合在内部安全环境使用
+                        // Transport: 在传输协议级别上对通道的所有通讯进行加密，可使用的通讯协议包括 HTTPS、TCP、IPC 和 MSMQ。
+                        // 优点是应用广泛，多平台支持，实施方便简单，效率极高，适合高吞吐量的服务使用；
+                        // 缺点是只能实现点对点(point-to-point)的消息安全，在使用中介连接(Proxy)时可能会泄漏消息内容，比较适用于于 Intranet 或直接连接的环境。
+                        // Message: 通过相关标准(如 WS-Security)直接对消息进行加密来达到安全目的。
+                        // 优点是能实现端到端(end-to-end)的安全传输，不存在中介安全隐患，且扩展性较好。因采取工业安全标准，所以整合能力更强，适用于 Internet 服务。缺点是比 Transport 效率要低一些。
+                        // Mixed(TransportWithMessageCredential): 混合了上面两种方式。使用 Transport 方式完成消息完整性、消息机密性以及服务器认证，而使用 Message 方式完成客户端认证。
+                        // Both: 使用 Transport 和 Message 共同完成所有的安全过程，比较恐怖，性能低下，只有 NetMsmqBinding 支持这一安全方式。
 
                         //binding.Security.Mode = SecurityMode.Transport;
-                        //binding.Security.Mode = SecurityMode.TransportWithMessageCredential;
-
-                        binding.Security.Mode = SecurityMode.Message;
+                        binding.Security.Mode = SecurityMode.TransportWithMessageCredential;
+                        //binding.Security.Mode = SecurityMode.Message;
                         binding.Security.Message.ClientCredentialType = MessageCredentialType.UserName;
                         binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;                        
 

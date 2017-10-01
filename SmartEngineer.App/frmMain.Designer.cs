@@ -36,8 +36,8 @@
             this.logoutSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rolesSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rolesSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.permissionSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jiraMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,8 +60,11 @@
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolMenuExecuteImportNewCase = new System.Windows.Forms.ToolStripButton();
+            this.toolMenuSyncStatusBetweenSalesforceAndJira = new System.Windows.Forms.ToolStripButton();
+            this.toolMenuSendOutDailyWorkLogReport = new System.Windows.Forms.ToolStripButton();
+            this.toolMenuSendOutDailyReport = new System.Windows.Forms.ToolStripButton();
+            this.toolMenuSendOutWeeklyReport = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +81,7 @@
             this.helpMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1234, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip";
             // 
@@ -134,26 +137,26 @@
             this.accountsMenuItem.Size = new System.Drawing.Size(69, 20);
             this.accountsMenuItem.Text = "Accounts";
             // 
-            // rolesSubMenuItem
-            // 
-            this.rolesSubMenuItem.Name = "rolesSubMenuItem";
-            this.rolesSubMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.rolesSubMenuItem.Tag = "Roles";
-            this.rolesSubMenuItem.Text = "Roles";
-            this.rolesSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
-            // 
             // userSubMenuItem
             // 
             this.userSubMenuItem.Name = "userSubMenuItem";
-            this.userSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.userSubMenuItem.Size = new System.Drawing.Size(137, 22);
             this.userSubMenuItem.Tag = "Users";
             this.userSubMenuItem.Text = "Users";
             this.userSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
             // 
+            // rolesSubMenuItem
+            // 
+            this.rolesSubMenuItem.Name = "rolesSubMenuItem";
+            this.rolesSubMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.rolesSubMenuItem.Tag = "Roles";
+            this.rolesSubMenuItem.Text = "Roles";
+            this.rolesSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
+            // 
             // groupSubMenuItem
             // 
             this.groupSubMenuItem.Name = "groupSubMenuItem";
-            this.groupSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.groupSubMenuItem.Size = new System.Drawing.Size(137, 22);
             this.groupSubMenuItem.Tag = "Groups";
             this.groupSubMenuItem.Text = "Groups";
             this.groupSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
@@ -161,7 +164,7 @@
             // permissionSubMenuItem
             // 
             this.permissionSubMenuItem.Name = "permissionSubMenuItem";
-            this.permissionSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.permissionSubMenuItem.Size = new System.Drawing.Size(137, 22);
             this.permissionSubMenuItem.Tag = "Permissions";
             this.permissionSubMenuItem.Text = "Permissions";
             this.permissionSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
@@ -318,46 +321,80 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 707);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 789);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1234, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip";
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.toolMenuExecuteImportNewCase,
+            this.toolMenuSyncStatusBetweenSalesforceAndJira,
+            this.toolMenuSendOutDailyWorkLogReport,
+            this.toolMenuSendOutDailyReport,
+            this.toolMenuSendOutWeeklyReport});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1008, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1234, 25);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // toolMenuExecuteImportNewCase
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolMenuExecuteImportNewCase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolMenuExecuteImportNewCase.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuExecuteImportNewCase.Image")));
+            this.toolMenuExecuteImportNewCase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMenuExecuteImportNewCase.Name = "toolMenuExecuteImportNewCase";
+            this.toolMenuExecuteImportNewCase.Size = new System.Drawing.Size(23, 22);
+            this.toolMenuExecuteImportNewCase.Text = "Import New Case";
+            this.toolMenuExecuteImportNewCase.Click += new System.EventHandler(this.toolMenuItem_Click);
             // 
-            // toolStripButton2
+            // toolMenuSyncStatusBetweenSalesforceAndJira
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolMenuSyncStatusBetweenSalesforceAndJira.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolMenuSyncStatusBetweenSalesforceAndJira.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuSyncStatusBetweenSalesforceAndJira.Image")));
+            this.toolMenuSyncStatusBetweenSalesforceAndJira.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMenuSyncStatusBetweenSalesforceAndJira.Name = "toolMenuSyncStatusBetweenSalesforceAndJira";
+            this.toolMenuSyncStatusBetweenSalesforceAndJira.Size = new System.Drawing.Size(23, 22);
+            this.toolMenuSyncStatusBetweenSalesforceAndJira.Text = "Sync Status between Salesforce and Jira";
+            this.toolMenuSyncStatusBetweenSalesforceAndJira.Click += new System.EventHandler(this.toolMenuItem_Click);
+            // 
+            // toolMenuSendOutDailyWorkLogReport
+            // 
+            this.toolMenuSendOutDailyWorkLogReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolMenuSendOutDailyWorkLogReport.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuSendOutDailyWorkLogReport.Image")));
+            this.toolMenuSendOutDailyWorkLogReport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMenuSendOutDailyWorkLogReport.Name = "toolMenuSendOutDailyWorkLogReport";
+            this.toolMenuSendOutDailyWorkLogReport.Size = new System.Drawing.Size(23, 22);
+            this.toolMenuSendOutDailyWorkLogReport.Text = "Send Out Daily Work Log Report";
+            // 
+            // toolMenuSendOutDailyReport
+            // 
+            this.toolMenuSendOutDailyReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolMenuSendOutDailyReport.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuSendOutDailyReport.Image")));
+            this.toolMenuSendOutDailyReport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMenuSendOutDailyReport.Name = "toolMenuSendOutDailyReport";
+            this.toolMenuSendOutDailyReport.Size = new System.Drawing.Size(23, 22);
+            this.toolMenuSendOutDailyReport.Text = "Send Out Daily Case Review Report";
+            this.toolMenuSendOutDailyReport.Click += new System.EventHandler(this.toolMenuItem_Click);
+            // 
+            // toolMenuSendOutWeeklyReport
+            // 
+            this.toolMenuSendOutWeeklyReport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolMenuSendOutWeeklyReport.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuSendOutWeeklyReport.Image")));
+            this.toolMenuSendOutWeeklyReport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMenuSendOutWeeklyReport.Name = "toolMenuSendOutWeeklyReport";
+            this.toolMenuSendOutWeeklyReport.Size = new System.Drawing.Size(23, 22);
+            this.toolMenuSendOutWeeklyReport.Text = "Send Out Weekly Case Review Report";
+            this.toolMenuSendOutWeeklyReport.Click += new System.EventHandler(this.toolMenuItem_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1234, 811);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -369,6 +406,7 @@
             this.Text = "Smart Engineer - 2018";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -399,8 +437,8 @@
         private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem versionToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolMenuExecuteImportNewCase;
+        private System.Windows.Forms.ToolStripButton toolMenuSyncStatusBetweenSalesforceAndJira;
         private System.Windows.Forms.ToolStripMenuItem logoutSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dailyCaseSubMenuItem;
@@ -413,6 +451,9 @@
         private System.Windows.Forms.ToolStripMenuItem scanCaseStatusCrossProjectSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accelaFTPMonitorSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mergeAttachmentsSubMenuItem;
+        private System.Windows.Forms.ToolStripButton toolMenuSendOutDailyReport;
+        private System.Windows.Forms.ToolStripButton toolMenuSendOutWeeklyReport;
+        private System.Windows.Forms.ToolStripButton toolMenuSendOutDailyWorkLogReport;
     }
 }
 

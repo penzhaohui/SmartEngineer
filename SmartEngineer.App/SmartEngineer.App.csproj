@@ -77,6 +77,12 @@
     <Compile Include="Accounts\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDashboard.Designer.cs">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,12 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSmartTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSmartTask.Designer.cs">
+      <DependentUpon>frmSmartTask.cs</DependentUpon>
     </Compile>
     <Compile Include="Help\frmContactInfo.cs">
       <SubType>Form</SubType>
@@ -208,11 +220,17 @@
     <EmbeddedResource Include="Accounts\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDashboard.resx">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSmartTask.resx">
+      <DependentUpon>frmSmartTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Help\frmContactInfo.resx">
       <DependentUpon>frmContactInfo.cs</DependentUpon>

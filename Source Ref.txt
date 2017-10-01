@@ -21,3 +21,45 @@ Selenium For C# 教程目录: http://www.cnblogs.com/NorthAlan/p/5183947.html
 
 Remoting CallContext 实现客户端识别: http://blog.csdn.net/fangxing80/article/details/6168458
 WCF系列（七） - WCF安全系列（二） - netTCPBinding绑定之Transport安全模式 : http://www.cnblogs.com/chnking/archive/2008/10/07/1305891.html
+
+https://www.codeproject.com/Articles/147797/Webpart-Portlet-development-in-ASP-NET-MVC-Framewo
+http://www.cnblogs.com/jesse2013/p/membership.html
+https://wenku.baidu.com/view/4f3031a2e87101f69f31951e.html
+http://ianatkinson.net/computing/adcsharp.htm#ex5
+https://github.com/auth0-blog/blog-ldap-csharp-example
+.net操作AD域： http://www.cnblogs.com/VicHuang/p/3753555.html
+http://www.blogjava.net/ivanwan/archive/2014/11/22/420438.html
+http://server.it168.com/a2008/0828/202/000000202272_all.shtml
+https://sourceforge.net/projects/ldapadmin/
+C#程序以管理员权限运行： http://www.cnblogs.com/Interkey/p/RunAsAdmin.html
+
+=============================
+Visual Studio 2017 添加引用报错（未能正确加载ReferenceManagerPackage包） 
+ApacheDS配置用户以及用户组实现SSO-(转) http://www.cnblogs.com/ant-jmf17/p/7101813.html
+
+AD LDS的具体安装以及简单应用操作
+http://www.ithov.com/server/75356.shtml
+基于SSL的WCF对客户端采用证书验证
+http://jingyan.baidu.com/article/8065f87fe106332330249858.html
+怎样查看计算机本地安装的证书
+http://jingyan.baidu.com/article/ff42efa9449a97c19f220250.html
+certlm.exe -  查看本地计算机安装的证书
+certmgr.exe -  查看当前用户安装的证书
+设置或修改 AD LDS 用户的密码
+https://technet.microsoft.com/zh-cn/library/cc731012
+
+https://blogs.msdn.microsoft.com/robert_mcmurray/2011/09/16/ftp-and-ldap-part-1-how-to-use-managed-code-c-to-create-an-ftp-authentication-provider-that-uses-an-ldap-server/
+https://blogs.msdn.microsoft.com/robert_mcmurray/2011/09/16/ftp-and-ldap-part-2-how-to-set-up-an-active-directory-lightweight-directory-services-ad-lds-server/
+Active Directory Lightweight Directory Services Setup Wizard
+C:\Program Files\Microsoft ADAM\saas\data
+ldp.exe
+
+F:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\PublicAssemblies
+gacutil -i Microsoft.VisualStudio.Shell.Interop.11.0.dll
+=============================
+
+非常不错的用户管理开源代码库
+https://github.com/brockallen
+https://www.codeproject.com/Articles/779844/Remember-Me
+https://www.codeproject.com/Articles/31914/Beginner-s-Guide-To-ASP-NET-Cookies
+https://github.com/optimajet/WorkflowEngine.NET

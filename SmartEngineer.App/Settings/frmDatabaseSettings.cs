@@ -24,5 +24,11 @@ namespace SmartEngineer.Forms
         {
             throw new NotImplementedException();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.No;
+            this.Close();
+        }
     }
 }
