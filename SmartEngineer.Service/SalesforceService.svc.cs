@@ -8,9 +8,10 @@ using System.Text;
 namespace SmartEngineer.Service
 {
     public class SalesforceService : ISalesforceService
-    {
+    {        
         public void GetCaseIDListByQueue()
         {
+            // Not need
             throw new NotImplementedException();
         }
 

@@ -8,7 +8,8 @@ using System.Text;
 namespace SmartEngineer.Service
 {
     public class ReportService : IReportService
-    {        public void SendOutClosedCaseReport()
+    {
+        public void SendOutClosedCaseReport()
         {
             throw new NotImplementedException();
         }

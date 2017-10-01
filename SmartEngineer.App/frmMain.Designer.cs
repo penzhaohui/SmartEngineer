@@ -65,6 +65,8 @@
             this.toolMenuSendOutDailyWorkLogReport = new System.Windows.Forms.ToolStripButton();
             this.toolMenuSendOutDailyReport = new System.Windows.Forms.ToolStripButton();
             this.toolMenuSendOutWeeklyReport = new System.Windows.Forms.ToolStripButton();
+            this.toolMenuBackDefaultDashboard = new System.Windows.Forms.ToolStripButton();
+            this.toolMenuExpressToReviewCase = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -330,6 +332,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolMenuBackDefaultDashboard,
+            this.toolMenuExpressToReviewCase,
             this.toolMenuExecuteImportNewCase,
             this.toolMenuSyncStatusBetweenSalesforceAndJira,
             this.toolMenuSendOutDailyWorkLogReport,
@@ -389,6 +393,26 @@
             this.toolMenuSendOutWeeklyReport.Size = new System.Drawing.Size(23, 22);
             this.toolMenuSendOutWeeklyReport.Text = "Send Out Weekly Case Review Report";
             this.toolMenuSendOutWeeklyReport.Click += new System.EventHandler(this.toolMenuItem_Click);
+            // 
+            // toolMenuBackDefaultDashboard
+            // 
+            this.toolMenuBackDefaultDashboard.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolMenuBackDefaultDashboard.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuBackDefaultDashboard.Image")));
+            this.toolMenuBackDefaultDashboard.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMenuBackDefaultDashboard.Name = "toolMenuBackDefaultDashboard";
+            this.toolMenuBackDefaultDashboard.Size = new System.Drawing.Size(23, 22);
+            this.toolMenuBackDefaultDashboard.Text = "Default Dashboard";
+            this.toolMenuBackDefaultDashboard.Click += new System.EventHandler(this.toolMenuBackDefaultDashboard_Click);
+            // 
+            // toolMenuExpressToReviewCase
+            // 
+            this.toolMenuExpressToReviewCase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolMenuExpressToReviewCase.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuExpressToReviewCase.Image")));
+            this.toolMenuExpressToReviewCase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMenuExpressToReviewCase.Name = "toolMenuExpressToReviewCase";
+            this.toolMenuExpressToReviewCase.Size = new System.Drawing.Size(23, 22);
+            this.toolMenuExpressToReviewCase.Text = "Express to Review Case";
+            this.toolMenuExpressToReviewCase.Click += new System.EventHandler(this.toolMenuExpressToReviewCase_Click);
             // 
             // frmMain
             // 
@@ -454,6 +478,8 @@
         private System.Windows.Forms.ToolStripButton toolMenuSendOutDailyReport;
         private System.Windows.Forms.ToolStripButton toolMenuSendOutWeeklyReport;
         private System.Windows.Forms.ToolStripButton toolMenuSendOutDailyWorkLogReport;
+        private System.Windows.Forms.ToolStripButton toolMenuBackDefaultDashboard;
+        private System.Windows.Forms.ToolStripButton toolMenuExpressToReviewCase;
     }
 }
 

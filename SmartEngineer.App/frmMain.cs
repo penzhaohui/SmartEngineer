@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SmartEngineer.Notification;
+using Microsoft.VisualBasic;
 
 namespace SmartEngineer.Forms
 {
@@ -301,6 +302,43 @@ namespace SmartEngineer.Forms
             frmSmartTask form = new frmSmartTask();
             form.StartPosition = FormStartPosition.CenterParent;
             form.ShowDialog();
+        }
+
+        private void toolMenuBackDefaultDashboard_Click(object sender, EventArgs e)
+        {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+                child.Dispose();
+            }
+
+            if (this.MdiChildren.Length == 0)
+            {
+                frmDashboard form = new frmDashboard();
+                form.WindowState = FormWindowState.Maximized;
+                form.MdiParent = this;
+                form.ControlBox = true;
+                form.ShowIcon = false;
+                form.Show();
+            }
+        }
+
+        private void toolMenuExpressToReviewCase_Click(object sender, EventArgs e)
+        {
+            string sfNo = Interaction.InputBox("Please enter one salesforce case NO.", "Express to Review Case");
+
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close();
+                child.Dispose();
+            }
+
+            frmExpressToReviewCase form = new frmExpressToReviewCase();
+            form.WindowState = FormWindowState.Maximized;
+            form.MdiParent = this;
+            form.ControlBox = true;
+            form.ShowIcon = false;
+            form.Show();
         }
     }
 }
