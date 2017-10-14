@@ -12,15 +12,21 @@ namespace SmartEngineer.Service
     public interface IReportService
     {
         [OperationContract]
-        void SendOutDailyCaseReport();
+        bool SendOutDailyWorkLogReport(DateTime workday);
 
         [OperationContract]
-        void SendOutDailyCaseCommentReport();
+        bool SendOutDailyReviewedCaseReport(List<string> caseNos);
 
         [OperationContract]
-        void SendOutClosedCaseReport();
+        bool SendOutClosedCaseReport(List<string> caseNos);                   
 
         [OperationContract]
         void SendOutWeeklyCaseReport();
+
+        [OperationContract]
+        void SendOutReleaseStatusReport(List<string> caseNos);
+
+        [OperationContract]
+        void SendOutReleaseSummaryReport(string version);
     }
 }

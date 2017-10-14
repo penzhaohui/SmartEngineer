@@ -9,17 +9,27 @@ namespace SmartEngineer.Service
 {
     public class ReportService : IReportService
     {
-        public void SendOutClosedCaseReport()
+        public bool SendOutClosedCaseReport(List<string> caseNos)
         {
             throw new NotImplementedException();
         }
 
-        public void SendOutDailyCaseCommentReport()
+        public bool SendOutDailyReviewedCaseReport(List<string> caseNos)
         {
             throw new NotImplementedException();
         }
 
-        public void SendOutDailyCaseReport()
+        public bool SendOutDailyWorkLogReport(DateTime workday)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SendOutReleaseStatusReport(List<string> caseNos)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SendOutReleaseSummaryReport(string version)
         {
             throw new NotImplementedException();
         }

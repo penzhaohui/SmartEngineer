@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9c506740-b897-4133-8849-d1e3eb552ca3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="21686f3b-a3c8-4f06-9f51-1ea19bbde7e8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,13 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://127.0.0.1:8082/mex" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:41200/JiraServiceForENGSupp.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="mex.xsd" MetadataType="Schema" ID="7f9bcd88-4fbb-4acd-9b9b-47b069e04696" SourceId="1" SourceUrl="http://127.0.0.1:8082/mex?xsd=xsd1" />
-    <MetadataFile FileName="mex1.xsd" MetadataType="Schema" ID="55c15377-c864-4108-80d1-5ca454fa16c9" SourceId="1" SourceUrl="http://127.0.0.1:8082/mex?xsd=xsd0" />
-    <MetadataFile FileName="JiraServiceForENGSupp.wsdl" MetadataType="Wsdl" ID="630b3a90-0458-41fa-a48d-b2cb43b80b3d" SourceId="1" SourceUrl="http://127.0.0.1:8082/mex" />
-    <MetadataFile FileName="mex2.xsd" MetadataType="Schema" ID="ce494eb0-03ea-45b6-a4c6-af43f0f75024" SourceId="1" SourceUrl="http://127.0.0.1:8082/mex?xsd=xsd2" />
+    <MetadataFile FileName="JiraServiceForENGSupp.disco" MetadataType="Disco" ID="2923eb77-973a-4221-ab62-f77f6b8a28e9" SourceId="1" SourceUrl="http://localhost:41200/JiraServiceForENGSupp.svc?disco" />
+    <MetadataFile FileName="JiraServiceForENGSupp.xsd" MetadataType="Schema" ID="5d5a1335-0f6c-4f36-899b-cc7401fe1211" SourceId="1" SourceUrl="http://localhost:41200/JiraServiceForENGSupp.svc?xsd=xsd2" />
+    <MetadataFile FileName="JiraServiceForENGSupp1.xsd" MetadataType="Schema" ID="78fa1ca9-ae0d-4eb5-a2f6-f22d3a18687e" SourceId="1" SourceUrl="http://localhost:41200/JiraServiceForENGSupp.svc?xsd=xsd3" />
+    <MetadataFile FileName="JiraServiceForENGSupp2.xsd" MetadataType="Schema" ID="ea6a8376-682a-48cf-8046-82599220e544" SourceId="1" SourceUrl="http://localhost:41200/JiraServiceForENGSupp.svc?xsd=xsd0" />
+    <MetadataFile FileName="JiraServiceForENGSupp3.xsd" MetadataType="Schema" ID="d46a6155-208a-4964-b44a-6a294528f9b3" SourceId="1" SourceUrl="http://localhost:41200/JiraServiceForENGSupp.svc?xsd=xsd1" />
+    <MetadataFile FileName="JiraService.wsdl" MetadataType="Wsdl" ID="6df885b4-9400-4787-a5d9-a713092ecaa1" SourceId="1" SourceUrl="http://localhost:41200/JiraServiceForENGSupp.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

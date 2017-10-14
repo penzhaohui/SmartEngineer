@@ -11,6 +11,7 @@ namespace SmartEngineer.Service
     {
         public void DoWork()
         {
+            throw new NotImplementedException();
         }
     }
 }

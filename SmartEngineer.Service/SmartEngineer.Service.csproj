@@ -73,12 +73,15 @@
     <Content Include="Config\SmartSqlMapConfig.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="DatabaseService.svc" />
     <Content Include="DLLs\RestSharp.dll" />
     <Content Include="DLLs\TechTalk.JiraRestClient.dll" />
     <Content Include="GithubService.svc" />
+    <Content Include="JiraService.svc" />
     <Content Include="MemeberService.svc" />
     <Content Include="JiraServiceForDatabase.svc" />
     <Content Include="JiraServiceForENGSupp.svc" />
+    <Content Include="ReleaseService.svc" />
     <Content Include="ReportService.svc" />
     <Content Include="SalesforceService.svc" />
     <Content Include="SettingService.svc" />
@@ -89,11 +92,20 @@
     <Compile Include="AccountService.svc.cs">
       <DependentUpon>AccountService.svc</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseService.svc.cs">
+      <DependentUpon>DatabaseService.svc</DependentUpon>
+    </Compile>
     <Compile Include="GithubService.svc.cs">
       <DependentUpon>GithubService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IDatabaseService.cs" />
+    <Compile Include="Interface\IReleaseService.cs" />
+    <Compile Include="Interface\IJiraService.cs" />
     <Compile Include="Interface\IMemberService.cs" />
     <Compile Include="Interface\IJiraServiceForDatabase.cs" />
+    <Compile Include="JiraService.svc.cs">
+      <DependentUpon>JiraService.svc</DependentUpon>
+    </Compile>
     <Compile Include="MemeberService.svc.cs">
       <DependentUpon>MemeberService.svc</DependentUpon>
     </Compile>
@@ -109,6 +121,9 @@
     <Compile Include="Interface\IReportService.cs" />
     <Compile Include="JiraServiceForENGSupp.svc.cs">
       <DependentUpon>JiraServiceForENGSupp.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ReleaseService.svc.cs">
+      <DependentUpon>ReleaseService.svc</DependentUpon>
     </Compile>
     <Compile Include="ReportService.svc.cs">
       <DependentUpon>ReportService.svc</DependentUpon>

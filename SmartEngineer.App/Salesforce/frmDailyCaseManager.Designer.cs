@@ -28,94 +28,118 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnSyncSalesforceToJira = new System.Windows.Forms.Button();
+            this.btnGetCommentedCasesFromSalesforce = new System.Windows.Forms.Button();
+            this.btnGetNewCasesFromSalesforce = new System.Windows.Forms.Button();
+            this.btnSendOutCaseSummary = new System.Windows.Forms.Button();
+            this.btnSendOutClosedCases = new System.Windows.Forms.Button();
+            this.btnPullDetailedInfo = new System.Windows.Forms.Button();
+            this.btnGetPendingCasesFromJira = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtInputCaseNOs = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SFNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JiraKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serverity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SFType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Origin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OpenDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Summary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastReviewer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CommentCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SFOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SFStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JiraStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JiraNextStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnSyncSalesforceToJira
             // 
-            this.button1.Location = new System.Drawing.Point(119, 123);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Sync Salesforce To Jira";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSyncSalesforceToJira.Location = new System.Drawing.Point(119, 123);
+            this.btnSyncSalesforceToJira.Name = "btnSyncSalesforceToJira";
+            this.btnSyncSalesforceToJira.Size = new System.Drawing.Size(129, 23);
+            this.btnSyncSalesforceToJira.TabIndex = 0;
+            this.btnSyncSalesforceToJira.Text = "Sync Salesforce To Jira";
+            this.btnSyncSalesforceToJira.UseVisualStyleBackColor = true;
+            this.btnSyncSalesforceToJira.Click += new System.EventHandler(this.btnSyncSalesforceToJira_Click);
             // 
-            // button3
+            // btnGetCommentedCasesFromSalesforce
             // 
-            this.button3.Location = new System.Drawing.Point(1071, 45);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Commented Cases";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnGetCommentedCasesFromSalesforce.Location = new System.Drawing.Point(1071, 45);
+            this.btnGetCommentedCasesFromSalesforce.Name = "btnGetCommentedCasesFromSalesforce";
+            this.btnGetCommentedCasesFromSalesforce.Size = new System.Drawing.Size(111, 23);
+            this.btnGetCommentedCasesFromSalesforce.TabIndex = 2;
+            this.btnGetCommentedCasesFromSalesforce.Text = "Commented Cases";
+            this.btnGetCommentedCasesFromSalesforce.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetCommentedCasesFromSalesforce.UseVisualStyleBackColor = true;
+            this.btnGetCommentedCasesFromSalesforce.Click += new System.EventHandler(this.btnGetCommentedCasesFromSalesforce_Click);
             // 
-            // button2
+            // btnGetNewCasesFromSalesforce
             // 
-            this.button2.Location = new System.Drawing.Point(1071, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "New Cases";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGetNewCasesFromSalesforce.Location = new System.Drawing.Point(1071, 17);
+            this.btnGetNewCasesFromSalesforce.Name = "btnGetNewCasesFromSalesforce";
+            this.btnGetNewCasesFromSalesforce.Size = new System.Drawing.Size(111, 23);
+            this.btnGetNewCasesFromSalesforce.TabIndex = 3;
+            this.btnGetNewCasesFromSalesforce.Text = "New Cases";
+            this.btnGetNewCasesFromSalesforce.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetNewCasesFromSalesforce.UseVisualStyleBackColor = true;
+            this.btnGetNewCasesFromSalesforce.Click += new System.EventHandler(this.btnGetNewCasesFromSalesforce_Click);
             // 
-            // button5
+            // btnSendOutCaseSummary
             // 
-            this.button5.Location = new System.Drawing.Point(254, 123);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(138, 23);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Send Out Case Summary";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnSendOutCaseSummary.Location = new System.Drawing.Point(254, 123);
+            this.btnSendOutCaseSummary.Name = "btnSendOutCaseSummary";
+            this.btnSendOutCaseSummary.Size = new System.Drawing.Size(138, 23);
+            this.btnSendOutCaseSummary.TabIndex = 5;
+            this.btnSendOutCaseSummary.Text = "Send Out Case Summary";
+            this.btnSendOutCaseSummary.UseVisualStyleBackColor = true;
+            this.btnSendOutCaseSummary.Click += new System.EventHandler(this.btnSendOutCaseSummary_Click);
             // 
-            // button6
+            // btnSendOutClosedCases
             // 
-            this.button6.Location = new System.Drawing.Point(398, 123);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(129, 23);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Send Out Closed Cases";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnSendOutClosedCases.Location = new System.Drawing.Point(398, 123);
+            this.btnSendOutClosedCases.Name = "btnSendOutClosedCases";
+            this.btnSendOutClosedCases.Size = new System.Drawing.Size(129, 23);
+            this.btnSendOutClosedCases.TabIndex = 6;
+            this.btnSendOutClosedCases.Text = "Send Out Closed Cases";
+            this.btnSendOutClosedCases.UseVisualStyleBackColor = true;
+            this.btnSendOutClosedCases.Click += new System.EventHandler(this.btnSendOutClosedCases_Click);
             // 
-            // button4
+            // btnPullDetailedInfo
             // 
-            this.button4.Location = new System.Drawing.Point(12, 123);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(101, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Pull Detailed Info";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnPullDetailedInfo.Location = new System.Drawing.Point(12, 123);
+            this.btnPullDetailedInfo.Name = "btnPullDetailedInfo";
+            this.btnPullDetailedInfo.Size = new System.Drawing.Size(101, 23);
+            this.btnPullDetailedInfo.TabIndex = 7;
+            this.btnPullDetailedInfo.Text = "Pull Detailed Info";
+            this.btnPullDetailedInfo.UseVisualStyleBackColor = true;
+            this.btnPullDetailedInfo.Click += new System.EventHandler(this.btnPullDetailedInfo_Click);
             // 
-            // button7
+            // btnGetPendingCasesFromJira
             // 
-            this.button7.Location = new System.Drawing.Point(1071, 74);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(111, 23);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "Pending Cases";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnGetPendingCasesFromJira.Location = new System.Drawing.Point(1071, 74);
+            this.btnGetPendingCasesFromJira.Name = "btnGetPendingCasesFromJira";
+            this.btnGetPendingCasesFromJira.Size = new System.Drawing.Size(111, 23);
+            this.btnGetPendingCasesFromJira.TabIndex = 8;
+            this.btnGetPendingCasesFromJira.Text = "Pending Cases";
+            this.btnGetPendingCasesFromJira.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetPendingCasesFromJira.UseVisualStyleBackColor = true;
+            this.btnGetPendingCasesFromJira.Click += new System.EventHandler(this.btnGetPendingCasesFromJira_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.txtInputCaseNOs);
+            this.groupBox1.Controls.Add(this.btnGetNewCasesFromSalesforce);
+            this.groupBox1.Controls.Add(this.btnGetPendingCasesFromJira);
+            this.groupBox1.Controls.Add(this.btnGetCommentedCasesFromSalesforce);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1190, 105);
@@ -123,13 +147,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Please enter case id list with comma or click one shortcut button at left side.";
             // 
-            // textBox1
+            // txtInputCaseNOs
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 17);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1058, 80);
-            this.textBox1.TabIndex = 9;
+            this.txtInputCaseNOs.Location = new System.Drawing.Point(7, 17);
+            this.txtInputCaseNOs.Multiline = true;
+            this.txtInputCaseNOs.Name = "txtInputCaseNOs";
+            this.txtInputCaseNOs.Size = new System.Drawing.Size(1058, 80);
+            this.txtInputCaseNOs.TabIndex = 9;
             // 
             // groupBox2
             // 
@@ -142,11 +166,151 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.No,
+            this.Product,
+            this.SFNo,
+            this.JiraKey,
+            this.Serverity,
+            this.Version,
+            this.SFType,
+            this.Customer,
+            this.Origin,
+            this.OpenDate,
+            this.Summary,
+            this.LastReviewer,
+            this.CommentCount,
+            this.SFOwner,
+            this.SFStatus,
+            this.JiraStatus,
+            this.JiraNextStatus});
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1176, 560);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // No
+            // 
+            this.No.DataPropertyName = "No";
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            // 
+            // Product
+            // 
+            this.Product.DataPropertyName = "Product";
+            this.Product.HeaderText = "Product";
+            this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
+            // 
+            // SFNo
+            // 
+            this.SFNo.DataPropertyName = "SFNo";
+            this.SFNo.HeaderText = "SF No";
+            this.SFNo.Name = "SFNo";
+            this.SFNo.ReadOnly = true;
+            // 
+            // JiraKey
+            // 
+            this.JiraKey.DataPropertyName = "JiraKey";
+            this.JiraKey.HeaderText = "Jira Key";
+            this.JiraKey.Name = "JiraKey";
+            this.JiraKey.ReadOnly = true;
+            // 
+            // Serverity
+            // 
+            this.Serverity.DataPropertyName = "Serverity";
+            this.Serverity.HeaderText = "Serverity";
+            this.Serverity.Name = "Serverity";
+            this.Serverity.ReadOnly = true;
+            // 
+            // Version
+            // 
+            this.Version.DataPropertyName = "Version";
+            this.Version.HeaderText = "Version";
+            this.Version.Name = "Version";
+            this.Version.ReadOnly = true;
+            // 
+            // SFType
+            // 
+            this.SFType.DataPropertyName = "SFType";
+            this.SFType.HeaderText = "SF Type";
+            this.SFType.Name = "SFType";
+            this.SFType.ReadOnly = true;
+            // 
+            // Customer
+            // 
+            this.Customer.DataPropertyName = "Customer";
+            this.Customer.HeaderText = "Customer";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            // 
+            // Origin
+            // 
+            this.Origin.DataPropertyName = "Origin";
+            this.Origin.HeaderText = "Origin";
+            this.Origin.Name = "Origin";
+            this.Origin.ReadOnly = true;
+            // 
+            // OpenDate
+            // 
+            this.OpenDate.DataPropertyName = "OpenDate";
+            this.OpenDate.HeaderText = "Open Date";
+            this.OpenDate.Name = "OpenDate";
+            this.OpenDate.ReadOnly = true;
+            // 
+            // Summary
+            // 
+            this.Summary.DataPropertyName = "Summary";
+            this.Summary.HeaderText = "Summary";
+            this.Summary.Name = "Summary";
+            this.Summary.ReadOnly = true;
+            // 
+            // LastReviewer
+            // 
+            this.LastReviewer.DataPropertyName = "LastReviewer";
+            this.LastReviewer.HeaderText = "Last Reviewer";
+            this.LastReviewer.Name = "LastReviewer";
+            this.LastReviewer.ReadOnly = true;
+            // 
+            // CommentCount
+            // 
+            this.CommentCount.DataPropertyName = "CommentCount";
+            this.CommentCount.HeaderText = "Comment Count";
+            this.CommentCount.Name = "CommentCount";
+            this.CommentCount.ReadOnly = true;
+            // 
+            // SFOwner
+            // 
+            this.SFOwner.DataPropertyName = "SFOwne";
+            this.SFOwner.HeaderText = "SF Owner";
+            this.SFOwner.Name = "SFOwner";
+            this.SFOwner.ReadOnly = true;
+            // 
+            // SFStatus
+            // 
+            this.SFStatus.DataPropertyName = "SFStatus";
+            this.SFStatus.HeaderText = "SF Status";
+            this.SFStatus.Name = "SFStatus";
+            this.SFStatus.ReadOnly = true;
+            // 
+            // JiraStatus
+            // 
+            this.JiraStatus.DataPropertyName = "JiraStatus";
+            this.JiraStatus.HeaderText = "Jira Status";
+            this.JiraStatus.Name = "JiraStatus";
+            this.JiraStatus.ReadOnly = true;
+            // 
+            // JiraNextStatus
+            // 
+            this.JiraNextStatus.DataPropertyName = "JiraNextStatus";
+            this.JiraNextStatus.HeaderText = "Jira Next Status";
+            this.JiraNextStatus.Name = "JiraNextStatus";
+            this.JiraNextStatus.ReadOnly = true;
             // 
             // frmDailyCaseManager
             // 
@@ -156,10 +320,10 @@
             this.ControlBox = false;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPullDetailedInfo);
+            this.Controls.Add(this.btnSendOutClosedCases);
+            this.Controls.Add(this.btnSendOutCaseSummary);
+            this.Controls.Add(this.btnSyncSalesforceToJira);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -176,16 +340,33 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnSyncSalesforceToJira;
+        private System.Windows.Forms.Button btnGetCommentedCasesFromSalesforce;
+        private System.Windows.Forms.Button btnGetNewCasesFromSalesforce;
+        private System.Windows.Forms.Button btnSendOutCaseSummary;
+        private System.Windows.Forms.Button btnSendOutClosedCases;
+        private System.Windows.Forms.Button btnPullDetailedInfo;
+        private System.Windows.Forms.Button btnGetPendingCasesFromJira;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtInputCaseNOs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SFNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JiraKey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Serverity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Version;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SFType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Origin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OpenDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Summary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastReviewer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CommentCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SFOwner;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SFStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JiraStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JiraNextStatus;
     }
 }

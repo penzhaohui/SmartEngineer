@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartEngineer.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,12 +13,27 @@ namespace SmartEngineer.Service
     public interface ISalesforceService
     {
         [OperationContract]
-        void GetNewCaseList();
+        List<CaseInfo> GetNewCasesList();
 
         [OperationContract]
-        void GetCommentedCaseList();
+        List<CaseInfo> GetCommentedCasesList();
 
         [OperationContract]
-        void GetCaseIDListByQueue();      
+        List<CaseInfo> GetCasesByCaseNOs(List<string> caseNOs);
+
+        [OperationContract]
+        List<CaseInfo> GetProcessedCase(DateTime from, DateTime to, List<string> sfAccounts);
+
+        [OperationContract]
+        int GetTotalNewCaseCount();
+
+        [OperationContract]
+        int GetCaseCommentCount(DateTime from, DateTime to);
+
+        [OperationContract]
+        int GetReviewedCaseCount(DateTime from, DateTime to);
+
+        // [OperationContract]
+        // int GetReviewedCaseCount(DateTime workday);
     }
 }

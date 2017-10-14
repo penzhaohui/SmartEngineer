@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
+using TechTalk.JiraRestClient;
 
-namespace SmartEngineer.Core.Adapters
+namespace SmartEngineer.Core.Adapter
 {
     public interface IJiraAdapter
     {
@@ -15,5 +17,9 @@ namespace SmartEngineer.Core.Adapters
         /// <param name="password">password</param>
         /// <returns>account</returns>
         Account ValidateAccount(string userOrEmailAddress, string password);
+
+        Task<Issue> CreateIssue(string project, string issueType, IssueFields fields, string jiraAccount, string jiraPassword);
+
+        Task<Issue> UpdateIssue(Issue issue, string jiraAccount, string jiraPassword);
     }
 }

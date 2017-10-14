@@ -31,7 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -47,8 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter\IAccountAdapter.cs" />
+    <Compile Include="Adapter\ISalesforceAdapter.cs" />
     <Compile Include="Adapter\IJiraAdapter.cs" />
     <Compile Include="Adapter\imp\AccountAdapter.cs" />
+    <Compile Include="Adapter\imp\SalesforceAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.cs" />
     <Compile Include="DAO\IAccountDAO.cs" />
     <Compile Include="DAO\IAccountSessionDAO.cs" />
@@ -62,14 +66,31 @@
     <Compile Include="Model\Account\AccountSession.cs" />
     <Compile Include="Model\Account\Permission.cs" />
     <Compile Include="Model\Account\Role.cs" />
+    <Compile Include="Model\Common\ReleaseInfo.cs" />
+    <Compile Include="Model\Common\DBInfo.cs" />
+    <Compile Include="Model\Common\DBConnection.cs" />
     <Compile Include="Model\Common\Config.cs" />
     <Compile Include="Model\Common\ConfigOption.cs" />
     <Compile Include="Model\Common\Identifier.cs" />
     <Compile Include="Model\Common\Tenant.cs" />
     <Compile Include="Model\enum\AccountType.cs" />
+    <Compile Include="Model\Jira\DBTicket.cs" />
+    <Compile Include="Model\Jira\SubTask.cs" />
+    <Compile Include="Model\Jira\WorkLog.cs" />
+    <Compile Include="Model\Jira\IssueInfo.cs" />
+    <Compile Include="Model\Salesforce\AccelaCase.cs" />
+    <Compile Include="Model\Salesforce\AttributeType.cs" />
+    <Compile Include="Model\Salesforce\CaseComment.cs" />
+    <Compile Include="Model\Salesforce\CaseAttachment.cs" />
+    <Compile Include="Model\Salesforce\NewCaseComment.cs" />
+    <Compile Include="Model\Salesforce\CaseInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JIRA\ConfluenceClient\ConfluenceClient.csproj">
+      <Project>{5148988b-be8a-4ac5-9f7e-93ddb73ed186}</Project>
+      <Name>ConfluenceClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JIRA\TechTalk.JiraRestClient\TechTalk.JiraRestClient.csproj">
       <Project>{210529fa-454e-4c32-a2c8-353ecbd4da05}</Project>
       <Name>TechTalk.JiraRestClient</Name>
@@ -77,6 +98,14 @@
     <ProjectReference Include="..\Logger\Log4Net\log4net.vs2012.csproj">
       <Project>{181FE707-E161-4722-9F38-6AAAB6FAA106}</Project>
       <Name>log4net.vs2012</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SFDC\CommonLibrariesForNET\CommonLibrariesForNET.csproj">
+      <Project>{65129DA9-AC8E-4DB2-A895-15FBC0DA2B54}</Project>
+      <Name>CommonLibrariesForNET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SFDC\ForceToolkitForNET\ForceToolkitForNET.csproj">
+      <Project>{6B8131E1-EC47-4DEE-8FCF-436F21C684D1}</Project>
+      <Name>ForceToolkitForNET</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartEngineer.Framework\SmartEngineer.Framework.csproj">
       <Project>{be23deca-79d2-4899-8d74-732f97b7a528}</Project>

@@ -1,7 +1,5 @@
 ﻿using SmartEngineer.Core.Adapter;
-using SmartEngineer.Core.Adapters;
 using SmartEngineer.Core.Models;
-using SmartEngineer.Service.Adapter;
 using System;
 using System.ServiceModel;
 
