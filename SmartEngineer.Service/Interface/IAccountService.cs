@@ -3,7 +3,8 @@ using System.ServiceModel;
 
 namespace SmartEngineer.Service
 {
-    [ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(IAccountServiceCallback))]
+    //[ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(IAccountServiceCallback))]
+    [ServiceContract]
     public interface IAccountService
     {
         /// <summary>

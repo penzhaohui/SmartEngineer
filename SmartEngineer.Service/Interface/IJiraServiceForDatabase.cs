@@ -1,14 +1,17 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
 
 namespace SmartEngineer.Service
 {
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IJiraServiceForDatabase" in both code and config file together.
     [ServiceContract]
     public interface IJiraServiceForDatabase
     {
         [OperationContract]
-        string GetDBTicket(string sfNo);
-
-        //[OperationContract]
-        //void SubmitDBTicket(string jiraKey, DBTicket ticket);
+        void DoWork();
     }
 }

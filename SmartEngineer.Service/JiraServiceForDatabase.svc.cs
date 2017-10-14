@@ -1,19 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
 
 namespace SmartEngineer.Service
 {
     public class JiraServiceForDatabase : IJiraServiceForDatabase
     {
-        public string GetDBTicket(string sfNo)
+        public void DoWork()
         {
-            throw new NotImplementedException();
         }
-
-        /*
-        public void SubmitDBTicket(string jiraKey, DBTicket ticket)
-        {
-            throw new NotImplementedException();
-        }
-        */
     }
 }

@@ -78,9 +78,9 @@
     <Content Include="DLLs\TechTalk.JiraRestClient.dll" />
     <Content Include="GithubService.svc" />
     <Content Include="JiraService.svc" />
-    <Content Include="MemeberService.svc" />
     <Content Include="JiraServiceForDatabase.svc" />
     <Content Include="JiraServiceForENGSupp.svc" />
+    <Content Include="MemberService.svc" />
     <Content Include="ReleaseService.svc" />
     <Content Include="ReportService.svc" />
     <Content Include="SalesforceService.svc" />
@@ -98,16 +98,13 @@
     <Compile Include="GithubService.svc.cs">
       <DependentUpon>GithubService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IMemberService.cs" />
+    <Compile Include="Interface\IJiraServiceForDatabase.cs" />
     <Compile Include="Interface\IDatabaseService.cs" />
     <Compile Include="Interface\IReleaseService.cs" />
     <Compile Include="Interface\IJiraService.cs" />
-    <Compile Include="Interface\IMemberService.cs" />
-    <Compile Include="Interface\IJiraServiceForDatabase.cs" />
     <Compile Include="JiraService.svc.cs">
       <DependentUpon>JiraService.svc</DependentUpon>
-    </Compile>
-    <Compile Include="MemeberService.svc.cs">
-      <DependentUpon>MemeberService.svc</DependentUpon>
     </Compile>
     <Compile Include="JiraServiceForDatabase.svc.cs">
       <DependentUpon>JiraServiceForDatabase.svc</DependentUpon>
@@ -121,6 +118,9 @@
     <Compile Include="Interface\IReportService.cs" />
     <Compile Include="JiraServiceForENGSupp.svc.cs">
       <DependentUpon>JiraServiceForENGSupp.svc</DependentUpon>
+    </Compile>
+    <Compile Include="MemberService.svc.cs">
+      <DependentUpon>MemberService.svc</DependentUpon>
     </Compile>
     <Compile Include="ReleaseService.svc.cs">
       <DependentUpon>ReleaseService.svc</DependentUpon>

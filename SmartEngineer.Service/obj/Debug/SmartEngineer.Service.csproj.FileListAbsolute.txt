@@ -40,3 +40,5 @@ F:\MyWorkspace\SmartEngineer\SmartEngineer.Service\bin\zh-CHS\Microsoft.Build.Ut
 F:\MyWorkspace\SmartEngineer\SmartEngineer.Service\obj\Debug\SmartEngineer.Service.csprojResolveAssemblyReference.cache
 F:\MyWorkspace\SmartEngineer\SmartEngineer.Service\obj\Debug\SmartEngineer.Service.dll
 F:\MyWorkspace\SmartEngineer\SmartEngineer.Service\obj\Debug\SmartEngineer.Service.pdb
+F:\MyWorkspace\SmartEngineer\SmartEngineer.Service\bin\CommonLibrariesForNET.xml
+F:\MyWorkspace\SmartEngineer\SmartEngineer.Service\bin\ForceToolkitForNET.xml
