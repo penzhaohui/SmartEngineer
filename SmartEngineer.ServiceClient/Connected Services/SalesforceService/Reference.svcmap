@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5ff01aeb-078a-46d6-9c03-9b10a2b1816d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:41200/SalesforceService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SalesforceService.disco" MetadataType="Disco" ID="5eae9358-2db5-406f-b39d-8cb498a5561a" SourceId="1" SourceUrl="http://localhost:41200/SalesforceService.svc?disco" />
+    <MetadataFile FileName="SalesforceService.xsd" MetadataType="Schema" ID="535161d1-77d7-4905-9ba2-f7edb6f260cb" SourceId="1" SourceUrl="http://localhost:41200/SalesforceService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SalesforceService.wsdl" MetadataType="Wsdl" ID="9511dae0-4491-4009-a110-4f886ed1fa96" SourceId="1" SourceUrl="http://localhost:41200/SalesforceService.svc?wsdl" />
+    <MetadataFile FileName="SalesforceService1.xsd" MetadataType="Schema" ID="81eeb9a0-b064-4f5e-af47-ef653ec04e08" SourceId="1" SourceUrl="http://localhost:41200/SalesforceService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SalesforceService2.xsd" MetadataType="Schema" ID="7dec24be-2e82-4677-b1d6-84cda632dfcb" SourceId="1" SourceUrl="http://localhost:41200/SalesforceService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SalesforceService3.xsd" MetadataType="Schema" ID="37790214-cb36-43a9-83cb-1d7446bcda4d" SourceId="1" SourceUrl="http://localhost:41200/SalesforceService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

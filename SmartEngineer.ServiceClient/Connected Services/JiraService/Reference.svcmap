@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a03a988a-5391-48c3-a188-777ed4509126" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:41200/JiraService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="JiraService.xsd" MetadataType="Schema" ID="758bea0c-e438-48cd-b8b7-e6578d39a095" SourceId="1" SourceUrl="http://localhost:41200/JiraService.svc?xsd=xsd1" />
+    <MetadataFile FileName="JiraService1.xsd" MetadataType="Schema" ID="c354ece3-f759-4650-abf0-49917c464c00" SourceId="1" SourceUrl="http://localhost:41200/JiraService.svc?xsd=xsd3" />
+    <MetadataFile FileName="JiraService2.xsd" MetadataType="Schema" ID="d7e21be8-a3fb-4ac5-b829-d0d835007d15" SourceId="1" SourceUrl="http://localhost:41200/JiraService.svc?xsd=xsd0" />
+    <MetadataFile FileName="JiraService3.xsd" MetadataType="Schema" ID="3d795713-d9cc-4c93-a7c4-87070a26fa3c" SourceId="1" SourceUrl="http://localhost:41200/JiraService.svc?xsd=xsd2" />
+    <MetadataFile FileName="JiraService.disco" MetadataType="Disco" ID="41a0b135-ae3e-4739-a1d3-61de20640cfc" SourceId="1" SourceUrl="http://localhost:41200/JiraService.svc?disco" />
+    <MetadataFile FileName="JiraService.wsdl" MetadataType="Wsdl" ID="d5609930-0de9-4a5d-9fb9-65529313a972" SourceId="1" SourceUrl="http://localhost:41200/JiraService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

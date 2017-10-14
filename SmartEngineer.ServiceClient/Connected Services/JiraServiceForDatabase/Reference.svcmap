@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8d05612c-5d34-402e-bd2c-ca30e270214d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:41200/JiraServiceForDatabase.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="JiraServiceForDatabase.xsd" MetadataType="Schema" ID="345f0f8f-9004-477b-9f9e-b893e7411179" SourceId="1" SourceUrl="http://localhost:41200/JiraServiceForDatabase.svc?xsd=xsd0" />
+    <MetadataFile FileName="JiraServiceForDatabase.disco" MetadataType="Disco" ID="b2e626e9-c70e-4266-b9b7-09f103f57b85" SourceId="1" SourceUrl="http://localhost:41200/JiraServiceForDatabase.svc?disco" />
+    <MetadataFile FileName="JiraServiceForDatabase.wsdl" MetadataType="Wsdl" ID="aafc8304-1f35-4751-814a-08655a67ecf5" SourceId="1" SourceUrl="http://localhost:41200/JiraServiceForDatabase.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

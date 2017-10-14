@@ -8,9 +8,87 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SmartEngineer.ServiceClient.Services {
+namespace SmartEngineer.ServiceClient.SettingService {
     using System.Runtime.Serialization;
-    using System;   
+    using System;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConfigOption", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    public partial class ConfigOption : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ConfigIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ConfigID {
+            get {
+                return this.ConfigIDField;
+            }
+            set {
+                if ((this.ConfigIDField.Equals(value) != true)) {
+                    this.ConfigIDField = value;
+                    this.RaisePropertyChanged("ConfigID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((this.NameField.Equals(value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SettingService.ISettingService")]
@@ -23,25 +101,25 @@ namespace SmartEngineer.ServiceClient.Services {
         System.Threading.Tasks.Task GetAllConfigsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISettingService/GetConfigOptions", ReplyAction="http://tempuri.org/ISettingService/GetConfigOptionsResponse")]
-        SmartEngineer.ServiceClient.Models.ConfigOption[] GetConfigOptions(string configName);
+        SmartEngineer.ServiceClient.SettingService.ConfigOption[] GetConfigOptions(string configName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISettingService/GetConfigOptions", ReplyAction="http://tempuri.org/ISettingService/GetConfigOptionsResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.Models.ConfigOption[]> GetConfigOptionsAsync(string configName);
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.SettingService.ConfigOption[]> GetConfigOptionsAsync(string configName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISettingService/UpdateConfigOptions")]
-        void UpdateConfigOptions(SmartEngineer.ServiceClient.Models.ConfigOption[] options);
+        void UpdateConfigOptions(SmartEngineer.ServiceClient.SettingService.ConfigOption[] options);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISettingService/UpdateConfigOptions")]
-        System.Threading.Tasks.Task UpdateConfigOptionsAsync(SmartEngineer.ServiceClient.Models.ConfigOption[] options);
+        System.Threading.Tasks.Task UpdateConfigOptionsAsync(SmartEngineer.ServiceClient.SettingService.ConfigOption[] options);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISettingServiceChannel : SmartEngineer.ServiceClient.Services.ISettingService, System.ServiceModel.IClientChannel {
+    public interface ISettingServiceChannel : SmartEngineer.ServiceClient.SettingService.ISettingService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SettingServiceClient : System.ServiceModel.ClientBase<SmartEngineer.ServiceClient.Services.ISettingService>, SmartEngineer.ServiceClient.Services.ISettingService {
+    public partial class SettingServiceClient : System.ServiceModel.ClientBase<SmartEngineer.ServiceClient.SettingService.ISettingService>, SmartEngineer.ServiceClient.SettingService.ISettingService {
         
         public SettingServiceClient() {
         }
@@ -70,19 +148,19 @@ namespace SmartEngineer.ServiceClient.Services {
             return base.Channel.GetAllConfigsAsync();
         }
         
-        public SmartEngineer.ServiceClient.Models.ConfigOption[] GetConfigOptions(string configName) {
+        public SmartEngineer.ServiceClient.SettingService.ConfigOption[] GetConfigOptions(string configName) {
             return base.Channel.GetConfigOptions(configName);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.Models.ConfigOption[]> GetConfigOptionsAsync(string configName) {
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.SettingService.ConfigOption[]> GetConfigOptionsAsync(string configName) {
             return base.Channel.GetConfigOptionsAsync(configName);
         }
         
-        public void UpdateConfigOptions(SmartEngineer.ServiceClient.Models.ConfigOption[] options) {
+        public void UpdateConfigOptions(SmartEngineer.ServiceClient.SettingService.ConfigOption[] options) {
             base.Channel.UpdateConfigOptions(options);
         }
         
-        public System.Threading.Tasks.Task UpdateConfigOptionsAsync(SmartEngineer.ServiceClient.Models.ConfigOption[] options) {
+        public System.Threading.Tasks.Task UpdateConfigOptionsAsync(SmartEngineer.ServiceClient.SettingService.ConfigOption[] options) {
             return base.Channel.UpdateConfigOptionsAsync(options);
         }
     }
