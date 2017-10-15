@@ -1,0 +1,1300 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SalesforceSharp</name>
+    </assembly>
+    <members>
+        <member name="T:SalesforceSharp.SalesforceClient">
+            <summary>
+            The central point to communicate with Salesforce REST API.
+            </summary>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SalesforceSharp.SalesforceClient"/> class.
+            </summary>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.#ctor(RestSharp.IRestClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SalesforceSharp.SalesforceClient"/> class.
+            </summary>
+            <param name="restClient">The rest client.</param>
+        </member>
+        <member name="P:SalesforceSharp.SalesforceClient.ApiVersion">
+            <summary>
+            Gets or sets the API version.
+            </summary>
+            <remarks>
+            The default value is v28.0.
+            </remarks>
+            <value>
+            The API version.
+            </value>
+        </member>
+        <member name="P:SalesforceSharp.SalesforceClient.IsAuthenticated">
+            <summary>
+            Gets a value indicating whether this instance is authenticated.
+            </summary>
+            <value>
+            <c>true</c> if this instance is authenticated; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:SalesforceSharp.SalesforceClient.InstanceUrl">
+            <summary>
+            Gets the instance URL.
+            </summary>
+            <value>
+            The instance URL.
+            </value>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.Authenticate(SalesforceSharp.Security.IAuthenticationFlow)">
+            <summary>
+            Authenticates the client.
+            </summary>
+            <param name="authenticationFlow">The authentication flow which will be used to authenticate on REST API.</param>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.Query``1(System.String,System.String)">
+            <summary>
+            Executes a SOQL query and returns the result.
+            </summary>
+            <param name="query">The SOQL query.</param>
+            <param name="altUrl">The url to use without the instance url</param>
+            <returns>The API result for the query.</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.QueryActionBatch``1(System.String,System.Action{System.Collections.Generic.IList{``0}},System.String)">
+            <summary>
+            Executes a SOQL query and returns the result.
+            </summary>
+            <param name="query">The SOQL query.</param>
+            <param name="action">Action to call after getting a non error response.</param>
+            <param name="altUrl">The url to use without the instance url</param>
+            <returns>The API result for the query.</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.FindById``1(System.String,System.String,System.String)">
+            <summary>
+            Finds a record by Id.
+            </summary>
+            <typeparam name="T">The record type.</typeparam>
+            <param name="objectName">The name of the object in Salesforce.</param>
+            <param name="recordId">The record id.</param>
+            <param name="altUrl">The url to use without the instance url</param>
+            <returns>The record with the specified id.</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.FindById``1(System.String,System.String)">
+            <summary>
+            Finds a record by Id.
+            </summary>
+            <typeparam name="T">The record type.</typeparam>
+            <param name="objectName">The name of the object in Salesforce.</param>
+            <param name="recordId">The record id.</param>
+            <returns>The record with the specified id.</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.ReadMetaData(System.String)">
+            <summary>
+            Obtains a JSON representation of fields an meta data for a given object type
+            </summary>
+            <param name="objectName">The name of the object in Salesforce.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.Create(System.String,System.Object,System.String)">
+            <summary>
+            Creates a record
+            </summary>
+            <param name="objectName">The name of the object in Salesforce.</param>
+            <param name="record">The record to be created.</param>
+            <param name="altUrl">The url to use without the instance url</param>
+            <returns>The Id of created record.</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.Create(System.String,System.Object)">
+            <summary>
+            Creates a record.
+            </summary>
+            <param name="objectName">The name of the object in Salesforce.</param>
+            <param name="record">The record to be created.</param>
+            <returns>The Id of created record.</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.Update(System.String,System.String,System.Object)">
+            <summary>
+            Updates a record.
+            </summary>
+            <param name="objectName">The name of the object in Salesforce.</param>
+            <param name="recordId">The record id.</param>
+            <param name="record">The record to be updated.</param>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.Update(System.String,System.String,System.Object,System.String)">
+            <summary>
+            Updates a record.
+            </summary>
+            <param name="objectName">The name of the object in Salesforce.</param>
+            <param name="recordId">The record id.</param>
+            <param name="record">The record to be updated.</param>
+            <param name="altUrl">The url to use without the instance url</param>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.Delete(System.String,System.String,System.String)">
+            <summary>
+            Deletes a record.
+            </summary>
+            <param name="objectName">The name of the object in Salesforce.</param>
+            <param name="recordId">The record id which will be deleted.</param>
+            <param name="altUrl">The url to use without the instance url</param>
+            <returns>True if was deleted, otherwise false.</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.Delete(System.String,System.String)">
+            <summary>
+            Deletes a record.
+            </summary>
+            <param name="objectName">The name of the object in Salesforce.</param>
+            <param name="recordId">The record id which will be deleted.</param>
+            <returns>True if was deleted, otherwise false.</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.GetSObjectDetail(System.String,System.String)">
+            <summary>
+            Get sObject Details.
+            </summary>
+            <param name="sobjectApiName">object Api Id</param>
+            <param name="altUrl">The url to use without the instance url</param>
+            <returns></returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.GetRawContent(System.String,System.String,System.String)">
+            <summary>
+            Returns the raw content of a GET request to the given object
+            </summary>
+            <param name="objectName">The object name</param>
+            <param name="recordId">The record id</param>
+            <param name="altUrl">The url to use without the instance url</param>
+            <returns>The returned content as a string</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.GetRawContent(System.String,System.String)">
+            <summary>
+            Returns the raw content of a GET request to the given object
+            </summary>
+            <param name="objectName">The object name</param>
+            <param name="recordId">The record id</param>
+            <returns>The returned content as a string</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.GetRawBytes(System.String,System.String,System.String)">
+            <summary>
+            Returns the raw byte array of a GET request to the given object
+            </summary>
+            <param name="objectName">The object name</param>
+            <param name="recordId">The record id</param>
+            <param name="altUrl">The url to use without the instance url</param>
+            <returns>The returned binary content as a byte array</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.GetRawBytes(System.String,System.String)">
+            <summary>
+            Returns the raw byte array of a GET request to the given object
+            </summary>
+            <param name="objectName">The object name</param>
+            <param name="recordId">The record id</param>
+            <returns>The returned binary content as a byte array</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.Request``1(System.String,System.String,System.Object,RestSharp.Method)">
+            <summary>
+            Perform the request against Salesforce's REST API.
+            </summary>
+            <typeparam name="T">The return type.</typeparam>
+            <param name="baseUrl">The base URL.</param>
+            <param name="objectName">The Name of the object.</param>
+            <param name="record">The record.</param>
+            <param name="method">The http method.</param>
+            <exception cref="T:System.InvalidOperationException">Please, execute Authenticate method before call any REST API operation.</exception>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.RequestRaw(System.String,System.String,System.Object,RestSharp.Method)">
+            <summary>
+            Perform the request against Salesforce's REST API.
+            </summary>
+            <param name="baseUrl">The base URL.</param>
+            <param name="objectName">The Name of the object.</param>
+            <param name="record">The record.</param>
+            <param name="method">The http method.</param>
+            <exception cref="T:System.InvalidOperationException">Please, execute Authenticate method before call any REST API operation.</exception>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.BuildRequest(System.String,System.String,System.Object,RestSharp.Method)">
+            <summary>
+            Builds a rest request
+            </summary>
+            <param name="baseUrl">The base URL.</param>
+            <param name="objectName">The Name of the object.</param>
+            <param name="record">The record.</param>
+            <param name="method">The http method.</param>
+            <returns>A rest request object</returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.CheckApiException(RestSharp.IRestResponse)">
+            <summary>
+            Checks if an API exception was throw in the response.
+            </summary>
+            <param name="response">The response.</param>
+            <exception cref="T:SalesforceSharp.SalesforceException">
+            </exception>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.GetRecordProjection(System.Type)">
+            <summary>
+            Gets the record projection fields.
+            </summary>
+            <param name="recordType">Type of the record.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.GetUrl(System.String)">
+            <summary>
+            Gets the URL.
+            </summary>
+            <param name="resourceName">Name of the resource.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceClient.GetAltUrl(System.String)">
+            <summary>
+            Gets URL of use with custom restful endpoint.
+            </summary>
+            <param name="url">URL of alternate service</param>
+            <returns></returns>
+        </member>
+        <member name="T:SalesforceSharp.SalesforceError">
+            <summary>
+            The Salesforce REST API's error.
+            http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_concepts_core_data_objects.htm
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.Unknown">
+            <summary>
+            Unknown error.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.InvalidClient">
+            <summary>
+            Invalid client.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.UnsupportedGrantType">
+            <summary>
+            Unsupported grant type
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.InvalidGrant">
+            <summary>
+            Invalid grant.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.AuthenticationFailure">
+            <summary>
+            Authentication failure.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.InvalidPassword">
+            <summary>
+            Invalid password.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.ClientIdentifierInvalid">
+            <summary>
+            Client identifier invalid.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.NotFound">
+            <summary>
+            The resource or record was not found.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.MalFormedQuery">
+            <summary>
+            An invalid query string was specified. For example, the query string was longer than 20,000 characters.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.FieldCustomValidationException">
+            <summary>
+            Some field validation has throw an exception.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.InvalidFieldForInsertUpdate">
+            <summary>
+            Some field used on update or insert was invalid.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.InvalidClientId">
+            <summary>
+            Client id used to authenticate is invalid.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.InvalidField">
+            <summary>
+            Invalid field.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.RequiredFieldMissing">
+            <summary>
+            Required field missing.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.StringTooLong">
+            <summary>
+            String is too long.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.EntityIsDeleted">
+            <summary>
+            You can't reference an object that has been deleted.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.MalFormedId">
+            <summary>
+            An ID must be either 15 characters, or 18 characters with a valid case-insensitive extension.
+            </summary>
+        </member>
+        <member name="F:SalesforceSharp.SalesforceError.InvalidQueryFilterOperator">
+            <summary>
+            An invalid operator was used in the query() filter clause, at least for that field.
+            </summary>
+        </member>
+        <member name="T:SalesforceSharp.SalesforceException">
+            <summary>
+            An exception generated by Salesforce REST API.
+            </summary>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceException.#ctor(SalesforceSharp.SalesforceError,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SalesforceSharp.SalesforceException"/> class.
+            </summary>
+            <param name="error">The error.</param>
+            <param name="description">The description.</param>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SalesforceSharp.SalesforceException"/> class.
+            </summary>
+            <param name="error">The error.</param>
+            <param name="description">The description.</param>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceException.#ctor(System.String,System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:SalesforceSharp.SalesforceException"/> class.
+            </summary>
+            <param name="error">The error.</param>
+            <param name="description">The description.</param>
+            <param name="fields">The fields.</param>
+        </member>
+        <member name="P:SalesforceSharp.SalesforceException.Error">
+            <summary>
+            Gets the error.
+            </summary>
+            <value>
+            The error.
+            </value>
+        </member>
+        <member name="P:SalesforceSharp.SalesforceException.Fields">
+            <summary>
+            Gets the fields.
+            </summary>
+            <value>
+            The fields.
+            </value>
+        </member>
+        <member name="M:SalesforceSharp.SalesforceException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+             <summary>
+             When overridden in a derived class, sets the <see cref="T:System.Runtime.Serialization.SerializationInfo" /> with information about the exception.
+             </summary>
+             <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+             <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+             <PermissionSet>
+               <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Read="*AllFiles*" PathDiscovery="*AllFiles*" />
+               <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="SerializationFormatter" />
+            </PermissionSet>        
+        </member>
+        <member name="M:SalesforceSharp.SalesforceException.ParseError(System.String)">
+            <summary>
+            Parses the error.
+            </summary>
+            <param name="error">The error.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SalesforceSharp.Security.AuthenticationInfo">
+            <summary>
+            The informations about the authentication.
+            </summary>
+        </member>
+        <member name="M:SalesforceSharp.Security.AuthenticationInfo.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SalesforceSharp.Security.AuthenticationInfo"/> class.
+            </summary>
+            <param name="accessToken">The access token.</param>
+            <param name="instanceUrl">The instance URL.</param>
+        </member>
+        <member name="P:SalesforceSharp.Security.AuthenticationInfo.AccessToken">
+            <summary>
+            Gets the access token that acts as a session ID that the application
+            uses for making requests. This token should be protected as
+            though it were user credentials.
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Security.AuthenticationInfo.InstanceUrl">
+            <summary>
+            Gets the identifies (URL) the Salesforce instance to which API calls should be sent.
+            </summary>
+        </member>
+        <member name="T:SalesforceSharp.Security.IAuthenticationFlow">
+             <summary>
+             Defines a OAuth 2.0 authentication flow.
+             <remarks>
+             Salesforce uses authentication to allow users to securely access data without having to reveal username and password credentials.
+            
+             Before making REST API calls, you must authenticate the user using OAuth 2.0. To do so, you’ll need to:
+                 • Set up a remote access application definition in Salesforce.
+                 • Determine the correct OAuth endpoint to use.
+                 • Authenticate the user via one of several different OAuth 2.0 authentication flows. An OAuth authentication flow defines
+                 a series of steps used to coordinate the authentication process between your application and Salesforce. Supported OAuth
+                 flows include:
+                     ◊ Web server flow, where the server can securely protect the consumer secret.
+                     ◊ User-agent flow, used by applications that cannot securely store the consumer secret.
+                     ◊ Username-password flow, where the application has direct access to user credentials.
+                     
+             After successfully authenticating the user, you’ll receive an access token which can be used to make authenticated REST API calls.
+             
+             More info at: 
+             Digging Deeper into OAuth 2.0 on Force.com: http://wiki.developerforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com
+             Force.com REST API Developer's Guide: docs/Force.com REST API Developer's Guide.pdf
+             </remarks>
+             </summary>
+        </member>
+        <member name="M:SalesforceSharp.Security.IAuthenticationFlow.Authenticate">
+            <summary>
+            Authenticate in the Salesforce REST's API.
+            </summary>
+            <remarks>
+            If authentiaction fails an SalesforceException will be throw.
+            </remarks>
+            <returns>The authentication info with access token and instance url for futher API calls.</returns>
+        </member>
+        <member name="T:SalesforceSharp.Security.UsernamePasswordAuthenticationFlow">
+            <summary>
+            The username-password authentication flow can be used to authenticate when the consumer already has the user’s credentials.
+            In this flow, the user’s credentials are used by the application to request an access token as shown in the following steps.
+            <remarks>
+            Warning: This OAuth authentication flow involves passing the user’s credentials back and forth. Use this
+            authentication flow only when necessary. No refresh token will be issued.
+            
+            You should only use the password access grant type in situations such as an AUTONOMOUS CLIENT, where a user cannot be present 
+            at application startup. In this instance, you should carefully set the API user's permissions to minimize its access as far as possible, 
+            and protect the API user's stored credentials from unauthorized access.
+            
+            More info at:
+            http://wiki.developerforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:SalesforceSharp.Security.UsernamePasswordAuthenticationFlow.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SalesforceSharp.Security.UsernamePasswordAuthenticationFlow"/> class.
+            </summary>
+            <param name="clientId">The client id.</param>
+            <param name="clientSecret">The client secret.</param>
+            <param name="username">The username.</param>
+            <param name="password">The password.</param>
+        </member>
+        <member name="M:SalesforceSharp.Security.UsernamePasswordAuthenticationFlow.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SalesforceSharp.Security.UsernamePasswordAuthenticationFlow"/> class.
+            </summary>
+            <param name="clientId">The client id.</param>
+            <param name="clientSecret">The client secret.</param>
+            <param name="username">The username.</param>
+            <param name="password">The password.</param>
+            <param name="tokenRequestEndpointUrl">The token request endpoint url.</param>
+        </member>
+        <member name="M:SalesforceSharp.Security.UsernamePasswordAuthenticationFlow.#ctor(RestSharp.IRestClient,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SalesforceSharp.Security.UsernamePasswordAuthenticationFlow"/> class.
+            </summary>
+            <param name="restClient">The REST client which will be used.</param>
+            <param name="clientId">The client id.</param>
+            <param name="clientSecret">The client secret.</param>
+            <param name="username">The username.</param>
+            <param name="password">The password.</param>
+            <param name="tokenRequestEndpointUrl">The token request endpoint url.</param>
+        </member>
+        <member name="P:SalesforceSharp.Security.UsernamePasswordAuthenticationFlow.TokenRequestEndpointUrl">
+            <summary>
+            Gets or sets the token request endpoint url.
+            </summary>
+            <remarks>
+            The default value is https://login.salesforce.com/services/oauth2/token.
+            For sandbox use "https://test.salesforce.com/services/oauth2/token.
+            </remarks>
+        </member>
+        <member name="M:SalesforceSharp.Security.UsernamePasswordAuthenticationFlow.Authenticate">
+            <summary>
+            Authenticate in the Salesforce REST's API.
+            </summary>
+            <returns>
+            The authentication info with access token and instance url for futher API calls.
+            </returns>
+            <remarks>
+            If authentiaction fails an SalesforceException will be throw.
+            </remarks>
+        </member>
+        <member name="T:SalesforceSharp.Serialization.DynamicJsonDeserializer">
+            <summary>
+            Json Deserializar using dynamic.
+            <remarks>
+            Original source code from http://www.csharpcity.com/2013/deserializing-to-dynamic-with-restsharp/.
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.DynamicJsonDeserializer.RootElement">
+            <summary>
+            Gets or sets the root element.
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.DynamicJsonDeserializer.Namespace">
+            <summary>
+            Gets or sets the namespace.
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.DynamicJsonDeserializer.DateFormat">
+            <summary>
+            Gets or sets the date format.
+            </summary>
+        </member>
+        <member name="M:SalesforceSharp.Serialization.DynamicJsonDeserializer.Deserialize``1(RestSharp.IRestResponse)">
+            <summary>
+            Deserializes the specified response.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="response">The response.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SalesforceSharp.Serialization.GenericJsonDeserializer">
+            <summary>
+            Json Deserializar using dynamic.
+            <remarks>
+            Original source code from http://www.csharpcity.com/2013/deserializing-to-dynamic-with-restsharp/.
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.GenericJsonDeserializer.RootElement">
+            <summary>
+            Gets or sets the root element.
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.GenericJsonDeserializer.Namespace">
+            <summary>
+            Gets or sets the namespace.
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.GenericJsonDeserializer.DateFormat">
+            <summary>
+            Gets or sets the date format.
+            </summary>
+        </member>
+        <member name="M:SalesforceSharp.Serialization.GenericJsonDeserializer.Deserialize``1(RestSharp.IRestResponse)">
+            <summary>
+            Deserializes the specified response.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="response">The response.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SalesforceSharp.Serialization.SalesforceQueryResult`1">
+            <summary>
+            Represents the format of a query result.
+            </summary>
+            <typeparam name="TRecord">The type of the record.</typeparam>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.SalesforceQueryResult`1.Records">
+            <summary>
+            Gets or sets the records.
+            </summary>
+            <value>
+            The records.
+            </value>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.SalesforceQueryResult`1.TotalSize">
+            <summary>
+            Total records found
+            </summary>
+            <value>
+            totalSize
+            </value>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.SalesforceQueryResult`1.Done">
+            <summary>
+            Got all Records from the query
+            </summary>
+            <value>
+            done
+            </value>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.SalesforceQueryResult`1.NextRecordsUrl">
+            <summary>
+            The Url to get the next/rest batch of records
+            </summary>
+            <value>
+            nextRecordsUrl
+            </value>
+        </member>
+        <member name="T:SalesforceSharp.Serialization.SalesforceAttribute">
+            <summary>
+            Use to manage how each fields are managed when communicate with Salesforce
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.SalesforceAttribute.Ignore">
+            <summary>
+            Exclude this field when pulling or updating to salesforce
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.SalesforceAttribute.IgnoreUpdate">
+            <summary>
+            Exclude this field when serializing data to update to salesforce
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Serialization.SalesforceAttribute.FieldName">
+            <summary>
+            FieldId in Salesforce for this property.  If none, then it will use the property name.
+            </summary>
+        </member>
+        <member name="T:SalesforceSharp.Serialization.SalesforceContractResolver">
+            <summary>
+            Only pulling properties that doesn't ignore with salesforce attribute.
+            </summary>
+        </member>
+        <member name="M:SalesforceSharp.Serialization.SalesforceContractResolver.#ctor(System.Boolean)">
+            <summary>
+            This Resolver will extract the correct salesforce FieldName/ApiName
+            </summary>
+            <param name="updateResolver"></param>
+        </member>
+        <member name="M:SalesforceSharp.Serialization.SalesforceContractResolver.CreateProperties(System.Type,Newtonsoft.Json.MemberSerialization)">
+            <summary>
+            Create a list of JsonProperties of the members in the type.
+            </summary>
+            <param name="type"></param>
+            <param name="memberSerialization"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SalesforceSharp.Serialization.SalesforceContractResolver.CreateProperty(System.Reflection.MemberInfo,Newtonsoft.Json.MemberSerialization)">
+            <summary>
+            Creates a <see cref="T:Newtonsoft.Json.Serialization.JsonProperty"/> for the given <see cref="T:System.Reflection.MemberInfo"/>.
+            </summary>
+            <param name="memberSerialization">The member's parent <see cref="T:Newtonsoft.Json.MemberSerialization"/>.</param><param name="member">The member to create a <see cref="T:Newtonsoft.Json.Serialization.JsonProperty"/> for.</param>
+            <returns>
+            A created <see cref="T:Newtonsoft.Json.Serialization.JsonProperty"/> for the given <see cref="T:System.Reflection.MemberInfo"/>.
+            </returns>
+        </member>
+        <member name="T:SalesforceSharp.Models.SalesforceChildRelationship">
+            <summary>
+            Represents a child relationship on Salesforce.
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceChildRelationship.Field">
+            <summary>
+            Gets or sets the field.
+            </summary>
+            <value>The field.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceChildRelationship.DeprecatedAndHidden">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceChildRelationship"/>
+            deprecated and hidden.
+            </summary>
+            <value><c>true</c> if deprecated and hidden; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceChildRelationship.RelationshipName">
+            <summary>
+            Gets or sets the name of the relationship.
+            </summary>
+            <value>The name of the relationship.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceChildRelationship.CascadeDelete">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceChildRelationship"/>
+            cascade delete.
+            </summary>
+            <value><c>true</c> if cascade delete; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceChildRelationship.RestrictedDelete">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceChildRelationship"/>
+            restricted delete.
+            </summary>
+            <value><c>true</c> if restricted delete; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceChildRelationship.ChildSObject">
+            <summary>
+            Gets or sets the child S object.
+            </summary>
+            <value>The child S object.</value>
+        </member>
+        <member name="T:SalesforceSharp.Models.SalesforceField">
+             <summary>
+             Represents a field on Salesforce.
+             </summary>
+            
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Length">
+            <summary>
+            Gets or sets the length.
+            </summary>
+            <value>The length.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.DefaultValue">
+            <summary>
+            Gets or sets the default value.
+            </summary>
+            <value>The default value.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.InlineHelpText">
+            <summary>
+            Gets or sets the inline help text.
+            </summary>
+            <value>The inline help text.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.WriteRequiresMasterRead">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> write requires
+            master read.
+            </summary>
+            <value><c>true</c> if write requires master read; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Precision">
+            <summary>
+            Gets or sets the precision.
+            </summary>
+            <value>The precision.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Unique">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> is unique.
+            </summary>
+            <value><c>true</c> if unique; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.ControllerName">
+            <summary>
+            Gets or sets the name of the controller.
+            </summary>
+            <value>The name of the controller.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.DeprecatedAndHidden">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> deprecated and hidden.
+            </summary>
+            <value><c>true</c> if deprecated and hidden; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Createable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> is createable.
+            </summary>
+            <value><c>true</c> if createable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Updateable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> is updateable.
+            </summary>
+            <value><c>true</c> if updateable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.ExternalId">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> external identifier.
+            </summary>
+            <value><c>true</c> if external identifier; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.IdLookup">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> identifier lookup.
+            </summary>
+            <value><c>true</c> if identifier lookup; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.NameField">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> name field.
+            </summary>
+            <value><c>true</c> if name field; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Sortable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> is sortable.
+            </summary>
+            <value><c>true</c> if sortable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Filterable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> is filterable.
+            </summary>
+            <value><c>true</c> if filterable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.RestrictedPicklist">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> restricted picklist.
+            </summary>
+            <value><c>true</c> if restricted picklist; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.CaseSensitive">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> case sensitive.
+            </summary>
+            <value><c>true</c> if case sensitive; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.RelationshipName">
+            <summary>
+            Gets or sets the name of the relationship.
+            </summary>
+            <value>The name of the relationship.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.ByteLength">
+            <summary>
+            Gets or sets the length of the byte.
+            </summary>
+            <value>The length of the byte.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>The label.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Calculated">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> is calculated.
+            </summary>
+            <value><c>true</c> if calculated; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Scale">
+            <summary>
+            Gets or sets the scale.
+            </summary>
+            <value>The scale.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.PicklistValues">
+            <summary>
+            Gets or sets the picklist values.
+            </summary>
+            <value>The picklist values.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.AutoNumber">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> auto number.
+            </summary>
+            <value><c>true</c> if auto number; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Nillable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> is nillable.
+            </summary>
+            <value><c>true</c> if nillable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.DisplayLocationInDecimal">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> display location
+            in decimal.
+            </summary>
+            <value><c>true</c> if display location in decimal; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.CascadeDelete">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> cascade delete.
+            </summary>
+            <value><c>true</c> if cascade delete; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.RestrictedDelete">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> restricted delete.
+            </summary>
+            <value><c>true</c> if restricted delete; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.CalculatedFormula">
+            <summary>
+            Gets or sets the calculated formula.
+            </summary>
+            <value>The calculated formula.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.DefaultValueFormula">
+            <summary>
+            Gets or sets the default value formula.
+            </summary>
+            <value>The default value formula.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.DefaultedOnCreate">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> defaulted on create.
+            </summary>
+            <value><c>true</c> if defaulted on create; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Digits">
+            <summary>
+            Gets or sets the digits.
+            </summary>
+            <value>The digits.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Groupable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> is groupable.
+            </summary>
+            <value><c>true</c> if groupable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Permissionable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> is permissionable.
+            </summary>
+            <value><c>true</c> if permissionable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.ReferenceTo">
+            <summary>
+            Gets or sets the reference to.
+            </summary>
+            <value>The reference to.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.RelationshipOrder">
+            <summary>
+            Gets or sets the relationship order.
+            </summary>
+            <value>The relationship order.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.SoapType">
+            <summary>
+            Gets or sets the type of the SOAP.
+            </summary>
+            <value>The type of the SOAP.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.DependentPicklist">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> dependent picklist.
+            </summary>
+            <value><c>true</c> if dependent picklist; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.NamePointing">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> name pointing.
+            </summary>
+            <value><c>true</c> if name pointing; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.Custom">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> is custom.
+            </summary>
+            <value><c>true</c> if custom; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceField.HtmlFormatted">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceField"/> html formatted.
+            </summary>
+            <value><c>true</c> if html formatted; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:SalesforceSharp.Models.SalesforceObject">
+            <summary>
+            Represents an Object on Salesforce.
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Fields">
+            <summary>
+            Gets or sets the fields.
+            </summary>
+            <value>The fields.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.CustomSetting">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> custom setting.
+            </summary>
+            <value><c>true</c> if custom setting; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Undeletable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is undeletable.
+            </summary>
+            <value><c>true</c> if undeletable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Mergeable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is mergeable.
+            </summary>
+            <value><c>true</c> if mergeable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Replicateable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is replicateable.
+            </summary>
+            <value><c>true</c> if replicateable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Triggerable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is triggerable.
+            </summary>
+            <value><c>true</c> if triggerable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.FeedEnabled">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> feed enabled.
+            </summary>
+            <value><c>true</c> if feed enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Retrieveable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is retrieveable.
+            </summary>
+            <value><c>true</c> if retrieveable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.SearchLayoutable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> search layoutable.
+            </summary>
+            <value><c>true</c> if search layoutable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.LookupLayoutable">
+            <summary>
+            Gets or sets the lookup layoutable.
+            </summary>
+            <value>The lookup layoutable.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.ListViewable">
+            <summary>
+            Gets or sets the listviewable.
+            </summary>
+            <value>The listviewable.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.DeprecatedAndHidden">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> deprecated and hidden.
+            </summary>
+            <value><c>true</c> if deprecated and hidden; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.RecordTypeInfos">
+            <summary>
+            Gets or sets the record type infos.
+            </summary>
+            <value>The record type infos.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Createable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is createable.
+            </summary>
+            <value><c>true</c> if createable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Deletable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is deletable.
+            </summary>
+            <value><c>true</c> if deletable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Updateable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is updateable.
+            </summary>
+            <value><c>true</c> if updateable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Queryable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is queryable.
+            </summary>
+            <value><c>true</c> if queryable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Layoutable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is layoutable.
+            </summary>
+            <value><c>true</c> if layoutable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Activateable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is activateable.
+            </summary>
+            <value><c>true</c> if activateable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.LabelPlural">
+            <summary>
+            Gets or sets the label plural.
+            </summary>
+            <value>The label plural.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.KeyPrefix">
+            <summary>
+            Gets or sets the key prefix.
+            </summary>
+            <value>The key prefix.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Custom">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is custom.
+            </summary>
+            <value><c>true</c> if custom; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.CompactLayoutable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> compact layoutable.
+            </summary>
+            <value><c>true</c> if compact layoutable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Searchable">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceObject"/> is searchable.
+            </summary>
+            <value><c>true</c> if searchable; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>The label.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.ChildRelationships">
+            <summary>
+            Gets or sets the child relationships.
+            </summary>
+            <value>The child relationships.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObject.Urls">
+            <summary>
+            Gets or sets the urls.
+            </summary>
+            <value>The urls.</value>
+        </member>
+        <member name="T:SalesforceSharp.Models.SalesforceObjectUrls">
+            <summary>
+            Represents an ObjectUrls on Salesforce.
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObjectUrls.UiEditTemplate">
+            <summary>
+            Gets or sets the user interface edit template.
+            </summary>
+            <value>The user interface edit template.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObjectUrls.Sobject">
+            <summary>
+            Gets or sets the sobject.
+            </summary>
+            <value>The sobject.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObjectUrls.QuickActions">
+            <summary>
+            Gets or sets the quick actions.
+            </summary>
+            <value>The quick actions.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObjectUrls.UiDetailTemplate">
+            <summary>
+            Gets or sets the user interface detail template.
+            </summary>
+            <value>The user interface detail template.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObjectUrls.Describe">
+            <summary>
+            Gets or sets the describe.
+            </summary>
+            <value>The describe.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObjectUrls.RowTemplate">
+            <summary>
+            Gets or sets the row template.
+            </summary>
+            <value>The row template.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObjectUrls.Layouts">
+            <summary>
+            Gets or sets the layouts.
+            </summary>
+            <value>The layouts.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObjectUrls.CompactLayouts">
+            <summary>
+            Gets or sets the compact layouts.
+            </summary>
+            <value>The compact layouts.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceObjectUrls.UiNewRecord">
+            <summary>
+            Gets or sets the user interface new record.
+            </summary>
+            <value>The user interface new record.</value>
+        </member>
+        <member name="T:SalesforceSharp.Models.SalesforcePickList">
+            <summary>
+            Represents a picklist on Salesforce.
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforcePickList.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforcePickList.Active">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforcePickList"/> is active.
+            </summary>
+            <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforcePickList.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>The label.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforcePickList.DefaultValue">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforcePickList"/> default value.
+            </summary>
+            <value><c>true</c> if default value; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:SalesforceSharp.Models.SalesforceRecordTypeInfo">
+            <summary>
+            Represents a RecordTypeInfo on Salesforce.
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceRecordTypeInfo.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceRecordTypeInfo.RecordTypeId">
+            <summary>
+            Gets or sets the record type identifier.
+            </summary>
+            <value>The record type identifier.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceRecordTypeInfo.Available">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceRecordTypeInfo"/> is available.
+            </summary>
+            <value><c>true</c> if available; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceRecordTypeInfo.Urls">
+            <summary>
+            Gets or sets the urls.
+            </summary>
+            <value>The urls.</value>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceRecordTypeInfo.DefaultRecordTypeMapping">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SalesforceSharp.Models.SalesforceRecordTypeInfo"/> default
+            record type mapping.
+            </summary>
+            <value><c>true</c> if default record type mapping; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:SalesforceSharp.Models.SalesforceRecordTypeInfoLayoutUrl">
+            <summary>
+            Represents a RecordTypeInfoLayoutUrl.
+            </summary>
+        </member>
+        <member name="P:SalesforceSharp.Models.SalesforceRecordTypeInfoLayoutUrl.Layout">
+            <summary>
+            Gets or sets the layout.
+            </summary>
+            <value>The layout.</value>
+        </member>
+    </members>
+</doc>

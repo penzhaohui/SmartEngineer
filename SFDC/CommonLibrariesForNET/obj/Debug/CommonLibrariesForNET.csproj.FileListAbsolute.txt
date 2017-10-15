@@ -19,6 +19,9 @@ F:\MyWorkspace\SmartWorkCenter\CommonLibrariesForNET\obj\Debug\CommonLibrariesFo
 F:\MyWorkspace\SmartEngineer\SFDC\DailyCaseHelper\dlls\CommonLibrariesForNET.dll.config
 F:\MyWorkspace\SmartEngineer\SFDC\DailyCaseHelper\dlls\CommonLibrariesForNET.dll
 F:\MyWorkspace\SmartEngineer\SFDC\DailyCaseHelper\dlls\CommonLibrariesForNET.pdb
-F:\MyWorkspace\SmartEngineer\SFDC\CommonLibrariesForNET\obj\Debug\CommonLibrariesForNET.csprojResolveAssemblyReference.cache
 F:\MyWorkspace\SmartEngineer\SFDC\CommonLibrariesForNET\obj\Debug\CommonLibrariesForNET.dll
 F:\MyWorkspace\SmartEngineer\SFDC\CommonLibrariesForNET\obj\Debug\CommonLibrariesForNET.pdb
+F:\MyWorkspace\SmartEngineer\SmartEngineer.Service\DLLs\CommonLibrariesForNET.xml
+F:\MyWorkspace\SmartEngineer\SmartEngineer.Service\DLLs\CommonLibrariesForNET.dll.config
+F:\MyWorkspace\SmartEngineer\SmartEngineer.Service\DLLs\CommonLibrariesForNET.dll
+F:\MyWorkspace\SmartEngineer\SmartEngineer.Service\DLLs\CommonLibrariesForNET.pdb
