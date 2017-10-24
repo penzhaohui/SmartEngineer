@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaseInfo" nillable="true" type="tns:CaseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaseInfo" nillable="true" type="tns:ArrayOfCaseInfo" />
+  <xs:complexType name="CaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgencyHosted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BZID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Blocked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CaseID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseOwner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreaedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CurrentOnMaintenance" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentVersion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevLOEEConfidence" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EngineeringAssignment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EngineeringComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EngineeringStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GoLiveCritical" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="InternalSeverity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InternalType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssueCategory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssueType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JiraIssueURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastModifiedDateTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Orgin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentCase" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatchNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RankOrder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReleaseInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReleaseNoteContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SensitiveClient" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ServicesRank" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Solution" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetedRelease" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaseInfo" nillable="true" type="tns:CaseInfo" />
+</xs:schema>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp.Deserializers;
+using System;
 using System.Collections.Generic;
 
 namespace TechTalk.JiraRestClient
@@ -7,42 +9,100 @@ namespace TechTalk.JiraRestClient
     {
         public IssueFields()
         {
-            status = new Status();
-            timetracking = new Timetracking();
+            Status = new Status();
+            TimeTracking = new Timetracking();
 
-            labels = new List<String>();
+            Labels = new List<String>();
             comments = new List<Comment>();
             issuelinks = new List<IssueLink>();
             attachment = new List<Attachment>();
             watchers = new List<JiraUser>();
 
-            customfield_11502 = new List<IssueCategory>(); 
-            customfield_10907 = new List<string>();
+            Product = new List<IssueProduct>();
+            IssueCategory = new List<IssueCategory>();
+            BuildVersion = new List<string>();
         }
 
-        /// <summary>
-        /// Issue Type
-        /// </summary>
-        public IssueType issueType { get; set; }
+        #region Jira Basic Information
 
         /// <summary>
-        /// Case Subject
+        /// Jira Issue Subject
         /// </summary>
-        public String summary { get; set; }
+        public String Summary { get; set; }
+        /// <summary>
+        /// Jira Issue Type
+        /// </summary>
+        public IssueType IssueType { get; set; }
+        /// <summary>
+        /// Jira Status
+        /// </summary>
+        public Status Status { get; set; }
+        /// <summary>
+        /// Low - https://accelaeng.atlassian.net/rest/api/2/priority/8
+        /// High - https://accelaeng.atlassian.net/rest/api/2/priority/7
+        /// Medium - https://accelaeng.atlassian.net/rest/api/2/priority/6
+        /// Trivial - https://accelaeng.atlassian.net/rest/api/2/priority/5
+        /// Minor - https://accelaeng.atlassian.net/rest/api/2/priority/4
+        /// Major - https://accelaeng.atlassian.net/rest/api/2/priority/3
+        /// Critical - https://accelaeng.atlassian.net/rest/api/2/priority/2
+        /// Blocker - https://accelaeng.atlassian.net/rest/api/2/priority/1
+        /// </summary>
+        public IssuePriority Priority { get; set; }
+        /// <summary>
+        /// Jira Labels
+        /// </summary>
+        public List<String> Labels { get; set; }        
         /// <summary>
         /// Case Description
         /// </summary>
-        public String description { get; set; }
+        public String Description { get; set; }
+
+        /// <summary>
+        /// Fix Versions
+        /// </summary>
+        public List<IssueFixVersion> FixVersions { get; set; }
+
+        /// <summary>
+        /// Reporter
+        /// </summary>
+        public JiraUser Reporter { get; set; }
+
+        /// <summary>
+        /// Assignee
+        /// </summary>
+        public JiraUser Assignee { get; set; }
+
+        /// <summary>
+        /// Assigned QA
+        /// </summary>
+        [DeserializeAs(Name = "customfield_11702")]
+        public JiraUser AssignedQA { get; set; }
+
+        #endregion
+
+        #region Jira Table Information
+
         /// <summary>
         /// Case Number
         /// </summary>
-        public String customfield_10600 { get; set; }
+        [DeserializeAs(Name = "customfield_10600")]
+        public String CaseNumber { get; set; }
+
         /// <summary>
         /// Build Version
         /// </summary>
-        public List<String> customfield_10907 { get; set; }
-        public String customfield_10021 { get; set; }
-        public String customfield_10001 { get; set; }
+        [DeserializeAs(Name = "customfield_10907")]
+        public List<String> BuildVersion { get; set; }
+
+        /// <summary>
+        /// Severity
+        /// 
+        /// Critical - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10413
+        /// Major - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10414
+        /// Medium - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10415
+        /// Low - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10416
+        /// </summary>
+        public IssueSeverity Severity { get; set; }
         
         /// <summary>
         /// JIRA-Product
@@ -69,87 +129,71 @@ namespace TechTalk.JiraRestClient
         /// Accela Ad Hoc - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11400
         /// 
         /// </summary>
-        public String customfield_11501 { get; set; }
+        [DeserializeAs(Name = "customfield_11501")]
+        public List<IssueProduct> Product { get; set; }
+
         /// <summary>
         /// Issue Category
         /// </summary>
-        public List<IssueCategory> customfield_11502 { get; set; }
-        /// <summary>
-        /// SF-Customer
-        /// </summary>
-        public String customfield_10900 { get; set; }
-        /// <summary>
-        /// SF-Current Version
-        /// </summary>
-        public String customfield_10901 { get; set; }
-        /// <summary>
-        /// SF-Open
-        /// </summary>
-        public String customfield_10902 { get; set; }
-        /// <summary>
-        /// SF-Last Modified
-        /// </summary>
-        public String customfield_10903 { get; set; }
-        /// <summary>
-        /// SF-Product
-        /// </summary>
-        public String customfield_10904 { get; set; }
-        /// <summary>
-        /// SF-Reopen Count
-        /// </summary>
-        public int customfield_12400 { get; set; }
-        /// <summary>
-        /// SF-Targeted Release
-        /// </summary>
-        public String customfield_12300 { get; set; }
+        [DeserializeAs(Name = "customfield_11502")]
+        public List<IssueCategory> IssueCategory { get; set; }
 
         /// <summary>
         /// Estimated Effort
         /// </summary>
-        public int customfield_11506 { get; set; }
+        [DeserializeAs(Name = "customfield_11506")]
+        public int EstimatedEffort { get; set; }
 
         /// <summary>
-        /// Sub Tasks
+        /// SF Comment Count
         /// </summary>
-        public List<SubTask> subtasks { get; set; } 
- 
-        /// <summary>
-        /// Parent Tasks
-        /// </summary>
-        public SubTask parent { get; set; }     
+        [DeserializeAs(Name = "customfield_12400")]
+        public int SFCommentCount { get; set; }
 
         /// <summary>
         /// SF-Priority
-        /// 
-        /// Critical - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10200
-        /// High - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10201
-        /// Medium - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10202
-        /// Low - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10203
         /// </summary>
-        public String customfield_10905 { get; set; }
+        [DeserializeAs(Name = "customfield_12801")]
+        public string SFPriority { get; set; }
+
+        /// <summary>
+        /// SF-Customer
+        /// </summary>
+        [DeserializeAs(Name = "customfield_10900")]
+        public String SFCustomer { get; set; }
+
+        #endregion
+
+        #region Salesforce Table Information
+        /// <summary>
+        /// SF-Current Version
+        /// </summary>
+        [DeserializeAs(Name = "customfield_10901")]
+        public String SFCurrentVersion { get; set; }
+
+        /// <summary>
+        /// SF-Product
+        /// </summary>
+        [DeserializeAs(Name = "customfield_10904")]
+        public String SFProduct { get; set; }
+
         /// <summary>
         /// SF-Salesforce Link
         /// </summary>
-        public String customfield_10906 { get; set; }
-        /// <summary>
-        /// Severity
-        /// 
-        /// Critical - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10413
-        /// Major - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10414
-        /// Medium - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10415
-        /// Low - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10416
-        /// </summary>
-        public IssueSeverity customfield_11106 { get; set; }
+        [DeserializeAs(Name = "customfield_10906")]
+        public String SFSalesforceLink { get; set; }
 
         /// <summary>
-        /// SF-Priority
+        /// SF-Date/Time Opened
         /// </summary>
-        public string customfield_12801 { get; set; }
+        [DeserializeAs(Name = "customfield_10902")]
+        public DateTime SFOpenedDateTime { get; set; }
 
         /// <summary>
-        /// Assigned QA
+        /// SF-Last Modified
         /// </summary>
-        public JiraUser customfield_11702 { get; set; }
+        [DeserializeAs(Name = "customfield_10903")]
+        public DateTime SFLastModifiedDate { get; set; }
 
         /// <summary>
         /// SF-Origin
@@ -168,32 +212,36 @@ namespace TechTalk.JiraRestClient
         /// Customer Support - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11412
         /// Success Community - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11413
         /// </summary>
-        public String customfield_11900 { get; set; }
+        [DeserializeAs(Name = "customfield_11900")]
+        public IssueOrigin SFOrigin { get; set; }
 
         /// <summary>
-        /// Low - https://accelaeng.atlassian.net/rest/api/2/priority/8
-        /// High - https://accelaeng.atlassian.net/rest/api/2/priority/7
-        /// Medium - https://accelaeng.atlassian.net/rest/api/2/priority/6
-        /// Trivial - https://accelaeng.atlassian.net/rest/api/2/priority/5
-        /// Minor - https://accelaeng.atlassian.net/rest/api/2/priority/4
-        /// Major - https://accelaeng.atlassian.net/rest/api/2/priority/3
-        /// Critical - https://accelaeng.atlassian.net/rest/api/2/priority/2
-        /// Blocker - https://accelaeng.atlassian.net/rest/api/2/priority/1
+        /// SF-Targeted Release
         /// </summary>
-        public IssuePriority Priority { get; set; }
+        [DeserializeAs(Name = "customfield_12300")]
+        public String SFTargetedRelease { get; set; }
 
-        public Timetracking timetracking { get; set; }
-        public Status status { get; set; }
-        public DateTime updated { get; set; }
+        #endregion
+  
+        /// <summary>
+        /// Sub Tasks
+        /// </summary>
+        public List<SubTask> SubTasks { get; set; } 
+ 
+        /// <summary>
+        /// Parent Tasks
+        /// </summary>
+        public SubTask ParentTask { get; set; }
 
-        public JiraUser reporter { get; set; }
-        public JiraUser assignee { get; set; }
+        public Timetracking TimeTracking { get; set; }
+        
+        public DateTime Updated { get; set; }
+        
         public List<JiraUser> watchers { get; set; }
 
-        public List<String> labels { get; set; }
         public List<Comment> comments { get; set; }
         public List<IssueLink> issuelinks { get; set; }
         public List<Attachment> attachment { get; set; }
-        public List<IssueFixVersion> fixVersions { get; set; }
+        
     }
 }

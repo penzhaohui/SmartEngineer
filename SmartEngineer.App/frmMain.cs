@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Microsoft.VisualBasic;
 using SmartEngineer.Notification;
-using Microsoft.VisualBasic;
+using System;
+using System.Windows.Forms;
 
 namespace SmartEngineer.Forms
 {
@@ -114,13 +107,13 @@ namespace SmartEngineer.Forms
         {
             if (!Application.AllowQuit) return; //程序不允许退出
 
-            if (!SystemMessageBox.Confirm("真的要登出吗?")) return;
+            if (!SystemMessageBox.Confirm("Are you sure logout??")) return;
 
             try
             {
                 if (this.ExistsDataChanged())
                 {
-                    SystemMessageBox.ShowWarning("系统检测到有数据窗体没有保存，不能登出!");
+                    SystemMessageBox.ShowWarning("Cannot logout due to some unsaved windows!");
                     return;
                 }
 

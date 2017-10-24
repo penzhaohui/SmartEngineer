@@ -12,6 +12,7 @@ namespace SmartEngineer.Service
     public class SalesforceService : ISalesforceService
     {
         private static readonly ISalesforceAdapter salesforceAdapter = new SalesforceAdapter();
+        private static readonly ISalesforceAdapterV2 salesforceAdapterV2 = new SalesforceAdapterV2();
         private static readonly IJiraAdapter jiraAdapter = new JiraAdapter();
 
         public int GetCaseCommentCount(DateTime from, DateTime to)
@@ -23,17 +24,15 @@ namespace SmartEngineer.Service
         {
             List<CaseInfo> caseList = new List<CaseInfo>();
 
-            // Jira Account comes from session context
-            string jiraAccount = "";
-            string jiraPassword = "";
-
-            List<AccelaCase> engineerCases = new List<AccelaCase>();
-            salesforceAdapter.QueryCasesByCaseNos(caseNOs);
+            IList<AccelaCase> engineerCases = salesforceAdapterV2.QueryCasesByCaseNos(caseNOs);
 
             if (engineerCases.Count != 0)
             {
-                foreach (AccelaCase caseInfo in engineerCases)
+                foreach (AccelaCase engineerCase in engineerCases)
                 {
+                    CaseInfo caseInfo = new CaseInfo();
+                    caseInfo.Initialize(engineerCase);
+                    caseList.Add(caseInfo);
                 }
             }
 
@@ -69,7 +68,7 @@ namespace SmartEngineer.Service
             return commentedCaseList;
         }
 
-        public List<CaseInfo> GetNewCasesList()
+        public List<string> GetNewCasesList()
         {
             // 1. Pull case data from Salesforce
             // 2. Check if it is stored locally
@@ -77,23 +76,19 @@ namespace SmartEngineer.Service
             //    2.2 No, store it locally and return case info
             // 3. Return the new engineer case list
 
-            List<CaseInfo> newCaseList = new List<CaseInfo>();
+            List<string> newCaseList = new List<string>();
 
-            // Jira Account comes from session context
-            string jiraAccount = "";
-            string jiraPassword = "";
-
-            List<AccelaCase> engineerCases = new List<AccelaCase>();
-            salesforceAdapter.QueryCasesByEngineerQueue("Engineer");
+            IList<AccelaCase> engineerCases = salesforceAdapterV2.QueryCasesByEngineerQueue("Engineer");
 
             if (engineerCases.Count != 0)
             {
+                List<string> caseNos = new List<string>();
                 foreach(AccelaCase caseInfo in engineerCases)
                 {
-                    if (!salesforceAdapter.IsExistsLocalCase(caseInfo.CaseNumber))
-                    {
-                    }
+                    caseNos.Add(caseInfo.CaseNumber);
                 }
+
+                newCaseList = salesforceAdapterV2.GetUnstoredLocalCases(caseNos);
             }
 
             return newCaseList;

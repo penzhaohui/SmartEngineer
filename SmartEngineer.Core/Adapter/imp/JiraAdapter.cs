@@ -2,13 +2,14 @@
 using SmartEngineer.Core.DAOs;
 using SmartEngineer.Core.Models;
 using SmartEngineer.Framework.Logger;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TechTalk.JiraRestClient;
 
 namespace SmartEngineer.Core.Adapter
 {
-    public class JiraAdapter : IJiraAdapter
+    public partial class JiraAdapter : IJiraAdapter
     {
         /// <summary>
         /// Logger object.
@@ -43,6 +44,36 @@ namespace SmartEngineer.Core.Adapter
             }
 
             return account;
+        }
+
+        public List<Issue> GetIssueList(List<string> caseNos, string jiraAccount, string jiraPassword)
+        {
+            IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
+
+            string sql = String.Empty;
+
+            foreach (string caseNo in caseNos)
+            {
+                if (String.IsNullOrEmpty(sql))
+                {
+                    sql = " \"SalesForce ID\" ~  " + caseNo;
+                }
+                else
+                {
+                    sql += " OR \"SalesForce ID\" ~  " + caseNo;
+                }
+            }
+
+            sql = "(" + sql + ")";
+
+            List<Issue> issueList = new List<Issue>();
+            var issues = jira.GetIssuesByQuery("ENGSUPP", "", sql);
+            foreach (Issue issue in issues)
+            {
+                issueList.Add(issue);
+            }
+
+            return issueList;
         }
 
         public async Task<Issue> CreateIssue(string project, string issueType, IssueFields fields, string jiraAccount, string jiraPassword)
@@ -155,6 +186,6 @@ namespace SmartEngineer.Core.Adapter
             }
 
             return true;
-        }
+        }    
     }
 }

@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SmartSqlMap Scope="CaseInfo"  xmlns="http://SmartSql.net/schemas/SmartSqlMap.xsd">
+  <Caches>
+    <Cache Id="Account.RedisCache" Type="SmartSql.Cache.Redis.RedisCacheProvider,SmartSql.Cache.Redis">
+      <Parameter Key="CacheSize" Value="1000"/>
+      <Parameter Key="ConnectionString" Value="192.168.31.103"/>
+      <Parameter Key="DatabaseId" Value="0"/>
+      <FlushInterval Hours="24" Minutes="0" Seconds="0"/>
+      <FlushOnExecute Statement="SFCase.Insert"/>
+      <FlushOnExecute Statement="SFCase.Update"/>
+    </Cache>
+  </Caches>
+  <Statements>
+    <Statement Id="QueryParams">
+      <Dynamic Prepend="Where">
+        <IsNotEmpty Property="UserName" Prepend="And">
+          A.UserName = @UserName
+        </IsNotEmpty>
+      </Dynamic>      
+    </Statement>
+    
+    <!--新增-->
+    <Statement Id="Insert">
+      INSERT INTO SFCase
+      (ID
+      ,CaseType
+      ,CaseID
+      ,CaseNumber
+      ,CreaedBy
+      ,CreatedDate
+      ,CaseOwner
+      ,LastCommentAddedBy
+      ,LastModifiedBy
+      ,LastModifiedDateTime
+      ,Origin
+      ,CurrentOnMaintenance
+      ,JiraIssueURL
+      ,AccountName
+      ,CustomerName
+      ,AgencyHosted
+      ,SensitiveClient
+      ,ContactName
+      ,ContactEmail
+      ,ContactPhone
+      ,Priority
+      ,IssueType
+      ,Status
+      ,ParentCase
+      ,Product
+      ,ReleaseInfo
+      ,Solution
+      ,CurrentVersion
+      ,TargetedRelease
+      ,PatchNumber
+      ,Blocked
+      ,EscalatedBy
+      ,Subject
+      ,Description
+      ,EngineeringStatus
+      ,InternalSeverity
+      ,EngineeringAssignmen
+      ,EngineeringComment
+      ,InternalType
+      ,BZID
+      ,IssueCategory
+      ,DevLOEEConfidence
+      ,ReleaseNoteContent
+      ,RankOrder
+      ,GoLiveCritical
+      ,ServicesRank)
+      VALUES
+      (@ID
+      ,@CaseType
+      ,@CaseID
+      ,@CaseNumber
+      ,@CreaedBy
+      ,@CreatedDate
+      ,@CaseOwner
+      ,@LastCommentAddedBy
+      ,@LastModifiedBy
+      ,@LastModifiedDateTime
+      ,@Origin
+      ,@CurrentOnMaintenance
+      ,@JiraIssueURL
+      ,@AccountName
+      ,@CustomerName
+      ,@AgencyHosted
+      ,@SensitiveClient
+      ,@ContactName
+      ,@ContactEmail
+      ,@ContactPhone
+      ,@Priority
+      ,@IssueType
+      ,@Status
+      ,@ParentCase
+      ,@Product
+      ,@ReleaseInfo
+      ,@Solution
+      ,@CurrentVersion
+      ,@TargetedRelease
+      ,@PatchNumber
+      ,@Blocked
+      ,@EscalatedBy
+      ,@Subject
+      ,@Description
+      ,@EngineeringStatus
+      ,@InternalSeverity
+      ,@EngineeringAssignmen
+      ,@EngineeringComment
+      ,@InternalType
+      ,@BZID
+      ,@IssueCategory
+      ,@DevLOEEConfidence
+      ,@ReleaseNoteContent
+      ,@RankOrder
+      ,@GoLiveCritical
+      ,@ServicesRank);
+    </Statement>
+
+    <!--删除-->
+    <Statement Id="Delete">
+      Delete SFCase
+      Where ID=@ID
+    </Statement>
+
+    <!--删除-->
+    <Statement Id="Delete_By_CaseNum">
+      Delete SFCase
+      Where CaseNumber=@CaseNumber
+    </Statement>
+
+    <!--删除-->
+    <Statement Id="Delete_By_CaseID">
+      Delete SFCase
+      Where CaseID=@CaseID
+    </Statement>
+
+    <!--更新-->
+    <Statement Id="Update">
+      UPDATE SFCase
+      SET
+      CaseType=@CaseType,
+      CaseID=@CaseID,
+      CaseNumber=@CaseNumber,
+      CreaedBy=@CreaedBy,
+      CreatedDate=@CreatedDate,
+      CaseOwner=@CaseOwner,
+      LastCommentAddedBy=@LastCommentAddedBy,
+      LastModifiedBy=@LastModifiedBy,
+      LastModifiedDateTime=@LastModifiedDateTime,
+      Origin=@Origin,
+      CurrentOnMaintenance=@CurrentOnMaintenance,
+      JiraIssueURL=@JiraIssueURL,
+      AccountName=@AccountName,
+      CustomerName=@CustomerName,
+      AgencyHosted=@AgencyHosted,
+      SensitiveClient=@SensitiveClient,
+      ContactName=@ContactName,
+      ContactEmail=@ContactEmail,
+      ContactPhone=@ContactPhone,
+      Priority=@Priority,
+      IssueType=@IssueType,
+      Status=@Status,
+      ParentCase=@ParentCase,
+      Product=@Product,
+      ReleaseInfo=@ReleaseInfo,
+      Solution=@Solution,
+      CurrentVersion=@CurrentVersion,
+      TargetedRelease=@TargetedRelease,
+      PatchNumber=@PatchNumber,
+      Blocked=@Blocked,
+      EscalatedBy=@EscalatedBy,
+      Subject=@Subject,
+      Description=@Description,
+      EngineeringStatus=@EngineeringStatus,
+      InternalSeverity=@InternalSeverity,
+      EngineeringAssignmen=@EngineeringAssignmen,
+      EngineeringComment=@EngineeringComment,
+      InternalType=@InternalType,
+      BZID=@BZID,
+      IssueCategory=@IssueCategory,
+      DevLOEEConfidence=@DevLOEEConfidence,
+      ReleaseNoteContent=@ReleaseNoteContent,
+      RankOrder=@RankOrder,
+      GoLiveCritical=@GoLiveCritical,
+      ServicesRank=@ServicesRank
+      Where ID=@ID
+    </Statement>
+   
+    <!--是否存在该记录-->
+    <Statement Id="IsExist">
+      Select Count(1) From SFCase
+      <Include RefId="QueryParams"/>
+    </Statement>
+
+    <!--获取单条记录 -->
+    <Statement Id="GetEntity">
+      SELECT ID
+      ,CaseType
+      ,CaseID
+      ,CaseNumber
+      ,CreaedBy
+      ,CreatedDate
+      ,CaseOwner
+      ,LastCommentAddedBy
+      ,LastModifiedBy
+      ,LastModifiedDateTime
+      ,Origin
+      ,CurrentOnMaintenance
+      ,JiraIssueURL
+      ,AccountName
+      ,CustomerName
+      ,AgencyHosted
+      ,SensitiveClient
+      ,ContactName
+      ,ContactEmail
+      ,ContactPhone
+      ,Priority
+      ,IssueType
+      ,Status
+      ,ParentCase
+      ,Product
+      ,ReleaseInfo
+      ,Solution
+      ,CurrentVersion
+      ,TargetedRelease
+      ,PatchNumber
+      ,Blocked
+      ,EscalatedBy
+      ,Subject
+      ,Description
+      ,EngineeringStatus
+      ,InternalSeverity
+      ,EngineeringAssignmen
+      ,EngineeringComment
+      ,InternalType
+      ,BZID
+      ,IssueCategory
+      ,DevLOEEConfidence
+      ,ReleaseNoteContent
+      ,RankOrder
+      ,GoLiveCritical
+      ,ServicesRank
+      FROM SFCase
+      <Include RefId="QueryParams"/>
+      Order by ID ASC
+    </Statement>
+
+    <!--获取多条记录 -->
+    <Statement Id="GetEntitys">
+      SELECT ID
+      ,CaseType
+      ,CaseID
+      ,CaseNumber
+      ,CreaedBy
+      ,CreatedDate
+      ,CaseOwner
+      ,LastCommentAddedBy
+      ,LastModifiedBy
+      ,LastModifiedDateTime
+      ,Origin
+      ,CurrentOnMaintenance
+      ,JiraIssueURL
+      ,AccountName
+      ,CustomerName
+      ,AgencyHosted
+      ,SensitiveClient
+      ,ContactName
+      ,ContactEmail
+      ,ContactPhone
+      ,Priority
+      ,IssueType
+      ,Status
+      ,ParentCase
+      ,Product
+      ,ReleaseInfo
+      ,Solution
+      ,CurrentVersion
+      ,TargetedRelease
+      ,PatchNumber
+      ,Blocked
+      ,EscalatedBy
+      ,Subject
+      ,Description
+      ,EngineeringStatus
+      ,InternalSeverity
+      ,EngineeringAssignmen
+      ,EngineeringComment
+      ,InternalType
+      ,BZID
+      ,IssueCategory
+      ,DevLOEEConfidence
+      ,ReleaseNoteContent
+      ,RankOrder
+      ,GoLiveCritical
+      ,ServicesRank
+      FROM SFCase
+      <Where>
+        <IsNotEmpty Prepend="And" Property="CaseNumber" In="true"/>
+      </Where>
+    </Statement>
+
+  </Statements>
+</SmartSqlMap>

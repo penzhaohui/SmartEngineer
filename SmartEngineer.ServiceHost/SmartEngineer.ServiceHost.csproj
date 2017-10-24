@@ -59,6 +59,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SFDC\ForceToolkitForNET\ForceToolkitForNET.csproj">
+      <Project>{6B8131E1-EC47-4DEE-8FCF-436F21C684D1}</Project>
+      <Name>ForceToolkitForNET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartEngineer.Core\SmartEngineer.Core.csproj">
+      <Project>{42D6CF47-7776-4EF5-ABD7-BB1A9330D143}</Project>
+      <Name>SmartEngineer.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SmartEngineer.Service\SmartEngineer.Service.csproj">
       <Project>{39d6c65b-c2ec-4242-967a-9c95fa44d428}</Project>
       <Name>SmartEngineer.Service</Name>

@@ -201,9 +201,9 @@ namespace TechTalk.JiraRestClient
                 request.AddHeader("ContentType", "application/json");
 
                 var updateData = new Dictionary<string, object>();         
-                updateData.Add("summary", new[] { new { set = issue.fields.summary } });
-                updateData.Add("description", new[] { new { set = issue.fields.description } });
-                updateData.Add("assignee", new[] { new { set = new { name = issue.fields.assignee.name } } });               
+                updateData.Add("summary", new[] { new { set = issue.fields.Summary } });
+                updateData.Add("description", new[] { new { set = issue.fields.Description } });
+                updateData.Add("assignee", new[] { new { set = new { name = issue.fields.Assignee.name } } });               
 
                 request.AddBody(new { update = updateData });
 
@@ -221,7 +221,7 @@ namespace TechTalk.JiraRestClient
         }
         public Issue<TIssueFields> CreateIssue(String projectKey, String issueType, String summary)
         {
-            return CreateIssue(projectKey, issueType, new TIssueFields { summary = summary });
+            return CreateIssue(projectKey, issueType, new TIssueFields { Summary = summary });
         }
 
         public Issue<TIssueFields> CreateIssue(String projectKey, String issueType, TIssueFields issueFields)
@@ -235,12 +235,12 @@ namespace TechTalk.JiraRestClient
                 issueData.Add("project", new { key = projectKey });
                 issueData.Add("issuetype", new { name = issueType });
 
-                if (issueFields.summary != null)
-                    issueData.Add("summary", issueFields.summary);
-                if (issueFields.description != null)
-                    issueData.Add("description", issueFields.description);
-                if (issueFields.labels != null)
-                    issueData.Add("labels", issueFields.labels);
+                if (issueFields.Summary != null)
+                    issueData.Add("summary", issueFields.Summary);
+                if (issueFields.Description != null)
+                    issueData.Add("description", issueFields.Description);
+                if (issueFields.Labels != null)
+                    issueData.Add("labels", issueFields.Labels);
                 if (issueFields.Priority != null)
                     issueData.Add("priority", new[] { new { set = new { name = issueFields.Priority.name } } });
                 //if (issueFields.timetracking != null)
@@ -292,7 +292,7 @@ namespace TechTalk.JiraRestClient
             }
             catch (Exception ex)
             {
-                Trace.TraceError("CreateIssue(projectKey, typeCode) Salesforce Number: {0}", issueFields.customfield_10600);
+                Trace.TraceError("CreateIssue(projectKey, typeCode) Salesforce Number: {0}", issueFields.CaseNumber);
                 Trace.TraceError("CreateIssue(projectKey, typeCode) error: {0}", ex);
                 throw new JiraClientException("Could not create issue", ex);
             }
@@ -307,12 +307,12 @@ namespace TechTalk.JiraRestClient
                 request.AddHeader("ContentType", "application/json");
 
                 var updateData = new Dictionary<string, object>();
-                if (issue.fields.summary != null)
-                    updateData.Add("summary", new[] { new { set = issue.fields.summary } });
-                if (issue.fields.description != null)
-                    updateData.Add("description", new[] { new { set = issue.fields.description } });
-                if (issue.fields.labels != null)
-                    updateData.Add("labels", new[] { new { set = issue.fields.labels } });
+                if (issue.fields.Summary != null)
+                    updateData.Add("summary", new[] { new { set = issue.fields.Summary } });
+                if (issue.fields.Description != null)
+                    updateData.Add("description", new[] { new { set = issue.fields.Description } });
+                if (issue.fields.Labels != null)
+                    updateData.Add("labels", new[] { new { set = issue.fields.Labels } });
                 if (issue.fields.Priority != null)
                     updateData.Add("priority", new[] { new { set = new { name = issue.fields.Priority.name } } });
                 //if (issue.fields.timetracking != null)

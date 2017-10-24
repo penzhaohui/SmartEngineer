@@ -24,7 +24,7 @@ namespace SmartSql.SqlMap.Tags
             {
                 if (In)
                 {
-                    return $" {Prepend} In {parameterPrefix}{Property} ";
+                    return $" {Prepend} {Property} In {parameterPrefix}{Property} ";
                 }
 
                 StringBuilder strBuilder = BuildChildSql(context, parameterPrefix);

@@ -167,10 +167,17 @@ namespace SmartEngineer.Common
                         binding.Security.Mode = SecurityMode.TransportWithMessageCredential;
                         //binding.Security.Mode = SecurityMode.Message;
                         binding.Security.Message.ClientCredentialType = MessageCredentialType.UserName;
-                        binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;                        
+                        binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
 
                         //create a new instance of T
-                        clientInstance = (TClient)Activator.CreateInstance(typeof(TClient), callbackInstance, binding, remoteAddress);
+                        if (callbackInstance == null)
+                        {
+                            clientInstance = (TClient)Activator.CreateInstance(typeof(TClient), binding, remoteAddress);
+                        }
+                        else
+                        {
+                            clientInstance = (TClient)Activator.CreateInstance(typeof(TClient), callbackInstance, binding, remoteAddress);
+                        }
 
                         //cast it as ClientBace<T> to allow access to the configuration (e.g. end-point. binding etc.) 
                         var client = clientInstance as ClientBase<TService>;

@@ -12,7 +12,7 @@ namespace SmartEngineer.Service
     public interface ISalesforceService
     {
         [OperationContract]
-        List<CaseInfo> GetNewCasesList();
+        List<string> GetNewCasesList();
 
         [OperationContract]
         List<CaseInfo> GetCommentedCasesList();

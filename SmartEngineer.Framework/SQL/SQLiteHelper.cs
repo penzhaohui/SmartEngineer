@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Web;
 
-namespace SmartEngineer.Framework.Logger.SQL
+namespace SmartEngineer.Framework.SQL
 {
     public class SQLiteHelper
     {

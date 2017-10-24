@@ -48,8 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\ICaseAdapter.cs" />
     <Compile Include="Adapters\IAccountAdapter.cs" />
+    <Compile Include="Adapters\IJiraAdapter.cs" />
     <Compile Include="Adapters\imp\AccountAdapter.cs" />
+    <Compile Include="Adapters\imp\CaseAdapter.cs" />
+    <Compile Include="Adapters\IReportAdapter.cs" />
+    <Compile Include="Adapters\ISalesforceAdapter.cs" />
     <Compile Include="Config\WebServiceConfig.cs" />
     <Compile Include="Config\WebServiceNode.cs" />
     <Compile Include="Config\WebServiceNodeCollection.cs" />
@@ -63,12 +68,57 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\DatabaseService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\GithubService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\JiraServiceForDatabase\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\JiraServiceForENGSupp\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\JiraService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MemberService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ReleaseService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ReportService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\SalesforceService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\SettingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TestRailService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -89,24 +139,20 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AccountService\" />
+    <WCFMetadataStorage Include="Connected Services\DatabaseService\" />
+    <WCFMetadataStorage Include="Connected Services\GithubService\" />
+    <WCFMetadataStorage Include="Connected Services\JiraServiceForDatabase\" />
     <WCFMetadataStorage Include="Connected Services\JiraServiceForENGSupp\" />
+    <WCFMetadataStorage Include="Connected Services\JiraService\" />
+    <WCFMetadataStorage Include="Connected Services\MemberService\" />
+    <WCFMetadataStorage Include="Connected Services\ReleaseService\" />
+    <WCFMetadataStorage Include="Connected Services\ReportService\" />
+    <WCFMetadataStorage Include="Connected Services\SalesforceService\" />
     <WCFMetadataStorage Include="Connected Services\SettingService\" />
+    <WCFMetadataStorage Include="Connected Services\TestRailService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\AccountService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SettingService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\JiraServiceForENGSupp\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -124,6 +170,122 @@
       <Project>{dafc827a-c922-4cfd-b74d-cbd05eb94173}</Project>
       <Name>SmartEngineer.WCFService.Extention</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DatabaseService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\GithubService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraServiceForENGSupp\JiraService.wsdl" />
+    <None Include="Connected Services\JiraServiceForENGSupp\JiraServiceForENGSupp.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JiraServiceForENGSupp\JiraServiceForENGSupp1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JiraServiceForENGSupp\JiraServiceForENGSupp2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JiraServiceForENGSupp\JiraServiceForENGSupp3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JiraServiceForENGSupp\SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\JiraService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraServiceForDatabase\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MemberService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReleaseService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReportService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalesforceService\SalesforceService.wsdl" />
+    <None Include="Connected Services\SalesforceService\SalesforceService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SalesforceService\SalesforceService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SalesforceService\SalesforceService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SalesforceService\SalesforceService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SalesforceService\SmartEngineer.ServiceClient.SalesforceService.CaseInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SettingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestRailService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalesforceService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalesforceService\SalesforceService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalesforceService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalesforceService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraServiceForENGSupp\JiraServiceForENGSupp.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraServiceForENGSupp\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraServiceForENGSupp\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraServiceForENGSupp\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

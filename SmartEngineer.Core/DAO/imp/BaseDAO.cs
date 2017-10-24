@@ -1,4 +1,5 @@
-﻿using SmartSql.Abstractions;
+﻿using SmartEngineer.Core.DAO;
+using SmartSql.Abstractions;
 using SmartSQL;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace SmartEngineer.Core.DAOs
     {
         public abstract ISmartSqlMapper SQLMapper { get; }
 
-        public string Scope => typeof(TEntity).Name;
+        public virtual string Scope => typeof(TEntity).Name;
         public virtual string TableName { get; }
 
         public int Delete<TPrimary>(TPrimary entity)
@@ -91,6 +92,7 @@ namespace SmartEngineer.Core.DAOs
 
         public int NewID()
         {
+            /*
             int maxID = SQLMapper.ExecuteScalar<int>(new RequestContext
             {
                 Scope = "IDStore",
@@ -106,6 +108,9 @@ namespace SmartEngineer.Core.DAOs
             });
 
             return maxID + 1;
+            */
+            ISequenceGenerator sequenceGenerator = new SequenceGenerator();
+            return sequenceGenerator.getNextValue(TableName);
         }
     }
 }

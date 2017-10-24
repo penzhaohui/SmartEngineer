@@ -17,10 +17,6 @@ namespace SmartEngineer.Service
             throw new NotImplementedException();
         }
 
-        public void DoWork()
-        {
-        }
-
         public string GetCaseStudy(string jiraKey, string options)
         {
             throw new NotImplementedException();

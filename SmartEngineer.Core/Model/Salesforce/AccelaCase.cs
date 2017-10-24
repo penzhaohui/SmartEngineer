@@ -18,7 +18,7 @@ namespace SmartEngineer.Core.Models
 
         // Created By
         [JsonProperty(PropertyName = "CreatedBy")]
-        public Account CreatedBy { get; set; }
+        public CaseUser CreatedBy { get; set; }
 
         // Case Record Type
         [JsonProperty(PropertyName = "attributes")]
@@ -30,23 +30,27 @@ namespace SmartEngineer.Core.Models
 
         // Case Owner
         [JsonProperty(PropertyName = "Owner")]
-        public Account Owner { get; set; }
+        public CaseUser Owner { get; set; }
 
         // Last Comment Added
-        // Last_Comment_By__c
+        [JsonProperty(PropertyName = "Last_Comment_By__c")]
+        public string LastCommentCreatedBy { get; set; }
 
         // Case Origin
         [JsonProperty(PropertyName = "Origin")]
         public string Origin { get; set; }
 
-        // Current on Maintenance
-        // Current on Maintenance
+        // Current on Maintenance 
+        [JsonProperty(PropertyName = "Current_on_Maintenance__c")]
+        public bool CurrentOnMaintenance { get; set; }
 
         // Last Modified By
-        // Last Modified By
+        [JsonProperty(PropertyName = "LastModifiedById")]
+        public string LastModifiedBy { get; set; }
 
         // Jira Issue URL
-        // Jira_Issue_URL__c
+        [JsonProperty(PropertyName = "Jira_Issue_URL__c")]
+        public string JiraIssueURL { get; set; }
 
         #endregion
 
@@ -54,24 +58,23 @@ namespace SmartEngineer.Core.Models
 
         // Account Name
         [JsonProperty(PropertyName = "Account")]
-        public Account Account { get; set; }
+        public CaseAccount Account { get; set; }
 
-        // Contact Name
+        // Contact
+        [JsonProperty(PropertyName = "Contact")]
+        public CaseContact Contact { get; set; }
 
         // Customer
         [JsonProperty(PropertyName = "Customer__r")]
-        public Account Customer { get; set; }
-
-        // Contact Email
+        public CaseAccount Customer { get; set; }
 
         // Hosted
         [JsonProperty(PropertyName = "hosted__c")]
         public string Hosted { get; set; }
 
-        // Contact Phone
-
         // Sensitive Client
-        // Sensitive Client
+        [JsonProperty(PropertyName = "Sensitive_Client__c")]
+        public bool SensitiveClient { get; set; }
 
         #endregion
 
@@ -91,6 +94,8 @@ namespace SmartEngineer.Core.Models
         public string Status { get; set; }
 
         // Parent Case
+        [JsonProperty(PropertyName = "ParentId")]
+        public string ParentCaseId { get; set; }
 
         // Product
         [JsonProperty(PropertyName = "Product__c")]
@@ -120,10 +125,13 @@ namespace SmartEngineer.Core.Models
         public string PatchNumber { get; set; }
 
         // Blocked
-        // Blocked__c
+        [JsonProperty(PropertyName = "Blocked__c")]
+        public bool Blocked { get; set; }
 
         // Escalated By
-        // Escalated_By__c
+        // 
+        [JsonProperty(PropertyName = "Escalated_By__c")]
+        public string EscalatedBy { get; set; }
 
         #endregion
 
@@ -150,26 +158,32 @@ namespace SmartEngineer.Core.Models
         public string EngineeringStatus { get; set; }
 
         // Engineering Assignment
-        // Engineering_Assignment__c
+        [JsonProperty(PropertyName = "Engineering_Assignment__c")]
+        public string EngineeringAssignment { get; set; }
 
         // Engineering Comment
-        // Engineering_Comment__c
+        [JsonProperty(PropertyName = "Engineering_Comment__c")]
+        public string EngineeringComment { get; set; }
 
         // Internal Severity
-        // Internal_Severity__c        
+        [JsonProperty(PropertyName = "Internal_Severity__c")]
+        public string InternalSeverity { get; set; }
 
         // BZID
         [JsonProperty(PropertyName = "BZID__c")]
         public string BZID { get; set; }
 
-        // Issue Category
-        // Issue_Category__c
+        // Issue Category 
+        [JsonProperty(PropertyName = "Issue_Category__c")]
+        public string IssueCategory { get; set; }
 
         // Dev LOEE Confidence
-        // Dev_LOEE_Confidence__c
+        [JsonProperty(PropertyName = "Dev_LOEE_Confidence__c")]
+        public string DevLOEEConfidence { get; set; }
 
         // Release Note Content
-        // Release_Note_Content__c
+        [JsonProperty(PropertyName = "Release_Note_Content__c")]
+        public string ReleaseNoteContent { get; set; }
 
         #endregion
 
@@ -185,7 +199,7 @@ namespace SmartEngineer.Core.Models
 
         // Go-Live Critical
         [JsonProperty(PropertyName = "Go_Live_Critical__c")]
-        public string GoLiveCritical { get; set; }
+        public bool GoLiveCritical { get; set; }
 
         // Services Rank
         [JsonProperty(PropertyName = "Services_Rank__c")]

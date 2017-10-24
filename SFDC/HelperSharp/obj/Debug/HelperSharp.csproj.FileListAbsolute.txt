@@ -1,6 +1,0 @@
-F:\MyWorkspace\SmartEngineer\SFDC\HelperSharp\bin\Debug\HelperSharp.xml
-F:\MyWorkspace\SmartEngineer\SFDC\HelperSharp\bin\Debug\HelperSharp.dll
-F:\MyWorkspace\SmartEngineer\SFDC\HelperSharp\bin\Debug\HelperSharp.pdb
-F:\MyWorkspace\SmartEngineer\SFDC\HelperSharp\obj\Debug\HelperSharp.dll
-F:\MyWorkspace\SmartEngineer\SFDC\HelperSharp\obj\Debug\HelperSharp.pdb
-F:\MyWorkspace\SmartEngineer\SFDC\HelperSharp\obj\Debug\HelperSharp.csprojResolveAssemblyReference.cache

@@ -124,8 +124,8 @@ namespace SmartSql.SqlMap
         private DbProviderFactory _dbProviderFactory;
         private void LoadFactory()
         {
-            _dbProviderFactory = Assembly.Load(new AssemblyName { Name = AssemblyName })
-                                         .GetType(TypeName)
+            _dbProviderFactory = Assembly.Load(new AssemblyName { Name = AssemblyName.Trim() })
+                                         .GetType(TypeName.Trim())
                                          .GetField("Instance")
                                          .GetValue(null) as DbProviderFactory;
         }

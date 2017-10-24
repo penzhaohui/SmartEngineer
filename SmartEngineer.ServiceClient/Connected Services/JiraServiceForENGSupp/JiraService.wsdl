@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="JiraServiceForENGSupp" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:41200/JiraServiceForENGSupp.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:41200/JiraServiceForENGSupp.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:41200/JiraServiceForENGSupp.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:41200/JiraServiceForENGSupp.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IJiraServiceForENGSupp_GetIssuesByLabels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssuesByLabels" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetIssuesByLabels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssuesByLabelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetIssuesByStatuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssuesByStatuses" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetIssuesByStatuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssuesByStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetIssuesByCaseNos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssuesByCaseNos" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetIssuesByCaseNos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIssuesByCaseNosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_ImportCaseNOs_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportCaseNOs" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_ImportCaseNOs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportCaseNOsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_ImportCaseComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportCaseComments" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_ImportCaseComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportCaseCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_SyncIssueStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:SyncIssueStatus" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_SyncIssueStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SyncIssueStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_SyncSalesforceCaseToJiraIssue_InputMessage">
+    <wsdl:part name="parameters" element="tns:SyncSalesforceCaseToJiraIssue" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_SyncSalesforceCaseToJiraIssue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SyncSalesforceCaseToJiraIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetNewIssueCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewIssueCount" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetNewIssueCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewIssueCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetResolvedIssueCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResolvedIssueCount" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetResolvedIssueCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResolvedIssueCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetProductionBugCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductionBugCount" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetProductionBugCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductionBugCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetTotalTimeSpent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalTimeSpent" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetTotalTimeSpent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalTimeSpentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IJiraServiceForENGSupp">
+    <wsdl:operation name="GetIssuesByLabels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabels" message="tns:IJiraServiceForENGSupp_GetIssuesByLabels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabelsResponse" message="tns:IJiraServiceForENGSupp_GetIssuesByLabels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssuesByStatuses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatuses" message="tns:IJiraServiceForENGSupp_GetIssuesByStatuses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatusesResponse" message="tns:IJiraServiceForENGSupp_GetIssuesByStatuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIssuesByCaseNos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByCaseNos" message="tns:IJiraServiceForENGSupp_GetIssuesByCaseNos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByCaseNosResponse" message="tns:IJiraServiceForENGSupp_GetIssuesByCaseNos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportCaseNOs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseNOs" message="tns:IJiraServiceForENGSupp_ImportCaseNOs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseNOsResponse" message="tns:IJiraServiceForENGSupp_ImportCaseNOs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportCaseComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseComments" message="tns:IJiraServiceForENGSupp_ImportCaseComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseCommentsResponse" message="tns:IJiraServiceForENGSupp_ImportCaseComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncIssueStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/SyncIssueStatus" message="tns:IJiraServiceForENGSupp_SyncIssueStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/SyncIssueStatusResponse" message="tns:IJiraServiceForENGSupp_SyncIssueStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncSalesforceCaseToJiraIssue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/SyncSalesforceCaseToJiraIssue" message="tns:IJiraServiceForENGSupp_SyncSalesforceCaseToJiraIssue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/SyncSalesforceCaseToJiraIssueResponse" message="tns:IJiraServiceForENGSupp_SyncSalesforceCaseToJiraIssue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewIssueCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCount" message="tns:IJiraServiceForENGSupp_GetNewIssueCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCountResponse" message="tns:IJiraServiceForENGSupp_GetNewIssueCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResolvedIssueCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCount" message="tns:IJiraServiceForENGSupp_GetResolvedIssueCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCountResponse" message="tns:IJiraServiceForENGSupp_GetResolvedIssueCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductionBugCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCount" message="tns:IJiraServiceForENGSupp_GetProductionBugCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCountResponse" message="tns:IJiraServiceForENGSupp_GetProductionBugCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalTimeSpent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetTotalTimeSpent" message="tns:IJiraServiceForENGSupp_GetTotalTimeSpent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetTotalTimeSpentResponse" message="tns:IJiraServiceForENGSupp_GetTotalTimeSpent_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IJiraServiceForENGSupp" type="tns:IJiraServiceForENGSupp">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetIssuesByLabels">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssuesByStatuses">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIssuesByCaseNos">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByCaseNos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportCaseNOs">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseNOs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportCaseComments">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncIssueStatus">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/SyncIssueStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncSalesforceCaseToJiraIssue">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/SyncSalesforceCaseToJiraIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewIssueCount">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResolvedIssueCount">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductionBugCount">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalTimeSpent">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetTotalTimeSpent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="JiraServiceForENGSupp">
+    <wsdl:port name="BasicHttpBinding_IJiraServiceForENGSupp" binding="tns:BasicHttpBinding_IJiraServiceForENGSupp">
+      <soap:address location="http://localhost:41200/JiraServiceForENGSupp.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

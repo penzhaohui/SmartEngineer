@@ -52,10 +52,9 @@
 
     <!--获取单条记录 -->
     <Statement Id="GetEntity">
-      Select ID, UserName, Password, EmailAddress, DisplayName From sys_Account A
+      Select TOP 1 ID, UserName, Password, EmailAddress, DisplayName From sys_Account A
       <Include RefId="QueryParams"/>
       Order by ID ASC
-      LIMIT 0,1
     </Statement>
 
   </Statements>

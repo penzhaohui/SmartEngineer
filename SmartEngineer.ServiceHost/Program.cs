@@ -6,6 +6,7 @@ using System.ServiceModel;
 using SmartEngineer.Ext;
 using SmartEngineer.WCFService.Ext.Behaviors;
 using SmartEngineer.WCFService.Ext.Validators;
+using SmartEngineer.Core.Adapter;
 
 namespace SmartEngineer
 {
@@ -17,6 +18,8 @@ namespace SmartEngineer
     {
         static void Main(string[] args)
         {
+            LaunchServiceAsync();
+
             using (ServiceHostCollection hosts = new ServiceHostCollection())
             {
                 int port = 8080;
@@ -29,6 +32,12 @@ namespace SmartEngineer
                 Console.Write("Please any key to stop this application:");
                 Console.Read();
             }            
+        }
+
+        private static void LaunchServiceAsync()
+        {
+            SalesforceAdapter.CreateAuthenticationClientAsync();
+            SalesforceAdapterV2.CreateAuthenticationClient();
         }
 
         private static void ExtServiceHost(ServiceHost host, int port)

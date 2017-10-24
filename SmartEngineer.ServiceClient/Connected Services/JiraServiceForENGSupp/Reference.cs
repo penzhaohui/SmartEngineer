@@ -42,147 +42,101 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WorkLog", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
-    [System.SerializableAttribute()]
-    public partial class WorkLog : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SubTask", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
-    [System.SerializableAttribute()]
-    public partial class SubTask : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="JiraServiceForENGSupp.IJiraService")]
-    public interface IJiraService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="JiraServiceForENGSupp.IJiraServiceForENGSupp")]
+    public interface IJiraServiceForENGSupp {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetIssuesByLabels", ReplyAction="http://tempuri.org/IJiraService/GetIssuesByLabelsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabels", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabelsResponse")]
         SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetIssuesByLabels(string[] labels);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetIssuesByLabels", ReplyAction="http://tempuri.org/IJiraService/GetIssuesByLabelsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabels", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabelsResponse")]
         System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetIssuesByLabelsAsync(string[] labels);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/UpdateAssignee", ReplyAction="http://tempuri.org/IJiraService/UpdateAssigneeResponse")]
-        bool UpdateAssignee(string jiraKey, string assignee);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatuses", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatusesResponse")]
+        SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetIssuesByStatuses(string[] statuses);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/UpdateAssignee", ReplyAction="http://tempuri.org/IJiraService/UpdateAssigneeResponse")]
-        System.Threading.Tasks.Task<bool> UpdateAssigneeAsync(string jiraKey, string assignee);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatuses", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatusesResponse")]
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetIssuesByStatusesAsync(string[] statuses);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/UpdateAssigneeQA", ReplyAction="http://tempuri.org/IJiraService/UpdateAssigneeQAResponse")]
-        bool UpdateAssigneeQA(string jiraKey, string assignee);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByCaseNos", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByCaseNosResponse")]
+        SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetIssuesByCaseNos(string[] caseNOs);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/UpdateAssigneeQA", ReplyAction="http://tempuri.org/IJiraService/UpdateAssigneeQAResponse")]
-        System.Threading.Tasks.Task<bool> UpdateAssigneeQAAsync(string jiraKey, string assignee);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByCaseNos", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByCaseNosResponse")]
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetIssuesByCaseNosAsync(string[] caseNOs);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetUpdatedIssues", ReplyAction="http://tempuri.org/IJiraService/GetUpdatedIssuesResponse")]
-        SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetUpdatedIssues(System.DateTime from, System.DateTime to, string[] assignees);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseNOs", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseNOsResponse")]
+        bool ImportCaseNOs(string[] caseNOs);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetUpdatedIssues", ReplyAction="http://tempuri.org/IJiraService/GetUpdatedIssuesResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetUpdatedIssuesAsync(System.DateTime from, System.DateTime to, string[] assignees);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseNOs", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseNOsResponse")]
+        System.Threading.Tasks.Task<bool> ImportCaseNOsAsync(string[] caseNOs);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetWorkLogs", ReplyAction="http://tempuri.org/IJiraService/GetWorkLogsResponse")]
-        SmartEngineer.ServiceClient.JiraServiceForENGSupp.WorkLog[] GetWorkLogs(string jiraKey);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseComments", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseCommentsResponse")]
+        bool ImportCaseComments(string[] caseNOs);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetWorkLogs", ReplyAction="http://tempuri.org/IJiraService/GetWorkLogsResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.WorkLog[]> GetWorkLogsAsync(string jiraKey);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseComments", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseCommentsResponse")]
+        System.Threading.Tasks.Task<bool> ImportCaseCommentsAsync(string[] caseNOs);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetCaseStudy", ReplyAction="http://tempuri.org/IJiraService/GetCaseStudyResponse")]
-        string GetCaseStudy(string jiraKey, string options);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/SyncIssueStatus", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/SyncIssueStatusResponse")]
+        bool SyncIssueStatus(string[] caseNOs);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetCaseStudy", ReplyAction="http://tempuri.org/IJiraService/GetCaseStudyResponse")]
-        System.Threading.Tasks.Task<string> GetCaseStudyAsync(string jiraKey, string options);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/SyncIssueStatus", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/SyncIssueStatusResponse")]
+        System.Threading.Tasks.Task<bool> SyncIssueStatusAsync(string[] caseNOs);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetSubTasks", ReplyAction="http://tempuri.org/IJiraService/GetSubTasksResponse")]
-        SmartEngineer.ServiceClient.JiraServiceForENGSupp.SubTask[] GetSubTasks(string jiraKey);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/SyncSalesforceCaseToJiraIssue", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/SyncSalesforceCaseToJiraIssueResponse")]
+        bool SyncSalesforceCaseToJiraIssue(string[] caseNOs);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetSubTasks", ReplyAction="http://tempuri.org/IJiraService/GetSubTasksResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.SubTask[]> GetSubTasksAsync(string jiraKey);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/SyncSalesforceCaseToJiraIssue", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/SyncSalesforceCaseToJiraIssueResponse")]
+        System.Threading.Tasks.Task<bool> SyncSalesforceCaseToJiraIssueAsync(string[] caseNOs);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/UpdateSubTasks", ReplyAction="http://tempuri.org/IJiraService/UpdateSubTasksResponse")]
-        bool UpdateSubTasks(string jiraKey, SmartEngineer.ServiceClient.JiraServiceForENGSupp.SubTask subTask);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCountResponse")]
+        int GetNewIssueCount(System.DateTime from, System.DateTime to);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/UpdateSubTasks", ReplyAction="http://tempuri.org/IJiraService/UpdateSubTasksResponse")]
-        System.Threading.Tasks.Task<bool> UpdateSubTasksAsync(string jiraKey, SmartEngineer.ServiceClient.JiraServiceForENGSupp.SubTask subTask);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCountResponse")]
+        System.Threading.Tasks.Task<int> GetNewIssueCountAsync(System.DateTime from, System.DateTime to);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/CloseSubTasks", ReplyAction="http://tempuri.org/IJiraService/CloseSubTasksResponse")]
-        bool CloseSubTasks(string jiraKey);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCountResponse")]
+        int GetResolvedIssueCount(System.DateTime from, System.DateTime to);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/CloseSubTasks", ReplyAction="http://tempuri.org/IJiraService/CloseSubTasksResponse")]
-        System.Threading.Tasks.Task<bool> CloseSubTasksAsync(string jiraKey);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCountResponse")]
+        System.Threading.Tasks.Task<int> GetResolvedIssueCountAsync(System.DateTime from, System.DateTime to);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCountResponse")]
+        int GetProductionBugCount(System.DateTime from, System.DateTime to);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCountResponse")]
+        System.Threading.Tasks.Task<int> GetProductionBugCountAsync(System.DateTime from, System.DateTime to);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetTotalTimeSpent", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetTotalTimeSpentResponse")]
+        int GetTotalTimeSpent(string subTaskKey, System.DateTime from, System.DateTime to);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetTotalTimeSpent", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetTotalTimeSpentResponse")]
+        System.Threading.Tasks.Task<int> GetTotalTimeSpentAsync(string subTaskKey, System.DateTime from, System.DateTime to);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IJiraServiceChannel : SmartEngineer.ServiceClient.JiraServiceForENGSupp.IJiraService, System.ServiceModel.IClientChannel {
+    public interface IJiraServiceForENGSuppChannel : SmartEngineer.ServiceClient.JiraServiceForENGSupp.IJiraServiceForENGSupp, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class JiraServiceClient : System.ServiceModel.ClientBase<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IJiraService>, SmartEngineer.ServiceClient.JiraServiceForENGSupp.IJiraService {
+    public partial class JiraServiceForENGSuppClient : System.ServiceModel.ClientBase<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IJiraServiceForENGSupp>, SmartEngineer.ServiceClient.JiraServiceForENGSupp.IJiraServiceForENGSupp {
         
-        public JiraServiceClient() {
+        public JiraServiceForENGSuppClient() {
         }
         
-        public JiraServiceClient(string endpointConfigurationName) : 
+        public JiraServiceForENGSuppClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public JiraServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public JiraServiceForENGSuppClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public JiraServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public JiraServiceForENGSuppClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public JiraServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public JiraServiceForENGSuppClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -194,68 +148,84 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
             return base.Channel.GetIssuesByLabelsAsync(labels);
         }
         
-        public bool UpdateAssignee(string jiraKey, string assignee) {
-            return base.Channel.UpdateAssignee(jiraKey, assignee);
+        public SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetIssuesByStatuses(string[] statuses) {
+            return base.Channel.GetIssuesByStatuses(statuses);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateAssigneeAsync(string jiraKey, string assignee) {
-            return base.Channel.UpdateAssigneeAsync(jiraKey, assignee);
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetIssuesByStatusesAsync(string[] statuses) {
+            return base.Channel.GetIssuesByStatusesAsync(statuses);
         }
         
-        public bool UpdateAssigneeQA(string jiraKey, string assignee) {
-            return base.Channel.UpdateAssigneeQA(jiraKey, assignee);
+        public SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetIssuesByCaseNos(string[] caseNOs) {
+            return base.Channel.GetIssuesByCaseNos(caseNOs);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateAssigneeQAAsync(string jiraKey, string assignee) {
-            return base.Channel.UpdateAssigneeQAAsync(jiraKey, assignee);
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetIssuesByCaseNosAsync(string[] caseNOs) {
+            return base.Channel.GetIssuesByCaseNosAsync(caseNOs);
         }
         
-        public SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetUpdatedIssues(System.DateTime from, System.DateTime to, string[] assignees) {
-            return base.Channel.GetUpdatedIssues(from, to, assignees);
+        public bool ImportCaseNOs(string[] caseNOs) {
+            return base.Channel.ImportCaseNOs(caseNOs);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetUpdatedIssuesAsync(System.DateTime from, System.DateTime to, string[] assignees) {
-            return base.Channel.GetUpdatedIssuesAsync(from, to, assignees);
+        public System.Threading.Tasks.Task<bool> ImportCaseNOsAsync(string[] caseNOs) {
+            return base.Channel.ImportCaseNOsAsync(caseNOs);
         }
         
-        public SmartEngineer.ServiceClient.JiraServiceForENGSupp.WorkLog[] GetWorkLogs(string jiraKey) {
-            return base.Channel.GetWorkLogs(jiraKey);
+        public bool ImportCaseComments(string[] caseNOs) {
+            return base.Channel.ImportCaseComments(caseNOs);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.WorkLog[]> GetWorkLogsAsync(string jiraKey) {
-            return base.Channel.GetWorkLogsAsync(jiraKey);
+        public System.Threading.Tasks.Task<bool> ImportCaseCommentsAsync(string[] caseNOs) {
+            return base.Channel.ImportCaseCommentsAsync(caseNOs);
         }
         
-        public string GetCaseStudy(string jiraKey, string options) {
-            return base.Channel.GetCaseStudy(jiraKey, options);
+        public bool SyncIssueStatus(string[] caseNOs) {
+            return base.Channel.SyncIssueStatus(caseNOs);
         }
         
-        public System.Threading.Tasks.Task<string> GetCaseStudyAsync(string jiraKey, string options) {
-            return base.Channel.GetCaseStudyAsync(jiraKey, options);
+        public System.Threading.Tasks.Task<bool> SyncIssueStatusAsync(string[] caseNOs) {
+            return base.Channel.SyncIssueStatusAsync(caseNOs);
         }
         
-        public SmartEngineer.ServiceClient.JiraServiceForENGSupp.SubTask[] GetSubTasks(string jiraKey) {
-            return base.Channel.GetSubTasks(jiraKey);
+        public bool SyncSalesforceCaseToJiraIssue(string[] caseNOs) {
+            return base.Channel.SyncSalesforceCaseToJiraIssue(caseNOs);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.SubTask[]> GetSubTasksAsync(string jiraKey) {
-            return base.Channel.GetSubTasksAsync(jiraKey);
+        public System.Threading.Tasks.Task<bool> SyncSalesforceCaseToJiraIssueAsync(string[] caseNOs) {
+            return base.Channel.SyncSalesforceCaseToJiraIssueAsync(caseNOs);
         }
         
-        public bool UpdateSubTasks(string jiraKey, SmartEngineer.ServiceClient.JiraServiceForENGSupp.SubTask subTask) {
-            return base.Channel.UpdateSubTasks(jiraKey, subTask);
+        public int GetNewIssueCount(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetNewIssueCount(from, to);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateSubTasksAsync(string jiraKey, SmartEngineer.ServiceClient.JiraServiceForENGSupp.SubTask subTask) {
-            return base.Channel.UpdateSubTasksAsync(jiraKey, subTask);
+        public System.Threading.Tasks.Task<int> GetNewIssueCountAsync(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetNewIssueCountAsync(from, to);
         }
         
-        public bool CloseSubTasks(string jiraKey) {
-            return base.Channel.CloseSubTasks(jiraKey);
+        public int GetResolvedIssueCount(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetResolvedIssueCount(from, to);
         }
         
-        public System.Threading.Tasks.Task<bool> CloseSubTasksAsync(string jiraKey) {
-            return base.Channel.CloseSubTasksAsync(jiraKey);
+        public System.Threading.Tasks.Task<int> GetResolvedIssueCountAsync(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetResolvedIssueCountAsync(from, to);
+        }
+        
+        public int GetProductionBugCount(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetProductionBugCount(from, to);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetProductionBugCountAsync(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetProductionBugCountAsync(from, to);
+        }
+        
+        public int GetTotalTimeSpent(string subTaskKey, System.DateTime from, System.DateTime to) {
+            return base.Channel.GetTotalTimeSpent(subTaskKey, from, to);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetTotalTimeSpentAsync(string subTaskKey, System.DateTime from, System.DateTime to) {
+            return base.Channel.GetTotalTimeSpentAsync(subTaskKey, from, to);
         }
     }
 }

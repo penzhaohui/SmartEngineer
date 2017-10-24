@@ -29,6 +29,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEngineer.ServiceHost", "SmartEngineer.ServiceHost\SmartEngineer.ServiceHost.csproj", "{A9CA159C-7B0E-465A-AF9B-A9E4A62F0405}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEngineer.ServiceClient", "SmartEngineer.ServiceClient\SmartEngineer.ServiceClient.csproj", "{3633FCD9-AAE5-4815-AB13-EBD4925A8864}"
+	ProjectSection(ProjectDependencies) = postProject
+		{39D6C65B-C2EC-4242-967A-9C95FA44D428} = {39D6C65B-C2EC-4242-967A-9C95FA44D428}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEngineer.WCFService.Extention", "SmartEngineer.WCFService.Extention\SmartEngineer.WCFService.Extention.csproj", "{DAFC827A-C922-4CFD-B74D-CBD05EB94173}"
 EndProject
@@ -57,6 +60,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForceToolkitForNET", "SFDC\ForceToolkitForNET\ForceToolkitForNET.csproj", "{6B8131E1-EC47-4DEE-8FCF-436F21C684D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibrariesForNET", "SFDC\CommonLibrariesForNET\CommonLibrariesForNET.csproj", "{65129DA9-AC8E-4DB2-A895-15FBC0DA2B54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesforceSharp", "SFDC\SalesforceSharp\SalesforceSharp.csproj", "{0EA33E69-D046-42AF-9BF3-4B0F49EEA1D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperSharp", "SFDC\HelperSharp\HelperSharp.csproj", "{25E1AB57-401D-43EF-8E89-36CD59EBB9BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesforceSharp.Samples.CommandLine", "SFDC\SalesforceSharp.Samples.CommandLine\SalesforceSharp.Samples.CommandLine.csproj", "{ED7AFBB3-E67D-461C-97D1-649CE4D75704}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,6 +137,18 @@ Global
 		{65129DA9-AC8E-4DB2-A895-15FBC0DA2B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65129DA9-AC8E-4DB2-A895-15FBC0DA2B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65129DA9-AC8E-4DB2-A895-15FBC0DA2B54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EA33E69-D046-42AF-9BF3-4B0F49EEA1D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EA33E69-D046-42AF-9BF3-4B0F49EEA1D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EA33E69-D046-42AF-9BF3-4B0F49EEA1D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EA33E69-D046-42AF-9BF3-4B0F49EEA1D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25E1AB57-401D-43EF-8E89-36CD59EBB9BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25E1AB57-401D-43EF-8E89-36CD59EBB9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25E1AB57-401D-43EF-8E89-36CD59EBB9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25E1AB57-401D-43EF-8E89-36CD59EBB9BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED7AFBB3-E67D-461C-97D1-649CE4D75704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED7AFBB3-E67D-461C-97D1-649CE4D75704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED7AFBB3-E67D-461C-97D1-649CE4D75704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED7AFBB3-E67D-461C-97D1-649CE4D75704}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -143,5 +164,8 @@ Global
 		{5148988B-BE8A-4AC5-9F7E-93DDB73ED186} = {C6032145-565E-4071-92D5-39A561B63D32}
 		{6B8131E1-EC47-4DEE-8FCF-436F21C684D1} = {1010DA48-B24F-4F2A-A907-DB12778EF559}
 		{65129DA9-AC8E-4DB2-A895-15FBC0DA2B54} = {1010DA48-B24F-4F2A-A907-DB12778EF559}
+		{0EA33E69-D046-42AF-9BF3-4B0F49EEA1D6} = {1010DA48-B24F-4F2A-A907-DB12778EF559}
+		{25E1AB57-401D-43EF-8E89-36CD59EBB9BB} = {1010DA48-B24F-4F2A-A907-DB12778EF559}
+		{ED7AFBB3-E67D-461C-97D1-649CE4D75704} = {1010DA48-B24F-4F2A-A907-DB12778EF559}
 	EndGlobalSection
 EndGlobal

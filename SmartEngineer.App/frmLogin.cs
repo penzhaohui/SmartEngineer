@@ -61,11 +61,10 @@ namespace SmartEngineer.Forms
 
                 SmartContext.TenantID = "Accela";
                 Logger.Info("Debug");
-                /*
+                
                 IAccountAdapter adapter = new AccountAdapter();
                 AccountType accountType = this.cmbAccountType.SelectedIndex == 1 ? AccountType.Normal : AccountType.Jira;
-                string accessToken = adapter.Login(accountType, this.txtUser.Text, this.txtPassword.Text);
-                */
+                string accessToken = adapter.Login(accountType, this.txtUser.Text, this.txtPassword.Text);            
 
                 if (this.ValidateInput()) //调用系统安全管理模块登录方法                
                 {

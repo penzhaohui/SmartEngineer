@@ -23,9 +23,13 @@ namespace SmartEngineer.Core.Adapter
         private static readonly string Username = ConfigurationManager.AppSettings["Username"];
         private static readonly string Password = ConfigurationManager.AppSettings["Password"] + SecurityToken;
         private static readonly string IsSandboxUser = ConfigurationManager.AppSettings["IsSandboxUser"];
-        public static IForceClient Client = null;
+        private static IForceClient Client = null;
 
-        public static async Task<IForceClient> CreateAuthenticationClient()
+        public SalesforceAdapter()
+        {
+        }
+
+        public async static Task<IForceClient> CreateAuthenticationClientAsync()
         {
             var auth = new AuthenticationClient();
 
@@ -34,7 +38,11 @@ namespace SmartEngineer.Core.Adapter
                 ? "https://test.salesforce.com/services/oauth2/token"
                 : "https://login.salesforce.com/services/oauth2/token";
 
+            System.Console.WriteLine("Start to connect Salesforce.");
+
             await auth.UsernamePasswordAsync(ConsumerKey, ConsumerSecret, Username, Password, url);
+
+            System.Console.WriteLine("Connect to Salesforce successfully.");
 
             Client = new ForceClient(auth.InstanceUrl, auth.AccessToken, auth.ApiVersion);
 
@@ -52,6 +60,11 @@ namespace SmartEngineer.Core.Adapter
 
         public async Task<List<AccelaCase>> QueryCasesByEngineerQueue(string queueName, int n = 100)
         {
+            if (Client == null)
+            {
+                await CreateAuthenticationClientAsync();
+            }
+
             string sql = @"select id, casenumber, current_version__c, priority, go_live_critical__c, case.account.name, case.owner.name, origin, patch_number__c, subject, ownerid, type, description, createddate, 
                                   case.createdby.name, status, bzid__c, product__c, solution__c, release_info__c, targeted_release__c, customer__r.name ";
 
@@ -159,9 +172,21 @@ namespace SmartEngineer.Core.Adapter
             return comments;
         }
 
+        // select Id, NewValue, OldValue, CreatedDate, CreatedById, CaseId from CaseHistory story where case.CaseNumber = '17ACC-253892'
+
         #endregion
 
         #region Internal Service
+
+        public List<CaseInfo> GetCaseInfoByCaseNos(List<string> caseNos)
+        {
+            return null;
+        }
+
+        public List<string> GetUnstoredCaseNo(List<string> caseNos)
+        {
+            return null;
+        }
 
         public bool IsExistsLocalCase(string caseNo)
         {

@@ -143,6 +143,7 @@ namespace SalesforceSharp
                 if (!response.Data.Records.Any()) continue;
                 try
                 {
+                    // Online JSON Formater - https://jsonformatter.org/
                     var customResponse = genericJsonDeserializer.Deserialize<SalesforceQueryResult<T>>(response);
                     if (customResponse == null) continue;
                     action(customResponse.Records);

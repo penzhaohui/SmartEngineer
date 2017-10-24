@@ -4,10 +4,10 @@
     IsWatchConfigFile="true"
   />
   <Database>
-    <DbProvider Name="SqlClientFactory" ParameterPrefix="@" Type="System.Data.SQLite.SQLiteFactory,System.Data.SQLite"/>
-    <Write Name="WriteDB" ConnectionString="Data Source=F:\\MyWorkspace\\SmartEngineer\\SmartEngineer.Service\\App_Data\\SmartEngineer.db"/>
-    <Read Name="ReadDB-0" ConnectionString="Data Source=F:\\MyWorkspace\\SmartEngineer\\SmartEngineer.Service\\App_Data\\SmartEngineer.db" Weight="80"/>
-    <Read Name="ReadDB-1" ConnectionString="Data Source=F:\\MyWorkspace\\SmartEngineer\\SmartEngineer.Service\\App_Data\\SmartEngineer.db" Weight="20"/>
+    <DbProvider Name="SqlClientFactory" ParameterPrefix="@" Type="System.Data.SqlClient.SqlClientFactory,System.Data"/>
+    <Write Name="WriteDB" ConnectionString="Data Source=127.0.0.1;Initial Catalog=SmartEngineer;Integrated Security=True"/>
+    <Read Name="ReadDB-0" ConnectionString="Data Source=127.0.0.1;Initial Catalog=SmartEngineer;Integrated Security=True" Weight="80"/>
+    <Read Name="ReadDB-1" ConnectionString="Data Source=127.0.0.1;Initial Catalog=SmartEngineer;Integrated Security=True" Weight="20"/>
   </Database>
   <SmartSqlMaps>
     <SmartSqlMap Path="F:\\MyWorkspace\\SmartEngineer\\SmartEngineer.Core\\Config\\Maps" Type="Directory"></SmartSqlMap>

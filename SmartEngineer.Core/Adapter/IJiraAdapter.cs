@@ -18,8 +18,22 @@ namespace SmartEngineer.Core.Adapter
         /// <returns>account</returns>
         Account ValidateAccount(string userOrEmailAddress, string password);
 
+        List<Issue> GetIssueList(List<string> caseNos, string jiraAccount, string jiraPassword);
+
         Task<Issue> CreateIssue(string project, string issueType, IssueFields fields, string jiraAccount, string jiraPassword);
 
         Task<Issue> UpdateIssue(Issue issue, string jiraAccount, string jiraPassword);
+
+        Task<Comment> CreateComment(IssueRef issue, string caseComment, string jiraAccount, string jiraPassword);
+
+        Task<List<Comment>> GetComments(IssueRef issue, string jiraAccount, string jiraPassword);
+
+        Task<bool> UpdateJiraStatus(IssueRef issueRef, string jiraStatus, string jiraNextStatus, string jiraAccount, string jiraPassword);
+
+        bool IsExistsLocalIssue(string jiraKey);
+
+        bool IsExistsLocalCase(string caseNo);
+
+        bool StoreCaseInfoToLocal(IssueInfo issueInfo);
     }
 }

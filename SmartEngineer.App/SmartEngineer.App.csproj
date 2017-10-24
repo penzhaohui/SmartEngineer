@@ -191,18 +191,6 @@
     <Compile Include="Salesforce\frmWeeklyCaseManager.Designer.cs">
       <DependentUpon>frmWeeklyCaseManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Service\IAccountService.cs" />
-    <Compile Include="Service\IGithubService.cs" />
-    <Compile Include="Service\IJiraService.cs" />
-    <Compile Include="Service\imp\AccountService.cs" />
-    <Compile Include="Service\imp\GithubService.cs" />
-    <Compile Include="Service\imp\JiraService.cs" />
-    <Compile Include="Service\imp\SalesforceService.cs" />
-    <Compile Include="Service\imp\SettingService.cs" />
-    <Compile Include="Service\imp\TestRailService.cs" />
-    <Compile Include="Service\ISalesforceService.cs" />
-    <Compile Include="Service\ISettingService.cs" />
-    <Compile Include="Service\ITestRailService.cs" />
     <Compile Include="Settings\frmDatabaseSettings.cs">
       <SubType>Form</SubType>
     </Compile>

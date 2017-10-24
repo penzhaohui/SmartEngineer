@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommonLibrariesForNET</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "M:Salesforce.Common.Common.FormatCustomUrl(System.String,System.String,System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:Salesforce.Common.ServiceHttpClient.HttpGetRestApiAsync``1(System.String,System.String)" -->
+    </members>
+</doc>
