@@ -1,7 +1,4 @@
 ﻿using log4net;
-using RestSharp;
-using Salesforce.Common;
-using Salesforce.Force;
 using SalesforceSharp;
 using SalesforceSharp.Security;
 using SmartEngineer.Core.DAOs;
@@ -10,11 +7,10 @@ using SmartEngineer.Framework.Logger;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Threading.Tasks;
 
 namespace SmartEngineer.Core.Adapter
 {
-    public class SalesforceAdapterV2 : ISalesforceAdapterV2
+    public partial class SalesforceAdapterV2 : ISalesforceAdapterV2
     {
         /// <summary>
         /// Logger object.
@@ -218,67 +214,5 @@ namespace SmartEngineer.Core.Adapter
         }
 
         #endregion
-
-        #region Internal Service
-
-        private static readonly ISFCaseDAO<CaseInfo> SFCaseDAO = new SFCaseDAO<CaseInfo>();
-
-        public List<CaseInfo> GetCaseInfoByCaseNos(List<string> caseNos)
-        {
-            return null;
-        }
-
-        public List<string> GetUnstoredLocalCases(List<string> caseNos)
-        {
-            List<string> unstoredCaseNos = new List<string>();
-
-            var caseInfos = SFCaseDAO.GetEntitys(caseNos);
-
-            // No cases stored in the local database
-            if(caseInfos.Count == 0)
-            {
-                unstoredCaseNos = caseNos;
-            }
-            else
-            {
-                foreach (CaseInfo caseinfo in caseInfos)
-                {
-                    if (!caseNos.Contains(caseinfo.CaseNumber))
-                    {
-                        unstoredCaseNos.Add(caseinfo.CaseNumber);
-                    }
-                }
-            }           
-
-            return unstoredCaseNos;
-        }
-
-        public bool IsExistsLocalCase(string caseNo)
-        {
-            return SFCaseDAO.IsExist(new { CaseNumber = caseNo });
-        }
-
-        public bool StoreCaseInfoToLocal(CaseInfo caseInfo)
-        {
-            return SFCaseDAO.Insert(caseInfo).ID > 0;
-        }
-
-        public bool UpdateLocalCaseInfo(CaseInfo caseInfo)
-        {
-            return true;
-        }
-
-        public bool AppendCaseCommentToLocaCase()
-        {
-            return true;
-        }
-
-        public bool AppendCaseAttachmentToLocalCase()
-        {
-            return true;
-        }
-
-        #endregion
-
     }
 }

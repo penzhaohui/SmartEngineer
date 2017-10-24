@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Adapter\IAccountAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.Local.cs" />
+    <Compile Include="Adapter\imp\SalesforceAdapterV2.Local.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapterV2.cs" />
     <Compile Include="Adapter\ISalesforceAdapterV2.cs" />
     <Compile Include="Adapter\ISalesforceAdapter.cs" />
@@ -60,7 +61,9 @@
     <Compile Include="Adapter\imp\AccountAdapter.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.cs" />
+    <Compile Include="DAO\imp\JiraIssueDAO.cs" />
     <Compile Include="DAO\imp\SFCaseDAO.cs" />
+    <Compile Include="DAO\IJiraIssueDAO.cs" />
     <Compile Include="DAO\ISFCaseDAO.cs" />
     <Compile Include="DAO\IAccountDAO.cs" />
     <Compile Include="DAO\IAccountSessionDAO.cs" />
@@ -140,6 +143,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\Maps\JiraIssue.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Config\Maps\SFCase.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

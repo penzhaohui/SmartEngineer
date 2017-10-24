@@ -32,14 +32,12 @@ namespace SmartEngineer.Service
             foreach (Issue issue in issues)
             {
                 string caseNo = issue.fields.CaseNumber;
-                if (JiraAdapter.IsExistsLocalIssue(issue.key))
+                if (!JiraAdapter.IsExistsLocalIssue(issue.key))
                 {
-                    unStoredJiraKeyList.Add(issue.key));
+                    unStoredJiraKeyList.Add(issue.key);
                 }
                 
-
-                // If salesforce case is not stored into local database, store it                
-                if (SalesforceAdapterV2.IsExistsLocalCase(caseNo))
+                if (!SalesforceAdapterV2.IsExistsLocalCase(caseNo))
                 {
                     unStoredCaseNoList.Add(caseNo);
                 }
@@ -52,6 +50,7 @@ namespace SmartEngineer.Service
             // Save jira sub task into JiraIssueSubTask
             // Save jira work logs into JiraIssueWorkLogs
 
+            // If salesforce case is not stored into local database, store it
             // Save case basic information into SFCase
             // Save case comment into SFCaseComments
             // Save case attachment into SFCaseAttachments
