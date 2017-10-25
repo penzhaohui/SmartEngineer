@@ -1,0 +1,8 @@
+F:\MyWorkspace\SmartEngineer\SmartTask\tasks\command\InstallAndStart.bat
+F:\MyWorkspace\SmartEngineer\SmartTask\tasks\command\StopAndUninstall.bat
+F:\MyWorkspace\SmartEngineer\SmartTask\tasks\Tasks.config
+F:\MyWorkspace\SmartEngineer\SmartTask\tasks\SmartEngineer.Task.dll
+F:\MyWorkspace\SmartEngineer\SmartTask\tasks\SmartEngineer.Task.pdb
+F:\MyWorkspace\SmartEngineer\SmartEngineer.Task\obj\Debug\SmartEngineer.Task.csprojResolveAssemblyReference.cache
+F:\MyWorkspace\SmartEngineer\SmartEngineer.Task\obj\Debug\SmartEngineer.Task.dll
+F:\MyWorkspace\SmartEngineer\SmartEngineer.Task\obj\Debug\SmartEngineer.Task.pdb
