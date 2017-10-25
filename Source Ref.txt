@@ -63,3 +63,11 @@ https://github.com/brockallen
 https://www.codeproject.com/Articles/779844/Remember-Me
 https://www.codeproject.com/Articles/31914/Beginner-s-Guide-To-ASP-NET-Cookies
 https://github.com/optimajet/WorkflowEngine.NET
+
+消息队列
+http://www.cnblogs.com/netfocus/p/3595410.html
+http://www.cnblogs.com/beimeng/p/3298190.html
+
+站内搜索
+http://www.cnblogs.com/beimeng/p/3258967.html
+http://lucenenet.apache.org/download.cgi

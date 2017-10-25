@@ -34,7 +34,7 @@ namespace SmartTask
         /// <summary>
         /// 针对该任务，该资源的参数的集合
         /// </summary>
-        [XmlArrayItem(ElementName = "add")]
+        [XmlArray(ElementName = "params"), XmlArrayItem(ElementName = "add")]
         public ParamCollection Params { get; set; }
     }
 }

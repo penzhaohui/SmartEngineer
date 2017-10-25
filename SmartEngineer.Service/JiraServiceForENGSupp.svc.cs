@@ -29,17 +29,24 @@ namespace SmartEngineer.Service
             List<string> unStoredCaseNoList = new List<string>();
 
             List<Issue> issues = JiraAdapter.GetIssueList(caseNOs, JiraAccount, JiraPassword);
-            foreach (Issue issue in issues)
+            if (issues.Count == 0)
             {
-                string caseNo = issue.fields.CaseNumber;
-                if (!JiraAdapter.IsExistsLocalIssue(issue.key))
+                unStoredCaseNoList.AddRange(caseNOs);
+            }
+            else
+            {
+                foreach (Issue issue in issues)
                 {
-                    unStoredJiraKeyList.Add(issue.key);
-                }
-                
-                if (!SalesforceAdapterV2.IsExistsLocalCase(caseNo))
-                {
-                    unStoredCaseNoList.Add(caseNo);
+                    string caseNo = issue.fields.CaseNumber;
+                    if (!JiraAdapter.IsExistsLocalIssue(issue.key))
+                    {
+                        unStoredJiraKeyList.Add(issue.key);
+                    }
+
+                    if (!SalesforceAdapterV2.IsExistsLocalCase(caseNo))
+                    {
+                        unStoredCaseNoList.Add(caseNo);
+                    }
                 }
             }
 
@@ -49,11 +56,13 @@ namespace SmartEngineer.Service
             // Save jira attachment into JiraIssueAttachments
             // Save jira sub task into JiraIssueSubTask
             // Save jira work logs into JiraIssueWorkLogs
+            JiraAdapter.BatchStoreIssueInfoToLocalSync(unStoredJiraKeyList);
 
             // If salesforce case is not stored into local database, store it
             // Save case basic information into SFCase
             // Save case comment into SFCaseComments
             // Save case attachment into SFCaseAttachments
+            SalesforceAdapterV2.BatchStoreCaseInfoToLocalSync(unStoredCaseNoList);
 
             return jiraIssues;
         }

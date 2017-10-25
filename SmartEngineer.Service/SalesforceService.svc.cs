@@ -82,13 +82,25 @@ namespace SmartEngineer.Service
 
             if (engineerCases.Count != 0)
             {
+                List<string> unStoredCaseNoList = new List<string>();
                 List<string> caseNos = new List<string>();
                 foreach(AccelaCase caseInfo in engineerCases)
                 {
                     caseNos.Add(caseInfo.CaseNumber);
+
+                    if (!salesforceAdapterV2.IsExistsLocalCase(caseInfo.CaseNumber))
+                    {
+                        unStoredCaseNoList.Add(caseInfo.CaseNumber);
+                    }
                 }
 
-                newCaseList = salesforceAdapterV2.GetUnstoredLocalCases(caseNos);
+                newCaseList = jiraAdapter.GetUnimportedCases(caseNos);
+
+                // If salesforce case is not stored into local database, store it
+                // Save case basic information into SFCase
+                // Save case comment into SFCaseComments
+                // Save case attachment into SFCaseAttachments
+                salesforceAdapterV2.BatchStoreCaseInfoToLocalSync(unStoredCaseNoList);
             }
 
             return newCaseList;

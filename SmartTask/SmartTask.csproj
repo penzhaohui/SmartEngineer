@@ -51,10 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="framework\AbstractTask.cs" />
-    <Compile Include="framework\demo\AssignHotCaseTask.cs" />
-    <Compile Include="framework\demo\CollectClosedCaseTask.cs" />
-    <Compile Include="framework\demo\DailyReportTask.cs" />
-    <Compile Include="framework\demo\SyncCaseTask.cs" />
     <Compile Include="framework\enum\ErrorWayType.cs" />
     <Compile Include="framework\collection\ParamCollection.cs" />
     <Compile Include="framework\common\ParamInfo.cs" />
@@ -132,6 +128,14 @@
     <None Include="Tasks.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="framework\demo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="tasks\SmartEngineer.Task.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -46,33 +46,53 @@ namespace SmartEngineer.Core.Adapter
             return account;
         }
 
-        public List<Issue> GetIssueList(List<string> caseNos, string jiraAccount, string jiraPassword)
+        public List<Issue> GetIssueList(List<string> CaseNoOrJiraKeyList, string jiraAccount, string jiraPassword)
         {
+            List<Issue> issueList = new List<Issue>();
             IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
-
+            
             string sql = String.Empty;
 
-            foreach (string caseNo in caseNos)
+            int index = 0;
+            foreach (string caseNoOrJiraKey in CaseNoOrJiraKeyList)
             {
+                index++;
                 if (String.IsNullOrEmpty(sql))
                 {
-                    sql = " \"SalesForce ID\" ~  " + caseNo;
+                    if (caseNoOrJiraKey.StartsWith("ENGSUPP"))
+                    {
+                        sql = " key = " + caseNoOrJiraKey;
+                    }
+                    else
+                    {
+                        sql = " \"SalesForce ID\" ~  " + caseNoOrJiraKey;
+                    }
                 }
                 else
                 {
-                    sql += " OR \"SalesForce ID\" ~  " + caseNo;
+                    if (caseNoOrJiraKey.StartsWith("ENGSUPP"))
+                    {
+                        sql += " OR key =  " + caseNoOrJiraKey;
+                    }
+                    else
+                    {
+                        sql += " OR \"SalesForce ID\" ~  " + caseNoOrJiraKey;
+                    }
+                }
+
+                if (index % 50 == 0 || index == CaseNoOrJiraKeyList.Count)
+                {
+                    sql = "(" + sql + ")";
+                    var issues = jira.GetIssuesByQuery("ENGSUPP", "", sql);
+                    foreach (Issue issue in issues)
+                    {
+                        issueList.Add(issue);
+                    }
+
+                    sql = String.Empty;
                 }
             }
-
-            sql = "(" + sql + ")";
-
-            List<Issue> issueList = new List<Issue>();
-            var issues = jira.GetIssuesByQuery("ENGSUPP", "", sql);
-            foreach (Issue issue in issues)
-            {
-                issueList.Add(issue);
-            }
-
+            
             return issueList;
         }
 

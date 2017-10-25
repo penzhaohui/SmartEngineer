@@ -14,9 +14,14 @@ namespace SmartEngineer.Core.Models
             this.CreaedBy = sfCase.CreatedBy.Name;
             this.CreatedDate = sfCase.CreatedDate;
             this.CaseOwner = sfCase.Owner.Name;
-            //this.LastModifiedBy = sfCase.LastModifiedBy;
-            //this.LastModifiedDateTime = sfCase.LastModifiedBy;
-            this.Orgin = sfCase.Origin;
+            this.LastCommentAddedBy = sfCase.LastCommentCreatedBy;
+            if (this.LastCommentAddedBy != null)
+            {
+                int index = sfCase.LastCommentCreatedBy.IndexOf(":");
+                this.LastModifiedBy = sfCase.LastCommentCreatedBy.Substring(0, index).Trim();
+                this.LastModifiedDateTime = Convert.ToDateTime(sfCase.LastCommentCreatedBy.Substring(index + 1).Trim());
+            }
+            this.Origin = sfCase.Origin;
             this.CurrentOnMaintenance = sfCase.CurrentOnMaintenance;
             this.JiraIssueURL = sfCase.JiraIssueURL;
             this.AccountName = (sfCase.Account == null ? "" : sfCase.Account.Name);
@@ -30,13 +35,14 @@ namespace SmartEngineer.Core.Models
             this.IssueType = sfCase.Type;
             this.Status = sfCase.Status;
             this.ParentCase = sfCase.ParentCaseId;
-            this.Product = sfCase.Product;
+            this.Product = AdjustProductName(sfCase.Product, sfCase.Solution, sfCase.Subject, sfCase.Description);
             this.ReleaseInfo = sfCase.ReleaseInfo;
             this.Solution = sfCase.Solution;
             this.CurrentVersion = sfCase.CurrentVersion;
             this.TargetedRelease = sfCase.TargetedRelease;
             this.PatchNumber = sfCase.PatchNumber;
             this.Blocked = sfCase.Blocked;
+            this.EscalatedBy = sfCase.EscalatedBy;
             this.Subject = sfCase.Subject;
             this.Description = sfCase.Description;
             this.EngineeringStatus = sfCase.EngineeringStatus;
@@ -51,6 +57,52 @@ namespace SmartEngineer.Core.Models
             this.RankOrder = sfCase.RankOrder;
             this.GoLiveCritical = sfCase.GoLiveCritical;
             this.ServicesRank = sfCase.ServicesRank;
+        }
+
+        private string AdjustProductName(string product, string solution, string subject, string description)
+        {
+            string productName = product;
+
+            if ("AdHoc Reports" == product)
+            {
+                productName = product;
+            }
+
+            if ("Inspector" == product || "Civic Hero" == product || "Code Officer" == product || "Work Crew" == product || "Support Access" == product)
+            {
+                productName = product;
+            }
+
+            if ("Inspector" == solution || "Civic Hero" == solution || "Code Officer" == solution || "Work Crew" == solution || "Support Access" == solution)
+            {
+                productName = solution;
+            }
+
+            if ("Civic Cloud Platform" == product || "Accela Asset Management" == product || "Accela Licensing & Case Management" == product)
+            {
+                productName = product;
+            }
+
+            if ("Standard history conversion" == product)
+            {
+                productName = product;
+            }
+
+            if ("Mobile Office" == solution)
+            {
+                productName = solution;
+            }
+
+            if ("Accela Mobile" == productName)
+            {
+                if ((subject != null && (subject.ToUpper().Contains("AMO") || subject.ToUpper().Contains("MOBILE OFFICE")))
+                    || (description != null && (description.ToUpper().Contains("AMO") || description.ToUpper().Contains("MOBILE OFFICE"))))
+                {
+                    productName = "Mobile Office";
+                }
+            }
+
+            return productName;
         }
 
         [DataMember]
@@ -68,11 +120,13 @@ namespace SmartEngineer.Core.Models
         [DataMember]
         public string CaseOwner { get; set; }
         [DataMember]
+        public string LastCommentAddedBy { get; set; }
+        [DataMember]
         public string LastModifiedBy { get; set; }
         [DataMember]
-        public string LastModifiedDateTime { get; set; }
+        public DateTime? LastModifiedDateTime { get; set; }
         [DataMember]
-        public string Orgin { get; set; }
+        public string Origin { get; set; }
         [DataMember]
         public bool CurrentOnMaintenance { get; set; }
         [DataMember]
@@ -114,7 +168,9 @@ namespace SmartEngineer.Core.Models
         [DataMember]
         public bool Blocked { get; set; }
         [DataMember]
-        public string Subject { get; set; }
+        public string EscalatedBy { get; set; }
+        [DataMember]
+        public string Subject { get; set; }        
         [DataMember]
         public string Description { get; set; }
         [DataMember]

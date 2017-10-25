@@ -18,7 +18,7 @@ namespace SmartEngineer.Core.Adapter
         /// <returns>account</returns>
         Account ValidateAccount(string userOrEmailAddress, string password);
 
-        List<Issue> GetIssueList(List<string> caseNos, string jiraAccount, string jiraPassword);
+        List<Issue> GetIssueList(List<string> CaseNoOrJiraKeyList, string jiraAccount, string jiraPassword);
 
         Task<Issue> CreateIssue(string project, string issueType, IssueFields fields, string jiraAccount, string jiraPassword);
 
@@ -34,6 +34,12 @@ namespace SmartEngineer.Core.Adapter
 
         bool IsExistsLocalCase(string caseNo);
 
-        bool StoreCaseInfoToLocal(IssueInfo issueInfo);
+        bool BatchStoreIssueInfoToLocal(List<string> keys);
+
+       Task<bool> BatchStoreIssueInfoToLocalSync(List<string> keys);
+
+        int StoreIssueInfoToLocal(IssueInfo issueInfo);
+
+        List<string> GetUnimportedCases(List<string> caseNos);
     }
 }

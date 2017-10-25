@@ -34,14 +34,14 @@ namespace SmartTask
         /// <summary>
         /// 公有资源信息
         /// </summary>
-        [XmlArrayItem(ElementName = "ref")]
+        [XmlArray(ElementName = "refs"), XmlArrayItem(ElementName = "ref")]
         public RefCollection Refs { get; set; }
 
 
         /// <summary>
         /// 未关联至公有资源的参数集合
         /// </summary>
-        [XmlArrayItem(ElementName = "add")]
+        [XmlArray(ElementName = "settings"), XmlArrayItem(ElementName = "add")]
         public ParamCollection Settings { get; set; }
 
     }

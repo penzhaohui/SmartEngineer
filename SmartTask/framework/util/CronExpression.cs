@@ -22,6 +22,7 @@ using System.Text;
 
 namespace SmartTask
 {
+    // https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm
     /// <summary>
     /// Provides a parser and evaluator for unix-like cron expressions. Cron 
     /// expressions provide the ability to specify complex time combinations such as
