@@ -144,9 +144,11 @@ namespace SmartEngineer.Core.Adapter
             return results;
         }
 
-        public IList<AccelaCase> QueryCasesByCaseNos(List<string> caseNos)
+        public IList<AccelaCase> PullCasesByCaseNos(List<string> caseNos)
         {
             var cases = new List<AccelaCase>();
+
+            if (caseNos == null || caseNos.Count == 0) return cases;
 
             string sql = @"select id, CaseNumber, 
                                   case.createdby.name, CreatedDate, case.owner.name, Last_Comment_By__c, Origin, Current_on_Maintenance__c, LastModifiedById, Jira_Issue_URL__c,
@@ -203,16 +205,66 @@ namespace SmartEngineer.Core.Adapter
             return cases;
         }
 
-        public string CreateCaseComment(NewCaseComment comment)
+        public string CreateCaseComment(AccelaCaseComment comment)
         {
             return null;
         }
 
-        public IList<CaseComment> GetCaseCommentsByCaseID(string id)
+        public IList<AccelaCaseComment> PullCaseCommentsByParentID(string parentId, string creatorId=null, DateTime? from=null, DateTime? end=null)
         {
-            return null;
+            string sql = $@"SELECT Id, CommentBody, CreatedDate, IsPublished, IsDeleted, LastModifiedDate, ParentId,
+                                       CreatedBy.Id, CreatedBy.Name, CreatedBy.Email,  CreatedBy.FirstName, CreatedBy.LastName, CreatedBy.IsActive, 
+                                       LastModifiedBy.Id, Lastmodifiedby.Name, Lastmodifiedby.Email, Lastmodifiedby.FirstName, Lastmodifiedby.LastName, Lastmodifiedby.IsActive
+                           from CaseComment
+                           WHERE ParentId = '{parentId}' ";
+
+            if (creatorId != null && creatorId.Trim().Length > 0)
+            {
+                sql += $" AND CreatedById ='{creatorId}' ";
+            }
+
+            if (from != null && from != DateTime.MinValue)
+            {
+                sql += $" AND LastModifiedDate >= {from.Value.ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss")}Z ";
+            }
+
+            if (end != null && end != DateTime.MinValue)
+            {
+                sql += $" AND LastModifiedDate <= {end.Value.ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss")}Z ";
+            }
+
+            var comments = Client.Query<AccelaCaseComment>(sql);
+
+            return comments;
         }
 
+        public List<string> GetProcessedCaseNOs(DateTime from, DateTime end, string editor)
+        {
+            List<string> caseNos = new List<string>();
+
+            string sql = @" select Id, CaseId, case.CaseNumber, CreatedById, CreatedBy.name, CreatedDate,NewValue, OldValue, IsDeleted
+                            from CaseHistory
+                            where Field = 'Status' ";
+
+            sql += $" AND CreatedDate >= {from.ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss")}Z ";
+            sql += $" AND CreatedDate <= {end.ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss")}Z ";
+            sql += $" AND CreatedBy.name = '{editor}' ";
+
+            var cases = new List<AccelaCaseHistory>();
+            var caseHostories = Client.Query<AccelaCaseHistory>(sql);            
+
+            foreach (AccelaCaseHistory history in caseHostories)
+            {
+                if (!caseNos.Contains(history.Case.CaseNumber))
+                {
+                    caseNos.Add(history.Case.CaseNumber);
+                }
+            }
+
+            return caseNos;
+        }
+
+        
         #endregion
     }
 }

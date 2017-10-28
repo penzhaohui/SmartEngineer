@@ -34,7 +34,13 @@ namespace SmartEngineer.Forms
 
         private void btnGetCommentedCasesFromSalesforce_Click(object sender, EventArgs e)
         {
-            // List<CaseInfo> SalesforceService.GetCommentedCasesList()
+            this.btnGetCommentedCasesFromSalesforce.Enabled = false;
+
+            ICaseAdapter caseAdapter = new CaseAdapter();
+            List<string> newCaseNoList = caseAdapter.GetCommentedCasesForToday();
+            this.txtInputCaseNOs.Text = string.Join(",", newCaseNoList.ToArray());
+
+            this.btnGetCommentedCasesFromSalesforce.Enabled = true;
         }
 
         private void btnGetPendingCasesFromJira_Click(object sender, EventArgs e)
@@ -77,7 +83,8 @@ namespace SmartEngineer.Forms
                 }
 
                 ICaseAdapter caseAdapter = new CaseAdapter();
-                caseAdapter.PullDetailedCaseInfo(caseNoList);
+                dgvCaseList.AutoGenerateColumns = false;
+                dgvCaseList.DataSource = caseAdapter.PullDetailedCaseInfo(caseNoList);
             }
 
             this.btnPullDetailedInfo.Enabled = true;

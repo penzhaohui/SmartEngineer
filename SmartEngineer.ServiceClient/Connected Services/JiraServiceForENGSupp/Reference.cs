@@ -22,6 +22,96 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AssignedQAField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AssigneeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BuildVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CaseNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EstimatedEffortField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FixVersionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IssueCategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IssueTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JiraIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JiraKeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LabelsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PriorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ReporterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SFCommentCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFCurrentVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFCustomerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> SFLastModifiedDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> SFOpenedDateTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFOriginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFPriorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFSalesforceLinkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFTargetedReleaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SeverityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SummaryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> UpdatedField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -29,6 +119,396 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AssignedQA {
+            get {
+                return this.AssignedQAField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AssignedQAField, value) != true)) {
+                    this.AssignedQAField = value;
+                    this.RaisePropertyChanged("AssignedQA");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Assignee {
+            get {
+                return this.AssigneeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AssigneeField, value) != true)) {
+                    this.AssigneeField = value;
+                    this.RaisePropertyChanged("Assignee");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BuildVersion {
+            get {
+                return this.BuildVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BuildVersionField, value) != true)) {
+                    this.BuildVersionField = value;
+                    this.RaisePropertyChanged("BuildVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CaseNumber {
+            get {
+                return this.CaseNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CaseNumberField, value) != true)) {
+                    this.CaseNumberField = value;
+                    this.RaisePropertyChanged("CaseNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EstimatedEffort {
+            get {
+                return this.EstimatedEffortField;
+            }
+            set {
+                if ((this.EstimatedEffortField.Equals(value) != true)) {
+                    this.EstimatedEffortField = value;
+                    this.RaisePropertyChanged("EstimatedEffort");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FixVersions {
+            get {
+                return this.FixVersionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FixVersionsField, value) != true)) {
+                    this.FixVersionsField = value;
+                    this.RaisePropertyChanged("FixVersions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IssueCategory {
+            get {
+                return this.IssueCategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IssueCategoryField, value) != true)) {
+                    this.IssueCategoryField = value;
+                    this.RaisePropertyChanged("IssueCategory");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IssueType {
+            get {
+                return this.IssueTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IssueTypeField, value) != true)) {
+                    this.IssueTypeField = value;
+                    this.RaisePropertyChanged("IssueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string JiraID {
+            get {
+                return this.JiraIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JiraIDField, value) != true)) {
+                    this.JiraIDField = value;
+                    this.RaisePropertyChanged("JiraID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string JiraKey {
+            get {
+                return this.JiraKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JiraKeyField, value) != true)) {
+                    this.JiraKeyField = value;
+                    this.RaisePropertyChanged("JiraKey");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Labels {
+            get {
+                return this.LabelsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LabelsField, value) != true)) {
+                    this.LabelsField = value;
+                    this.RaisePropertyChanged("Labels");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Priority {
+            get {
+                return this.PriorityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PriorityField, value) != true)) {
+                    this.PriorityField = value;
+                    this.RaisePropertyChanged("Priority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Product {
+            get {
+                return this.ProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
+                    this.ProductField = value;
+                    this.RaisePropertyChanged("Product");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Reporter {
+            get {
+                return this.ReporterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReporterField, value) != true)) {
+                    this.ReporterField = value;
+                    this.RaisePropertyChanged("Reporter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SFCommentCount {
+            get {
+                return this.SFCommentCountField;
+            }
+            set {
+                if ((this.SFCommentCountField.Equals(value) != true)) {
+                    this.SFCommentCountField = value;
+                    this.RaisePropertyChanged("SFCommentCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFCurrentVersion {
+            get {
+                return this.SFCurrentVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFCurrentVersionField, value) != true)) {
+                    this.SFCurrentVersionField = value;
+                    this.RaisePropertyChanged("SFCurrentVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFCustomer {
+            get {
+                return this.SFCustomerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFCustomerField, value) != true)) {
+                    this.SFCustomerField = value;
+                    this.RaisePropertyChanged("SFCustomer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> SFLastModifiedDate {
+            get {
+                return this.SFLastModifiedDateField;
+            }
+            set {
+                if ((this.SFLastModifiedDateField.Equals(value) != true)) {
+                    this.SFLastModifiedDateField = value;
+                    this.RaisePropertyChanged("SFLastModifiedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> SFOpenedDateTime {
+            get {
+                return this.SFOpenedDateTimeField;
+            }
+            set {
+                if ((this.SFOpenedDateTimeField.Equals(value) != true)) {
+                    this.SFOpenedDateTimeField = value;
+                    this.RaisePropertyChanged("SFOpenedDateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFOrigin {
+            get {
+                return this.SFOriginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFOriginField, value) != true)) {
+                    this.SFOriginField = value;
+                    this.RaisePropertyChanged("SFOrigin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFPriority {
+            get {
+                return this.SFPriorityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFPriorityField, value) != true)) {
+                    this.SFPriorityField = value;
+                    this.RaisePropertyChanged("SFPriority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFProduct {
+            get {
+                return this.SFProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFProductField, value) != true)) {
+                    this.SFProductField = value;
+                    this.RaisePropertyChanged("SFProduct");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFSalesforceLink {
+            get {
+                return this.SFSalesforceLinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFSalesforceLinkField, value) != true)) {
+                    this.SFSalesforceLinkField = value;
+                    this.RaisePropertyChanged("SFSalesforceLink");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFTargetedRelease {
+            get {
+                return this.SFTargetedReleaseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFTargetedReleaseField, value) != true)) {
+                    this.SFTargetedReleaseField = value;
+                    this.RaisePropertyChanged("SFTargetedRelease");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Severity {
+            get {
+                return this.SeverityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SeverityField, value) != true)) {
+                    this.SeverityField = value;
+                    this.RaisePropertyChanged("Severity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Summary {
+            get {
+                return this.SummaryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SummaryField, value) != true)) {
+                    this.SummaryField = value;
+                    this.RaisePropertyChanged("Summary");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Updated {
+            get {
+                return this.UpdatedField;
+            }
+            set {
+                if ((this.UpdatedField.Equals(value) != true)) {
+                    this.UpdatedField = value;
+                    this.RaisePropertyChanged("Updated");
+                }
             }
         }
         

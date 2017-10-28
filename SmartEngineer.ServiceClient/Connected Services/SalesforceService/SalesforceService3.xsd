@@ -29,6 +29,7 @@
       <xs:element minOccurs="0" name="EngineeringAssignment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EngineeringComment" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EngineeringStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EscalatedBy" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="GoLiveCritical" type="xs:boolean" />
       <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="InternalSeverity" nillable="true" type="xs:string" />
@@ -36,9 +37,10 @@
       <xs:element minOccurs="0" name="IssueCategory" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IssueType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="JiraIssueURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastCommentAddedBy" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LastModifiedBy" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LastModifiedDateTime" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Orgin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastModifiedDateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ParentCase" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PatchNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:string" />

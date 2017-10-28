@@ -57,6 +57,10 @@ namespace TechTalk.JiraRestClient
 
         /// <summary>Returns all work logs for the given issue</summary>
         IEnumerable<Worklog> GetWorklogs(IssueRef issue);
+        /// <summary>
+        /// Returns all sub tasks of the given project filtered by the given JQL query
+        /// </summary>
+        IEnumerable<SubTask> GetSubTasksByQuery(string projectKey, string jqlQuery);
 
         /// <summary>Return all attachments for the given issue</summary>
         IEnumerable<Attachment> GetAttachments(IssueRef issue);
@@ -202,6 +206,11 @@ namespace TechTalk.JiraRestClient
         public IEnumerable<Worklog> GetWorklogs(IssueRef issue)
         {
             return client.GetWorklogs(issue);
+        }
+
+        public IEnumerable<SubTask> GetSubTasksByQuery(string projectKey, string jqlQuery)
+        {
+            return client.GetSubTasksByQuery(projectKey, jqlQuery);
         }
 
         public IEnumerable<Attachment> GetAttachments(IssueRef issue)

@@ -31,7 +31,7 @@ namespace SmartEngineer.Service
         {
         }
 
-        public List<IssueInfo> GetExistingScopeItems(int id)
+        public List<JiraIssue> GetExistingScopeItems(int id)
         {
             throw new NotImplementedException();
         }
@@ -41,7 +41,7 @@ namespace SmartEngineer.Service
             throw new NotImplementedException();
         }
 
-        public bool SubmitNewScopeItems(string name, List<IssueInfo> items)
+        public bool SubmitNewScopeItems(string name, List<JiraIssue> items)
         {
             throw new NotImplementedException();
         }

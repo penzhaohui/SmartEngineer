@@ -86,6 +86,9 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
         private string EngineeringStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EscalatedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool GoLiveCriticalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -107,13 +110,16 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
         private string JiraIssueURLField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastCommentAddedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastModifiedByField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LastModifiedDateTimeField;
+        private System.Nullable<System.DateTime> LastModifiedDateTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OrginField;
+        private string OriginField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ParentCaseField;
@@ -438,6 +444,19 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EscalatedBy {
+            get {
+                return this.EscalatedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EscalatedByField, value) != true)) {
+                    this.EscalatedByField = value;
+                    this.RaisePropertyChanged("EscalatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool GoLiveCritical {
             get {
                 return this.GoLiveCriticalField;
@@ -529,6 +548,19 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastCommentAddedBy {
+            get {
+                return this.LastCommentAddedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastCommentAddedByField, value) != true)) {
+                    this.LastCommentAddedByField = value;
+                    this.RaisePropertyChanged("LastCommentAddedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string LastModifiedBy {
             get {
                 return this.LastModifiedByField;
@@ -542,12 +574,12 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LastModifiedDateTime {
+        public System.Nullable<System.DateTime> LastModifiedDateTime {
             get {
                 return this.LastModifiedDateTimeField;
             }
             set {
-                if ((object.ReferenceEquals(this.LastModifiedDateTimeField, value) != true)) {
+                if ((this.LastModifiedDateTimeField.Equals(value) != true)) {
                     this.LastModifiedDateTimeField = value;
                     this.RaisePropertyChanged("LastModifiedDateTime");
                 }
@@ -555,14 +587,14 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Orgin {
+        public string Origin {
             get {
-                return this.OrginField;
+                return this.OriginField;
             }
             set {
-                if ((object.ReferenceEquals(this.OrginField, value) != true)) {
-                    this.OrginField = value;
-                    this.RaisePropertyChanged("Orgin");
+                if ((object.ReferenceEquals(this.OriginField, value) != true)) {
+                    this.OriginField = value;
+                    this.RaisePropertyChanged("Origin");
                 }
             }
         }
@@ -756,11 +788,11 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetNewCasesList", ReplyAction="http://tempuri.org/ISalesforceService/GetNewCasesListResponse")]
         System.Threading.Tasks.Task<string[]> GetNewCasesListAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetCommentedCasesList", ReplyAction="http://tempuri.org/ISalesforceService/GetCommentedCasesListResponse")]
-        SmartEngineer.ServiceClient.SalesforceService.CaseInfo[] GetCommentedCasesList();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetCommentedCaseList", ReplyAction="http://tempuri.org/ISalesforceService/GetCommentedCaseListResponse")]
+        string[] GetCommentedCaseList(System.DateTime start, System.DateTime end);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetCommentedCasesList", ReplyAction="http://tempuri.org/ISalesforceService/GetCommentedCasesListResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.SalesforceService.CaseInfo[]> GetCommentedCasesListAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetCommentedCaseList", ReplyAction="http://tempuri.org/ISalesforceService/GetCommentedCaseListResponse")]
+        System.Threading.Tasks.Task<string[]> GetCommentedCaseListAsync(System.DateTime start, System.DateTime end);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetCasesByCaseNOs", ReplyAction="http://tempuri.org/ISalesforceService/GetCasesByCaseNOsResponse")]
         SmartEngineer.ServiceClient.SalesforceService.CaseInfo[] GetCasesByCaseNOs(string[] caseNOs);
@@ -828,12 +860,12 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
             return base.Channel.GetNewCasesListAsync();
         }
         
-        public SmartEngineer.ServiceClient.SalesforceService.CaseInfo[] GetCommentedCasesList() {
-            return base.Channel.GetCommentedCasesList();
+        public string[] GetCommentedCaseList(System.DateTime start, System.DateTime end) {
+            return base.Channel.GetCommentedCaseList(start, end);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.SalesforceService.CaseInfo[]> GetCommentedCasesListAsync() {
-            return base.Channel.GetCommentedCasesListAsync();
+        public System.Threading.Tasks.Task<string[]> GetCommentedCaseListAsync(System.DateTime start, System.DateTime end) {
+            return base.Channel.GetCommentedCaseListAsync(start, end);
         }
         
         public SmartEngineer.ServiceClient.SalesforceService.CaseInfo[] GetCasesByCaseNOs(string[] caseNOs) {

@@ -12,9 +12,9 @@ namespace SmartEngineer.Core.Adapter
 
         Task<List<AccelaCase>> QueryCasesByCaseNos(List<string> caseNos);
 
-        Task<string> CreateCaseComment(NewCaseComment comment);
+        Task<string> CreateCaseComment(AccelaCaseComment comment);
 
-        Task<List<CaseComment>> GetCaseCommentsByCaseID(string id);
+        Task<List<AccelaCaseComment>> GetCaseCommentsByCaseID(string id);
 
         bool IsExistsLocalCase(string caseNo);
 

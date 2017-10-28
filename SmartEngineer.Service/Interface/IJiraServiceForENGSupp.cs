@@ -9,13 +9,13 @@ namespace SmartEngineer.Service
     public interface IJiraServiceForENGSupp
     {
         [OperationContract]
-        List<IssueInfo> GetIssuesByLabels(List<string> labels);
+        List<JiraIssue> GetIssuesByLabels(List<string> labels);
 
         [OperationContract]
-        List<IssueInfo> GetIssuesByStatuses(List<string> statuses);
+        List<JiraIssue> GetIssuesByStatuses(List<string> statuses);
 
         [OperationContract]
-        List<IssueInfo> GetIssuesByCaseNos(List<string> caseNOs);
+        List<JiraIssue> GetIssuesByCaseNos(List<string> caseNOs);
 
         [OperationContract]
         bool ImportCaseNOs(List<string> caseNOs);

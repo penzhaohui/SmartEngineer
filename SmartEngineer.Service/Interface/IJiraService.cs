@@ -9,7 +9,7 @@ namespace SmartEngineer.Service
     public interface IJiraService
     {
         [OperationContract]
-        List<IssueInfo> GetIssuesByLabels(List<string> labels);
+        List<JiraIssue> GetIssuesByLabels(List<string> labels);
 
         [OperationContract]
         bool UpdateAssignee(string jiraKey, string assignee);
@@ -18,10 +18,10 @@ namespace SmartEngineer.Service
         bool UpdateAssigneeQA(string jiraKey, string assignee);
 
         [OperationContract]
-        List<IssueInfo> GetUpdatedIssues(DateTime from, DateTime to, List<string> assignees);
+        List<JiraIssue> GetUpdatedIssues(DateTime from, DateTime to, List<string> assignees);
 
         [OperationContract]
-        List<WorkLog> GetWorkLogs(string jiraKey);
+        List<JiraWorkLog> GetWorkLogs(string jiraKey);
 
         //[OperationContract]
         //List<WorkLog> GetWorkLogs(DateTime from, DateTime to, List<string> assignees);
@@ -30,10 +30,10 @@ namespace SmartEngineer.Service
         string GetCaseStudy(string jiraKey, string options);
 
         [OperationContract]
-        List<SubTask> GetSubTasks(string jiraKey);
+        List<JiraSubTask> GetSubTasks(string jiraKey);
 
         [OperationContract]
-        bool UpdateSubTasks(string jiraKey, SubTask subTask);
+        bool UpdateSubTasks(string jiraKey, JiraSubTask subTask);
 
         [OperationContract]
         bool CloseSubTasks(string jiraKey);

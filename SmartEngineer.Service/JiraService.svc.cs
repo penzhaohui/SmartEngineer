@@ -22,22 +22,22 @@ namespace SmartEngineer.Service
             throw new NotImplementedException();
         }
 
-        public List<IssueInfo> GetIssuesByLabels(List<string> labels)
+        public List<JiraIssue> GetIssuesByLabels(List<string> labels)
         {
             throw new NotImplementedException();
         }
 
-        public List<SubTask> GetSubTasks(string jiraKey)
+        public List<JiraSubTask> GetSubTasks(string jiraKey)
         {
             throw new NotImplementedException();
         }
 
-        public List<IssueInfo> GetUpdatedIssues(DateTime from, DateTime to, List<string> assignees)
+        public List<JiraIssue> GetUpdatedIssues(DateTime from, DateTime to, List<string> assignees)
         {
             throw new NotImplementedException();
         }
 
-        public List<WorkLog> GetWorkLogs(string jiraKey)
+        public List<JiraWorkLog> GetWorkLogs(string jiraKey)
         {
             throw new NotImplementedException();
         }
@@ -59,7 +59,7 @@ namespace SmartEngineer.Service
             throw new NotImplementedException();
         }
 
-        public bool UpdateSubTasks(string jiraKey, SubTask subTask)
+        public bool UpdateSubTasks(string jiraKey, JiraSubTask subTask)
         {
             throw new NotImplementedException();
         }

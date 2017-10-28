@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using SmartEngineer.Core.Models;
+﻿using SmartEngineer.Core.Models;
 using SmartSql;
 using SmartSql.Abstractions;
+using System.Collections.Generic;
 
 namespace SmartEngineer.Core.DAOs
 {
@@ -27,11 +26,13 @@ namespace SmartEngineer.Core.DAOs
         {
             List<CaseInfo> cases = new List<CaseInfo>();
 
+            if (caseNos == null || caseNos.Count == 0) return cases;
+
             var entities = SQLMapper.Query<CaseInfo>(new RequestContext
             {
                 Scope = this.Scope,
-                SqlId = "GetEntitys",
-                Request = new { CaseNumbers = caseNos }
+                SqlId = "GetEntities",
+                Request = new { CaseNumber = caseNos }
             });
 
             foreach(CaseInfo entity in entities)

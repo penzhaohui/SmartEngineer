@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SmartSqlMap Scope="JiraIssue"  xmlns="http://SmartSql.net/schemas/SmartSqlMap.xsd">
+  <Caches>
+    <Cache Id="Account.RedisCache" Type="SmartSql.Cache.Redis.RedisCacheProvider,SmartSql.Cache.Redis">
+      <Parameter Key="CacheSize" Value="1000"/>
+      <Parameter Key="ConnectionString" Value="192.168.31.103"/>
+      <Parameter Key="DatabaseId" Value="0"/>
+      <FlushInterval Hours="24" Minutes="0" Seconds="0"/>
+      <FlushOnExecute Statement="JiraIssue.Insert"/>
+      <FlushOnExecute Statement="JiraIssue.Update"/>
+    </Cache>
+  </Caches>
+  <Statements>
+    <Statement Id="QueryParams">
+      <Dynamic Prepend="Where">
+        <IsNotEmpty Property="JiraKey" Prepend="And">
+          JiraKey = @JiraKey
+        </IsNotEmpty>
+        <IsNotEmpty Property="CaseNumber" Prepend="And">
+          CaseNumber = @CaseNumber
+        </IsNotEmpty>
+      </Dynamic>      
+    </Statement>
+    
+    <!--新增-->
+    <Statement Id="Insert">
+      INSERT INTO JiraIssue
+      (ID
+      ,JiraID
+      ,JiraKey
+      ,IssueType
+      ,Summary
+      ,Status
+      ,Priority
+      ,Labels
+      ,Description
+      ,FixVersions
+      ,Reporter
+      ,Assignee
+      ,AssignedQA
+      ,CaseNumber
+      ,BuildVersion
+      ,Severity
+      ,Product
+      ,IssueCategory
+      ,EstimatedEffort
+      ,SFCommentCount
+      ,SFPriority
+      ,SFCustomer
+      ,SFCurrentVersion
+      ,SFProduct
+      ,SFSalesforceLink
+      ,SFOpenedDateTime
+      ,SFLastModifiedDate
+      ,SFOrigin
+      ,SFTargetedRelease
+      ,Updated)
+      VALUES
+      (@ID
+      ,@JiraID
+      ,@JiraKey
+      ,@IssueType
+      ,@Summary
+      ,@Status
+      ,@Priority
+      ,@Labels
+      ,@Description
+      ,@FixVersions
+      ,@Reporter
+      ,@Assignee
+      ,@AssignedQA
+      ,@CaseNumber
+      ,@BuildVersion
+      ,@Severity
+      ,@Product
+      ,@IssueCategory
+      ,@EstimatedEffort
+      ,@SFCommentCount
+      ,@SFPriority
+      ,@SFCustomer
+      ,@SFCurrentVersion
+      ,@SFProduct
+      ,@SFSalesforceLink
+      ,@SFOpenedDateTime
+      ,@SFLastModifiedDate
+      ,@SFOrigin
+      ,@SFTargetedRelease
+      ,@Updated);
+    </Statement>
+
+    <!--删除-->
+    <Statement Id="Delete">
+      Delete JiraIssue
+      Where ID=@ID
+    </Statement>
+
+    <!--更新-->
+    <Statement Id="Update">
+      UPDATE JiraIssue
+      SET
+      JiraID=@JiraID
+      ,JiraKey=@JiraKey
+      ,IssueType=@IssueType
+      ,Summary=@Summary
+      ,Status=@Status
+      ,Priority=@Priority
+      ,Labels=@Labels
+      ,Description=@Description
+      ,FixVersions=@FixVersions
+      ,Reporter=@Reporter
+      ,Assignee=@Assignee
+      ,AssignedQA=@AssignedQA
+      ,CaseNumber=@CaseNumber
+      ,BuildVersion=@BuildVersion
+      ,Severity=@Severity
+      ,Product=@Product
+      ,IssueCategory=@IssueCategory
+      ,EstimatedEffort=@EstimatedEffort
+      ,SFCommentCount=@SFCommentCount
+      ,SFPriority=@SFPriority
+      ,SFCustomer=@SFCustomer
+      ,SFCurrentVersion=@SFCurrentVersion
+      ,SFProduct=@SFProduct
+      ,SFSalesforceLink=@SFSalesforceLink
+      ,SFOpenedDateTime=@SFOpenedDateTime
+      ,SFLastModifiedDate=@SFLastModifiedDate
+      ,SFOrigin=@SFOrigin
+      ,SFTargetedRelease=@SFTargetedRelease
+      ,Updated=@Updated
+      Where ID=@ID
+    </Statement>
+   
+    <!--是否存在该记录-->
+    <Statement Id="IsExist">
+      Select Count(1) From JiraIssue
+      <Include RefId="QueryParams"/>
+    </Statement>
+
+    <!--获取单条记录 -->
+    <Statement Id="GetEntity">
+      SELECT ID
+      ,JiraID
+      ,JiraKey
+      ,IssueType
+      ,Summary
+      ,Status
+      ,Priority
+      ,Labels
+      ,Description
+      ,FixVersions
+      ,Reporter
+      ,Assignee
+      ,AssignedQA
+      ,CaseNumber
+      ,BuildVersion
+      ,Severity
+      ,Product
+      ,IssueCategory
+      ,EstimatedEffort
+      ,SFCommentCount
+      ,SFPriority
+      ,SFCustomer
+      ,SFCurrentVersion
+      ,SFProduct
+      ,SFSalesforceLink
+      ,SFOpenedDateTime
+      ,SFLastModifiedDate
+      ,SFOrigin
+      ,SFTargetedRelease
+      ,Updated
+      FROM JiraIssue
+      <Include RefId="QueryParams"/>
+      Order by ID ASC
+    </Statement>
+
+    <!--获取多条记录 -->
+    <Statement Id="GetEntities">
+      SELECT  ID
+        ,JiraID
+        ,JiraKey
+        ,IssueType
+        ,Summary
+        ,Status
+        ,Priority
+        ,Labels
+        ,Description
+        ,FixVersions
+        ,Reporter
+        ,Assignee
+        ,AssignedQA
+        ,CaseNumber
+        ,BuildVersion
+        ,Severity
+        ,Product
+        ,IssueCategory
+        ,EstimatedEffort
+        ,SFCommentCount
+        ,SFPriority
+        ,SFCustomer
+        ,SFCurrentVersion
+        ,SFProduct
+        ,SFSalesforceLink
+        ,SFOpenedDateTime
+        ,SFLastModifiedDate
+        ,SFOrigin
+        ,SFTargetedRelease
+        ,Updated
+      FROM JiraIssue
+      <Where>
+        <IsNotEmpty Prepend="And" Property="JiraKey" In="true"/>
+        <IsNotEmpty Prepend="And" Property="CaseNumber" In="true"/>
+      </Where>
+    </Statement>
+
+  </Statements>
+</SmartSqlMap>

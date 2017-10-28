@@ -38,27 +38,27 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtInputCaseNOs = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCaseList = new System.Windows.Forms.DataGridView();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SFNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CaseNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JiraKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Serverity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SFType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CaseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Origin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OpenDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Summary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastReviewer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CommentCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SFOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SFStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CaseOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CaseStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JiraStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JiraNextStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaseList)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSyncSalesforceToJira
@@ -157,41 +157,41 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dgvCaseList);
             this.groupBox2.Location = new System.Drawing.Point(12, 152);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1190, 585);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             // 
-            // dataGridView1
+            // dgvCaseList
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCaseList.AllowUserToAddRows = false;
+            this.dgvCaseList.AllowUserToDeleteRows = false;
+            this.dgvCaseList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCaseList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.No,
             this.Product,
-            this.SFNo,
+            this.CaseNo,
             this.JiraKey,
             this.Serverity,
             this.Version,
-            this.SFType,
+            this.CaseType,
             this.Customer,
             this.Origin,
             this.OpenDate,
             this.Summary,
             this.LastReviewer,
             this.CommentCount,
-            this.SFOwner,
-            this.SFStatus,
+            this.CaseOwner,
+            this.CaseStatus,
             this.JiraStatus,
             this.JiraNextStatus});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1176, 560);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvCaseList.Location = new System.Drawing.Point(6, 19);
+            this.dgvCaseList.Name = "dgvCaseList";
+            this.dgvCaseList.ReadOnly = true;
+            this.dgvCaseList.Size = new System.Drawing.Size(1176, 560);
+            this.dgvCaseList.TabIndex = 0;
             // 
             // No
             // 
@@ -207,12 +207,12 @@
             this.Product.Name = "Product";
             this.Product.ReadOnly = true;
             // 
-            // SFNo
+            // CaseNo
             // 
-            this.SFNo.DataPropertyName = "SFNo";
-            this.SFNo.HeaderText = "SF No";
-            this.SFNo.Name = "SFNo";
-            this.SFNo.ReadOnly = true;
+            this.CaseNo.DataPropertyName = "CaseNo";
+            this.CaseNo.HeaderText = "Case No";
+            this.CaseNo.Name = "CaseNo";
+            this.CaseNo.ReadOnly = true;
             // 
             // JiraKey
             // 
@@ -235,12 +235,12 @@
             this.Version.Name = "Version";
             this.Version.ReadOnly = true;
             // 
-            // SFType
+            // CaseType
             // 
-            this.SFType.DataPropertyName = "SFType";
-            this.SFType.HeaderText = "SF Type";
-            this.SFType.Name = "SFType";
-            this.SFType.ReadOnly = true;
+            this.CaseType.DataPropertyName = "CaseType";
+            this.CaseType.HeaderText = "Case Type";
+            this.CaseType.Name = "CaseType";
+            this.CaseType.ReadOnly = true;
             // 
             // Customer
             // 
@@ -284,19 +284,19 @@
             this.CommentCount.Name = "CommentCount";
             this.CommentCount.ReadOnly = true;
             // 
-            // SFOwner
+            // CaseOwner
             // 
-            this.SFOwner.DataPropertyName = "SFOwne";
-            this.SFOwner.HeaderText = "SF Owner";
-            this.SFOwner.Name = "SFOwner";
-            this.SFOwner.ReadOnly = true;
+            this.CaseOwner.DataPropertyName = "CaseOwner";
+            this.CaseOwner.HeaderText = "Case Owner";
+            this.CaseOwner.Name = "CaseOwner";
+            this.CaseOwner.ReadOnly = true;
             // 
-            // SFStatus
+            // CaseStatus
             // 
-            this.SFStatus.DataPropertyName = "SFStatus";
-            this.SFStatus.HeaderText = "SF Status";
-            this.SFStatus.Name = "SFStatus";
-            this.SFStatus.ReadOnly = true;
+            this.CaseStatus.DataPropertyName = "CaseStatus";
+            this.CaseStatus.HeaderText = "Case Status";
+            this.CaseStatus.Name = "CaseStatus";
+            this.CaseStatus.ReadOnly = true;
             // 
             // JiraStatus
             // 
@@ -333,7 +333,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaseList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -349,23 +349,23 @@
         private System.Windows.Forms.Button btnGetPendingCasesFromJira;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCaseList;
         private System.Windows.Forms.TextBox txtInputCaseNOs;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SFNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CaseNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn JiraKey;
         private System.Windows.Forms.DataGridViewTextBoxColumn Serverity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Version;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SFType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CaseType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Origin;
         private System.Windows.Forms.DataGridViewTextBoxColumn OpenDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Summary;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastReviewer;
         private System.Windows.Forms.DataGridViewTextBoxColumn CommentCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SFOwner;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SFStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CaseOwner;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CaseStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn JiraStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn JiraNextStatus;
     }

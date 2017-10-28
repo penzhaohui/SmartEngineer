@@ -27,9 +27,9 @@ namespace SmartEngineer.Service
         bool AddTestRail(int id, string testrun, string url);
 
         [OperationContract]
-        List<IssueInfo> GetExistingScopeItems(int id);
+        List<JiraIssue> GetExistingScopeItems(int id);
 
         [OperationContract]
-        bool SubmitNewScopeItems(string name, List<IssueInfo> items);
+        bool SubmitNewScopeItems(string name, List<JiraIssue> items);
     }
 }

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SmartSqlMap Scope="CaseAccountInfo"  xmlns="http://SmartSql.net/schemas/SmartSqlMap.xsd">
+  <Caches>
+    <Cache Id="Account.RedisCache" Type="SmartSql.Cache.Redis.RedisCacheProvider,SmartSql.Cache.Redis">
+      <Parameter Key="CacheSize" Value="1000"/>
+      <Parameter Key="ConnectionString" Value="192.168.31.103"/>
+      <Parameter Key="DatabaseId" Value="0"/>
+      <FlushInterval Hours="24" Minutes="0" Seconds="0"/>
+      <FlushOnExecute Statement="SFAccount.Insert"/>
+      <FlushOnExecute Statement="SFAccount.Update"/>
+    </Cache>
+  </Caches>
+  <Statements>
+    <Statement Id="QueryParams">
+      <Dynamic Prepend="Where">
+        <IsNotEmpty Property="Name" Prepend="And">
+          Name = @Name
+        </IsNotEmpty>
+        <IsNotEmpty Property="UserID" Prepend="And">
+          UserID = @UserID
+        </IsNotEmpty>
+      </Dynamic>      
+    </Statement>
+    
+    <!--新增-->
+    <Statement Id="Insert">
+      INSERT INTO SFAccount
+      (ID
+      ,Name
+      ,Email
+      ,FirstName
+      ,LastName
+      ,IsActive
+      ,UserID
+      ,Phone
+      ,MobilePhone)
+      VALUES
+      (@ID
+      ,@Name
+      ,@Email
+      ,@FirstName
+      ,@LastName
+      ,@IsActive
+      ,@UserID
+      ,@Phone
+      ,@MobilePhone);
+    </Statement>
+
+    <!--删除-->
+    <Statement Id="Delete">
+      Delete SFAccount
+      Where ID=@ID
+    </Statement>
+
+    <!--更新-->
+    <Statement Id="Update">
+      UPDATE SFAccount
+      SET
+      Name=@Name,
+      Email=@Email,
+      FirstName=@FirstName,
+      LastName=@LastName,
+      IsActive=@IsActive,
+      UserID=@UserID,
+      Phone=@Phone,
+      MobilePhone=@MobilePhone
+      Where ID=@ID
+    </Statement>
+   
+    <!--是否存在该记录-->
+    <Statement Id="IsExist">
+      Select Count(1) From SFAccount
+      <Include RefId="QueryParams"/>
+    </Statement>
+
+    <!--获取单条记录 -->
+    <Statement Id="GetEntity">
+      SELECT ID
+      ,Name
+      ,Email
+      ,FirstName
+      ,LastName
+      ,IsActive
+      ,UserID
+      ,Phone
+      ,MobilePhone
+      FROM SFAccount
+      <Include RefId="QueryParams"/>
+      Order by ID ASC
+    </Statement>
+
+    <!--获取多条记录 -->
+    <Statement Id="GetEntities">
+      SELECT ID
+      ,Name
+      ,Email
+      ,FirstName
+      ,LastName
+      ,IsActive
+      ,UserID
+      ,Phone
+      ,MobilePhone
+      FROM SFAccount
+      <Where>
+        <IsNotEmpty Prepend="And" Property="CaseNumber" In="true"/>
+        <IsNotEmpty Prepend="And" Property="UserID" In="true"/>
+      </Where>
+    </Statement>
+
+  </Statements>
+</SmartSqlMap>

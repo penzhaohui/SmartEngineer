@@ -151,22 +151,22 @@ namespace SmartEngineer.Core.Adapter
             return cases;
         }
 
-        public async Task<string> CreateCaseComment(NewCaseComment comment)
+        public async Task<string> CreateCaseComment(AccelaCaseComment comment)
         {
             var results = await Client.CreateAsync("CaseComment", comment);
 
             return results;
         }
 
-        public async Task<List<CaseComment>> GetCaseCommentsByCaseID(string id)
+        public async Task<List<AccelaCaseComment>> GetCaseCommentsByCaseID(string id)
         {
             string sql = @"SELECT Id, CommentBody, CreatedById, CreatedDate, IsPublished, LastModifiedById, LastModifiedDate, ParentId
                            from CaseComment
                            WHERE ParentId= '{0}' ";
             sql = String.Format(sql, id);
 
-            var comments = new List<CaseComment>();
-            var results = await Client.QueryAllAsync<CaseComment>(sql);
+            var comments = new List<AccelaCaseComment>();
+            var results = await Client.QueryAllAsync<AccelaCaseComment>(sql);
             comments.AddRange(results.Records);
 
             return comments;

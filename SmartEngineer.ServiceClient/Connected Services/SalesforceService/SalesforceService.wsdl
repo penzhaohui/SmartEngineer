@@ -14,11 +14,11 @@
   <wsdl:message name="ISalesforceService_GetNewCasesList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNewCasesListResponse" />
   </wsdl:message>
-  <wsdl:message name="ISalesforceService_GetCommentedCasesList_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCommentedCasesList" />
+  <wsdl:message name="ISalesforceService_GetCommentedCaseList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentedCaseList" />
   </wsdl:message>
-  <wsdl:message name="ISalesforceService_GetCommentedCasesList_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCommentedCasesListResponse" />
+  <wsdl:message name="ISalesforceService_GetCommentedCaseList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentedCaseListResponse" />
   </wsdl:message>
   <wsdl:message name="ISalesforceService_GetCasesByCaseNOs_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCasesByCaseNOs" />
@@ -55,9 +55,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetNewCasesList" message="tns:ISalesforceService_GetNewCasesList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetNewCasesListResponse" message="tns:ISalesforceService_GetNewCasesList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetCommentedCasesList">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetCommentedCasesList" message="tns:ISalesforceService_GetCommentedCasesList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetCommentedCasesListResponse" message="tns:ISalesforceService_GetCommentedCasesList_OutputMessage" />
+    <wsdl:operation name="GetCommentedCaseList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetCommentedCaseList" message="tns:ISalesforceService_GetCommentedCaseList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetCommentedCaseListResponse" message="tns:ISalesforceService_GetCommentedCaseList_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCasesByCaseNOs">
       <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetCasesByCaseNOs" message="tns:ISalesforceService_GetCasesByCaseNOs_InputMessage" />
@@ -91,8 +91,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetCommentedCasesList">
-      <soap:operation soapAction="http://tempuri.org/ISalesforceService/GetCommentedCasesList" style="document" />
+    <wsdl:operation name="GetCommentedCaseList">
+      <soap:operation soapAction="http://tempuri.org/ISalesforceService/GetCommentedCaseList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

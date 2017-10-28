@@ -61,9 +61,21 @@
     <Compile Include="Adapter\imp\AccountAdapter.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.cs" />
+    <Compile Include="DAO\IJiraIssueCommentDAO.cs" />
+    <Compile Include="DAO\IJiraAccountDAO.cs" />
+    <Compile Include="DAO\IJiraWorkLogDAO.cs" />
+    <Compile Include="DAO\IJiraSubTaskDAO.cs" />
+    <Compile Include="DAO\imp\JiraIssueCommentDAO.cs" />
+    <Compile Include="DAO\imp\JiraAccountDAO.cs" />
     <Compile Include="DAO\imp\JiraIssueDAO.cs" />
+    <Compile Include="DAO\imp\JiraSubTaskDAO.cs" />
+    <Compile Include="DAO\imp\JiraWorkLogDAO.cs" />
+    <Compile Include="DAO\imp\SFAccountDAO.cs" />
+    <Compile Include="DAO\imp\SFCaseCommentDAO.cs" />
     <Compile Include="DAO\imp\SFCaseDAO.cs" />
     <Compile Include="DAO\IJiraIssueDAO.cs" />
+    <Compile Include="DAO\ISFAccountDAO.cs" />
+    <Compile Include="DAO\ISFCaseCommentDAO.cs" />
     <Compile Include="DAO\ISFCaseDAO.cs" />
     <Compile Include="DAO\IAccountDAO.cs" />
     <Compile Include="DAO\IAccountSessionDAO.cs" />
@@ -90,17 +102,20 @@
     <Compile Include="Model\Common\Tenant.cs" />
     <Compile Include="Model\enum\AccountType.cs" />
     <Compile Include="Model\Jira\DBTicket.cs" />
-    <Compile Include="Model\Jira\SubTask.cs" />
-    <Compile Include="Model\Jira\WorkLog.cs" />
-    <Compile Include="Model\Jira\IssueInfo.cs" />
-    <Compile Include="Model\Salesforce\CaseAccount.cs" />
+    <Compile Include="Model\Jira\JiraAccount.cs" />
+    <Compile Include="Model\Jira\JiraIssueComment.cs" />
+    <Compile Include="Model\Jira\JiraSubTask.cs" />
+    <Compile Include="Model\Jira\JiraWorkLog.cs" />
+    <Compile Include="Model\Jira\JiraIssue.cs" />
+    <Compile Include="Model\Salesforce\AccelaCaseBasic.cs" />
+    <Compile Include="Model\Salesforce\AccelaCaseHistory.cs" />
+    <Compile Include="Model\Salesforce\AccelaCaseAccount.cs" />
     <Compile Include="Model\Salesforce\AccelaCase.cs" />
-    <Compile Include="Model\Salesforce\AttributeType.cs" />
-    <Compile Include="Model\Salesforce\CaseComment.cs" />
-    <Compile Include="Model\Salesforce\CaseAttachment.cs" />
-    <Compile Include="Model\Salesforce\CaseContact.cs" />
-    <Compile Include="Model\Salesforce\CaseUser.cs" />
-    <Compile Include="Model\Salesforce\NewCaseComment.cs" />
+    <Compile Include="Model\Salesforce\CaseAccountInfo.cs" />
+    <Compile Include="Model\Salesforce\AccelaAttributeType.cs" />
+    <Compile Include="Model\Salesforce\AccelaCaseComment.cs" />
+    <Compile Include="Model\Salesforce\AccelaCaseAttachment.cs" />
+    <Compile Include="Model\Salesforce\CaseCommentInfo.cs" />
     <Compile Include="Model\Salesforce\CaseInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -143,7 +158,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\Maps\JiraAccount.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\JiraWorkLog.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\JiraSubTask.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\JiraIssueComment.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Config\Maps\JiraIssue.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\SFAccount.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\SFCaseComment.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Config\Maps\SFCase.xml">

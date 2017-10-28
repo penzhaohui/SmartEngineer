@@ -6,19 +6,13 @@ namespace SmartEngineer.Core.Models
 {
     // Salesforce inspector - Chrome and Firefox extension to add a metadata layout on top of the standard Salesforce UI to improve the productivity and joy of Salesforce configuration, development, and integration work.
     // https://github.com/sorenkrabbe/Chrome-Salesforce-inspector
-    public class AccelaCase
+    public class AccelaCase : AccelaCaseBasic
     {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
-
-        [JsonProperty(PropertyName = "CaseNumber")]
-        public string CaseNumber { get; set; }
-
         #region Case Detail
 
         // Created By
         [JsonProperty(PropertyName = "CreatedBy")]
-        public CaseUser CreatedBy { get; set; }
+        public AccelaCaseAccount CreatedBy { get; set; }
 
         // Case Record Type
         [JsonProperty(PropertyName = "attributes")]
@@ -30,7 +24,7 @@ namespace SmartEngineer.Core.Models
 
         // Case Owner
         [JsonProperty(PropertyName = "Owner")]
-        public CaseUser Owner { get; set; }
+        public AccelaCaseAccount Owner { get; set; }
 
         // Last Comment Added
         [JsonProperty(PropertyName = "Last_Comment_By__c")]
@@ -58,15 +52,15 @@ namespace SmartEngineer.Core.Models
 
         // Account Name
         [JsonProperty(PropertyName = "Account")]
-        public CaseAccount Account { get; set; }
+        public AccelaCaseAccount Account { get; set; }
 
         // Contact
         [JsonProperty(PropertyName = "Contact")]
-        public CaseContact Contact { get; set; }
+        public AccelaCaseAccount Contact { get; set; }
 
         // Customer
         [JsonProperty(PropertyName = "Customer__r")]
-        public CaseAccount Customer { get; set; }
+        public AccelaCaseAccount Customer { get; set; }
 
         // Hosted
         [JsonProperty(PropertyName = "hosted__c")]
@@ -208,9 +202,9 @@ namespace SmartEngineer.Core.Models
         #endregion
 
         [JsonProperty(PropertyName = "CaseComments")]
-        public QueryResult<CaseComment> CaseComments { get; set; }
+        public QueryResult<AccelaCaseComment> CaseComments { get; set; }
 
         [JsonProperty(PropertyName = "Attachments")]
-        public QueryResult<CaseAttachment> CaseAttachments { get; set; }
+        public QueryResult<AccelaCaseAttachment> CaseAttachments { get; set; }
     }
 }

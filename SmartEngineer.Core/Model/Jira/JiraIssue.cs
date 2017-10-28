@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using TechTalk.JiraRestClient;
 
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class IssueInfo
+    public class JiraIssue
     {
         public void Initialize(Issue jiraIssue)
         {

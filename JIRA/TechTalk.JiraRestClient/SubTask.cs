@@ -5,11 +5,11 @@ using System.Text;
 
 namespace TechTalk.JiraRestClient
 {
-    public class SubTask
+    public class SubTask : IssueRef
     {
-        public string id { get; set; }
-        public string key { get; set; }
+        public string expand { get; set; }
         public string self { get; set; }
+
         public SubTaskFields fields { get; set; }
     }
 }

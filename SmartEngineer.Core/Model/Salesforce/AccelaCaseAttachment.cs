@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class CaseAttachment
+    public class AccelaCaseAttachment
     {
         [JsonProperty(PropertyName = "attributes")]
         public AttributeType Attributes { get; set; }

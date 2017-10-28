@@ -66,6 +66,11 @@
         <member name="M:TechTalk.JiraRestClient.IJiraClient.GetWorklogs(TechTalk.JiraRestClient.IssueRef)">
             <summary>Returns all work logs for the given issue</summary>
         </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient.GetSubTasksByQuery(System.String,System.String)">
+            <summary>
+            Returns all sub tasks of the given project filtered by the given JQL query
+            </summary>
+        </member>
         <member name="M:TechTalk.JiraRestClient.IJiraClient.GetAttachments(TechTalk.JiraRestClient.IssueRef)">
             <summary>Return all attachments for the given issue</summary>
         </member>
@@ -169,6 +174,11 @@
         </member>
         <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetWorklogs(TechTalk.JiraRestClient.IssueRef)">
             <summary>Returns all work logs for the given issue</summary>
+        </member>
+        <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetSubTasksByQuery(System.String,System.String)">
+            <summary>
+            Returns all sub tasks of the given project filtered by the given JQL query
+            </summary>
         </member>
         <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetAttachments(TechTalk.JiraRestClient.IssueRef)">
             <summary>Return all attachments for the given issue</summary>
@@ -359,16 +369,6 @@
         <member name="P:TechTalk.JiraRestClient.IssueFields.SFTargetedRelease">
             <summary>
             SF-Targeted Release
-            </summary>
-        </member>
-        <member name="P:TechTalk.JiraRestClient.IssueFields.SubTasks">
-            <summary>
-            Sub Tasks
-            </summary>
-        </member>
-        <member name="P:TechTalk.JiraRestClient.IssueFields.ParentTask">
-            <summary>
-            Parent Tasks
             </summary>
         </member>
         <member name="M:TechTalk.JiraRestClient.JiraClient`1.GetMySelf">

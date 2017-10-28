@@ -18,7 +18,7 @@ namespace SmartEngineer.WCFService.Ext.Inspectors
 
         public void AfterReceiveReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
         {
-            Console.WriteLine(reply.ToString());
+            //Console.WriteLine(reply.ToString());
         }
 
         public object BeforeSendRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel)
@@ -70,7 +70,7 @@ namespace SmartEngineer.WCFService.Ext.Inspectors
 
         public void BeforeSendReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
         {
-            Console.WriteLine(reply.ToString());
+            //Console.WriteLine(reply.ToString());
         }
 
         string GetHeaderValue(string key)

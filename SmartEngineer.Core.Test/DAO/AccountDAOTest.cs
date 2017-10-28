@@ -1,8 +1,6 @@
-﻿using Xunit;
-using SmartEngineer.Core.DAOs;
+﻿using SmartEngineer.Core.DAOs;
 using SmartEngineer.Core.Models;
-using SmartSql.Abstractions;
-using System.Data.SqlClient;
+using Xunit;
 
 namespace SmartEngineer.Core.Test.DAO
 {

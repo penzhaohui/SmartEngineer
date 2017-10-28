@@ -21,6 +21,9 @@ namespace SmartEngineer.WCFService.Ext.Handlers
         /// <returns></returns>
         public bool HandleError(Exception error)
         {
+            // The socket connection was aborted
+            // http://blog.csdn.net/zerokiseki/article/details/7735449
+            System.Console.WriteLine(error.Message);
             return true;
         }
 

@@ -21,58 +21,50 @@ namespace SmartEngineer.Service
         private static readonly string JiraAccount = ConfigurationManager.AppSettings["JiraAccount"];
         private static readonly string JiraPassword = ConfigurationManager.AppSettings["JiraPassword"];
 
-        public List<IssueInfo> GetIssuesByCaseNos(List<string> caseNOs)
+        public List<JiraIssue> GetIssuesByCaseNos(List<string> caseNOs)
         {
-            List<IssueInfo> jiraIssues = new List<IssueInfo>();
-
-            List<string> unStoredJiraKeyList = new List<string>();
+            List<JiraIssue> jiraIssues = new List<JiraIssue>();
+            
             List<string> unStoredCaseNoList = new List<string>();
-
-            List<Issue> issues = JiraAdapter.GetIssueList(caseNOs, JiraAccount, JiraPassword);
-            if (issues.Count == 0)
+            
+            foreach (string caseNo in caseNOs)
             {
-                unStoredCaseNoList.AddRange(caseNOs);
-            }
-            else
-            {
-                foreach (Issue issue in issues)
+                if (!JiraAdapter.IsExistsLocalIssue(caseNo))
                 {
-                    string caseNo = issue.fields.CaseNumber;
-                    if (!JiraAdapter.IsExistsLocalIssue(issue.key))
-                    {
-                        unStoredJiraKeyList.Add(issue.key);
-                    }
-
-                    if (!SalesforceAdapterV2.IsExistsLocalCase(caseNo))
-                    {
-                        unStoredCaseNoList.Add(caseNo);
-                    }
+                    unStoredCaseNoList.Add(caseNo);
                 }
             }
 
-            // If jira issue/task is not stored into local database, store it
-            // Save jira basic information into JiraIssue
-            // Save jira comments into JiraIssueComments
-            // Save jira attachment into JiraIssueAttachments
-            // Save jira sub task into JiraIssueSubTask
-            // Save jira work logs into JiraIssueWorkLogs
-            JiraAdapter.BatchStoreIssueInfoToLocalSync(unStoredJiraKeyList);
+            JiraAdapter.BatchStoreIssueInfoToLocalSync(unStoredCaseNoList);
 
-            // If salesforce case is not stored into local database, store it
-            // Save case basic information into SFCase
-            // Save case comment into SFCaseComments
-            // Save case attachment into SFCaseAttachments
-            SalesforceAdapterV2.BatchStoreCaseInfoToLocalSync(unStoredCaseNoList);
+            List<Issue> issues = JiraAdapter.PullIssueList(unStoredCaseNoList, JiraAccount, JiraPassword);            
+            foreach (Issue issue in issues)
+            {
+                caseNOs.Remove(issue.fields.CaseNumber);
+
+                JiraIssue issueInfo = new JiraIssue();
+                issueInfo.Initialize(issue);
+                jiraIssues.Add(issueInfo);
+            }
+
+            List<JiraIssue> localIssueIList = JiraAdapter.GetIssueInfoByCaseNos(caseNOs);
+            foreach (JiraIssue localIssue in localIssueIList)
+            {
+                if (!unStoredCaseNoList.Contains(localIssue.CaseNumber))
+                {
+                    jiraIssues.Add(localIssue);
+                }
+            }
 
             return jiraIssues;
         }
 
-        public List<IssueInfo> GetIssuesByLabels(List<string> labels)
+        public List<JiraIssue> GetIssuesByLabels(List<string> labels)
         {
             throw new NotImplementedException();
         }
 
-        public List<IssueInfo> GetIssuesByStatuses(List<string> statuses)
+        public List<JiraIssue> GetIssuesByStatuses(List<string> statuses)
         {
             throw new NotImplementedException();
         }
@@ -128,7 +120,8 @@ namespace SmartEngineer.Service
 
         public bool SyncSalesforceCaseToJiraIssue(List<string> caseNOs)
         {
-            throw new NotImplementedException();
+            JiraAdapter.BatchStoreIssueInfoToLocal(caseNOs);
+            return true;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace SmartEngineer.Service
         List<string> GetNewCasesList();
 
         [OperationContract]
-        List<CaseInfo> GetCommentedCasesList();
+        List<string> GetCommentedCaseList(DateTime start, DateTime end);
 
         [OperationContract]
         List<CaseInfo> GetCasesByCaseNOs(List<string> caseNOs);

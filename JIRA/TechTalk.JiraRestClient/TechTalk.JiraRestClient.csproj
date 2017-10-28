@@ -48,10 +48,12 @@
     <Compile Include="CommentsContainer.cs" />
     <Compile Include="Compatibility.cs" />
     <Compile Include="IssueCategory.cs" />
+    <Compile Include="SubTaskContainer.cs" />
     <Compile Include="IssueFixVersion.cs" />
     <Compile Include="IssueOrigin.cs" />
     <Compile Include="IssuePriority.cs" />
     <Compile Include="IssueProduct.cs" />
+    <Compile Include="IssueProject.cs" />
     <Compile Include="IssueSeverity.cs" />
     <Compile Include="IssueType.cs" />
     <Compile Include="ServerInfo.cs" />

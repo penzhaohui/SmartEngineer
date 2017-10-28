@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SmartSqlMap Scope="JiraIssueComment"  xmlns="http://SmartSql.net/schemas/SmartSqlMap.xsd">
+  <Caches>
+    <Cache Id="Account.RedisCache" Type="SmartSql.Cache.Redis.RedisCacheProvider,SmartSql.Cache.Redis">
+      <Parameter Key="CacheSize" Value="1000"/>
+      <Parameter Key="ConnectionString" Value="192.168.31.103"/>
+      <Parameter Key="DatabaseId" Value="0"/>
+      <FlushInterval Hours="24" Minutes="0" Seconds="0"/>
+      <FlushOnExecute Statement="JiraIssueComment.Insert"/>
+      <FlushOnExecute Statement="JiraIssueComment.Update"/>
+    </Cache>
+  </Caches>
+  <Statements>
+    <Statement Id="QueryParams">
+      <Dynamic Prepend="Where">
+        <IsNotEmpty Property="ParentJiraKey" Prepend="And">
+          ParentJiraKey = @ParentJiraKey
+        </IsNotEmpty>
+      </Dynamic>      
+    </Statement>
+    
+    <!--新增-->
+    <Statement Id="Insert">
+      INSERT INTO JiraIssueComment
+      (ID
+      ,CommentBody
+      ,CreatedByID
+      ,CreatedByName
+      ,CreatedDateTime
+      ,LastModifiedByID
+      ,LastModifiedByName
+      ,LastModifiedDateTime
+      ,ParentJiraKey
+      ,JiraCommentID
+      ,SFCommentID)
+      VALUES
+      (@ID
+      ,@CommentBody
+      ,@CreatedByID
+      ,@CreatedByName
+      ,@CreatedDateTime
+      ,@LastModifiedByID
+      ,@LastModifiedByName
+      ,@LastModifiedDateTime
+      ,@ParentJiraKey
+      ,@JiraCommentID
+      ,@SFCommentID);
+    </Statement>
+
+    <!--删除-->
+    <Statement Id="Delete">
+      Delete JiraIssueComment
+      Where ID=@ID
+    </Statement>
+
+    <!--更新-->
+    <Statement Id="Update">
+      UPDATE JiraIssueComment
+      SET
+      CommentBody=@CommentBody
+      ,CreatedByID=@CreatedByID
+      ,CreatedByName=@CreatedByName
+      ,CreatedDateTime=@CreatedDateTime
+      ,LastModifiedByID=@LastModifiedByID
+      ,LastModifiedByName=@LastModifiedByName
+      ,LastModifiedDateTime=@LastModifiedDateTime
+      ,ParentJiraKey=@ParentJiraKey
+      ,JiraCommentID=@JiraCommentID
+      ,SFCommentID=@SFCommentID
+      Where ID=@ID
+    </Statement>
+   
+    <!--是否存在该记录-->
+    <Statement Id="IsExist">
+      Select Count(1) From JiraIssueComment
+      <Where>
+        <IsNotEmpty Property="JiraCommentID" Prepend="And">
+          JiraCommentID = @JiraCommentID
+        </IsNotEmpty>
+        <IsNotEmpty Property="SFCommentID" Prepend="And">
+          SFCommentID = @SFCommentID
+        </IsNotEmpty>
+      </Where>
+    </Statement>
+
+    <!--获取单条记录 -->
+    <Statement Id="GetEntity">
+      SELECT ID
+      ,CommentBody
+      ,CreatedByID
+      ,CreatedByName
+      ,CreatedDateTime
+      ,LastModifiedByID
+      ,LastModifiedByName
+      ,LastModifiedDateTime
+      ,ParentJiraKey
+      ,JiraCommentID
+      ,SFCommentID
+      FROM JiraIssueComment
+      <Where>
+        <IsNotEmpty Property="JiraCommentID" Prepend="And">
+          JiraCommentID = @JiraCommentID
+        </IsNotEmpty>
+        <IsNotEmpty Property="SFCommentID" Prepend="And">
+          SFCommentID = @SFCommentID
+        </IsNotEmpty>
+      </Where>
+      Order by ID ASC
+    </Statement>
+
+    <!--获取多条记录 -->
+    <Statement Id="GetEntities">
+      SELECT ID
+      ,CommentBody
+      ,CreatedByID
+      ,CreatedByName
+      ,CreatedDateTime
+      ,LastModifiedByID
+      ,LastModifiedByName
+      ,LastModifiedDateTime
+      ,ParentJiraKey
+      ,JiraCommentID
+      ,SFCommentID
+      FROM JiraIssueComment
+      <Include RefId="QueryParams"/>      
+    </Statement>
+
+  </Statements>
+</SmartSqlMap>

@@ -151,8 +151,14 @@ namespace SmartEngineer.Common
                             endpointUrl = config.Url;
                         }
 
+                        // http://www.cnblogs.com/zgynhqf/archive/2013/06/28/3161042.html
                         EndpointAddress remoteAddress = new EndpointAddress(endpointUrl);
                         NetTcpBinding binding = new NetTcpBinding();
+                        binding.ReceiveTimeout = new TimeSpan(0, 5, 0);
+                        binding.MaxBufferSize = 2147483647;
+                        binding.MaxBufferPoolSize = 2147483647;
+                        binding.MaxReceivedMessageSize = 2147483647;
+
                         // WCF Security基本概念: http://www.cnblogs.com/jfzhu/p/4066178.html
                         // None: 不采取任何安全措施，仅适合在内部安全环境使用
                         // Transport: 在传输协议级别上对通道的所有通讯进行加密，可使用的通讯协议包括 HTTPS、TCP、IPC 和 MSMQ。

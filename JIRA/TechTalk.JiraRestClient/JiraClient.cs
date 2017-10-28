@@ -454,7 +454,6 @@ namespace TechTalk.JiraRestClient
             }
         }
 
-
         public IEnumerable<JiraUser> GetWatchers(IssueRef issue)
         {
             try
@@ -512,6 +511,34 @@ namespace TechTalk.JiraRestClient
             {
                 Trace.TraceError("GetComments(issue) error: {0}", ex);
                 throw new JiraClientException("Could not load comments", ex);
+            }
+        }
+
+        public IEnumerable<SubTask> GetSubTasksByQuery(string projectKey, string jqlQuery)
+        {
+            var queryCount = 50;
+            var resultCount = 0;
+            while (true)
+            {
+                var jql = "issuetype in subTaskIssueTypes() +AND+";
+                if (projectKey != "")
+                    jql = String.Format("project={0}+AND+", Uri.EscapeUriString(projectKey));                
+                if (!String.IsNullOrEmpty(jqlQuery))
+                    jql += String.Format("{0}", Uri.EscapeUriString(jqlQuery));
+                var path = String.Format("search?jql={0}&startAt={1}&maxResults={2}", jql, resultCount, queryCount);
+                var request = CreateRequest(Method.GET, path);
+
+                var response = ExecuteRequest(request);
+                AssertStatus(response, HttpStatusCode.OK);
+
+                var data = deserializer.Deserialize<SubTaskContainer>(response);
+                var issues = data.subTasks ?? Enumerable.Empty<SubTask>();
+
+                foreach (var item in issues) yield return item;
+                resultCount += issues.Count();
+
+                if (resultCount < data.total) continue;
+                else /* all issues received */ break;
             }
         }
 
@@ -598,7 +625,6 @@ namespace TechTalk.JiraRestClient
                 throw new JiraClientException("Could not delete attachment", ex);
             }
         }
-
 
         public IEnumerable<IssueLink> GetIssueLinks(IssueRef issue)
         {

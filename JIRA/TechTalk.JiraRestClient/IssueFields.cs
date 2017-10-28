@@ -222,16 +222,6 @@ namespace TechTalk.JiraRestClient
         public String SFTargetedRelease { get; set; }
 
         #endregion
-  
-        /// <summary>
-        /// Sub Tasks
-        /// </summary>
-        public List<SubTask> SubTasks { get; set; } 
- 
-        /// <summary>
-        /// Parent Tasks
-        /// </summary>
-        public SubTask ParentTask { get; set; }
 
         public Timetracking TimeTracking { get; set; }
         

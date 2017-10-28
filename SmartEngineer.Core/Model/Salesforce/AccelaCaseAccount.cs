@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SmartEngineer.Core.Models
 {
-    public class CaseContact
+    public class AccelaCaseAccount
     {
         [JsonProperty(PropertyName = "attributes")]
         public AttributeType Attributes { get; set; }
@@ -17,6 +17,15 @@ namespace SmartEngineer.Core.Models
 
         [JsonProperty(PropertyName = "Name")]
         public string Name { get; set; }
+
+        [JsonProperty(PropertyName = "FirstName")]
+        public string FirstName { get; set; }
+
+        [JsonProperty(PropertyName = "LastName")]
+        public string LastName { get; set; }
+
+        [JsonProperty(PropertyName = "IsActive")]
+        public bool IsActive { get; set; }        
 
         [JsonProperty(PropertyName = "Email")]
         public string Email { get; set; }

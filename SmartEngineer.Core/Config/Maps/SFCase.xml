@@ -247,7 +247,7 @@
     </Statement>
 
     <!--获取多条记录 -->
-    <Statement Id="GetEntitys">
+    <Statement Id="GetEntities">
       SELECT ID
       ,CaseType
       ,CaseID

@@ -46,9 +46,12 @@ namespace SmartEngineer.Core.Adapter
             return account;
         }
 
-        public List<Issue> GetIssueList(List<string> CaseNoOrJiraKeyList, string jiraAccount, string jiraPassword)
+        public List<Issue> PullIssueList(List<string> CaseNoOrJiraKeyList, string jiraAccount, string jiraPassword)
         {
             List<Issue> issueList = new List<Issue>();
+
+            if (CaseNoOrJiraKeyList == null || CaseNoOrJiraKeyList.Count == 0) return issueList;
+
             IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
             
             string sql = String.Empty;
@@ -113,11 +116,11 @@ namespace SmartEngineer.Core.Adapter
             return result;
         }
 
-        public async Task<Comment> CreateComment(IssueRef issue, string caseComment, string jiraAccount, string jiraPassword)
+        public async Task<Comment> CreateComment(IssueRef issueRef, string caseComment, string jiraAccount, string jiraPassword)
         {
             IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
 
-            var jiraComments = jira.GetComments(issue);
+            var jiraComments = jira.GetComments(issueRef);
             bool isFound = false;
             Comment jiraComment = null;
             foreach (Comment temp in jiraComments)
@@ -132,19 +135,39 @@ namespace SmartEngineer.Core.Adapter
 
             if (!isFound)
             {
-                jiraComment = jira.CreateComment(issue, caseComment);
+                jiraComment = jira.CreateComment(issueRef, caseComment);
             }
 
             return jiraComment;
         }
 
-        public async Task<List<Comment>> GetComments(IssueRef issue, string jiraAccount, string jiraPassword)
+        public List<Comment> PullComments(IssueRef issueRef, string jiraAccount, string jiraPassword)
         {
             IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
 
-            var jiraComments = jira.GetComments(issue);
+            var jiraComments = jira.GetComments(issueRef);
 
             return (jiraComments as List<Comment>);
+        }
+
+        public List<SubTask> PullSubTasks(IssueRef issueRef, string jiraAccount, string jiraPassword)
+        {
+            // https://accelaeng.atlassian.net/rest/api/2/search?jql=project=ENGSUPP AND issuetype in subTaskIssueTypes() AND parent=ENGSUPP-14674
+            // project = ENGSUPP AND issuetype in subTaskIssueTypes() AND parent = ENGSUPP - 14674
+            IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
+
+            var subTasks = jira.GetSubTasksByQuery("", $"parent={issueRef.key}");
+
+            return (subTasks as List<SubTask>);
+        }
+
+        public List<Worklog> PullWorkLogs(IssueRef issueRef, string jiraAccount, string jiraPassword)
+        {
+            IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
+
+            var workLogs = jira.GetWorklogs(issueRef);
+
+            return (workLogs as List<Worklog>);
         }
 
         public async Task<bool> UpdateJiraStatus(IssueRef issueRef, string jiraStatus, string jiraNextStatus, string jiraAccount, string jiraPassword)
