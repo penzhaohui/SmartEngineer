@@ -1,0 +1,42 @@
+﻿@model EQueue.AdminWeb.Models.ClusterProducerListViewModel
+@{
+    ViewBag.Title = "ProducerList";
+}
+<div>
+    @using (Html.BeginForm("ProducerList", "Home", new { clusterName = ViewBag.ClusterName }, FormMethod.Post, new { @class = "form-inline header-form", role = "form" }))
+    {
+        <div class="form-group">
+            <label class="sr-only" for="ClusterName"></label>
+            @Html.TextBoxFor(m => m.ClusterName, new { @class = "form-control", placeholder = "ClusterName" })
+        </div>
+        <button type="submit" class="btn btn-default">查询</button>
+    }
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="20%" class="vertical-center">
+                    BrokerName
+                </th>
+                <th width="80%" class="vertical-center">
+                    ProducerId
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.ProducerList)
+            {
+                foreach (var item in line.ProducerList)
+                {
+                    <tr>
+                        <td class="vertical-center">
+                            @Html.ActionLink(@line.BrokerInfo.BrokerName, "Index", "Broker", new { clusterName = ViewBag.ClusterName, brokerName = @line.BrokerInfo.BrokerName }, null)
+                        </td>
+                        <td class="vertical-center">
+                            @item
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

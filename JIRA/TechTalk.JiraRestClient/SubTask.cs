@@ -7,6 +7,11 @@ namespace TechTalk.JiraRestClient
 {
     public class SubTask : IssueRef
     {
+        public SubTask()
+        {
+            fields = new SubTaskFields();
+        }
+
         public string expand { get; set; }
         public string self { get; set; }
 

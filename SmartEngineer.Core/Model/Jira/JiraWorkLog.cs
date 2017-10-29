@@ -17,7 +17,7 @@ namespace SmartEngineer.Core.Models
             this.LastModifiedByID = worklog.updateAuthor.id;
             this.LastModifiedByName = worklog.updateAuthor.name;
             this.LastModifiedDateTime = worklog.updated;
-            this.TimeSpentHours = int.Parse(worklog.timeSpent);
+            this.TimeSpentHours = worklog.timeSpentSeconds/3600;
             this.TimeSpendSeconds = worklog.timeSpentSeconds;
             this.ParentJiraKey = jiraKey;
         }
@@ -41,7 +41,7 @@ namespace SmartEngineer.Core.Models
         [DataMember]
         public DateTime LastModifiedDateTime { get; set; }
         [DataMember]
-        public int TimeSpentHours { get; set; }
+        public double TimeSpentHours { get; set; }
         [DataMember]
         public double TimeSpendSeconds { get; set; }
         [DataMember]

@@ -40,7 +40,7 @@
       ,AssigneeQA
       ,TotalTimeSpentHours
       ,Status
-      ,ParentJiraKey
+      ,ParentJiraKey)
       VALUES
       (@ID
       ,@JiraKey
@@ -73,7 +73,7 @@
         ,TotalTimeSpentHours=@TotalTimeSpentHours
         ,Status=@Status
         ,ParentJiraKey=@ParentJiraKey
-      Where ID=@ID
+      <Include RefId="QueryParams"/>
     </Statement>
    
     <!--是否存在该记录-->

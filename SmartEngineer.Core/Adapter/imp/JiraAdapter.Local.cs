@@ -68,20 +68,23 @@ namespace SmartEngineer.Core.Adapter
 
         public async Task<bool> BatchStoreIssueInfoToLocalSync(List<string> caseNOs)
         {
-            try
+            return await Task.Run(() =>
             {
-                List<string> jiraKeyList = BatchStoreIssueInfoToLocal(caseNOs);
+                try
+                {
+                    List<string> jiraKeyList = BatchStoreIssueInfoToLocal(caseNOs);
 
-                BatchStoreIssueCommentToLocal(jiraKeyList);
-                BatchStoreSubTaskToLocal(jiraKeyList);
-                BatchStoreWorkLogToLocal(jiraKeyList);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error("Failed to store issue info to local.", ex);
-            }
+                    BatchStoreIssueCommentToLocal(jiraKeyList);
+                    BatchStoreSubTaskToLocal(jiraKeyList);
+                    BatchStoreWorkLogToLocal(jiraKeyList);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error("Failed to store issue info to local.", ex);
+                }
 
-            return true;
+                return true;
+            });
         }
 
         public bool BatchStoreIssueCommentToLocal(List<string> jiraKeys)
@@ -137,9 +140,13 @@ namespace SmartEngineer.Core.Adapter
                         JiraSubTask jiraSubTask = new JiraSubTask();
                         jiraSubTask.Initialize(subTask);
 
-                        if (JiraSubTaskDAO.IsExist(jiraSubTask))
+                        if (!JiraSubTaskDAO.IsExist(jiraSubTask))
                         {
                             JiraSubTaskDAO.Insert(jiraSubTask);
+                        }
+                        else
+                        {
+                            JiraSubTaskDAO.Update(jiraSubTask);
                         }
                     }
                 }
@@ -176,6 +183,10 @@ namespace SmartEngineer.Core.Adapter
                         {
                             JiraWorkLogDAO.Insert(jiraWorkLog);
                         }
+                        else
+                        {
+                            JiraWorkLogDAO.Update(jiraWorkLog);
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -201,6 +212,10 @@ namespace SmartEngineer.Core.Adapter
                             if (!JiraWorkLogDAO.IsExist(jiraWorkLog))
                             {
                                 JiraWorkLogDAO.Insert(jiraWorkLog);
+                            }
+                            else
+                            {
+                                JiraWorkLogDAO.Update(jiraWorkLog);
                             }
                         }
                     }

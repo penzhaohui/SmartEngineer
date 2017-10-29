@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfIssueInfo">
+  <xs:complexType name="ArrayOfJiraIssue">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="IssueInfo" nillable="true" type="tns:IssueInfo" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JiraIssue" nillable="true" type="tns:JiraIssue" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfIssueInfo" nillable="true" type="tns:ArrayOfIssueInfo" />
-  <xs:complexType name="IssueInfo">
+  <xs:element name="ArrayOfJiraIssue" nillable="true" type="tns:ArrayOfJiraIssue" />
+  <xs:complexType name="JiraIssue">
     <xs:sequence>
       <xs:element minOccurs="0" name="AssignedQA" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Assignee" nillable="true" type="xs:string" />
@@ -40,5 +40,5 @@
       <xs:element minOccurs="0" name="Updated" nillable="true" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="IssueInfo" nillable="true" type="tns:IssueInfo" />
+  <xs:element name="JiraIssue" nillable="true" type="tns:JiraIssue" />
 </xs:schema>

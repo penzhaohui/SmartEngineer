@@ -91,17 +91,20 @@ namespace SmartEngineer.Core.Adapter
 
         public async Task<bool> BatchStoreCaseInfoToLocalSync(List<string> caseNos)
         {
-            try
+            return await Task.Run(() =>
             {
-                BatchStoreCaseInfoToLocal(caseNos);
-                BatchStoreCaseCommentInfoToLocal(caseNos);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error("Failed to store case infor to local databse", ex);
-            }
+                try
+                {
+                    BatchStoreCaseInfoToLocal(caseNos);
+                    BatchStoreCaseCommentInfoToLocal(caseNos);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error("Failed to store case infor to local databse", ex);
+                }
 
-            return true;
+                return true;
+            });
         }
 
         public bool BatchStoreCaseCommentInfoToLocal(List<string> caseNos)
@@ -135,24 +138,27 @@ namespace SmartEngineer.Core.Adapter
 
         private async Task<bool> BatchStoreCaseAccountInfoToLocalSync(AccelaCaseAccount accelaCaseAccount)
         {
-            if (accelaCaseAccount == null) return false;
-
-            try
+            return await Task.Run(() =>
             {
-                CaseAccountInfo accountInfo = new CaseAccountInfo();
-                accountInfo.Initialize(accelaCaseAccount);
+                if (accelaCaseAccount == null) return false;
 
-                if (!SFAccountDAO.IsExist(accountInfo))
+                try
                 {
-                    SFAccountDAO.Insert(accountInfo);
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.Error("Failed to store case account to local databse", ex);
-            }
+                    CaseAccountInfo accountInfo = new CaseAccountInfo();
+                    accountInfo.Initialize(accelaCaseAccount);
 
-            return true;
+                    if (!SFAccountDAO.IsExist(accountInfo))
+                    {
+                        SFAccountDAO.Insert(accountInfo);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error("Failed to store case account to local databse", ex);
+                }
+
+                return true;
+            });
         }
 
         #endregion

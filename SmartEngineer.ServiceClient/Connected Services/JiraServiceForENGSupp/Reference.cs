@@ -15,9 +15,9 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="IssueInfo", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JiraIssue", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
     [System.SerializableAttribute()]
-    public partial class IssueInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class JiraIssue : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -527,22 +527,22 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
     public interface IJiraServiceForENGSupp {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabels", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabelsResponse")]
-        SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetIssuesByLabels(string[] labels);
+        SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[] GetIssuesByLabels(string[] labels);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabels", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabelsResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetIssuesByLabelsAsync(string[] labels);
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[]> GetIssuesByLabelsAsync(string[] labels);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatuses", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatusesResponse")]
-        SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetIssuesByStatuses(string[] statuses);
+        SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[] GetIssuesByStatuses(string[] statuses);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatuses", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatusesResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetIssuesByStatusesAsync(string[] statuses);
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[]> GetIssuesByStatusesAsync(string[] statuses);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByCaseNos", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByCaseNosResponse")]
-        SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetIssuesByCaseNos(string[] caseNOs);
+        SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[] GetIssuesByCaseNos(string[] caseNOs);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByCaseNos", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByCaseNosResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetIssuesByCaseNosAsync(string[] caseNOs);
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[]> GetIssuesByCaseNosAsync(string[] caseNOs);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseNOs", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/ImportCaseNOsResponse")]
         bool ImportCaseNOs(string[] caseNOs);
@@ -620,27 +620,27 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
                 base(binding, remoteAddress) {
         }
         
-        public SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetIssuesByLabels(string[] labels) {
+        public SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[] GetIssuesByLabels(string[] labels) {
             return base.Channel.GetIssuesByLabels(labels);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetIssuesByLabelsAsync(string[] labels) {
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[]> GetIssuesByLabelsAsync(string[] labels) {
             return base.Channel.GetIssuesByLabelsAsync(labels);
         }
         
-        public SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetIssuesByStatuses(string[] statuses) {
+        public SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[] GetIssuesByStatuses(string[] statuses) {
             return base.Channel.GetIssuesByStatuses(statuses);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetIssuesByStatusesAsync(string[] statuses) {
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[]> GetIssuesByStatusesAsync(string[] statuses) {
             return base.Channel.GetIssuesByStatusesAsync(statuses);
         }
         
-        public SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[] GetIssuesByCaseNos(string[] caseNOs) {
+        public SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[] GetIssuesByCaseNos(string[] caseNOs) {
             return base.Channel.GetIssuesByCaseNos(caseNOs);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo[]> GetIssuesByCaseNosAsync(string[] caseNOs) {
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[]> GetIssuesByCaseNosAsync(string[] caseNOs) {
             return base.Channel.GetIssuesByCaseNosAsync(caseNOs);
         }
         

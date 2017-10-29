@@ -1,0 +1,33 @@
+﻿@model EQueue.AdminWeb.Models.ClusterListViewModel
+@{
+    ViewBag.Title = "ClusterList";
+}
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="80%" class="vertical-center">
+                    集群名称
+                </th>
+                <th width="20%" class="vertical-center">
+                    操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ClusterList)
+            {
+                <tr>
+                    <td class="vertical-center">
+                        @item
+                    </td>
+                    <td class="vertical-center">
+                        @Html.ActionLink("查看Broker列表", "BrokerList", new { clusterName = item })
+                        @Html.ActionLink("消息查询", "Message", new { clusterName = item })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

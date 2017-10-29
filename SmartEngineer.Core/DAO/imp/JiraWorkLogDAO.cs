@@ -19,7 +19,7 @@ namespace SmartEngineer.Core.DAOs
         {
             get
             {
-                return "JiraWorkLogDAO";
+                return "JiraWorkLog";
             }
         }
 

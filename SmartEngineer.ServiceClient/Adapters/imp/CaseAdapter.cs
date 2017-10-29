@@ -72,13 +72,13 @@ namespace SmartEngineer.ServiceClient.Adapters
             JiraServiceForENGSuppClient jiraServiceForENGSuppClient = WSFactory.Instance.GetWCFClient<JiraServiceForENGSuppClient, IJiraServiceForENGSupp>();
             var issueList = jiraServiceForENGSuppClient.GetIssuesByCaseNos(caseNos.ToArray());
 
-            Dictionary<string, List<IssueInfo>> JiraIssueMapper = new Dictionary<string, List<IssueInfo>>();
-            List<IssueInfo> jiraIssues = null;
-            foreach (IssueInfo issueInfo in issueList)
+            Dictionary<string, List<JiraIssue>> JiraIssueMapper = new Dictionary<string, List<JiraIssue>>();
+            List<JiraIssue> jiraIssues = null;
+            foreach (JiraIssue issueInfo in issueList)
             {
                 if (!JiraIssueMapper.ContainsKey(issueInfo.CaseNumber))
                 {
-                    JiraIssueMapper.Add(issueInfo.CaseNumber, new List<IssueInfo>());
+                    JiraIssueMapper.Add(issueInfo.CaseNumber, new List<JiraIssue>());
                 }
 
                 jiraIssues = JiraIssueMapper[issueInfo.CaseNumber];
@@ -95,7 +95,7 @@ namespace SmartEngineer.ServiceClient.Adapters
                 if (JiraIssueMapper.ContainsKey(caseInfo.CaseNumber))
                 {
                     jiraIssues = JiraIssueMapper[caseInfo.CaseNumber];
-                    foreach (IssueInfo jiraIssue in jiraIssues)
+                    foreach (JiraIssue jiraIssue in jiraIssues)
                     {
                         DataRow row = table.NewRow();
                         row["No"] = index;
@@ -139,8 +139,6 @@ namespace SmartEngineer.ServiceClient.Adapters
                     row["CaseStatus"] = caseInfo.Status;
                     table.Rows.Add(row);
                 }
-
-                
 
                 index++;
             }

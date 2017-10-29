@@ -16,8 +16,8 @@
         <IsNotEmpty Property="WorklogID" Prepend="And">
           WorklogID = @WorklogID
         </IsNotEmpty>
-        <IsNotEmpty Property="ParentJiraKey" Prepend="And">
-          ParentJiraKey = @ParentJiraKey
+        <IsNotEmpty Property="ID" Prepend="And">
+          ID = @ID
         </IsNotEmpty>
       </Dynamic>      
     </Statement>
@@ -55,7 +55,7 @@
     <!--删除-->
     <Statement Id="Delete">
       Delete JiraWorkLog
-      Where ID=@ID
+      <Include RefId="QueryParams"/>
     </Statement>
 
     <!--更新-->
@@ -73,7 +73,7 @@
       ,TimeSpentHours=@TimeSpentHours
       ,TimeSpendSeconds=@TimeSpendSeconds
       ,ParentJiraKey=@ParentJiraKey
-      Where ID=@ID
+      <Include RefId="QueryParams"/>
     </Statement>
    
     <!--是否存在该记录-->
@@ -101,11 +101,7 @@
       ,TimeSpendSeconds
       ,ParentJiraKey
       FROM JiraWorkLog
-      <Where>
-        <IsNotEmpty Property="WorklogID" Prepend="And">
-          WorklogID = @WorklogID
-        </IsNotEmpty>
-      </Where>
+      <Include RefId="QueryParams"/>
     </Statement>
 
     <!--获取多条记录 -->

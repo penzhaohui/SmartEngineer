@@ -152,13 +152,18 @@ namespace SmartEngineer.Core.Adapter
 
         public List<SubTask> PullSubTasks(IssueRef issueRef, string jiraAccount, string jiraPassword)
         {
+            List<SubTask> subTaskList = new List<SubTask>();
             // https://accelaeng.atlassian.net/rest/api/2/search?jql=project=ENGSUPP AND issuetype in subTaskIssueTypes() AND parent=ENGSUPP-14674
             // project = ENGSUPP AND issuetype in subTaskIssueTypes() AND parent = ENGSUPP - 14674
             IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
 
             var subTasks = jira.GetSubTasksByQuery("", $"parent={issueRef.key}");
+            foreach (SubTask subTask in subTasks)
+            {
+                subTaskList.Add(subTask);
+            }
 
-            return (subTasks as List<SubTask>);
+            return subTaskList;
         }
 
         public List<Worklog> PullWorkLogs(IssueRef issueRef, string jiraAccount, string jiraPassword)

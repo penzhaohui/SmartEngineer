@@ -67,7 +67,9 @@ https://github.com/optimajet/WorkflowEngine.NET
 消息队列
 http://www.cnblogs.com/netfocus/p/3595410.html
 http://www.cnblogs.com/beimeng/p/3298190.html
+http://www.cnblogs.com/netfocus/category/598000.html
 
 站内搜索
 http://www.cnblogs.com/beimeng/p/3258967.html
 http://lucenenet.apache.org/download.cgi
+https://github.com/apache/lucenenet

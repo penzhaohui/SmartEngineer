@@ -184,6 +184,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\JiraServiceForDatabase\JiraServiceForDatabase.wsdl" />
+    <None Include="Connected Services\JiraServiceForDatabase\JiraServiceForDatabase.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\JiraServiceForENGSupp\JiraService.wsdl" />
     <None Include="Connected Services\JiraServiceForENGSupp\JiraServiceForENGSupp.xsd">
       <SubType>Designer</SubType>
@@ -197,7 +201,7 @@
     <None Include="Connected Services\JiraServiceForENGSupp\JiraServiceForENGSupp3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\JiraServiceForENGSupp\SmartEngineer.ServiceClient.JiraServiceForENGSupp.IssueInfo.datasource">
+    <None Include="Connected Services\JiraServiceForENGSupp\SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\JiraService\Reference.svcmap">
@@ -286,6 +290,15 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraServiceForDatabase\JiraServiceForDatabase.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraServiceForDatabase\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraServiceForDatabase\configuration.svcinfo" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

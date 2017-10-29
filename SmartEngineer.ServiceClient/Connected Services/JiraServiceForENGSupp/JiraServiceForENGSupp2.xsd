@@ -12,7 +12,7 @@
   <xs:element name="GetIssuesByLabelsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models" minOccurs="0" name="GetIssuesByLabelsResult" nillable="true" type="q2:ArrayOfIssueInfo" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models" minOccurs="0" name="GetIssuesByLabelsResult" nillable="true" type="q2:ArrayOfJiraIssue" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -26,7 +26,7 @@
   <xs:element name="GetIssuesByStatusesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models" minOccurs="0" name="GetIssuesByStatusesResult" nillable="true" type="q4:ArrayOfIssueInfo" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models" minOccurs="0" name="GetIssuesByStatusesResult" nillable="true" type="q4:ArrayOfJiraIssue" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -40,7 +40,7 @@
   <xs:element name="GetIssuesByCaseNosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models" minOccurs="0" name="GetIssuesByCaseNosResult" nillable="true" type="q6:ArrayOfIssueInfo" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models" minOccurs="0" name="GetIssuesByCaseNosResult" nillable="true" type="q6:ArrayOfJiraIssue" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

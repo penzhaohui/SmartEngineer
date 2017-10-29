@@ -1,0 +1,26 @@
+﻿@model EQueue.AdminWeb.Models.BrokerProducerListViewModel
+@{
+    ViewBag.Title = "在线生产者列表";
+    Layout = "~/Views/Shared/_BrokerLayout.cshtml";
+}
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="vertical-center">
+                    ProducerId
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ProducerList)
+            {
+                <tr>
+                    <td class="vertical-center">
+                        @item
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

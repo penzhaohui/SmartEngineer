@@ -15,7 +15,7 @@ namespace SmartEngineer.Core.Models
             this.Description = subTask.fields.Description;
             this.Assignee = subTask.fields.Assignee.name;
             //this.AssigneeQA = subTask.fields.AssigneeQA.name;
-            this.TotalTimeSpentHours = subTask.fields.Timespent;
+            this.TotalTimeSpentHours = subTask.fields.Timespent/3600;
             this.Status = subTask.fields.Status.name;
             this.ParentJiraKey = subTask.fields.Parent.key;
 
