@@ -238,10 +238,6 @@
       <Project>{181fe707-e161-4722-9f38-6aaab6faa106}</Project>
       <Name>log4net.vs2012</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Autofac\Autofac.csproj">
-      <Project>{06f733c8-dd56-4eeb-add5-3787a006a26c}</Project>
-      <Name>Autofac</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ECommon\ECommon.Autofac\ECommon.Autofac.csproj">
       <Project>{f5bf000b-910b-4ca0-9f61-e0b867d463c2}</Project>
       <Name>ECommon.Autofac</Name>

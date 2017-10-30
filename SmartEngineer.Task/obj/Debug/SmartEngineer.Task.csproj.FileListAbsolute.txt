@@ -7,3 +7,4 @@ F:\MyWorkspace\SmartEngineer\SmartEngineer.Task\obj\Debug\SmartEngineer.Task.csp
 F:\MyWorkspace\SmartEngineer\SmartEngineer.Task\obj\Debug\SmartEngineer.Task.dll
 F:\MyWorkspace\SmartEngineer\SmartEngineer.Task\obj\Debug\SmartEngineer.Task.pdb
 F:\MyWorkspace\SmartEngineer\SmartTask\tasks\tasks\SmartEngineer.Task.dll
+F:\MyWorkspace\SmartEngineer\SmartEngineer.Task\obj\Debug\SmartEngineer.Task.csproj.CoreCompileInputs.cache
