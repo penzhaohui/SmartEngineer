@@ -131,6 +131,7 @@ namespace SmartEngineer.Service
                     caseNOs.Remove(newCaseNo);
                 }
             }
+
             // If it is one new case
             //      1. Create new jira issue
             //      2. Check DB Information and reproduced steps

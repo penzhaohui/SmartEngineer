@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter\IAccountAdapter.cs" />
+    <Compile Include="Adapter\IConfigAdapter.cs" />
+    <Compile Include="Adapter\imp\ConfigAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.Local.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapterV2.Local.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapterV2.cs" />
@@ -61,10 +63,14 @@
     <Compile Include="Adapter\imp\AccountAdapter.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.cs" />
+    <Compile Include="DAO\IConfigDAO.cs" />
+    <Compile Include="DAO\IConfigOptionDAO.cs" />
     <Compile Include="DAO\IJiraIssueCommentDAO.cs" />
     <Compile Include="DAO\IJiraAccountDAO.cs" />
     <Compile Include="DAO\IJiraWorkLogDAO.cs" />
     <Compile Include="DAO\IJiraSubTaskDAO.cs" />
+    <Compile Include="DAO\imp\ConfigDAO.cs" />
+    <Compile Include="DAO\imp\ConfigOptionDAO.cs" />
     <Compile Include="DAO\imp\JiraIssueCommentDAO.cs" />
     <Compile Include="DAO\imp\JiraAccountDAO.cs" />
     <Compile Include="DAO\imp\JiraIssueDAO.cs" />
@@ -87,10 +93,10 @@
     <Compile Include="DAO\imp\IDStoreDAO.cs" />
     <Compile Include="DAO\imp\SequenceGenerator.cs" />
     <Compile Include="DAO\ISequenceGenerator.cs" />
-    <Compile Include="Model\Account\Account.cs" />
-    <Compile Include="Model\Account\AccountSession.cs" />
-    <Compile Include="Model\Account\Permission.cs" />
-    <Compile Include="Model\Account\Role.cs" />
+    <Compile Include="Model\System\Account.cs" />
+    <Compile Include="Model\System\AccountSession.cs" />
+    <Compile Include="Model\System\Permission.cs" />
+    <Compile Include="Model\System\Role.cs" />
     <Compile Include="Model\Common\ReleaseInfo.cs" />
     <Compile Include="Model\Common\DBInfo.cs" />
     <Compile Include="Model\Common\DBConnection.cs" />
@@ -160,6 +166,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\Maps\Config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\ConfigOption.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Config\Maps\JiraAccount.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

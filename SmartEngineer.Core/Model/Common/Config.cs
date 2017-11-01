@@ -8,7 +8,8 @@ namespace SmartEngineer.Core.Models
     public class Config
     {
         public int ID { get; set; }
-        public int Name { get; set; }
+        public string ConfigName { get; set; }
+        public bool IsActive { get; set; }
 
         public List<ConfigOption> Options { get; set; }
     }

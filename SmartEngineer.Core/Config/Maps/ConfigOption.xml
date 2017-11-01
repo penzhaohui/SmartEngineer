@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SmartSqlMap Scope="ConfigOption"  xmlns="http://SmartSql.net/schemas/SmartSqlMap.xsd">
+  <Caches>
+    <Cache Id="Account.RedisCache" Type="SmartSql.Cache.Redis.RedisCacheProvider,SmartSql.Cache.Redis">
+      <Parameter Key="CacheSize" Value="1000"/>
+      <Parameter Key="ConnectionString" Value="192.168.31.103"/>
+      <Parameter Key="DatabaseId" Value="0"/>
+      <FlushInterval Hours="24" Minutes="0" Seconds="0"/>
+      <FlushOnExecute Statement="ConfigOption.Insert"/>
+      <FlushOnExecute Statement="ConfigOption.Update"/>
+    </Cache>
+  </Caches>
+  <Statements>
+    <Statement Id="QueryParams">
+      <Dynamic Prepend="Where">
+        <IsNotEmpty Property="ID" Prepend="And">
+          ID = @ID
+        </IsNotEmpty>
+        <IsNotEmpty Property="ConfigOptionValue" Prepend="And">
+          ConfigOptionValue = @ConfigOptionValue
+        </IsNotEmpty>
+        <IsNotEmpty Property="IsActive" Prepend="And">
+          IsActive = @IsActive
+        </IsNotEmpty>
+        <IsNotEmpty Property="ConfigID" Prepend="And">
+          ConfigID = @ConfigID
+        </IsNotEmpty>
+      </Dynamic>      
+    </Statement>
+    
+    <!--新增-->
+    <Statement Id="Insert">
+      INSERT INTO admin_ConfigOption
+      (ID
+      ,ConfigOptionValue
+      ,ConfigOptionDesc
+      ,IsActive
+      ,ConfigID
+      ,ConfigExtra)
+      VALUES
+      (@ID
+      ,@ConfigOptionValue
+      ,@ConfigOptionDesc
+      ,@IsActive
+      ,@ConfigID
+      ,@ConfigExtra);
+    </Statement>
+
+    <!--删除-->
+    <Statement Id="Delete">
+      Delete admin_ConfigOption
+      Where ID=@ID
+    </Statement>
+
+    <!--更新-->
+    <Statement Id="Update">
+      UPDATE admin_ConfigOption
+      SET
+      ConfigOptionValue=@ConfigOptionValue
+      ,ConfigOptionDesc=@ConfigOptionDesc
+      ,IsActive=@IsActive
+      ,ConfigID=@ConfigID
+      ,ConfigExtra=@ConfigExtra
+      Where ID=@ID
+    </Statement>
+   
+    <!--是否存在该记录-->
+    <Statement Id="IsExist">
+      Select Count(1) From admin_ConfigOption
+      <Include RefId="QueryParams"/>
+    </Statement>
+
+    <!--获取单条记录 -->
+    <Statement Id="GetEntity">
+      SELECT ID
+      ,ConfigOptionValue
+      ,ConfigOptionDesc
+      ,IsActive
+      ,ConfigID
+      ,ConfigExtra
+      FROM admin_ConfigOption
+      <Include RefId="QueryParams"/>
+      Order by ID ASC
+    </Statement>
+   
+  </Statements>
+</SmartSqlMap>

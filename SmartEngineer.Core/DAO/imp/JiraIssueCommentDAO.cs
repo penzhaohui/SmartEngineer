@@ -7,14 +7,6 @@ namespace SmartEngineer.Core.DAOs
     public class JiraIssueCommentDAO<T> : BaseDAO<T>, IJiraIssueCommentDAO<T>
        where T : JiraIssueComment
     {
-        public override ISmartSqlMapper SQLMapper
-        {
-            get
-            {
-                return SQLMapperManager.Instance.GetSQLMapper(@"F:\MyWorkspace\SmartEngineer\SmartEngineer.Core\Config\SmartSqlMapConfig.xml");
-            }
-        }
-
         public override string TableName
         {
             get

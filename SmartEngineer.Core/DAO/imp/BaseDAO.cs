@@ -1,14 +1,21 @@
-﻿using SmartEngineer.Core.DAO;
+﻿using SmartSql;
 using SmartSql.Abstractions;
 using SmartSQL;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace SmartEngineer.Core.DAOs
 {
     public abstract class BaseDAO<TEntity> : IBaseDAO<TEntity>
     {
-        public abstract ISmartSqlMapper SQLMapper { get; }
+        public virtual ISmartSqlMapper SQLMapper
+        {
+            get
+            {
+                return SQLMapperManager.Instance.GetSQLMapper(ConfigurationManager.AppSettings["SQLMapperConfigFilePath"]);
+            }
+        }
 
         public virtual string Scope => typeof(TEntity).Name;
         public virtual string TableName { get; }

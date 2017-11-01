@@ -9,14 +9,6 @@ namespace SmartEngineer.Core.DAOs
     public class SFAccountDAO<T> : BaseDAO<T>, ISFAccountDAO<T>
         where T : CaseAccountInfo
     {
-        public override ISmartSqlMapper SQLMapper
-        {
-            get
-            {
-                return SQLMapperManager.Instance.GetSQLMapper(@"F:\MyWorkspace\SmartEngineer\SmartEngineer.Core\Config\SmartSqlMapConfig.xml");
-            }
-        }
-
         public override string TableName
         {
             get

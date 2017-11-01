@@ -19,6 +19,7 @@ namespace SmartEngineer.Core.Adapter
         private static readonly ILog Logger = LogFactory.Instance.GetLogger(typeof(JiraAdapter));
         private static readonly string AccelaJiraUrl = "https://accelaeng.atlassian.net/";
         private static readonly ISalesforceAdapterV2 SalesforceAdapterV2 = new SalesforceAdapterV2();
+        private static readonly IConfigAdapter ConfigAdapter = new ConfigAdapter();
 
         public Account ValidateAccount(string userOrEmailAddress, string password)
         {
@@ -174,10 +175,8 @@ namespace SmartEngineer.Core.Adapter
                         jiraKeyList.Add(localJiraIssue.JiraKey);
                     }
 
-                    // Create Sub Task
-                    CreateSubTask(jiraKey, JiraSubTaskType.ReviewAndRecreateByQA);
-                    CreateSubTask(jiraKey, JiraSubTaskType.ReviewAndRecreateByDev);
-                    CreateSubTask(jiraKey, JiraSubTaskType.ResearchRootCauseByDev);
+                    // Create Default Sub Tasks
+                    CreateDefaultSubTasks(jiraKey);
 
                     caseNOs.Remove(caseNo);                    
                 }
@@ -300,21 +299,40 @@ namespace SmartEngineer.Core.Adapter
             return true;
         }
 
-        private async void CreateSubTask(string jiraKey, JiraSubTaskType subTaskType)
-        {
-            string summary = string.Empty;
-            string description = string.Empty;
-            IssueRef parent = new IssueRef();
-            parent.key = jiraKey;
+        private void CreateDefaultSubTasks(string jiraKey)
+        {            
+            var jiraIssue = GetIssueInfoByJiraKey(jiraKey);
+            var jiraIssueType = jiraIssue.IssueType;
+            var jiraIssueStatus = jiraIssue.Status;
+            var jiraIssueProject = "ENGSUPP"; // jiraIssue.Project;
 
-            CreateSubTask(summary, description, parent, JiraAccount, JiraPassword);
+            Dictionary<string, dynamic> configOptions = ConfigAdapter.GeSubTaskTemplates(jiraIssueProject);
+            if (configOptions != null)
+            {
+                foreach (KeyValuePair<string, dynamic> configOption in configOptions)
+                {
+                    // Project=ENGSUPP;IssueType=Case;IsDefaultSubTask=Yes
+                    if (jiraIssueProject == configOption.Value.Project
+                        && jiraIssueType == configOption.Value.IssueType
+                        && true == configOption.Value.IsDefaultSubTask
+                        && true == configOption.Value.IsActive)
+                    {
+                        CreateSubTask(jiraIssueProject,
+                                      jiraKey,
+                                      configOption.Value.ConfigOptionValue,
+                                      configOption.Value.ConfigOptionDesc,
+                                      JiraAccount,
+                                      JiraPassword);
+                    }
+                }
+            }
         }
 
-        public Issue CreateSubTask(string summary, string description, IssueRef parent, string jiraAccount, string jiraPassword)
+        public Issue CreateSubTask(string project, string jiraKey, string subTaskSummary, string subTaskSummaryDescription, string jiraAccount, string jiraPassword)
         {
             IJiraClient jira = new JiraClient("https://accelaeng.atlassian.net/", jiraAccount, jiraPassword);
 
-            var issue = jira.CreateSubTask("ENGSUPP", parent.key, summary, description);
+            var issue = jira.CreateSubTask(project, jiraKey, subTaskSummary, subTaskSummaryDescription);
 
             return issue;
         }

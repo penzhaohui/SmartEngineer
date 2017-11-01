@@ -8,14 +8,6 @@ namespace SmartEngineer.Core.DAOs
     public class JiraSubTaskDAO<T> : BaseDAO<T>, IJiraSubTaskDAO<T>
        where T : JiraSubTask
     {
-        public override ISmartSqlMapper SQLMapper
-        {
-            get
-            {
-                return SQLMapperManager.Instance.GetSQLMapper(@"F:\MyWorkspace\SmartEngineer\SmartEngineer.Core\Config\SmartSqlMapConfig.xml");
-            }
-        }
-
         public override string TableName
         {
             get
