@@ -8,11 +8,8 @@ namespace SmartEngineer.Core.Adapter
     public interface ISalesforceAdapterV2
     {
         IList<AccelaCase> QueryCasesByEngineerQueue(string queueName, int n = 100);
-
         IList<AccelaCase> QueryCasesByLastModifer(string lastModifier, int n = 100);
-
         IList<AccelaCase> PullCasesByCaseNos(List<string> caseNos);
-
         List<CaseInfo> GetCaseInfoByCaseNos(List<string> caseNos);
 
         IList<AccelaCaseComment> PullCaseCommentsByParentID(string parentId, string creatorId, DateTime? from = null, DateTime? end = null);
@@ -24,11 +21,11 @@ namespace SmartEngineer.Core.Adapter
         List<string> GetUnstoredLocalCases(List<string> caseNos);
 
         bool IsExistsLocalCase(string caseNo);
-
+        CaseInfo GetCaseInfoByCaseNo(string caseNo);
         int StoreCaseInfoToLocal(CaseInfo caseInfo);
-
+        CaseInfo UpdateCaseInfoToLocal(string caseNo);
+        bool UpdateCaseCommentInfoToLocal(string caseNo);
         bool BatchStoreCaseInfoToLocal(List<string> keys);
-
         Task<bool> BatchStoreCaseInfoToLocalSync(List<string> keys);
     }
 }

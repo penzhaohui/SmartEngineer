@@ -40,6 +40,11 @@ namespace SmartEngineer.Core.Adapter
             return SFCaseDAO.IsExist(new { CaseNumber = caseNo });
         }
 
+        public CaseInfo GetCaseInfoByCaseNo(string caseNo)
+        {
+            return SFCaseDAO.GetEntity(new { CaseNumber = caseNo });
+        }
+
         public int StoreCaseInfoToLocal(CaseInfo caseInfo)
         {
             int ID = 0;
@@ -56,6 +61,28 @@ namespace SmartEngineer.Core.Adapter
             }
 
             return ID;
+        }
+
+        public CaseInfo UpdateCaseInfoToLocal(string caseNo)
+        {
+            CaseInfo caseInfo = null;
+            List<string> caseNoList = new List<string>();
+            caseNoList.Add(caseNo);
+
+            IList<AccelaCase> caseList = PullCasesByCaseNos(caseNoList);
+            if (caseList != null && caseList.Count > 0)
+            {
+                caseInfo = new CaseInfo();
+                caseInfo.Initialize(caseList[0]);
+                caseInfo.ID = StoreCaseInfoToLocal(caseInfo);                
+            }
+
+            return caseInfo;
+        }
+
+        public bool UpdateCaseCommentInfoToLocal(string caseNo)
+        {
+            return true;
         }
 
         public bool UpdateLocalCaseInfo(CaseInfo caseInfo)

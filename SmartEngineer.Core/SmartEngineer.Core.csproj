@@ -101,6 +101,7 @@
     <Compile Include="Model\Common\SequenceModel.cs" />
     <Compile Include="Model\Common\Tenant.cs" />
     <Compile Include="Model\enum\AccountType.cs" />
+    <Compile Include="Model\Jira\JiraSubTaskType.cs" />
     <Compile Include="Model\Jira\DBTicket.cs" />
     <Compile Include="Model\Jira\JiraAccount.cs" />
     <Compile Include="Model\Jira\JiraIssueComment.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Model\Salesforce\AccelaCaseAttachment.cs" />
     <Compile Include="Model\Salesforce\CaseCommentInfo.cs" />
     <Compile Include="Model\Salesforce\CaseInfo.cs" />
+    <Compile Include="Model\Salesforce\ModelExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

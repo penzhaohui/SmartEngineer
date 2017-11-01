@@ -120,7 +120,29 @@ namespace SmartEngineer.Service
 
         public bool SyncSalesforceCaseToJiraIssue(List<string> caseNOs)
         {
-            JiraAdapter.BatchStoreIssueInfoToLocal(caseNOs);
+            ISalesforceService SalesforceService = new SalesforceService();
+            List<string> newCaseNoList = SalesforceService.GetNewCasesList();            
+
+            foreach (string newCaseNo in newCaseNoList)
+            {
+                // Assumption: The local jira record indicates it is already imported.
+                if (!JiraAdapter.IsExistsLocalCase(newCaseNo) && caseNOs.Contains(newCaseNo))
+                {
+                    caseNOs.Remove(newCaseNo);
+                }
+            }
+            // If it is one new case
+            //      1. Create new jira issue
+            //      2. Check DB Information and reproduced steps
+            //      3. Create Sub Task
+            JiraAdapter.ImportSalesforceCaseIntoJira(newCaseNoList); // Sync
+
+
+            // If it is commented case
+            //      1. Sync Jira Status
+            //      2. Sync salesforce comment
+            JiraAdapter.SyncInformationFromSalesforce(caseNOs); // Async
+
             return true;
         }
     }

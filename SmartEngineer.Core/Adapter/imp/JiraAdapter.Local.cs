@@ -23,9 +23,39 @@ namespace SmartEngineer.Core.Adapter
             return JiraIssueDAO.GetEntitiesByCaseNo(caseNos);
         }
 
+        private JiraIssue GetIssueInfoByCaseNo(string caseNo)
+        {
+            JiraIssue jiraIssue = null;
+            List<string> caseNos = new List<string>();
+            caseNos.Add(caseNo);
+
+            var jiraIssueList = GetIssueInfoByCaseNos(caseNos);
+            if (jiraIssueList != null && jiraIssueList.Count > 0)
+            {
+                jiraIssue = jiraIssueList[0];
+            }
+
+            return jiraIssue;
+        }
+
         public List<JiraIssue> GetIssueInfoByJiraKeys(List<string> jiraKeys)
         {
             return JiraIssueDAO.GetEntitiesByJiraKey(jiraKeys);
+        }
+
+        private JiraIssue GetIssueInfoByJiraKey(string jiraKey)
+        {
+            JiraIssue jiraIssue = null;
+            List<string> jiraKeys = new List<string>();
+            jiraKeys.Add(jiraKey);
+
+            var jiraIssueList = GetIssueInfoByJiraKeys(jiraKeys);
+            if (jiraIssueList != null && jiraIssueList.Count > 0)
+            {
+                jiraIssue = jiraIssueList[0];
+            }
+
+            return jiraIssue;
         }
 
         public bool IsExistsLocalIssue(string jiraKey)

@@ -19,13 +19,14 @@ namespace SmartEngineer.Core.Adapter
         Account ValidateAccount(string userOrEmailAddress, string password);
 
         List<Issue> PullIssueList(List<string> CaseNoOrJiraKeyList, string jiraAccount, string jiraPassword);
-        Task<Issue> CreateIssue(string project, string issueType, IssueFields fields, string jiraAccount, string jiraPassword);
+        Issue PullIssue(string jiraKeyOrCaseNo, string jiraAccount, string jiraPassword);
+        Issue CreateIssue(string project, string issueType, IssueFields fields, string jiraAccount, string jiraPassword);
         Task<Issue> UpdateIssue(Issue issue, string jiraAccount, string jiraPassword);
         List<Comment> PullComments(IssueRef issueRef, string jiraAccount, string jiraPassword);
         Task<Comment> CreateComment(IssueRef issueRef, string caseComment, string jiraAccount, string jiraPassword);
         List<SubTask> PullSubTasks(IssueRef issueRef, string jiraAccount, string jiraPassword);
         List<Worklog> PullWorkLogs(IssueRef issueRef, string jiraAccount, string jiraPassword);
-
+        
         Task<bool> UpdateJiraStatus(IssueRef issueRef, string jiraStatus, string jiraNextStatus, string jiraAccount, string jiraPassword);
 
         List<JiraIssue> GetIssueInfoByCaseNos(List<string> caseNos);
@@ -37,5 +38,8 @@ namespace SmartEngineer.Core.Adapter
         List<string> BatchStoreIssueInfoToLocal(List<string> caseNOs);
         Task<bool> BatchStoreIssueInfoToLocalSync(List<string> keys);
         int StoreIssueInfoToLocal(JiraIssue issueInfo);
+
+        List<string> ImportSalesforceCaseIntoJira(List<string> caseNOs);
+        bool SyncInformationFromSalesforce(List<string> caseNOs);
     }
 }
