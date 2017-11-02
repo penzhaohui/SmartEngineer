@@ -67,6 +67,18 @@ namespace SmartEngineer.Core.DAOs
 
         public virtual TEntity Insert(TEntity entity)
         {
+            var lastUpdateTimeProperty = entity.GetType().GetProperty("LastUpdateTime");
+            if (lastUpdateTimeProperty != null)
+            {
+                lastUpdateTimeProperty.SetValue(entity, DateTime.Now);
+            }
+
+            var lastUpdateUserIDProperty = entity.GetType().GetProperty("LastUpdateUserID");
+            if (lastUpdateUserIDProperty != null)
+            {
+                lastUpdateUserIDProperty.SetValue(entity, 1);
+            }
+
             SQLMapper.Execute(new RequestContext
             {
                 Scope = this.Scope,
@@ -89,6 +101,18 @@ namespace SmartEngineer.Core.DAOs
 
         public int Update(TEntity entity)
         {
+            var lastUpdateTimeProperty = entity.GetType().GetProperty("LastUpdateTime");
+            if (lastUpdateTimeProperty != null)
+            {
+                lastUpdateTimeProperty.SetValue(entity, DateTime.Now);
+            }
+
+            var lastUpdateUserIDProperty = entity.GetType().GetProperty("LastUpdateUserID");
+            if (lastUpdateUserIDProperty != null)
+            {
+                lastUpdateUserIDProperty.SetValue(entity, 1);
+            }
+
             return SQLMapper.Execute(new RequestContext
             {
                 Scope = this.Scope,

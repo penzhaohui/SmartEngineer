@@ -29,13 +29,17 @@
       ,Name
       ,EmailAddress
       ,DisplayName
-      ,IsActive)
+      ,IsActive
+      ,LastUpdateTime
+      ,LastUpdateUserID)
       VALUES
       (@ID
       ,@Name
       ,@EmailAddress
       ,@DisplayName
-      ,@IsActive);
+      ,@IsActive
+      ,@LastUpdateTime
+      ,@LastUpdateUserID);
     </Statement>
 
     <!--删除-->
@@ -52,6 +56,8 @@
       ,EmailAddress=@EmailAddress
       ,DisplayName=@DisplayName
       ,IsActive=@IsActive
+      ,LastUpdateTime=@LastUpdateTime
+      ,LastUpdateUserID=@LastUpdateUserID
       Where ID=@ID
     </Statement>
    
@@ -68,6 +74,8 @@
       ,EmailAddress
       ,DisplayName
       ,IsActive
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM JiraAccount
       <Include RefId="QueryParams"/>
       Order by ID ASC

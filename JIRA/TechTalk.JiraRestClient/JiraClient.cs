@@ -314,57 +314,40 @@ namespace TechTalk.JiraRestClient
                 if (issue.fields.Labels != null)
                     updateData.Add("labels", new[] { new { set = issue.fields.Labels } });
                 if (issue.fields.Priority != null)
-                    updateData.Add("priority", new[] { new { set = new { name = issue.fields.Priority.name } } });
+                    updateData.Add("priority", new[] { new { set = issue.fields.Priority } });
                 //if (issue.fields.timetracking != null)
                 //    updateData.Add("timetracking", new[] { new { set = new { originalEstimate = issue.fields.timetracking.originalEstimate } } });
 
                 if (issue.key.StartsWith("ENGSUPP"))
                 {
-                    var propertyList = typeof(TIssueFields).GetProperties().Where(p => p.Name.StartsWith("customfield_"));
+                    var propertyList = typeof(TIssueFields).GetProperties();
                     foreach (var property in propertyList)
                     {
+                        var attributes = property.GetCustomAttributes(typeof(DeserializeAsAttribute), false);
+
+                        if (attributes == null || attributes.Length == 0) continue;
+                        var propertyName = (attributes[0] as DeserializeAsAttribute).Name;
                         var propertyValue = property.GetValue(issue.fields, null);
+
+                        // AssignedQA[JiraUser] customfield_11702
+                        // CaseNumber[String] customfield_10600
+                        // BuildVersion[List<String>] customfield_10907
+                        // Product[IssueProduct] customfield_11501
+                        // IssueCategory[List<IssueCategory>] customfield_11502
+                        // EstimatedEffort[int] customfield_11506
+                        // SFCommentCount[int] customfield_12400
+                        // SFPriority[String] customfield_12801
+                        // SFCustomer[String] customfield_10900
+                        // SFCurrentVersion[String] customfield_10901
+                        // SFProduct[String] customfield_10904
+                        // SFSalesforceLink[String] customfield_10906
+                        // SFOpenedDateTime[DateTime] customfield_10902
+                        // SFLastModifiedDate[DateTime] customfield_10903
+                        // SFOrigin[IssueOrigin] customfield_11900
+                        // SFTargetedRelease[String] customfield_12300
                         if (propertyValue != null)
                         {
-                            // SF-Priority & Issue Category
-                            if ("customfield_10905" == property.Name || "customfield_11502" == property.Name)
-                            {
-                                //updateData.Add(property.Name, new[] { new { set = new { value = propertyNalue } } });
-                            }
-                            // SF-Case Comment Count
-                            else if ("customfield_12400" == property.Name)
-                            {
-                                updateData.Add(property.Name, new[] { new { set = (int)propertyValue } });
-                            }
-                            // SF-Last Modified
-                            else if ("customfield_10903" == property.Name)
-                            {
-                                updateData.Add(property.Name, new[] { new { set = (propertyValue as string) } });
-                            }
-                            // Severity
-                            else if ("customfield_11106" == property.Name)
-                            {
-                                updateData.Add(property.Name, new[] { new { set = new { value = (propertyValue as IssueSeverity).name, id = "" + (propertyValue as IssueSeverity).id } } });
-                            }
-                            // JIRA-Product
-                            else if ("customfield_11501" == property.Name)
-                            {
-                                updateData.Add(property.Name, new[] { new { set = new[] { new { value = propertyValue } } } });
-                            }
-                            // SF-Origin
-                            else if ("customfield_11900" == property.Name)
-                            {
-                                updateData.Add(property.Name, new[] { new { set = new { value = propertyValue } } });
-                            }
-                            // SF-Customer
-                            else if ("customfield_10900" == property.Name)
-                            {
-                                updateData.Add(property.Name, new[] { new { set = propertyValue } });
-                            }
-                            else
-                            {
-                                updateData.Add(property.Name, new[] { new { set = propertyValue } });
-                            }
+                            updateData.Add(propertyName, new[] { new { set = propertyValue } });                            
                         }
                     }
                 }

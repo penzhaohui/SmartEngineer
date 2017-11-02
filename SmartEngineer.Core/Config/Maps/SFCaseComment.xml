@@ -39,7 +39,9 @@
       ,LastModifiedDateTime
       ,CaseID
       ,CaseNumber
-      ,IsPublished)
+      ,IsPublished
+      ,LastUpdateTime
+      ,LastUpdateUserID)
       VALUES
       (@ID
       ,@CommentID
@@ -52,7 +54,9 @@
       ,@LastModifiedDateTime
       ,@CaseID
       ,@CaseNumber
-      ,@IsPublished);
+      ,@IsPublished
+      ,@LastUpdateTime
+      ,@LastUpdateUserID);
     </Statement>
 
     <!--删除-->
@@ -75,7 +79,9 @@
       LastModifiedDateTime=@LastModifiedDateTime,
       CaseID=@CaseID,
       CaseNumber=@CaseNumber,
-      IsPublished=@IsPublished
+      IsPublished=@IsPublished,
+      LastUpdateTime=@LastUpdateTime,
+      LastUpdateUserID=@LastUpdateUserID
       Where ID=@ID
     </Statement>
    
@@ -99,6 +105,8 @@
       ,CaseID
       ,CaseNumber
       ,IsPublished
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM SFCaseComment
       <Include RefId="QueryParams"/>
       Order by ID ASC
@@ -118,6 +126,8 @@
       ,CaseID
       ,CaseNumber
       ,IsPublished
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM SFCase
       <Where>
         <IsNotEmpty Prepend="And" Property="CaseNumber" In="true"/>

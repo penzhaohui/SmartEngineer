@@ -33,7 +33,9 @@
       ,IsActive
       ,UserID
       ,Phone
-      ,MobilePhone)
+      ,MobilePhone
+      ,LastUpdateTime
+      ,LastUpdateUserID)
       VALUES
       (@ID
       ,@Name
@@ -43,7 +45,9 @@
       ,@IsActive
       ,@UserID
       ,@Phone
-      ,@MobilePhone);
+      ,@MobilePhone
+      ,@LastUpdateTime
+      ,@LastUpdateUserID);
     </Statement>
 
     <!--删除-->
@@ -63,7 +67,9 @@
       IsActive=@IsActive,
       UserID=@UserID,
       Phone=@Phone,
-      MobilePhone=@MobilePhone
+      MobilePhone=@MobilePhone,
+      LastUpdateTime=@LastUpdateTime,
+      LastUpdateUserID=@LastUpdateUserID
       Where ID=@ID
     </Statement>
    
@@ -84,6 +90,8 @@
       ,UserID
       ,Phone
       ,MobilePhone
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM SFAccount
       <Include RefId="QueryParams"/>
       Order by ID ASC
@@ -100,6 +108,8 @@
       ,UserID
       ,Phone
       ,MobilePhone
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM SFAccount
       <Where>
         <IsNotEmpty Prepend="And" Property="CaseNumber" In="true"/>

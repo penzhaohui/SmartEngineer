@@ -7,7 +7,7 @@ namespace TechTalk.JiraRestClient
 {
     public class IssueFixVersion
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public string name { get; set; }
         public bool archived { get; set; }
         public bool released { get; set; }

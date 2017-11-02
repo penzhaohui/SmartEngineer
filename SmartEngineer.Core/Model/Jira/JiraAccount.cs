@@ -1,15 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
+using TechTalk.JiraRestClient;
 
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
     public class JiraAccount
     {
+        public void Initialize(JiraUser jiraUser)
+        {
+            this.Name = jiraUser.name;
+            this.EmailAddress = jiraUser.emailAddress;
+            this.DisplayName = jiraUser.displayName;
+            this.IsActive = jiraUser.active;
+        }
+
         [DataMember]
         public int ID { get; set; }
         [DataMember]
@@ -19,6 +23,6 @@ namespace SmartEngineer.Core.Models
         [DataMember]
         public string DisplayName { get; set; }
         [DataMember]
-        public string IsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }

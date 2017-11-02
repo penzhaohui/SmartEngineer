@@ -145,5 +145,12 @@ namespace SmartEngineer.ServiceClient.Adapters
 
             return table;
         }
+
+        public bool SyncSalesforceToJira(List<string> caseNos)
+        {
+            JiraServiceForENGSuppClient jiraServiceForENGSuppClient = WSFactory.Instance.GetWCFClient<JiraServiceForENGSuppClient, IJiraServiceForENGSupp>();
+            
+            return jiraServiceForENGSuppClient.SyncSalesforceCaseToJiraIssue(caseNos.ToArray()); 
+        }
     }
 }

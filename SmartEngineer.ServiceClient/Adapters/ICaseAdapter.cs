@@ -11,7 +11,9 @@ namespace SmartEngineer.ServiceClient.Adapters
         List<string> GetCommentedCasesForToday();
 
         List<string> GetPendingCasesForToday();
-
+        
         DataTable PullDetailedCaseInfo(List<string> caseNos);
+
+        bool SyncSalesforceToJira(List<string> caseNos);
     }
 }

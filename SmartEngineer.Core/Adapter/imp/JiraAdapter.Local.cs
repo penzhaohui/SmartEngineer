@@ -14,6 +14,7 @@ namespace SmartEngineer.Core.Adapter
         private static readonly IJiraIssueCommentDAO<JiraIssueComment> JiraIssueCommentDAO = new JiraIssueCommentDAO<JiraIssueComment>();
         private static readonly IJiraSubTaskDAO<JiraSubTask> JiraSubTaskDAO = new JiraSubTaskDAO<JiraSubTask>();
         private static readonly IJiraWorkLogDAO<JiraWorkLog> JiraWorkLogDAO = new JiraWorkLogDAO<JiraWorkLog>();
+        private static readonly IJiraAccountDAO<JiraAccount> JiraAccountDAO = new JiraAccountDAO<JiraAccount>();
 
         private static readonly string JiraAccount = ConfigurationManager.AppSettings["JiraAccount"];
         private static readonly string JiraPassword = ConfigurationManager.AppSettings["JiraPassword"];
@@ -140,6 +141,9 @@ namespace SmartEngineer.Core.Adapter
                         {
                             JiraIssueCommentDAO.Insert(jiraIssueComment);
                         }
+
+                        BatchStoreJiraAccountInfoToLocalSync(comment.Author);
+                        //BatchStoreJiraAccountInfoToLocalSync(comment.UpdateAuthor);
                     }
                 }
                 catch (Exception ex)
@@ -149,6 +153,31 @@ namespace SmartEngineer.Core.Adapter
             }
 
             return true;
+        }
+
+        private async Task<bool> BatchStoreJiraAccountInfoToLocalSync(JiraUser jiraUser)
+        {
+            return await Task.Run(() =>
+            {
+                if (jiraUser == null) return false;
+
+                try
+                {
+                    JiraAccount jiraAccount = new JiraAccount();
+                    jiraAccount.Initialize(jiraUser);
+
+                    if (!JiraAccountDAO.IsExist(jiraAccount))
+                    {
+                        JiraAccountDAO.Insert(jiraAccount);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error("Failed to store case account to local databse", ex);
+                }
+
+                return true;
+            });
         }
 
         public bool BatchStoreSubTaskToLocal(List<string> jiraKeys)

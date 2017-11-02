@@ -5,7 +5,7 @@ using TechTalk.JiraRestClient;
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class JiraIssueComment
+    public class JiraIssueComment : BasicDataModel
     {
         public void Initialize(string jiraKey, Comment comment)
         {

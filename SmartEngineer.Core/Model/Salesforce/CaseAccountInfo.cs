@@ -3,7 +3,7 @@
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class CaseAccountInfo
+    public class CaseAccountInfo : BasicDataModel
     {
         public void Initialize(AccelaCaseAccount accelaCaseAccount)
         {

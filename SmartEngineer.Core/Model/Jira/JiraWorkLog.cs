@@ -5,7 +5,7 @@ using TechTalk.JiraRestClient;
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class JiraWorkLog
+    public class JiraWorkLog : BasicDataModel
     {
         public void Initialize(string jiraKey, Worklog worklog)
         {

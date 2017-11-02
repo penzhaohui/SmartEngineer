@@ -32,7 +32,9 @@
       ,LastModifiedDateTime
       ,ParentJiraKey
       ,JiraCommentID
-      ,SFCommentID)
+      ,SFCommentID
+      ,LastUpdateTime
+      ,LastUpdateUserID)
       VALUES
       (@ID
       ,@CommentBody
@@ -44,7 +46,9 @@
       ,@LastModifiedDateTime
       ,@ParentJiraKey
       ,@JiraCommentID
-      ,@SFCommentID);
+      ,@SFCommentID
+      ,@LastUpdateTime
+      ,@LastUpdateUserID);
     </Statement>
 
     <!--删除-->
@@ -67,6 +71,8 @@
       ,ParentJiraKey=@ParentJiraKey
       ,JiraCommentID=@JiraCommentID
       ,SFCommentID=@SFCommentID
+      ,LastUpdateTime=@LastUpdateTime
+      ,LastUpdateUserID=@LastUpdateUserID
       Where ID=@ID
     </Statement>
    
@@ -96,6 +102,8 @@
       ,ParentJiraKey
       ,JiraCommentID
       ,SFCommentID
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM JiraIssueComment
       <Where>
         <IsNotEmpty Property="JiraCommentID" Prepend="And">
@@ -121,6 +129,8 @@
       ,ParentJiraKey
       ,JiraCommentID
       ,SFCommentID
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM JiraIssueComment
       <Include RefId="QueryParams"/>      
     </Statement>

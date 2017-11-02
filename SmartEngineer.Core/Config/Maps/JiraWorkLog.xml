@@ -36,7 +36,9 @@
       ,LastModifiedDateTime
       ,TimeSpentHours
       ,TimeSpendSeconds
-      ,ParentJiraKey)
+      ,ParentJiraKey
+      ,LastUpdateTime
+      ,LastUpdateUserID)
       VALUES
       (@ID
       ,@WorklogID
@@ -49,7 +51,9 @@
       ,@LastModifiedDateTime
       ,@TimeSpentHours
       ,@TimeSpendSeconds
-      ,@ParentJiraKey);
+      ,@ParentJiraKey
+      ,@LastUpdateTime
+      ,@LastUpdateUserID);
     </Statement>
 
     <!--删除-->
@@ -73,6 +77,8 @@
       ,TimeSpentHours=@TimeSpentHours
       ,TimeSpendSeconds=@TimeSpendSeconds
       ,ParentJiraKey=@ParentJiraKey
+      ,LastUpdateTime=@LastUpdateTime
+      ,LastUpdateUserID=@LastUpdateUserID
       <Include RefId="QueryParams"/>
     </Statement>
    
@@ -100,6 +106,8 @@
       ,TimeSpentHours
       ,TimeSpendSeconds
       ,ParentJiraKey
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM JiraWorkLog
       <Include RefId="QueryParams"/>
     </Statement>
@@ -118,6 +126,8 @@
       ,TimeSpentHours
       ,TimeSpendSeconds
       ,ParentJiraKey
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM JiraWorkLog
       <Where>
         <IsNotEmpty Property="ParentJiraKey" Prepend="And">

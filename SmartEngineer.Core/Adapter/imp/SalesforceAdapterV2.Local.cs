@@ -2,6 +2,7 @@
 using SmartEngineer.Core.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Threading.Tasks;
 
 namespace SmartEngineer.Core.Adapter
@@ -65,7 +66,11 @@ namespace SmartEngineer.Core.Adapter
 
         public CaseInfo UpdateCaseInfoToLocal(string caseNo)
         {
-            CaseInfo caseInfo = null;
+            CaseInfo caseInfo = GetCaseInfoByCaseNo(caseNo);
+
+            // If the case is already updated within the past half a day, skip it
+            if (DateTime.Now.Subtract(caseInfo.LastUpdateTime).TotalHours < 12) return caseInfo;
+
             List<string> caseNoList = new List<string>();
             caseNoList.Add(caseNo);
 
@@ -153,10 +158,13 @@ namespace SmartEngineer.Core.Adapter
                 {
                     CaseCommentInfo commentInfo = new CaseCommentInfo();
                     commentInfo.Initialize(caseInfo.CaseNumber, caseComment);
-                    SFCaseCommentDAO.Insert(commentInfo);
+                    if (!SFCaseCommentDAO.IsExist(commentInfo))
+                    {
+                        SFCaseCommentDAO.Insert(commentInfo);
+                    }
 
                     BatchStoreCaseAccountInfoToLocalSync(caseComment.CreatedBy);
-                    BatchStoreCaseAccountInfoToLocalSync(caseComment.LastModifiedBy);
+                    //BatchStoreCaseAccountInfoToLocalSync(caseComment.LastModifiedBy);
                 }
             }
 

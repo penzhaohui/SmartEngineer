@@ -1,23 +1,25 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.Serialization;
 using TechTalk.JiraRestClient;
 
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class JiraIssue
+    public class JiraIssue : BasicDataModel
     {
         public void Initialize(Issue jiraIssue)
         {
             this.JiraID = jiraIssue.id;
             this.JiraKey = jiraIssue.key;
+            this.ProjectKey = jiraIssue.fields.Project.key;
             this.IssueType = jiraIssue.fields.IssueType.name;
             this.Summary = jiraIssue.fields.Summary;
             this.Status = jiraIssue.fields.Status.name;
             this.Priority = jiraIssue.fields.Priority.name;
             this.Labels = String.Join(",", jiraIssue.fields.Labels);
-            this.Description = jiraIssue.fields.Description;
-            this.FixVersions = String.Join(",", jiraIssue.fields.FixVersions);
+            this.Description = jiraIssue.fields.Description;            
+            this.FixVersions = String.Join(",", jiraIssue.fields.FixVersions.Select(version => version.name).ToArray());
             this.Reporter = jiraIssue.fields.Reporter.name;
             this.Assignee = jiraIssue.fields.Assignee.name;
             this.AssignedQA = (jiraIssue.fields.AssignedQA == null ? null : jiraIssue.fields.AssignedQA.name);
@@ -60,6 +62,8 @@ namespace SmartEngineer.Core.Models
         public string JiraID { get; set; }
         [DataMember]
         public string JiraKey { get; set; }
+        [DataMember]
+        public string ProjectKey { get; set; }
         [DataMember]
         public string IssueType { get; set; }
         [DataMember]

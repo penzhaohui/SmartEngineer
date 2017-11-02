@@ -143,11 +143,8 @@ namespace SmartEngineer.Core.Adapter
                 int failedTimes = 0;
                 foreach (string caseNo in newCaseNoList)
                 {
-                    // Assumption: The local jira record indicates it is already imported.
-                    if (IsExistsLocalCase(caseNo))
-                    {
-                    }
-                    else
+                    // Assumption: The existing local jira record indicates it is already imported.
+                    if (!IsExistsLocalCase(caseNo))
                     {
                         // Ensure the case is not imported by other tool at this moment.
                         Issue jiraIssue = PullIssue(caseNo, JiraAccount, JiraPassword);
@@ -216,12 +213,13 @@ namespace SmartEngineer.Core.Adapter
 
         private bool SyncCaseInfotToJira(CaseInfo caseInfo)
         {
-            var jiraIssueInfo = this.GetIssueInfoByCaseNo(caseInfo.CaseNumber); 
+            var jiraIssueInfo = GetIssueInfoByCaseNo(caseInfo.CaseNumber); 
 
             bool isNeedUpdateJira = !jiraIssueInfo.IsEqualCase(caseInfo);
             if (isNeedUpdateJira)
             {
-                Issue issue = caseInfo.ConvertToIssue();
+                Issue issue = PullIssue(jiraIssueInfo.JiraKey, JiraAccount, JiraPassword);
+                issue = caseInfo.MergeToIssue(issue);
                 UpdateIssue(issue, JiraAccount, JiraPassword);
             }
 

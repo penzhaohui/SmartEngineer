@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class CaseCommentInfo
+    public class CaseCommentInfo : BasicDataModel
     {
         public void Initialize(string caseNumber, AccelaCaseComment sfCaseComment)
         {

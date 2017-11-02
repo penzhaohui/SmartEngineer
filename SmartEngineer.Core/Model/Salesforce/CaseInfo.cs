@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class CaseInfo
+    public class CaseInfo : BasicDataModel
     {
         public void Initialize(AccelaCase sfCase)
         {
@@ -59,24 +59,59 @@ namespace SmartEngineer.Core.Models
             this.ServicesRank = sfCase.ServicesRank;
         }
 
+        /// Accela ACA - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10800
+        /// Accela ACA Mobile - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10801
+        /// Accela ARW - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10802
+        /// Accela Asset Management - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10803
+        /// Accela Automation - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10804
+        /// Accela EDR - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10805
+        /// Accela GIS - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10806
+        /// Accela IVR - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10807
+        /// Accela Licensing & Case Management - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10808
+        /// Accela Mobile - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10809
+        /// Accela Public Health & Safety - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10810
+        /// Accela Wireless - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10811
+        /// Civic Hero - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10812
+        /// Code Officer - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10813
+        /// Kiva - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10814
+        /// Mobile Gateway - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10815
+        /// Mobile Office -  https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10816
+        /// Permits Plus - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10817
+        /// Tidemark - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/10818
+        /// Accela Ad Hoc - https://accelaeng.atlassian.net/rest/api/2/customFieldOption/11400
         private string AdjustProductName(string product, string solution, string subject, string description)
         {
             string productName = product;
 
-            if ("AdHoc Reports" == product)
+            #region Report Product
+
+            if (!String.IsNullOrEmpty(solution) && solution.ToUpper().Contains("ARW")
+                || !String.IsNullOrEmpty(product) && product.ToUpper().Contains("ARW"))
+            {
+                productName = "Accela ARW";
+            }
+
+            if (!String.IsNullOrEmpty(product) && product.ToUpper().Contains("ADHOC"))
+            {
+                productName = "Accela Ad Hoc";
+            }
+
+            #endregion
+
+            #region Mobile App
+
+            if ("Inspector" == product || "Civic Hero" == product || "Code Officer" == product || "Work Crew" == product)
             {
                 productName = product;
             }
-
-            if ("Inspector" == product || "Civic Hero" == product || "Code Officer" == product || "Work Crew" == product || "Support Access" == product)
-            {
-                productName = product;
-            }
-
-            if ("Inspector" == solution || "Civic Hero" == solution || "Code Officer" == solution || "Work Crew" == solution || "Support Access" == solution)
+            if ("Inspector" == solution || "Civic Hero" == solution || "Code Officer" == solution || "Work Crew" == solution)
             {
                 productName = solution;
             }
+
+            #endregion
+
+            #region Accela Automation
 
             if ("Civic Cloud Platform" == product || "Accela Asset Management" == product || "Accela Licensing & Case Management" == product)
             {
@@ -87,6 +122,15 @@ namespace SmartEngineer.Core.Models
             {
                 productName = product;
             }
+
+            if ("Reporting" == product)
+            {
+                productName = "Accela Automation";
+            }
+
+            #endregion
+
+            #region Mobile Office
 
             if ("Mobile Office" == solution)
             {
@@ -101,6 +145,8 @@ namespace SmartEngineer.Core.Models
                     productName = "Mobile Office";
                 }
             }
+
+            #endregion
 
             return productName;
         }

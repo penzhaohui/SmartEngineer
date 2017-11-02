@@ -67,7 +67,9 @@
       ,ReleaseNoteContent
       ,RankOrder
       ,GoLiveCritical
-      ,ServicesRank)
+      ,ServicesRank
+      ,LastUpdateTime
+      ,LastUpdateUserID)
       VALUES
       (@ID
       ,@CaseType
@@ -114,7 +116,9 @@
       ,@ReleaseNoteContent
       ,@RankOrder
       ,@GoLiveCritical
-      ,@ServicesRank);
+      ,@ServicesRank
+      ,@LastUpdateTime
+      ,@LastUpdateUserID);
     </Statement>
 
     <!--删除-->
@@ -183,7 +187,9 @@
       ReleaseNoteContent=@ReleaseNoteContent,
       RankOrder=@RankOrder,
       GoLiveCritical=@GoLiveCritical,
-      ServicesRank=@ServicesRank
+      ServicesRank=@ServicesRank,
+      LastUpdateTime=@LastUpdateTime,
+      LastUpdateUserID=@LastUpdateUserID
       Where ID=@ID
     </Statement>
    
@@ -241,6 +247,8 @@
       ,RankOrder
       ,GoLiveCritical
       ,ServicesRank
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM SFCase
       <Include RefId="QueryParams"/>
       Order by ID ASC
@@ -294,6 +302,8 @@
       ,RankOrder
       ,GoLiveCritical
       ,ServicesRank
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM SFCase
       <Where>
         <IsNotEmpty Prepend="And" Property="CaseNumber" In="true"/>

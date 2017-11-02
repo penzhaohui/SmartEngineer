@@ -4,12 +4,13 @@ using TechTalk.JiraRestClient;
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class JiraSubTask
+    public class JiraSubTask : BasicDataModel
     {
         public void Initialize(SubTask subTask)
         {
             this.JiraID = subTask.id;
             this.JiraKey = subTask.key;
+            this.ProjectKey = subTask.fields.project.key;
             this.Type = subTask.fields.IssueType.name;
             this.Summary = subTask.fields.Summary;
             this.Description = subTask.fields.Description;
@@ -27,6 +28,8 @@ namespace SmartEngineer.Core.Models
         public string JiraID { get; set; }
         [DataMember]
         public string JiraKey { get; set; }
+        [DataMember]
+        public string ProjectKey { get; set; }
         [DataMember]
         public string Type { get; set; }
         [DataMember]

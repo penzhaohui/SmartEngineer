@@ -93,10 +93,11 @@
     <Compile Include="DAO\imp\IDStoreDAO.cs" />
     <Compile Include="DAO\imp\SequenceGenerator.cs" />
     <Compile Include="DAO\ISequenceGenerator.cs" />
-    <Compile Include="Model\System\Account.cs" />
-    <Compile Include="Model\System\AccountSession.cs" />
-    <Compile Include="Model\System\Permission.cs" />
-    <Compile Include="Model\System\Role.cs" />
+    <Compile Include="Model\Account\Account.cs" />
+    <Compile Include="Model\Account\AccountSession.cs" />
+    <Compile Include="Model\Account\Permission.cs" />
+    <Compile Include="Model\Account\Role.cs" />
+    <Compile Include="Model\Common\BasicDataModel.cs" />
     <Compile Include="Model\Common\ReleaseInfo.cs" />
     <Compile Include="Model\Common\DBInfo.cs" />
     <Compile Include="Model\Common\DBConnection.cs" />

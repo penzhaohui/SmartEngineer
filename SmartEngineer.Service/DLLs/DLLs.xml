@@ -219,6 +219,11 @@
         <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetServerInfo">
             <summary>Returns information about the JIRA server</summary>
         </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.Project">
+            <summary>
+            Project
+            </summary>
+        </member>
         <member name="P:TechTalk.JiraRestClient.IssueFields.Summary">
             <summary>
             Jira Issue Subject

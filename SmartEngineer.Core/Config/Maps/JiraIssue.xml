@@ -28,119 +28,7 @@
       (ID
       ,JiraID
       ,JiraKey
-      ,IssueType
-      ,Summary
-      ,Status
-      ,Priority
-      ,Labels
-      ,Description
-      ,FixVersions
-      ,Reporter
-      ,Assignee
-      ,AssignedQA
-      ,CaseNumber
-      ,BuildVersion
-      ,Severity
-      ,Product
-      ,IssueCategory
-      ,EstimatedEffort
-      ,SFCommentCount
-      ,SFPriority
-      ,SFCustomer
-      ,SFCurrentVersion
-      ,SFProduct
-      ,SFSalesforceLink
-      ,SFOpenedDateTime
-      ,SFLastModifiedDate
-      ,SFOrigin
-      ,SFTargetedRelease
-      ,Updated)
-      VALUES
-      (@ID
-      ,@JiraID
-      ,@JiraKey
-      ,@IssueType
-      ,@Summary
-      ,@Status
-      ,@Priority
-      ,@Labels
-      ,@Description
-      ,@FixVersions
-      ,@Reporter
-      ,@Assignee
-      ,@AssignedQA
-      ,@CaseNumber
-      ,@BuildVersion
-      ,@Severity
-      ,@Product
-      ,@IssueCategory
-      ,@EstimatedEffort
-      ,@SFCommentCount
-      ,@SFPriority
-      ,@SFCustomer
-      ,@SFCurrentVersion
-      ,@SFProduct
-      ,@SFSalesforceLink
-      ,@SFOpenedDateTime
-      ,@SFLastModifiedDate
-      ,@SFOrigin
-      ,@SFTargetedRelease
-      ,@Updated);
-    </Statement>
-
-    <!--删除-->
-    <Statement Id="Delete">
-      Delete JiraIssue
-      Where ID=@ID
-    </Statement>
-
-    <!--更新-->
-    <Statement Id="Update">
-      UPDATE JiraIssue
-      SET
-      JiraID=@JiraID
-      ,JiraKey=@JiraKey
-      ,IssueType=@IssueType
-      ,Summary=@Summary
-      ,Status=@Status
-      ,Priority=@Priority
-      ,Labels=@Labels
-      ,Description=@Description
-      ,FixVersions=@FixVersions
-      ,Reporter=@Reporter
-      ,Assignee=@Assignee
-      ,AssignedQA=@AssignedQA
-      ,CaseNumber=@CaseNumber
-      ,BuildVersion=@BuildVersion
-      ,Severity=@Severity
-      ,Product=@Product
-      ,IssueCategory=@IssueCategory
-      ,EstimatedEffort=@EstimatedEffort
-      ,SFCommentCount=@SFCommentCount
-      ,SFPriority=@SFPriority
-      ,SFCustomer=@SFCustomer
-      ,SFCurrentVersion=@SFCurrentVersion
-      ,SFProduct=@SFProduct
-      ,SFSalesforceLink=@SFSalesforceLink
-      ,SFOpenedDateTime=@SFOpenedDateTime
-      ,SFLastModifiedDate=@SFLastModifiedDate
-      ,SFOrigin=@SFOrigin
-      ,SFTargetedRelease=@SFTargetedRelease
-      ,Updated=@Updated
-      Where ID=@ID
-    </Statement>
-   
-    <!--是否存在该记录-->
-    <Statement Id="IsExist">
-      Select Count(1) From JiraIssue
-      <Include RefId="QueryParams"/>
-    </Statement>
-
-    <!--获取单条记录 -->
-    <Statement Id="GetEntity">
-      SELECT ID
-      ,JiraID
-      ,JiraKey
+      ,ProjectKey
       ,IssueType
       ,Summary
       ,Status
@@ -168,6 +56,130 @@
       ,SFOrigin
       ,SFTargetedRelease
       ,Updated
+      ,LastUpdateTime
+      ,LastUpdateUserID)
+      VALUES
+      (@ID
+      ,@JiraID
+      ,@JiraKey
+      ,@ProjectKey
+      ,@IssueType
+      ,@Summary
+      ,@Status
+      ,@Priority
+      ,@Labels
+      ,@Description
+      ,@FixVersions
+      ,@Reporter
+      ,@Assignee
+      ,@AssignedQA
+      ,@CaseNumber
+      ,@BuildVersion
+      ,@Severity
+      ,@Product
+      ,@IssueCategory
+      ,@EstimatedEffort
+      ,@SFCommentCount
+      ,@SFPriority
+      ,@SFCustomer
+      ,@SFCurrentVersion
+      ,@SFProduct
+      ,@SFSalesforceLink
+      ,@SFOpenedDateTime
+      ,@SFLastModifiedDate
+      ,@SFOrigin
+      ,@SFTargetedRelease
+      ,@Updated
+      ,@LastUpdateTime
+      ,@LastUpdateUserID);
+    </Statement>
+
+    <!--删除-->
+    <Statement Id="Delete">
+      Delete JiraIssue
+      Where ID=@ID
+    </Statement>
+
+    <!--更新-->
+    <Statement Id="Update">
+      UPDATE JiraIssue
+      SET
+      JiraID=@JiraID
+      ,JiraKey=@JiraKey
+      ,ProjectKey=@ProjectKey
+      ,IssueType=@IssueType
+      ,Summary=@Summary
+      ,Status=@Status
+      ,Priority=@Priority
+      ,Labels=@Labels
+      ,Description=@Description
+      ,FixVersions=@FixVersions
+      ,Reporter=@Reporter
+      ,Assignee=@Assignee
+      ,AssignedQA=@AssignedQA
+      ,CaseNumber=@CaseNumber
+      ,BuildVersion=@BuildVersion
+      ,Severity=@Severity
+      ,Product=@Product
+      ,IssueCategory=@IssueCategory
+      ,EstimatedEffort=@EstimatedEffort
+      ,SFCommentCount=@SFCommentCount
+      ,SFPriority=@SFPriority
+      ,SFCustomer=@SFCustomer
+      ,SFCurrentVersion=@SFCurrentVersion
+      ,SFProduct=@SFProduct
+      ,SFSalesforceLink=@SFSalesforceLink
+      ,SFOpenedDateTime=@SFOpenedDateTime
+      ,SFLastModifiedDate=@SFLastModifiedDate
+      ,SFOrigin=@SFOrigin
+      ,SFTargetedRelease=@SFTargetedRelease
+      ,Updated=@Updated
+      ,LastUpdateTime=@LastUpdateTime
+      ,LastUpdateUserID=@LastUpdateUserID
+      Where ID=@ID
+    </Statement>
+   
+    <!--是否存在该记录-->
+    <Statement Id="IsExist">
+      Select Count(1) From JiraIssue
+      <Include RefId="QueryParams"/>
+    </Statement>
+
+    <!--获取单条记录 -->
+    <Statement Id="GetEntity">
+      SELECT ID
+      ,JiraID
+      ,JiraKey
+      ,ProjectKey
+      ,IssueType
+      ,Summary
+      ,Status
+      ,Priority
+      ,Labels
+      ,Description
+      ,FixVersions
+      ,Reporter
+      ,Assignee
+      ,AssignedQA
+      ,CaseNumber
+      ,BuildVersion
+      ,Severity
+      ,Product
+      ,IssueCategory
+      ,EstimatedEffort
+      ,SFCommentCount
+      ,SFPriority
+      ,SFCustomer
+      ,SFCurrentVersion
+      ,SFProduct
+      ,SFSalesforceLink
+      ,SFOpenedDateTime
+      ,SFLastModifiedDate
+      ,SFOrigin
+      ,SFTargetedRelease
+      ,Updated
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM JiraIssue
       <Include RefId="QueryParams"/>
       Order by ID ASC
@@ -176,35 +188,38 @@
     <!--获取多条记录 -->
     <Statement Id="GetEntities">
       SELECT  ID
-        ,JiraID
-        ,JiraKey
-        ,IssueType
-        ,Summary
-        ,Status
-        ,Priority
-        ,Labels
-        ,Description
-        ,FixVersions
-        ,Reporter
-        ,Assignee
-        ,AssignedQA
-        ,CaseNumber
-        ,BuildVersion
-        ,Severity
-        ,Product
-        ,IssueCategory
-        ,EstimatedEffort
-        ,SFCommentCount
-        ,SFPriority
-        ,SFCustomer
-        ,SFCurrentVersion
-        ,SFProduct
-        ,SFSalesforceLink
-        ,SFOpenedDateTime
-        ,SFLastModifiedDate
-        ,SFOrigin
-        ,SFTargetedRelease
-        ,Updated
+      ,JiraID
+      ,JiraKey
+      ,ProjectKey
+      ,IssueType
+      ,Summary
+      ,Status
+      ,Priority
+      ,Labels
+      ,Description
+      ,FixVersions
+      ,Reporter
+      ,Assignee
+      ,AssignedQA
+      ,CaseNumber
+      ,BuildVersion
+      ,Severity
+      ,Product
+      ,IssueCategory
+      ,EstimatedEffort
+      ,SFCommentCount
+      ,SFPriority
+      ,SFCustomer
+      ,SFCurrentVersion
+      ,SFProduct
+      ,SFSalesforceLink
+      ,SFOpenedDateTime
+      ,SFLastModifiedDate
+      ,SFOrigin
+      ,SFTargetedRelease
+      ,Updated
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM JiraIssue
       <Where>
         <IsNotEmpty Prepend="And" Property="JiraKey" In="true"/>

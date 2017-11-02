@@ -9,6 +9,7 @@ namespace TechTalk.JiraRestClient
     {
         public IssueFields()
         {
+            Project = new IssueProject();
             Status = new Status();
             TimeTracking = new Timetracking();
 
@@ -25,6 +26,10 @@ namespace TechTalk.JiraRestClient
 
         #region Jira Basic Information
 
+        /// <summary>
+        /// Project
+        /// </summary>
+        public IssueProject Project { get; set; }
         /// <summary>
         /// Jira Issue Subject
         /// </summary>
@@ -193,7 +198,7 @@ namespace TechTalk.JiraRestClient
         /// SF-Last Modified
         /// </summary>
         [DeserializeAs(Name = "customfield_10903")]
-        public DateTime SFLastModifiedDate { get; set; }
+        public DateTime? SFLastModifiedDate { get; set; }
 
         /// <summary>
         /// SF-Origin
