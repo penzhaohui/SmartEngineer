@@ -225,12 +225,12 @@ namespace SmartEngineer.Core.Adapter
 
             if (from != null && from != DateTime.MinValue)
             {
-                sql += $" AND LastModifiedDate >= {from.Value.ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss")}Z ";
+                sql += $" AND LastModifiedDate >= {from.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss")}Z ";
             }
 
             if (end != null && end != DateTime.MinValue)
             {
-                sql += $" AND LastModifiedDate <= {end.Value.ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss")}Z ";
+                sql += $" AND LastModifiedDate <= {end.Value.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss")}Z ";
             }
 
             var comments = Client.Query<AccelaCaseComment>(sql);
@@ -246,8 +246,9 @@ namespace SmartEngineer.Core.Adapter
                             from CaseHistory
                             where Field = 'Status' ";
 
-            sql += $" AND CreatedDate >= {from.ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss")}Z ";
-            sql += $" AND CreatedDate <= {end.ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss")}Z ";
+            // C# DateTime.ToString()的各种日期格式 http://www.cnblogs.com/johnblogs/p/5912632.html
+            sql += $" AND CreatedDate >= {from.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss")}Z ";
+            sql += $" AND CreatedDate <= {end.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss")}Z ";
             sql += $" AND CreatedBy.name = '{editor}' ";
 
             var cases = new List<AccelaCaseHistory>();

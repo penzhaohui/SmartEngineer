@@ -4,7 +4,7 @@ using TechTalk.JiraRestClient;
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class JiraAccount
+    public class JiraAccount : BasicDataModel
     {
         public void Initialize(JiraUser jiraUser)
         {

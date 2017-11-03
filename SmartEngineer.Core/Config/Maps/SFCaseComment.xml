@@ -128,7 +128,7 @@
       ,IsPublished
       ,LastUpdateTime
       ,LastUpdateUserID
-      FROM SFCase
+      FROM SFCaseComment
       <Where>
         <IsNotEmpty Prepend="And" Property="CaseNumber" In="true"/>
         <IsNotEmpty Prepend="And" Property="CaseID" In="true"/>

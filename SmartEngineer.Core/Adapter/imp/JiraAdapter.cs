@@ -6,6 +6,7 @@ using SmartEngineer.Framework.Logger;
 using SmartEngineer.Framework.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using TechTalk.JiraRestClient;
@@ -208,6 +209,8 @@ namespace SmartEngineer.Core.Adapter
                 }
             }
 
+            BatchStoreIssueInfoToLocalSync(caseNOs);
+
             // Always return true
             return true;
         }
@@ -221,6 +224,9 @@ namespace SmartEngineer.Core.Adapter
             {
                 Issue issue = PullIssue(jiraIssueInfo.JiraKey, JiraAccount, JiraPassword);
                 issue = caseInfo.MergeToIssue(issue);
+                List<string> Authors = new List<string>(); //TO-DO
+                List<CaseCommentInfo> caseCommentInfoList = SFCaseCommentDAO.GetEntitiesByAuthors(Authors);
+                issue.fields.SFCommentCount = caseCommentInfoList.Count;
                 UpdateIssue(issue, JiraAccount, JiraPassword);
             }
 
@@ -240,6 +246,7 @@ namespace SmartEngineer.Core.Adapter
 
             IssueRef issueRef = new IssueRef();
             issueRef.key = jiraIssueInfo.JiraKey;
+            issueRef.id = jiraIssueInfo.JiraID;
 
             UpdateJiraStatus(issueRef, jiraStatus, jiraTargetStatus, JiraAccount, JiraPassword);
 
@@ -251,7 +258,7 @@ namespace SmartEngineer.Core.Adapter
         private bool SyncCaseCommentToJira(string caseNo)
         {
             var jiraIssueInfo = GetIssueInfoByCaseNo(caseNo);
-            List<string> Authors = new List<string>();
+            List<string> Authors = new List<string>(); // TO-DO
 
             IssueRef issueRef = new IssueRef();
             issueRef.key = jiraIssueInfo.JiraKey;
@@ -383,57 +390,48 @@ namespace SmartEngineer.Core.Adapter
         public async Task<bool> UpdateJiraStatus(IssueRef issueRef, string jiraStatus, string jiraNextStatus, string jiraAccount, string jiraPassword)
         {
             IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
-
             var transitions = jira.GetTransitions(issueRef);
-            if ("Closed".Equals(jiraStatus, System.StringComparison.InvariantCultureIgnoreCase)
-                && jiraNextStatus == "In Progress")
+
+            if (jiraNextStatus == "In Progress")
             {
-                foreach (var transition in transitions)
+                // Closed => In Progress                
+                if ("Closed".Equals(jiraStatus, System.StringComparison.InvariantCultureIgnoreCase))
                 {
-                    if ("Re-Open".Equals(transition.name, System.StringComparison.InvariantCultureIgnoreCase))
+                    foreach (var transition in transitions)
                     {
-                        jira.TransitionIssue(issueRef, transition);
-                        break;
+                        if ("Re-Open".Equals(transition.name, System.StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            jira.TransitionIssue(issueRef, transition);
+                            break;
+                        }
+                    }
+                }
+
+                // Pending => In Progress
+                if ("Pending".Equals(jiraStatus, System.StringComparison.InvariantCultureIgnoreCase))
+                {
+                    foreach (var transition in transitions)
+                    {
+                        if ("Analysis In Progress".Equals(transition.name, System.StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            jira.TransitionIssue(issueRef, transition);
+                            break;
+                        }
                     }
                 }
             }
-
-            if ("Pending".Equals(jiraStatus, System.StringComparison.InvariantCultureIgnoreCase)
-                && jiraNextStatus == "In Progress")
+            else if (jiraNextStatus == "Pending")
             {
-                foreach (var transition in transitions)
+                // In Progress => Pending
+                if ("In Progress".Equals(jiraStatus, System.StringComparison.InvariantCultureIgnoreCase))
                 {
-                    if ("Analysis In Progress".Equals(transition.name, System.StringComparison.InvariantCultureIgnoreCase))
+                    foreach (var transition in transitions)
                     {
-                        jira.TransitionIssue(issueRef, transition);
-                        break;
-                    }
-                }
-            }
-
-            if ("In Progress".Equals(jiraStatus, System.StringComparison.InvariantCultureIgnoreCase)
-                && jiraNextStatus == "Pending")
-            {
-                foreach (var transition in transitions)
-                {
-                    if ("Commented".Equals(transition.name, System.StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        jira.TransitionIssue(issueRef, transition);
-                        break;
-                    }
-                }
-            }
-
-            if (("Pending".Equals(jiraStatus, System.StringComparison.InvariantCultureIgnoreCase)
-                || "Resolved".Equals(jiraStatus, System.StringComparison.InvariantCultureIgnoreCase))
-                && jiraNextStatus == "Closed")
-            {
-                foreach (var transition in transitions)
-                {
-                    if ("Closed".Equals(transition.name, System.StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        jira.TransitionIssue(issueRef, transition);
-                        break;
+                        if ("Commented".Equals(transition.name, System.StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            jira.TransitionIssue(issueRef, transition);
+                            break;
+                        }
                     }
                 }
             }

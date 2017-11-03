@@ -132,6 +132,10 @@ namespace SmartEngineer.Service
                 }
             }
 
+            // C# .Net List<T>中Remove()、RemoveAt()、RemoveRange()、RemoveAll()的区别，List<T>删除汇总
+            // http://www.cnblogs.com/fancyblogs/p/7150545.html
+            newCaseNoList.RemoveAll(caseNo => !caseNOs.Contains(caseNo));
+
             // If it is one new case
             //      1. Create new jira issue
             //      2. Check DB Information and reproduced steps

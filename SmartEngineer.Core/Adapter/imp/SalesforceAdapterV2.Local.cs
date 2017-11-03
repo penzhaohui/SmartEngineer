@@ -50,16 +50,16 @@ namespace SmartEngineer.Core.Adapter
         public int StoreCaseInfoToLocal(CaseInfo caseInfo)
         {
             int ID = 0;
-            CaseInfo entity = null;
 
             if (!IsExistsLocalCase(caseInfo.CaseNumber))
             {
-                entity = SFCaseDAO.Insert(caseInfo);
+                CaseInfo entity = SFCaseDAO.Insert(caseInfo);
                 ID = entity.ID;
             }
             else
             {
-                ID = SFCaseDAO.Update(caseInfo);
+                SFCaseDAO.Update(caseInfo);
+                ID = caseInfo.ID;
             }
 
             return ID;
@@ -78,7 +78,6 @@ namespace SmartEngineer.Core.Adapter
             IList<AccelaCase> caseList = PullCasesByCaseNos(caseNoList);
             if (caseList != null && caseList.Count > 0)
             {
-                caseInfo = new CaseInfo();
                 caseInfo.Initialize(caseList[0]);
                 caseInfo.ID = StoreCaseInfoToLocal(caseInfo);                
             }
@@ -172,12 +171,13 @@ namespace SmartEngineer.Core.Adapter
             {
                 string caseId = caseInfo.CaseID;
                 string caseNumber = caseInfo.CaseNumber;
-                DateTime? lastModifiedDate = (caseInfo.LastModifiedDateTime == null || caseInfo.LastModifiedDateTime == DateTime.MinValue ? caseInfo.CreatedDate : caseInfo.LastModifiedDateTime);
+
+                CaseCommentInfo lastCommentInfo = GetLatestCaseCommentByCaseNo(caseNumber);
 
                 // The minimum update interval is 1 hour at least.
-                if (DateTime.Now.Subtract(lastModifiedDate.Value).TotalHours < 1) continue;
+                if (lastCommentInfo != null && DateTime.Now.Subtract(lastCommentInfo.LastUpdateTime).TotalHours < 1) continue;
 
-                IList<AccelaCaseComment> caseCommentList = PullCaseCommentsByParentID(caseId, null, lastModifiedDate, DateTime.Now);
+                IList<AccelaCaseComment> caseCommentList = PullCaseCommentsByParentID(caseId, null, lastCommentInfo.LastUpdateTime, DateTime.Now);
                 foreach (AccelaCaseComment caseComment in caseCommentList)
                 {
                     CaseCommentInfo commentInfo = new CaseCommentInfo();
@@ -190,6 +190,7 @@ namespace SmartEngineer.Core.Adapter
                     BatchStoreCaseAccountInfoToLocalSync(caseComment.CreatedBy);
                     //BatchStoreCaseAccountInfoToLocalSync(caseComment.LastModifiedBy);
                 }
+                
             }
 
             return true;
