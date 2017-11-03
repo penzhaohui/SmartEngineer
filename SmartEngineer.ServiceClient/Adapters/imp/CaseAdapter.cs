@@ -1,6 +1,7 @@
 ﻿using log4net;
 using SmartEngineer.Common;
 using SmartEngineer.Framework.Logger;
+using SmartEngineer.Framework.Utils;
 using SmartEngineer.ServiceClient.JiraServiceForENGSupp;
 using SmartEngineer.ServiceClient.SalesforceService;
 using System;
@@ -115,7 +116,7 @@ namespace SmartEngineer.ServiceClient.Adapters
                         row["CaseStatus"] = caseInfo.Status;
                         row["JiraKey"] = jiraIssue.JiraKey;
                         row["JiraStatus"] = jiraIssue.Status;
-                        row["JiraNextStatus"] = jiraIssue.Status;
+                        row["JiraNextStatus"] = CommonUtil.GetJiraTargetStatus(jiraIssue.IssueType, jiraIssue.Status, caseInfo.CaseOwner, caseInfo.Status);
                         table.Rows.Add(row);
                     }
                 }

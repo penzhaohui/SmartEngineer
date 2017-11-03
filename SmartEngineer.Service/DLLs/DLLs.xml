@@ -113,6 +113,11 @@
         <member name="M:TechTalk.JiraRestClient.JiraClient.GetMySelf">
             Returns the currently logged user
         </member>
+        <member name="T:TechTalk.JiraRestClient.IssuePriority">
+            <summary>
+            https://accelaeng.atlassian.net/rest/api/2/priority/10000 - None
+            </summary>
+        </member>
         <member name="M:TechTalk.JiraRestClient.IJiraClient`1.GetMySelf">
             Returns the currently logged user
         </member>

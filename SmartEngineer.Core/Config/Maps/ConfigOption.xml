@@ -82,6 +82,18 @@
       <Include RefId="QueryParams"/>
       Order by ID ASC
     </Statement>
+
+    <Statement Id="GetList">
+      SELECT ID
+      ,ConfigOptionValue
+      ,ConfigOptionDesc
+      ,IsActive
+      ,ConfigID
+      ,ConfigExtra
+      FROM admin_ConfigOption
+      <Include RefId="QueryParams"/>
+      Order by ID ASC
+    </Statement>
    
   </Statements>
 </SmartSqlMap>

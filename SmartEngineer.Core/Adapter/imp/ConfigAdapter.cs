@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SmartEngineer.Core.Models;
 using SmartEngineer.Core.DAOs;
+using SmartEngineer.Framework.Utils;
 
 namespace SmartEngineer.Core.Adapter
 {
@@ -30,15 +31,15 @@ namespace SmartEngineer.Core.Adapter
                     {
                         if (String.IsNullOrEmpty(configOption.ConfigExtra)) continue;
 
-                        dynamic dynamicConfigOption = configOption;
+                        // c# 匿名对象增加动态属性: http://www.cnblogs.com/jmoney/p/5689168.html
+                        dynamic dynamicConfigOption = new System.Dynamic.ExpandoObject();
 
-                        /*
                         System.Reflection.PropertyInfo[] properties = configOption.GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
                         if (properties.Length > 0)
                         {
                             foreach (System.Reflection.PropertyInfo item in properties)
                             {
-                                string name = item.Name;
+                                string name = item.Name.Trim();
                                 object value = item.GetValue(configOption, null);
 
                                 if (item.PropertyType.IsValueType || item.PropertyType.Name.StartsWith("String", StringComparison.InvariantCultureIgnoreCase))
@@ -47,7 +48,6 @@ namespace SmartEngineer.Core.Adapter
                                 }
                             }
                         }
-                        */
 
                         string[] extraConfigs = configOption.ConfigExtra.Split(';');
                         foreach (string extraConfig in extraConfigs)
@@ -58,7 +58,8 @@ namespace SmartEngineer.Core.Adapter
 
                             bool outBoolValue = true;
                             int outIntValue = 0;
-                            if (bool.TryParse(value, out outBoolValue))
+
+                            if (CommonUtil.TryParseBool(value, out outBoolValue))
                             {
                                 ((IDictionary<string, object>)dynamicConfigOption).Add(key, outBoolValue);
                             }
@@ -77,7 +78,7 @@ namespace SmartEngineer.Core.Adapter
                             }
                         }
 
-                        if (SubTaskTemplate.ContainsKey(optionProject))
+                        if (!SubTaskTemplate.ContainsKey(optionProject))
                         {
                             SubTaskTemplate.Add(optionProject, new Dictionary<string, dynamic>());
                         }
@@ -89,6 +90,11 @@ namespace SmartEngineer.Core.Adapter
                         }
                     }
                 }
+            }
+
+            if (SubTaskTemplate.ContainsKey(project))
+            {
+                options = SubTaskTemplate[project];
             }
 
             return options;

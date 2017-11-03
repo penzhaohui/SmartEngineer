@@ -59,6 +59,27 @@ namespace SmartEngineer.Core.DAOs
             return caseCommentList;
         }
 
+        public List<CaseCommentInfo> GetEntitiesByAuthors(List<string> Authors)
+        {
+            List<CaseCommentInfo> caseCommentList = new List<CaseCommentInfo>();
+
+            if (Authors == null || Authors.Count == 0) return caseCommentList;
+
+            var entities = SQLMapper.Query<CaseCommentInfo>(new RequestContext
+            {
+                Scope = this.Scope,
+                SqlId = "GetEntities",
+                Request = new { CommentAuthor = Authors }
+            });
+
+            foreach (CaseCommentInfo entity in entities)
+            {
+                caseCommentList.Add(entity);
+            }
+
+            return caseCommentList;
+        }
+
         public override T Insert(T entity)
         {
             entity.ID = this.NewID();

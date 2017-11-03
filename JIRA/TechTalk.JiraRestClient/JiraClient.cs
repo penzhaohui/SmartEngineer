@@ -241,44 +241,77 @@ namespace TechTalk.JiraRestClient
                     issueData.Add("description", issueFields.Description);
                 if (issueFields.Labels != null)
                     issueData.Add("labels", issueFields.Labels);
-                if (issueFields.Priority != null)
-                    issueData.Add("priority", new[] { new { set = new { name = issueFields.Priority.name } } });
+                
                 //if (issueFields.timetracking != null)
                 //issueData.Add("timetracking", new { originalEstimate = issueFields.timetracking.originalEstimate });
 
-                if ("DATABASE" != projectKey)
+                if (projectKey.StartsWith("ENGSUPP"))
                 {
-                    var propertyList = typeof(TIssueFields).GetProperties().Where(p => p.Name.StartsWith("customfield_"));
+                    var propertyList = typeof(TIssueFields).GetProperties();
                     foreach (var property in propertyList)
                     {
-                        var value = property.GetValue(issueFields, null);
-                        if (value != null) issueData.Add(property.Name, value);
+                        var attributes = property.GetCustomAttributes(typeof(DeserializeAsAttribute), false);
 
-                        /*
-                        var propertyNalue = property.GetValue(issueFields, null);
-                        if (propertyNalue != null)
+                        if (attributes == null || attributes.Length == 0) continue;
+                        var propertyName = (attributes[0] as DeserializeAsAttribute).Name;
+                        var propertyValue = property.GetValue(issueFields, null);
+
+                        // AssignedQA[JiraUser] customfield_11702
+                        // CaseNumber[String] customfield_10600
+                        // BuildVersion[List<String>] customfield_10907
+                        // Product[IssueProduct] customfield_11501
+                        // IssueCategory[List<IssueCategory>] customfield_11502
+                        // EstimatedEffort[int] customfield_11506
+                        // SFCommentCount[int] customfield_12400
+                        // SFPriority[String] customfield_12801
+                        // SFCustomer[String] customfield_10900
+                        // SFCurrentVersion[String] customfield_10901
+                        // SFProduct[String] customfield_10904
+                        // SFSalesforceLink[String] customfield_10906
+                        // SFOpenedDateTime[DateTime] customfield_10902
+                        // SFLastModifiedDate[DateTime] customfield_10903
+                        // SFOrigin[IssueOrigin] customfield_11900
+                        // SFTargetedRelease[String] customfield_12300
+                        if (propertyValue != null)
                         {
-                            // SF-Priority
-                            if ("customfield_10905" == property.Name)
+                            Type propertyType = propertyValue.GetType();
+
+                            if (propertyType.IsGenericType)
                             {
-                                issueData.Add(property.Name, new[] { new { set = new { value = propertyNalue } } });
-                            }
-                            // Severity
-                            else if ("customfield_11106" == property.Name)
-                            {
-                                issueData.Add(property.Name, new[] { new { set = new { value = (propertyNalue as IssueSeverity).name } } });
-                            }
-                            // JIRA-Product
-                            else if ("customfield_11501" == property.Name)
-                            {
-                                issueData.Add(property.Name, new[] { new { set = new[] { new { value = propertyNalue } } } });
+                                Type argType = propertyType.GetGenericArguments()[0];
+                                if ("String".Equals(argType.Name, StringComparison.OrdinalIgnoreCase))
+                                {
+                                    var valueList = propertyValue as List<string>;
+                                    if (valueList.Count > 0)
+                                    {
+                                        issueData.Add(propertyName, valueList);
+                                    }
+                                }
                             }
                             else
                             {
-                                issueData.Add(property.Name, new[] { new { set = propertyNalue } });
+                                if ("String".Equals(propertyType.Name, StringComparison.OrdinalIgnoreCase))
+                                {
+                                    issueData.Add(propertyName, (string)propertyValue);
+                                }
+                                else if ("Int32".Equals(propertyType.Name, StringComparison.OrdinalIgnoreCase))
+                                {
+                                    issueData.Add(propertyName, (int)propertyValue);
+                                }
+                                else if ("DateTime".Equals(propertyType.Name, StringComparison.OrdinalIgnoreCase))
+                                {
+                                    var dateValue = (DateTime)propertyValue;
+                                    if (dateValue != DateTime.MinValue && dateValue != DateTime.MaxValue)
+                                    {
+                                        issueData.Add(propertyName, dateValue.ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss") + "Z");
+                                    }
+                                }
+                                else
+                                {
+                                    issueData.Add(propertyName, propertyValue);
+                                }
                             }
                         }
-                         * */
                     }
                 }
 

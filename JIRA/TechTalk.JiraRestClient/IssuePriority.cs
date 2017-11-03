@@ -5,6 +5,9 @@ using System.Text;
 
 namespace TechTalk.JiraRestClient
 {
+    /// <summary>
+    /// https://accelaeng.atlassian.net/rest/api/2/priority/10000 - None
+    /// </summary>
     public class IssuePriority
     {
         public string id { get; set; }

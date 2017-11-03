@@ -3,6 +3,7 @@ using SmartEngineer.Core.DAOs;
 using SmartEngineer.Core.Model;
 using SmartEngineer.Core.Models;
 using SmartEngineer.Framework.Logger;
+using SmartEngineer.Framework.Utils;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -228,72 +229,48 @@ namespace SmartEngineer.Core.Adapter
 
         private bool SyncCaseStatusToJira(CaseInfo caseInfo)
         {
+            var jiraIssueInfo = GetIssueInfoByCaseNo(caseInfo.CaseNumber);
+
             string caseOwner = caseInfo.CaseOwner;
             string caseStaus = caseInfo.Status;
-            string jiraIssueType = "";
-            string jiraStatus = "";
+            string jiraIssueType = jiraIssueInfo.IssueType;
+            string jiraStatus = jiraIssueInfo.Status;
 
-            string jiraTargetStatus = GetJiraTargetStatus(jiraIssueType, jiraStatus, caseOwner, caseStaus);
+            string jiraTargetStatus = CommonUtil.GetJiraTargetStatus(jiraIssueType, jiraStatus, caseOwner, caseStaus);
 
             IssueRef issueRef = new IssueRef();
-            issueRef.key = "";
+            issueRef.key = jiraIssueInfo.JiraKey;
 
             UpdateJiraStatus(issueRef, jiraStatus, jiraTargetStatus, JiraAccount, JiraPassword);
 
             return true;
         }
 
-        private string GetJiraTargetStatus(string jiraIssueType, string jiraStatus, string caseOwner, string caseStaus)
-        {
-            string nextJiraStatus = "";
 
-            if ("Bug".Equals(jiraIssueType, StringComparison.InvariantCultureIgnoreCase))
-            {
-                if ("Pending".Equals(jiraStatus, StringComparison.InvariantCultureIgnoreCase)
-                    || "Open".Equals(jiraStatus, StringComparison.InvariantCultureIgnoreCase)
-                    || "In Progress".Equals(jiraStatus, StringComparison.InvariantCultureIgnoreCase))
-                {
-                    nextJiraStatus = "Dev In Progress";
-                }
-            }
-
-            if ("Case".Equals(jiraIssueType, StringComparison.InvariantCultureIgnoreCase))
-            {
-
-                // sql += " and (status ='eng qa' or status ='qa in progress' or status ='engqa') ";
-                if ("Engineering".Equals(caseOwner, System.StringComparison.InvariantCultureIgnoreCase)
-                    && ("Eng New".Equals(caseStaus, System.StringComparison.InvariantCultureIgnoreCase)
-                        || "Eng QA".Equals(caseStaus, System.StringComparison.InvariantCultureIgnoreCase)
-                        || "Qa In Progress".Equals(caseStaus, System.StringComparison.InvariantCultureIgnoreCase)
-                        || "EngQA".Equals(caseStaus, System.StringComparison.InvariantCultureIgnoreCase)))
-                {
-                    if (!"In Progress".Equals(jiraStatus, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        nextJiraStatus = "In Progress";
-                    }
-                }
-                else
-                {
-                    if ("CLOSED".Equals(caseStaus, StringComparison.InvariantCultureIgnoreCase)
-                        || "PM Assigned".Equals(caseStaus, StringComparison.InvariantCultureIgnoreCase)
-                        || "Ideas (Closed)".Equals(caseStaus, StringComparison.InvariantCultureIgnoreCase)
-                        || "Closed - Knowledge".Equals(caseStaus, StringComparison.InvariantCultureIgnoreCase)
-                        || "SPAM Closed".Equals(caseStaus, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        if (!"Closed".Equals(jiraStatus, StringComparison.InvariantCultureIgnoreCase))
-                        {
-                            nextJiraStatus = "Closed";
-                        }
-                    }
-                }
-
-            }
-
-            return nextJiraStatus;
-        }
-
+        private static readonly ISFCaseCommentDAO<CaseCommentInfo> SFCaseCommentDAO = new SFCaseCommentDAO<CaseCommentInfo>();
         private bool SyncCaseCommentToJira(string caseNo)
         {
+            var jiraIssueInfo = GetIssueInfoByCaseNo(caseNo);
+            List<string> Authors = new List<string>();
+
+            IssueRef issueRef = new IssueRef();
+            issueRef.key = jiraIssueInfo.JiraKey;
+            issueRef.id = jiraIssueInfo.JiraID;
+
+            string jiraKey = jiraIssueInfo.JiraKey;
+            List<CaseCommentInfo> caseCommentInfoList = SFCaseCommentDAO.GetEntitiesByAuthors(Authors);
+            foreach (CaseCommentInfo caseCommentInfo in caseCommentInfoList)
+            {
+                JiraIssueComment jiraIssueComment = new JiraIssueComment();                
+                jiraIssueComment.ParentJiraKey = jiraKey;
+                jiraIssueComment.SFCommentID = caseCommentInfo.CommentID;
+
+                if (!SFCaseCommentDAO.IsExist(jiraIssueComment))
+                {
+                    CreateComment(issueRef, "Copied from salesforce:\n---------------------------------------------------------\n" + caseCommentInfo.CommentBody, JiraAccount, JiraPassword);
+                }
+            }
+
             return true;
         }
 
@@ -312,8 +289,8 @@ namespace SmartEngineer.Core.Adapter
                     // Project=ENGSUPP;IssueType=Case;IsDefaultSubTask=Yes
                     if (jiraIssueProject == configOption.Value.Project
                         && jiraIssueType == configOption.Value.IssueType
-                        && true == configOption.Value.IsDefaultSubTask
-                        && true == configOption.Value.IsActive)
+                        && CommonUtil.IsTrue(configOption.Value.IsDefaultSubTask)
+                        && CommonUtil.IsTrue(configOption.Value.IsActive))
                     {
                         CreateSubTask(jiraIssueProject,
                                       jiraKey,

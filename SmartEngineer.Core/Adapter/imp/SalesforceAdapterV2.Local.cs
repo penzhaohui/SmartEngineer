@@ -3,6 +3,7 @@ using SmartEngineer.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SmartEngineer.Core.Adapter
@@ -69,7 +70,7 @@ namespace SmartEngineer.Core.Adapter
             CaseInfo caseInfo = GetCaseInfoByCaseNo(caseNo);
 
             // If the case is already updated within the past half a day, skip it
-            if (DateTime.Now.Subtract(caseInfo.LastUpdateTime).TotalHours < 12) return caseInfo;
+            if (DateTime.Now.Subtract(caseInfo.LastUpdateTime).TotalHours < 4) return caseInfo;
 
             List<string> caseNoList = new List<string>();
             caseNoList.Add(caseNo);
@@ -87,12 +88,35 @@ namespace SmartEngineer.Core.Adapter
 
         public bool UpdateCaseCommentInfoToLocal(string caseNo)
         {
+            CaseCommentInfo lastCaseCommentInfo = GetLatestCaseCommentByCaseNo(caseNo);
+            if (lastCaseCommentInfo != null
+                && DateTime.Now.Subtract(lastCaseCommentInfo.LastUpdateTime).TotalHours < 4)
+            {
+                return false;
+            }
+
+            CaseInfo caseInfo = GetCaseInfoByCaseNo(caseNo);
+            IList<AccelaCaseComment> comments = PullCaseCommentsByParentID(caseInfo.CaseID, null, lastCaseCommentInfo.LastUpdateTime);
+
+            foreach (AccelaCaseComment comment in comments)
+            {
+                lastCaseCommentInfo.Initialize(caseNo, comment);
+                SFCaseCommentDAO.Insert(lastCaseCommentInfo);
+            }
+
             return true;
         }
 
-        public bool UpdateLocalCaseInfo(CaseInfo caseInfo)
+        public List<CaseCommentInfo> GetCommentInfoByCaseNo(string caseNo)
         {
-            return true;
+            return SFCaseCommentDAO.GetEntitiesByCaseNos(new List<string>() { caseNo });
+        }
+
+        private CaseCommentInfo GetLatestCaseCommentByCaseNo(string caseNo)
+        {
+            List<CaseCommentInfo> CaseCommentList = GetCommentInfoByCaseNo(caseNo);
+
+            return CaseCommentList.OrderByDescending(comment => comment.ID).FirstOrDefault();
         }
 
         public bool BatchStoreCaseInfoToLocal(List<string> caseNos)
