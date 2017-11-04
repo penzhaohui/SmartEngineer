@@ -191,6 +191,7 @@
     <Compile Include="Salesforce\frmWeeklyCaseManager.Designer.cs">
       <DependentUpon>frmWeeklyCaseManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\ConfigOptionExtention.cs" />
     <Compile Include="Settings\frmDatabaseSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +203,12 @@
     </Compile>
     <Compile Include="Settings\frmEmailSettings.Designer.cs">
       <DependentUpon>frmEmailSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmOptionSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmOptionSettings.Designer.cs">
+      <DependentUpon>frmOptionSettings.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Accounts\frmGroups.resx">
       <DependentUpon>frmGroups.cs</DependentUpon>
@@ -284,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\frmEmailSettings.resx">
       <DependentUpon>frmEmailSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmOptionSettings.resx">
+      <DependentUpon>frmOptionSettings.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

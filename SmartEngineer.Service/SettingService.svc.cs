@@ -1,24 +1,26 @@
-﻿using SmartEngineer.Core.Models;
-using System;
+﻿using SmartEngineer.Core.Adapter;
+using SmartEngineer.Core.Models;
 using System.Collections.Generic;
 
 namespace SmartEngineer.Service
 {
     public class SettingService : ISettingService
     {
-        public void GetAllConfigs()
+        private readonly IConfigAdapter ConfigAdapter = new ConfigAdapter();
+
+        public List<ConfigOption> GetAllConfigs()
         {
-            throw new NotImplementedException();
+            return ConfigAdapter.GetAllConfigs();
         }
 
         public List<ConfigOption> GetConfigOptions(string configName)
         {
-            throw new NotImplementedException();
+            return ConfigAdapter.GetConfigOptions(configName);
         }
 
-        public void UpdateConfigOptions(List<ConfigOption> options)
+        public bool UpdateConfigOptions(string configName, List<ConfigOption> options)
         {
-            throw new NotImplementedException();
+            return ConfigAdapter.UpdateConfigOptions(options);
         }
     }
 }

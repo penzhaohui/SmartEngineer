@@ -99,5 +99,41 @@ namespace SmartEngineer.Core.Adapter
 
             return options;
         }
+
+        public List<ConfigOption> GetAllConfigs()
+        {
+            IEnumerable<ConfigOption> options = ConfigOptionDAO.GetList<ConfigOption>(new { });
+
+            return options.ToList();
+        }
+
+        public List<ConfigOption> GetConfigOptions(string configName)
+        {
+            List<ConfigOption> options = new List<ConfigOption>();
+
+            Config config = ConfigDAO.GetEntity(new { ConfigName = configName });
+
+            if (config == null) return options;
+
+            var result = ConfigOptionDAO.GetList<ConfigOption>(new { ConfigID = config.ID });
+            options = result.ToList();
+
+            return options;
+        }
+
+        public bool UpdateConfigOptions(List<ConfigOption> options)
+        {
+            bool isUpdateSuccess = true;
+
+            foreach (ConfigOption option in options)
+            {
+                if (ConfigOptionDAO.Update(option) == 0)
+                {
+                    isUpdateSuccess = false;
+                }
+            }
+
+            return isUpdateSuccess;
+        }
     }
 }

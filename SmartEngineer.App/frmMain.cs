@@ -167,6 +167,10 @@ namespace SmartEngineer.Forms
                 {
                     form = new frmEmailSettings();
                 }
+                else if (funcTag == "Options Setting")
+                {
+                    form = new frmOptionSettings();
+                }
                 else if (funcTag == "Roles")
                 {
                     form = new frmRoles();

@@ -53,7 +53,9 @@
   <ItemGroup>
     <Compile Include="Adapter\IAccountAdapter.cs" />
     <Compile Include="Adapter\IConfigAdapter.cs" />
+    <Compile Include="Adapter\IDatabaseAdapter.cs" />
     <Compile Include="Adapter\imp\ConfigAdapter.cs" />
+    <Compile Include="Adapter\imp\DatabaseAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.Local.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapterV2.Local.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapterV2.cs" />

@@ -75,6 +75,12 @@ namespace SmartEngineer.ServiceClient.DatabaseService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DatabaseService.IDatabaseService")]
     public interface IDatabaseService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDBInstances", ReplyAction="http://tempuri.org/IDatabaseService/GetDBInstancesResponse")]
+        string[] GetDBInstances(string ip, string authType, string userName, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDBInstances", ReplyAction="http://tempuri.org/IDatabaseService/GetDBInstancesResponse")]
+        System.Threading.Tasks.Task<string[]> GetDBInstancesAsync(string ip, string authType, string userName, string password);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDBConnections", ReplyAction="http://tempuri.org/IDatabaseService/GetDBConnectionsResponse")]
         SmartEngineer.ServiceClient.DatabaseService.DBConnection[] GetDBConnections(string customer);
         
@@ -137,6 +143,14 @@ namespace SmartEngineer.ServiceClient.DatabaseService {
         
         public DatabaseServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public string[] GetDBInstances(string ip, string authType, string userName, string password) {
+            return base.Channel.GetDBInstances(ip, authType, userName, password);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetDBInstancesAsync(string ip, string authType, string userName, string password) {
+            return base.Channel.GetDBInstancesAsync(ip, authType, userName, password);
         }
         
         public SmartEngineer.ServiceClient.DatabaseService.DBConnection[] GetDBConnections(string customer) {

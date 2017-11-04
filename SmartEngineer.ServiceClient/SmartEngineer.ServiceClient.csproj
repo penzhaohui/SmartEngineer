@@ -50,9 +50,13 @@
   <ItemGroup>
     <Compile Include="Adapters\ICaseAdapter.cs" />
     <Compile Include="Adapters\IAccountAdapter.cs" />
+    <Compile Include="Adapters\IConfigAdapter.cs" />
+    <Compile Include="Adapters\IDatabaseAdapter.cs" />
     <Compile Include="Adapters\IJiraAdapter.cs" />
     <Compile Include="Adapters\imp\AccountAdapter.cs" />
     <Compile Include="Adapters\imp\CaseAdapter.cs" />
+    <Compile Include="Adapters\imp\ConfigAdapter.cs" />
+    <Compile Include="Adapters\imp\DatabaseAdapter.cs" />
     <Compile Include="Adapters\IReportAdapter.cs" />
     <Compile Include="Adapters\ISalesforceAdapter.cs" />
     <Compile Include="Config\WebServiceConfig.cs" />
@@ -125,7 +129,6 @@
     </Compile>
     <Compile Include="Enums\AccountTypecs.cs" />
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\ConfigOption.cs" />
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -172,12 +175,31 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\DatabaseService\DatabaseService.wsdl" />
+    <None Include="Connected Services\DatabaseService\DatabaseService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DatabaseService\DatabaseService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DatabaseService\DatabaseService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DatabaseService\DatabaseService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\DatabaseService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\DatabaseService\SmartEngineer.ServiceClient.DatabaseService.DBConnection.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DatabaseService\SmartEngineer.ServiceClient.DatabaseService.DBInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\GithubService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -256,6 +278,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\SettingService\SettingService.wsdl" />
+    <None Include="Connected Services\SettingService\SettingService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SettingService\SettingService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SettingService\SettingService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SettingService\SmartEngineer.ServiceClient.SettingService.ConfigOption.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\TestRailService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -299,6 +334,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\JiraServiceForDatabase\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SettingService\SettingService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SettingService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SettingService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DatabaseService\DatabaseService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DatabaseService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DatabaseService\configuration.svcinfo" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

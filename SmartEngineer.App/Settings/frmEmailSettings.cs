@@ -30,5 +30,10 @@ namespace SmartEngineer.Forms
             this.DialogResult = DialogResult.No;
             this.Close(); 
         }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -12,6 +12,9 @@ namespace SmartEngineer.Service
     public interface IDatabaseService
     {
         [OperationContract]
+        List<string> GetDBInstances(string ip, string authType, string userName, string password);
+
+        [OperationContract]
         List<DBConnection> GetDBConnections(string customer);
 
         [OperationContract]

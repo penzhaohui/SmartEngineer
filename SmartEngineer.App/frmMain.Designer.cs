@@ -60,13 +60,14 @@
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolMenuBackDefaultDashboard = new System.Windows.Forms.ToolStripButton();
+            this.toolMenuExpressToReviewCase = new System.Windows.Forms.ToolStripButton();
             this.toolMenuExecuteImportNewCase = new System.Windows.Forms.ToolStripButton();
             this.toolMenuSyncStatusBetweenSalesforceAndJira = new System.Windows.Forms.ToolStripButton();
             this.toolMenuSendOutDailyWorkLogReport = new System.Windows.Forms.ToolStripButton();
             this.toolMenuSendOutDailyReport = new System.Windows.Forms.ToolStripButton();
             this.toolMenuSendOutWeeklyReport = new System.Windows.Forms.ToolStripButton();
-            this.toolMenuBackDefaultDashboard = new System.Windows.Forms.ToolStripButton();
-            this.toolMenuExpressToReviewCase = new System.Windows.Forms.ToolStripButton();
+            this.optionsSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +93,7 @@
             this.SettingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.databaseServerSubMenuItem,
             this.emailServerSubMenuItem,
+            this.optionsSubMenuItem,
             this.logoutSubMenuItem,
             this.exitSubMenuItem});
             this.SettingsMenuItem.Name = "SettingsMenuItem";
@@ -345,6 +347,26 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolMenuBackDefaultDashboard
+            // 
+            this.toolMenuBackDefaultDashboard.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolMenuBackDefaultDashboard.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuBackDefaultDashboard.Image")));
+            this.toolMenuBackDefaultDashboard.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMenuBackDefaultDashboard.Name = "toolMenuBackDefaultDashboard";
+            this.toolMenuBackDefaultDashboard.Size = new System.Drawing.Size(23, 22);
+            this.toolMenuBackDefaultDashboard.Text = "Default Dashboard";
+            this.toolMenuBackDefaultDashboard.Click += new System.EventHandler(this.toolMenuBackDefaultDashboard_Click);
+            // 
+            // toolMenuExpressToReviewCase
+            // 
+            this.toolMenuExpressToReviewCase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolMenuExpressToReviewCase.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuExpressToReviewCase.Image")));
+            this.toolMenuExpressToReviewCase.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMenuExpressToReviewCase.Name = "toolMenuExpressToReviewCase";
+            this.toolMenuExpressToReviewCase.Size = new System.Drawing.Size(23, 22);
+            this.toolMenuExpressToReviewCase.Text = "Express to Review Case";
+            this.toolMenuExpressToReviewCase.Click += new System.EventHandler(this.toolMenuExpressToReviewCase_Click);
+            // 
             // toolMenuExecuteImportNewCase
             // 
             this.toolMenuExecuteImportNewCase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -394,25 +416,13 @@
             this.toolMenuSendOutWeeklyReport.Text = "Send Out Weekly Case Review Report";
             this.toolMenuSendOutWeeklyReport.Click += new System.EventHandler(this.toolMenuItem_Click);
             // 
-            // toolMenuBackDefaultDashboard
+            // optionsSubMenuItem
             // 
-            this.toolMenuBackDefaultDashboard.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolMenuBackDefaultDashboard.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuBackDefaultDashboard.Image")));
-            this.toolMenuBackDefaultDashboard.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolMenuBackDefaultDashboard.Name = "toolMenuBackDefaultDashboard";
-            this.toolMenuBackDefaultDashboard.Size = new System.Drawing.Size(23, 22);
-            this.toolMenuBackDefaultDashboard.Text = "Default Dashboard";
-            this.toolMenuBackDefaultDashboard.Click += new System.EventHandler(this.toolMenuBackDefaultDashboard_Click);
-            // 
-            // toolMenuExpressToReviewCase
-            // 
-            this.toolMenuExpressToReviewCase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolMenuExpressToReviewCase.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuExpressToReviewCase.Image")));
-            this.toolMenuExpressToReviewCase.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolMenuExpressToReviewCase.Name = "toolMenuExpressToReviewCase";
-            this.toolMenuExpressToReviewCase.Size = new System.Drawing.Size(23, 22);
-            this.toolMenuExpressToReviewCase.Text = "Express to Review Case";
-            this.toolMenuExpressToReviewCase.Click += new System.EventHandler(this.toolMenuExpressToReviewCase_Click);
+            this.optionsSubMenuItem.Name = "optionsSubMenuItem";
+            this.optionsSubMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.optionsSubMenuItem.Tag = "Options Setting";
+            this.optionsSubMenuItem.Text = "Options";
+            this.optionsSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
             // 
             // frmMain
             // 
@@ -480,6 +490,7 @@
         private System.Windows.Forms.ToolStripButton toolMenuSendOutDailyWorkLogReport;
         private System.Windows.Forms.ToolStripButton toolMenuBackDefaultDashboard;
         private System.Windows.Forms.ToolStripButton toolMenuExpressToReviewCase;
+        private System.Windows.Forms.ToolStripMenuItem optionsSubMenuItem;
     }
 }
 

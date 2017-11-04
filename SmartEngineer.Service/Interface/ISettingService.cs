@@ -11,7 +11,7 @@ namespace SmartEngineer.Service
         /// Get all configs
         /// </summary>
         [OperationContract]
-        void GetAllConfigs();
+        List<ConfigOption> GetAllConfigs();
 
         /// <summary>
         /// Get config option for spcified setting
@@ -25,7 +25,7 @@ namespace SmartEngineer.Service
         /// Update config options
         /// </summary>
         /// <param name="options">Options</param>
-        [OperationContract(IsOneWay = true)]
-        void UpdateConfigOptions(List<ConfigOption> options);
+        [OperationContract]
+        bool UpdateConfigOptions(string configName, List<ConfigOption> options);
     }
 }

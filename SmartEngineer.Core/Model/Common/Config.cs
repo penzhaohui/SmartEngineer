@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace SmartEngineer.Core.Models
 {
+    [DataContract]
     public class Config
     {
+        [DataMember]
         public int ID { get; set; }
+        [DataMember]
         public string ConfigName { get; set; }
+        [DataMember]
         public bool IsActive { get; set; }
+        [DataMember]
+        public int TenantID { get; set; }
 
+        [DataMember]
         public List<ConfigOption> Options { get; set; }
     }
 }

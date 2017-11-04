@@ -65,6 +65,9 @@
     <Compile Include="Cache\ICacheProvider.cs" />
     <Compile Include="Cache\Redis\RedisCacheProvider.cs" />
     <Compile Include="Cache\Redis\RedisManager.cs" />
+    <Compile Include="Constant\DBSettingConstant.cs" />
+    <Compile Include="Constant\EmailSettingConstant.cs" />
+    <Compile Include="Constant\SubTaskConstant.cs" />
     <Compile Include="Context\SmartContext.cs" />
     <Compile Include="Logger\LogFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

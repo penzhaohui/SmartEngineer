@@ -17,10 +17,7 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JiraIssue", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
     [System.SerializableAttribute()]
-    public partial class JiraIssue : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+    public partial class JiraIssue : SmartEngineer.ServiceClient.JiraServiceForENGSupp.BasicDataModel {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AssignedQAField;
@@ -68,6 +65,9 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         private string ProductField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProjectKeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ReporterField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -111,16 +111,6 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> UpdatedField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AssignedQA {
@@ -318,6 +308,19 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProjectKey {
+            get {
+                return this.ProjectKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProjectKeyField, value) != true)) {
+                    this.ProjectKeyField = value;
+                    this.RaisePropertyChanged("ProjectKey");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Reporter {
             get {
                 return this.ReporterField;
@@ -509,6 +512,27 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
                     this.UpdatedField = value;
                     this.RaisePropertyChanged("Updated");
                 }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BasicDataModel", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue))]
+    public partial class BasicDataModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
             }
         }
         

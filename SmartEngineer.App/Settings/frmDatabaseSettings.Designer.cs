@@ -78,6 +78,7 @@
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // grbAuthentication
             // 
@@ -217,6 +218,7 @@
             this.btnTestConnection.TabIndex = 7;
             this.btnTestConnection.Text = "Test Connection";
             this.btnTestConnection.UseVisualStyleBackColor = true;
+            this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
             // 
             // btnOk
             // 
@@ -226,6 +228,7 @@
             this.btnOk.TabIndex = 8;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
@@ -245,6 +248,7 @@
             this.btnAdvancedSettings.TabIndex = 10;
             this.btnAdvancedSettings.Text = "Advanced Settings";
             this.btnAdvancedSettings.UseVisualStyleBackColor = true;
+            this.btnAdvancedSettings.Click += new System.EventHandler(this.btnAdvancedSettings_Click);
             // 
             // lblLine
             // 

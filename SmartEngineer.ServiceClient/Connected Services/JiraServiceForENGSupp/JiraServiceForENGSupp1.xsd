@@ -7,38 +7,47 @@
   </xs:complexType>
   <xs:element name="ArrayOfJiraIssue" nillable="true" type="tns:ArrayOfJiraIssue" />
   <xs:complexType name="JiraIssue">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AssignedQA" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Assignee" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BuildVersion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CaseNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EstimatedEffort" type="xs:int" />
-      <xs:element minOccurs="0" name="FixVersions" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="IssueCategory" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IssueType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="JiraID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="JiraKey" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Labels" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Reporter" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SFCommentCount" type="xs:int" />
-      <xs:element minOccurs="0" name="SFCurrentVersion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SFCustomer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SFLastModifiedDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="SFOpenedDateTime" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="SFOrigin" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SFPriority" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SFProduct" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SFSalesforceLink" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SFTargetedRelease" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Severity" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Updated" nillable="true" type="xs:dateTime" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BasicDataModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AssignedQA" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Assignee" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BuildVersion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CaseNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstimatedEffort" type="xs:int" />
+          <xs:element minOccurs="0" name="FixVersions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="IssueCategory" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IssueType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JiraID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JiraKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Labels" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Reporter" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SFCommentCount" type="xs:int" />
+          <xs:element minOccurs="0" name="SFCurrentVersion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SFCustomer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SFLastModifiedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SFOpenedDateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SFOrigin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SFPriority" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SFProduct" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SFSalesforceLink" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SFTargetedRelease" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Severity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Updated" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="JiraIssue" nillable="true" type="tns:JiraIssue" />
+  <xs:complexType name="BasicDataModel">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="BasicDataModel" nillable="true" type="tns:BasicDataModel" />
 </xs:schema>
