@@ -3,7 +3,7 @@
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class ConfigOption
+    public class ConfigOption : BasicDataModel
     {
         [DataMember]
         public int ID { get; set; }

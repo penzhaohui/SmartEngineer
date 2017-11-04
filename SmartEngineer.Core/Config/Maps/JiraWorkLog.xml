@@ -13,12 +13,12 @@
   <Statements>
     <Statement Id="QueryParams">
       <Dynamic Prepend="Where">
-        <IsNotEmpty Property="WorklogID" Prepend="And">
+        <IsGreaterThan CompareValue="0" Property="WorklogID" Prepend="And">
           WorklogID = @WorklogID
-        </IsNotEmpty>
-        <IsNotEmpty Property="ID" Prepend="And">
+        </IsGreaterThan>
+        <IsGreaterThan CompareValue="0" Property="ID" Prepend="And">
           ID = @ID
-        </IsNotEmpty>
+        </IsGreaterThan>
       </Dynamic>      
     </Statement>
     

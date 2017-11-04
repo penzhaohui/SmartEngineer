@@ -82,3 +82,10 @@ https://www.microsoft.com/net/download/core
 http://www.360doc.com/content/17/0725/16/16915_674048834.shtml
 SaaS多租户数据隔离的三种方案
 http://www.360doc.com/content/17/0725/16/16915_674049251.shtml
+
+文本中关键字匹配算法
+http://blog.csdn.net/sinat_22013331/article/details/51613394
+文本中关键字匹配算法的实现
+http://download.csdn.net/download/sinat_22013331/9551006
+C#--关键词提取算法
+http://blog.csdn.net/liehuo123/article/details/2764364

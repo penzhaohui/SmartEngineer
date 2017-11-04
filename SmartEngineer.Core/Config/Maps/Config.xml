@@ -13,9 +13,9 @@
   <Statements>
     <Statement Id="QueryParams">
       <Dynamic Prepend="Where">
-        <IsNotEmpty Property="ID" Prepend="And">
+        <IsGreaterThan CompareValue="0" Property="ID" Prepend="And">
           ID = @ID
-        </IsNotEmpty>
+        </IsGreaterThan>
         <IsNotEmpty Property="ConfigName" Prepend="And">
           ConfigName = @ConfigName
         </IsNotEmpty>
@@ -30,11 +30,15 @@
       INSERT INTO admin_Config
       (ID
       ,ConfigName
-      ,IsActive)
+      ,IsActive
+      ,LastUpdateTime
+      ,LastUpdateUserID)
       VALUES
       (@ID
       ,@ConfigName
-      ,@IsActive);
+      ,@IsActive
+      ,@LastUpdateTime
+      ,@LastUpdateUserID);
     </Statement>
 
     <!--删除-->
@@ -49,6 +53,8 @@
       SET
       ConfigName=@ConfigName
       ,IsActive=@IsActive
+      ,LastUpdateTime=@LastUpdateTime
+      ,LastUpdateUserID=@LastUpdateUserID
       Where ID=@ID
     </Statement>
    
@@ -63,6 +69,8 @@
       SELECT ID
       ,ConfigName
       ,IsActive
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM admin_Config
       <Include RefId="QueryParams"/>
       Order by ID ASC

@@ -13,15 +13,15 @@
   <Statements>
     <Statement Id="QueryParams">
       <Dynamic Prepend="Where">
-        <IsNotEmpty Property="CommentID" Prepend="And">
+        <IsGreaterThan CompareValue="0" Property="CommentID" Prepend="And">
           CommentID = @CommentID
-        </IsNotEmpty>
+        </IsGreaterThan>
         <IsNotEmpty Property="CaseNumber" Prepend="And">
           CaseNumber = @CaseNumber
         </IsNotEmpty>
-        <IsNotEmpty Property="CaseID" Prepend="And">
+          <IsGreaterThan CompareValue="0" Property="CaseID" Prepend="And">
           CaseID = @CaseID
-        </IsNotEmpty>
+        </IsGreaterThan>
       </Dynamic>      
     </Statement>
     

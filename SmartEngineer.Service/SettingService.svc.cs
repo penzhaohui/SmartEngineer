@@ -20,7 +20,7 @@ namespace SmartEngineer.Service
 
         public bool UpdateConfigOptions(string configName, List<ConfigOption> options)
         {
-            return ConfigAdapter.UpdateConfigOptions(options);
+            return ConfigAdapter.UpdateConfigOptions(configName, options);
         }
     }
 }

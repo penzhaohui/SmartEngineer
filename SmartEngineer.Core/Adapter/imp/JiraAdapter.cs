@@ -126,6 +126,11 @@ namespace SmartEngineer.Core.Adapter
             IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
             var issue = jira.CreateIssue(project, issueType, fields);
 
+            // Product and Priorty is not imported while creating jira issue at the first time
+            issue.fields.Product = fields.Product;
+            issue.fields.Priority = fields.Priority;
+            issue = jira.UpdateIssue(issue);
+
             return issue;
         }
 
@@ -137,10 +142,11 @@ namespace SmartEngineer.Core.Adapter
 
             SalesforceAdapterV2.BatchStoreCaseInfoToLocalSync(caseNOs);
 
-            IReadOnlyList<string> newCaseNoList = caseNOs.AsReadOnly(); 
+            IReadOnlyList<string> newCaseNoList = caseNOs; 
             int loopNumber = 1;
             do
             {
+                List<string> successCaseNos = new List<string>();
                 string jiraKey = string.Empty;
                 int failedTimes = 0;
                 foreach (string caseNo in newCaseNoList)
@@ -177,7 +183,7 @@ namespace SmartEngineer.Core.Adapter
                     // Create Default Sub Tasks
                     CreateDefaultSubTasks(jiraKey);
 
-                    caseNOs.Remove(caseNo);                    
+                    successCaseNos.Add(caseNo);
                 }
 
                 // Pause 1 second due to that no case is ready
@@ -186,6 +192,7 @@ namespace SmartEngineer.Core.Adapter
                     Thread.Sleep(1000); 
                 }
 
+                caseNOs.RemoveAll(caseNo => successCaseNos.Contains(caseNo)); // Remove those success case
                 newCaseNoList = caseNOs.AsReadOnly(); // Reset the new case list for next loop
                 loopNumber++;
 
@@ -296,8 +303,8 @@ namespace SmartEngineer.Core.Adapter
                     // Project=ENGSUPP;IssueType=Case;IsDefaultSubTask=Yes
                     if (jiraIssueProject == configOption.Value.Project
                         && jiraIssueType == configOption.Value.IssueType
-                        && CommonUtil.IsTrue(configOption.Value.IsDefaultSubTask)
-                        && CommonUtil.IsTrue(configOption.Value.IsActive))
+                        && configOption.Value.IsDefaultSubTask
+                        && configOption.Value.IsActive)
                     {
                         CreateSubTask(jiraIssueProject,
                                       jiraKey,

@@ -18,6 +18,9 @@ namespace SmartEngineer.ServiceClient.Adapters
         {
             List<string> dbInstances = new List<string>();
             var result = DatabaseServiceClient.GetDBInstances(ip, authType, userName, password);
+
+            dbInstances.AddRange(result);
+
             return dbInstances;
         }
     }

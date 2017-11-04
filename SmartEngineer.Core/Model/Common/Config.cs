@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class Config
+    public class Config : BasicDataModel
     {
         [DataMember]
         public int ID { get; set; }

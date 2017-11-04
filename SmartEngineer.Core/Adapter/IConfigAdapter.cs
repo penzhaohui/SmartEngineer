@@ -11,6 +11,6 @@ namespace SmartEngineer.Core.Adapter
 
         List<ConfigOption> GetConfigOptions(string configName);
 
-        bool UpdateConfigOptions(List<ConfigOption> options);
+        bool UpdateConfigOptions(string configName, List<ConfigOption> options);
     }
 }

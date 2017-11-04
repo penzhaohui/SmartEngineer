@@ -13,18 +13,15 @@
   <Statements>
     <Statement Id="QueryParams">
       <Dynamic Prepend="Where">
-        <IsNotEmpty Property="ID" Prepend="And">
+        <IsGreaterThan CompareValue="0" Property="ID" Prepend="And">
           ID = @ID
-        </IsNotEmpty>
+        </IsGreaterThan>
         <IsNotEmpty Property="ConfigOptionValue" Prepend="And">
           ConfigOptionValue = @ConfigOptionValue
         </IsNotEmpty>
-        <IsNotEmpty Property="IsActive" Prepend="And">
-          IsActive = @IsActive
-        </IsNotEmpty>
-        <IsNotEmpty Property="ConfigID" Prepend="And">
+        <IsGreaterThan  CompareValue="0" Property="ConfigID" Prepend="And">
           ConfigID = @ConfigID
-        </IsNotEmpty>
+        </IsGreaterThan>
       </Dynamic>      
     </Statement>
     
@@ -36,14 +33,18 @@
       ,ConfigOptionDesc
       ,IsActive
       ,ConfigID
-      ,ConfigExtra)
+      ,ConfigExtra
+      ,LastUpdateTime
+      ,LastUpdateUserID)
       VALUES
       (@ID
       ,@ConfigOptionValue
       ,@ConfigOptionDesc
       ,@IsActive
       ,@ConfigID
-      ,@ConfigExtra);
+      ,@ConfigExtra
+      ,@LastUpdateTime
+      ,@LastUpdateUserID);
     </Statement>
 
     <!--删除-->
@@ -61,7 +62,9 @@
       ,IsActive=@IsActive
       ,ConfigID=@ConfigID
       ,ConfigExtra=@ConfigExtra
-      Where ID=@ID
+      ,LastUpdateTime=@LastUpdateTime
+      ,LastUpdateUserID=@LastUpdateUserID
+      <Include RefId="QueryParams"/>
     </Statement>
    
     <!--是否存在该记录-->
@@ -78,6 +81,8 @@
       ,IsActive
       ,ConfigID
       ,ConfigExtra
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM admin_ConfigOption
       <Include RefId="QueryParams"/>
       Order by ID ASC
@@ -90,6 +95,8 @@
       ,IsActive
       ,ConfigID
       ,ConfigExtra
+      ,LastUpdateTime
+      ,LastUpdateUserID
       FROM admin_ConfigOption
       <Include RefId="QueryParams"/>
       Order by ID ASC

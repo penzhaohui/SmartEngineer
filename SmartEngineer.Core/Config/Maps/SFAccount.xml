@@ -16,9 +16,9 @@
         <IsNotEmpty Property="Name" Prepend="And">
           Name = @Name
         </IsNotEmpty>
-        <IsNotEmpty Property="UserID" Prepend="And">
+        <IsGreaterThan CompareValue="0" Property="UserID" Prepend="And">
           UserID = @UserID
-        </IsNotEmpty>
+        </IsGreaterThan>
       </Dynamic>      
     </Statement>
     

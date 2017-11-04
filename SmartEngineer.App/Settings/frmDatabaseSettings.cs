@@ -30,54 +30,59 @@ namespace SmartEngineer.Forms
             Options = ConfigAdapter.GetConfigOptions(DBSettingConstant.OPTION_NAME);
             this.txtServerName.Text = Options.GetOptionValue(DBSettingConstant.SERVER_LOCATION);
             string DBType = Options.GetOptionValue(DBSettingConstant.DATABASE_TYPE);
-            this.cmbAuthenticationType.SelectedValue = Options.GetOptionValue(DBSettingConstant.AUTH_TYPE);
+            this.cmbAuthenticationType.SelectedItem = Options.GetOptionValue(DBSettingConstant.AUTH_TYPE);
             this.txtUserName.Text = Options.GetOptionValue(DBSettingConstant.LOGIN_USER);
             this.txtPassword.Text = Options.GetOptionValue(DBSettingConstant.LOGIN_PASSWORD);
 
             RefreshDBInstances();
-
-            this.cmbMembership.SelectedValue = Options.GetOptionValue(DBSettingConstant.MEMBERSHIP_INSTANCE);
-            this.cmbSmartEngineer.SelectedValue = Options.GetOptionValue(DBSettingConstant.SMARTENGINEER_INSTANCE);
-            this.cmbAuditLog.SelectedValue = Options.GetOptionValue(DBSettingConstant.AUDIT_LOG_INSTANCE);
+            
+            this.cmbMembership.SelectedItem = Options.GetOptionValue(DBSettingConstant.MEMBERSHIP_INSTANCE);
+            this.cmbSmartEngineer.SelectedItem = Options.GetOptionValue(DBSettingConstant.SMARTENGINEER_INSTANCE);
+            this.cmbAuditLog.SelectedItem = Options.GetOptionValue(DBSettingConstant.AUDIT_LOG_INSTANCE);
         }
 
-        public void RefreshDBInstances()
+        private List<string> GetDBInstanceList()
         {
             if (txtServerName.Text.Trim().Length == 0)
             {
                 txtServerName.Focus();
                 SystemMessageBox.ShowInformation("Please enter database server name or ip.");
-                return;
+                return null;
             }
 
             if (txtUserName.Text.Trim().Length == 0)
             {
                 txtUserName.Focus();
                 SystemMessageBox.ShowInformation("Please enter database user name.");
-                return;
+                return null;
             }
 
             if (txtPassword.Text.Trim().Length == 0)
             {
                 txtPassword.Focus();
                 SystemMessageBox.ShowInformation("Please enter database user password.");
-                return;
+                return null;
             }
 
+            // TO-DO Skip the below validation now            
             if (cmbAuthenticationType.SelectedIndex == -1)
             {
                 cmbAuthenticationType.Focus();
                 SystemMessageBox.ShowInformation("Please select one authentication type at least.");
-                return;
+                return null;
             }
 
-            List<string> dbInstanceNameList = DatabaseAdapter.GetDBInstances(txtServerName.Text, (cmbAuthenticationType.SelectedValue as string), txtUserName.Text, txtPassword.Text);
+            return DatabaseAdapter.GetDBInstances(txtServerName.Text, (cmbAuthenticationType.SelectedValue as string), txtUserName.Text, txtPassword.Text);
+        }
 
+        public void RefreshDBInstances()
+        {
+            List<string> dbInstanceNameList = GetDBInstanceList();
             if (dbInstanceNameList != null && dbInstanceNameList.Count > 0)
             {
-                this.cmbMembership.DataSource = dbInstanceNameList;
-                this.cmbSmartEngineer.DataSource = dbInstanceNameList;
-                this.cmbAuditLog.DataSource = dbInstanceNameList;
+                this.cmbMembership.DataSource = dbInstanceNameList.AsReadOnly();
+                this.cmbSmartEngineer.DataSource = dbInstanceNameList.AsReadOnly();
+                this.cmbAuditLog.DataSource = dbInstanceNameList.AsReadOnly();
             }
             else
             {
@@ -106,6 +111,14 @@ namespace SmartEngineer.Forms
         {
             List<ConfigOption> options = GollectConfigOption();
             bool isUpdateSuccess = ConfigAdapter.UpdateConfigOptions(DBSettingConstant.OPTION_NAME, options);
+            if (isUpdateSuccess)
+            {
+                SystemMessageBox.ShowInformation("Save successfully.");
+            }
+            else
+            {
+                SystemMessageBox.ShowInformation("Failed to save, please contact administrator.");
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -115,6 +128,15 @@ namespace SmartEngineer.Forms
 
         private void btnTestConnection_Click(object sender, EventArgs e)
         {
+            List<string> dbInstanceNameList = GetDBInstanceList();
+            if (dbInstanceNameList != null && dbInstanceNameList.Count > 0)
+            {
+                SystemMessageBox.ShowInformation("Connect to database successfully.");
+            }
+            else
+            {
+                SystemMessageBox.ShowInformation("Cannot ping database, please contact administrator.");
+            }
 
         }
 
@@ -126,7 +148,7 @@ namespace SmartEngineer.Forms
         private List<ConfigOption> GollectConfigOption()
         {
             string serverName = this.txtServerName.Text;            
-            string authType = this.cmbAuthenticationType.SelectedValue as string;
+            string authType = this.cmbAuthenticationType.SelectedItem as string;
             string userName = this.txtUserName.Text;
             string password = this.txtPassword.Text;
             string dbMembership = this.cmbMembership.SelectedValue as string;

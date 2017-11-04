@@ -88,8 +88,8 @@ namespace SmartEngineer.Core.Adapter
         public bool UpdateCaseCommentInfoToLocal(string caseNo)
         {
             CaseCommentInfo lastCaseCommentInfo = GetLatestCaseCommentByCaseNo(caseNo);
-            if (lastCaseCommentInfo != null
-                && DateTime.Now.Subtract(lastCaseCommentInfo.LastUpdateTime).TotalHours < 4)
+            if (lastCaseCommentInfo == null
+                || DateTime.Now.Subtract(lastCaseCommentInfo.LastUpdateTime).TotalHours < 4)
             {
                 return false;
             }

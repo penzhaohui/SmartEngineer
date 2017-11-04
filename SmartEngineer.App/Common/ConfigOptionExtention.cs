@@ -12,7 +12,7 @@ namespace SmartEngineer.Common
     {
         public static ConfigOption Get(this List<ConfigOption> options, string name)
         {
-            var configOption = options.Where(option => option.ConfigOptionValue == name).FirstOrDefault<ConfigOption>();
+            var configOption = options.Where(option => option.ConfigOptionValue.Trim() == name).FirstOrDefault<ConfigOption>();
 
             return configOption;
         }
@@ -23,9 +23,10 @@ namespace SmartEngineer.Common
 
             ConfigOption configOption = options.Get(name);
             if (configOption != null
+                && configOption.ConfigOptionDesc != null
                 && configOption.IsActive)
             {
-                configOptionValue = configOption.ConfigOptionDesc;
+                configOptionValue = configOption.ConfigOptionDesc.Trim();
             }
 
             return configOptionValue;
@@ -39,7 +40,7 @@ namespace SmartEngineer.Common
             configOption.IsActive = true;
             configOption.ConfigExtra = "";
 
-            var configOptionList = options.Where(option => option.ConfigOptionValue == configOption.ConfigOptionValue);
+            var configOptionList = options.Where(option => option.ConfigOptionValue.Trim() == configOption.ConfigOptionValue);
             foreach (ConfigOption item in configOptionList)
             {
                 configOption.ConfigID = item.ID;

@@ -22,7 +22,7 @@ namespace SmartEngineer.Core.Adapter
 
             if (SubTaskTemplate.Keys.Count == 0)
             {
-                var config = ConfigDAO.GetEntity(new { Name = "Jira Sub Task Template" });
+                var config = ConfigDAO.GetEntity(new { ConfigName = "Jira Sub Task Template" });
                 var configOptions = ConfigOptionDAO.GetList<ConfigOption>(new { ConfigID = config.ID });
                 if (configOptions != null)
                 {
@@ -121,16 +121,36 @@ namespace SmartEngineer.Core.Adapter
             return options;
         }
 
-        public bool UpdateConfigOptions(List<ConfigOption> options)
+        public bool UpdateConfigOptions(string configName, List<ConfigOption> options)
         {
             bool isUpdateSuccess = true;
 
+            Config config = ConfigDAO.GetEntity(new { ConfigName = configName });
+            if (config == null)
+            {
+                config = new Config();
+                config.ConfigName = configName;
+                config.IsActive = true;
+                config = ConfigDAO.Insert(config);
+            }
+            
             foreach (ConfigOption option in options)
             {
-                if (ConfigOptionDAO.Update(option) == 0)
+                option.ConfigID = config.ID;
+                if (ConfigOptionDAO.IsExist(option))
                 {
-                    isUpdateSuccess = false;
+                    if (ConfigOptionDAO.Update(option) == 0)
+                    {
+                        isUpdateSuccess = false;
+                    }
                 }
+                else
+                {
+                    if (ConfigOptionDAO.Insert(option) == null)
+                    {
+                        isUpdateSuccess = false;
+                    }
+                }                
             }
 
             return isUpdateSuccess;
