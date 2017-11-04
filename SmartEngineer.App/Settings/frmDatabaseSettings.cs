@@ -13,7 +13,6 @@ namespace SmartEngineer.Forms
     {
         private static readonly IConfigAdapter ConfigAdapter = new ConfigAdapter();
         private static readonly IDatabaseAdapter DatabaseAdapter = new DatabaseAdapter();
-        private static List<ConfigOption> Options = new List<ConfigOption>();
 
         public frmDatabaseSettings()
         {
@@ -27,18 +26,18 @@ namespace SmartEngineer.Forms
             this.cmbAuthenticationType.Items.Add("Windows Authentication");
             this.cmbAuthenticationType.Items.Add("SQL Server Authentication");
 
-            Options = ConfigAdapter.GetConfigOptions(DBSettingConstant.OPTION_NAME);
-            this.txtServerName.Text = Options.GetOptionValue(DBSettingConstant.SERVER_LOCATION);
-            string DBType = Options.GetOptionValue(DBSettingConstant.DATABASE_TYPE);
-            this.cmbAuthenticationType.SelectedItem = Options.GetOptionValue(DBSettingConstant.AUTH_TYPE);
-            this.txtUserName.Text = Options.GetOptionValue(DBSettingConstant.LOGIN_USER);
-            this.txtPassword.Text = Options.GetOptionValue(DBSettingConstant.LOGIN_PASSWORD);
+            List<ConfigOption> options = ConfigAdapter.GetConfigOptions(DBSettingConstant.OPTION_NAME);
+            this.txtServerName.Text = options.GetOptionValue(DBSettingConstant.SERVER_LOCATION);
+            string DBType = options.GetOptionValue(DBSettingConstant.DATABASE_TYPE);
+            this.cmbAuthenticationType.SelectedItem = options.GetOptionValue(DBSettingConstant.AUTH_TYPE);
+            this.txtUserName.Text = options.GetOptionValue(DBSettingConstant.LOGIN_USER);
+            this.txtPassword.Text = options.GetOptionValue(DBSettingConstant.LOGIN_PASSWORD);
 
             RefreshDBInstances();
             
-            this.cmbMembership.SelectedItem = Options.GetOptionValue(DBSettingConstant.MEMBERSHIP_INSTANCE);
-            this.cmbSmartEngineer.SelectedItem = Options.GetOptionValue(DBSettingConstant.SMARTENGINEER_INSTANCE);
-            this.cmbAuditLog.SelectedItem = Options.GetOptionValue(DBSettingConstant.AUDIT_LOG_INSTANCE);
+            this.cmbMembership.SelectedItem = options.GetOptionValue(DBSettingConstant.MEMBERSHIP_INSTANCE);
+            this.cmbSmartEngineer.SelectedItem = options.GetOptionValue(DBSettingConstant.SMARTENGINEER_INSTANCE);
+            this.cmbAuditLog.SelectedItem = options.GetOptionValue(DBSettingConstant.AUDIT_LOG_INSTANCE);
         }
 
         private List<string> GetDBInstanceList()

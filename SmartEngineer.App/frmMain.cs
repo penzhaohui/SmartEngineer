@@ -167,6 +167,10 @@ namespace SmartEngineer.Forms
                 {
                     form = new frmEmailSettings();
                 }
+                else if (funcTag == "Template Settings")
+                {
+                    form = new frmTemplateSettings();
+                }
                 else if (funcTag == "Options Setting")
                 {
                     form = new frmOptionSettings();
@@ -249,6 +253,7 @@ namespace SmartEngineer.Forms
 
                     if (funcTag == "Database Server Setting"
                         || funcTag == "Email Server Setting"
+                        || funcTag == "Options Setting"
                         || funcTag == "Contact"
                         || funcTag == "License"
                         || funcTag == "Version")

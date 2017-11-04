@@ -33,6 +33,8 @@
             this.SettingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseServerSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emailServerSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.templatesSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +60,6 @@
             this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolMenuBackDefaultDashboard = new System.Windows.Forms.ToolStripButton();
             this.toolMenuExpressToReviewCase = new System.Windows.Forms.ToolStripButton();
@@ -67,7 +68,7 @@
             this.toolMenuSendOutDailyWorkLogReport = new System.Windows.Forms.ToolStripButton();
             this.toolMenuSendOutDailyReport = new System.Windows.Forms.ToolStripButton();
             this.toolMenuSendOutWeeklyReport = new System.Windows.Forms.ToolStripButton();
-            this.optionsSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +94,7 @@
             this.SettingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.databaseServerSubMenuItem,
             this.emailServerSubMenuItem,
+            this.templatesSubMenuItem,
             this.optionsSubMenuItem,
             this.logoutSubMenuItem,
             this.exitSubMenuItem});
@@ -115,6 +117,22 @@
             this.emailServerSubMenuItem.Tag = "Email Server Setting";
             this.emailServerSubMenuItem.Text = "Email Server";
             this.emailServerSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
+            // 
+            // templatesSubMenuItem
+            // 
+            this.templatesSubMenuItem.Name = "templatesSubMenuItem";
+            this.templatesSubMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.templatesSubMenuItem.Tag = "Template Settings";
+            this.templatesSubMenuItem.Text = "Templates";
+            this.templatesSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
+            // 
+            // optionsSubMenuItem
+            // 
+            this.optionsSubMenuItem.Name = "optionsSubMenuItem";
+            this.optionsSubMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.optionsSubMenuItem.Tag = "Options Setting";
+            this.optionsSubMenuItem.Text = "Options";
+            this.optionsSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
             // 
             // logoutSubMenuItem
             // 
@@ -323,14 +341,6 @@
             this.contactToolStripMenuItem.Text = "Contact";
             this.contactToolStripMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 789);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1234, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip";
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -416,13 +426,13 @@
             this.toolMenuSendOutWeeklyReport.Text = "Send Out Weekly Case Review Report";
             this.toolMenuSendOutWeeklyReport.Click += new System.EventHandler(this.toolMenuItem_Click);
             // 
-            // optionsSubMenuItem
+            // statusStrip1
             // 
-            this.optionsSubMenuItem.Name = "optionsSubMenuItem";
-            this.optionsSubMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.optionsSubMenuItem.Tag = "Options Setting";
-            this.optionsSubMenuItem.Text = "Options";
-            this.optionsSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 789);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1234, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip";
             // 
             // frmMain
             // 
@@ -453,7 +463,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem SettingsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databaseServerSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem emailServerSubMenuItem;
@@ -491,6 +500,8 @@
         private System.Windows.Forms.ToolStripButton toolMenuBackDefaultDashboard;
         private System.Windows.Forms.ToolStripButton toolMenuExpressToReviewCase;
         private System.Windows.Forms.ToolStripMenuItem optionsSubMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripMenuItem templatesSubMenuItem;
     }
 }
 
