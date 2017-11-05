@@ -37,6 +37,12 @@ namespace SmartEngineer.Core.DAOs
 
         public TEntity GetEntity(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
+            var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
+            if (TenantIDProperty != null)
+            {
+                TenantIDProperty.SetValue(paramObj, 1);
+            }
+
             return SQLMapper.QuerySingle<TEntity>(new RequestContext
             {
                 Scope = this.Scope,
@@ -47,6 +53,12 @@ namespace SmartEngineer.Core.DAOs
 
         public IEnumerable<TResponse> GetList<TResponse>(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
+            var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
+            if (TenantIDProperty != null)
+            {
+                TenantIDProperty.SetValue(paramObj, 1);
+            }
+
             return SQLMapper.Query<TResponse>(new RequestContext
             {
                 Scope = this.Scope,
@@ -57,6 +69,12 @@ namespace SmartEngineer.Core.DAOs
 
         public IEnumerable<TResponse> GetListByPage<TResponse>(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
+            var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
+            if (TenantIDProperty != null)
+            {
+                TenantIDProperty.SetValue(paramObj, 1);
+            }
+
             return SQLMapper.Query<TResponse>(new RequestContext
             {
                 Scope = this.Scope,
@@ -79,6 +97,12 @@ namespace SmartEngineer.Core.DAOs
                 lastUpdateUserIDProperty.SetValue(entity, 1);
             }
 
+            var TenantIDProperty = entity.GetType().GetProperty("TenantID");
+            if (TenantIDProperty != null)
+            {
+                TenantIDProperty.SetValue(entity, 1);
+            }
+
             SQLMapper.Execute(new RequestContext
             {
                 Scope = this.Scope,
@@ -91,6 +115,12 @@ namespace SmartEngineer.Core.DAOs
 
         public bool IsExist(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
+            var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
+            if (TenantIDProperty != null)
+            {
+                TenantIDProperty.SetValue(paramObj, 1);
+            }
+
             return SQLMapper.QuerySingle<int>(new RequestContext
             {
                 Scope = this.Scope,
@@ -101,6 +131,12 @@ namespace SmartEngineer.Core.DAOs
 
         public int Update(TEntity entity)
         {
+            var TenantIDProperty = entity.GetType().GetProperty("TenantID");
+            if (TenantIDProperty != null)
+            {
+                TenantIDProperty.SetValue(entity, 1);
+            }
+
             var lastUpdateTimeProperty = entity.GetType().GetProperty("LastUpdateTime");
             if (lastUpdateTimeProperty != null)
             {

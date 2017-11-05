@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<SmartSqlMap Scope="Role"  xmlns="http://SmartSql.net/schemas/SmartSqlMap.xsd">
+<SmartSqlMap Scope="MemberRole"  xmlns="http://SmartSql.net/schemas/SmartSqlMap.xsd">
   <Caches>
     <Cache Id="Account.RedisCache" Type="SmartSql.Cache.Redis.RedisCacheProvider,SmartSql.Cache.Redis">
       <Parameter Key="CacheSize" Value="1000"/>
       <Parameter Key="ConnectionString" Value="192.168.31.103"/>
       <Parameter Key="DatabaseId" Value="0"/>
       <FlushInterval Hours="24" Minutes="0" Seconds="0"/>
-      <FlushOnExecute Statement="admin_Role.Insert"/>
-      <FlushOnExecute Statement="admin_Role.Update"/>
+      <FlushOnExecute Statement="admin_MemberRole.Insert"/>
+      <FlushOnExecute Statement="admin_MemberRole.Update"/>
     </Cache>
   </Caches>
   <Statements>
@@ -16,70 +16,70 @@
         <IsGreaterThan CompareValue="0" Property="ID" Prepend="And">
           ID = @ID
         </IsGreaterThan>
-        <IsNotEmpty Property="Name" Prepend="And">
-          Name = @Name
-        </IsNotEmpty>
+        <IsGreaterThan CompareValue="0" Property="MemberID" Prepend="And">
+          MemberID = @MemberID
+        </IsGreaterThan>
+        <IsGreaterThan CompareValue="0" Property="RoleID" Prepend="And">
+          RoleID = @RoleID
+        </IsGreaterThan>
         <IsGreaterThan CompareValue="0" Property="TenantID" Prepend="And">
           TenantID = @TenantID
         </IsGreaterThan>
-      </Dynamic>      
+      </Dynamic>
     </Statement>
-    
+
     <!--新增-->
     <Statement Id="Insert">
-      INSERT INTO admin_Role
+      INSERT INTO admin_MemberRole
       (ID
-      ,Name
-      ,Description
-      ,IsActive
+      ,MemberID
+      ,RoleID
       ,TenantID
+      ,IsActive
       ,LastUpdateTime
       ,LastUpdateUserID)
       VALUES
       (@ID
-      ,@Name
-      ,@Description
-      ,@IsActive
+      ,@MemberID
+      ,@RoleID
       ,@TenantID
+      ,@IsActive
       ,@LastUpdateTime
       ,@LastUpdateUserID);
     </Statement>
 
     <!--删除-->
     <Statement Id="Delete">
-      Delete admin_Role
+      Delete admin_MemberRole
       <Include RefId="QueryParams"/>
     </Statement>
 
     <!--更新-->
     <Statement Id="Update">
-      UPDATE admin_Role
+      UPDATE admin_MemberRole
       SET
-      Name=@Name,
-      Description=@Description,
       IsActive=@IsActive,
-      TenantID=@TenantID,
       LastUpdateTime=@LastUpdateTime,
       LastUpdateUserID=@LastUpdateUserID
-     <Include RefId="QueryParams"/>
+      <Include RefId="QueryParams"/>
     </Statement>
-   
+
     <!--是否存在该记录-->
     <Statement Id="IsExist">
-      Select Count(1) From admin_Role
+      Select Count(1) From admin_MemberRole
       <Include RefId="QueryParams"/>
     </Statement>
 
     <!--获取单条记录 -->
     <Statement Id="GetEntity">
       SELECT ID
-      ,Name
-      ,Description
-      ,IsActive
+      ,MemberID
+      ,RoleID
       ,TenantID
+      ,IsActive
       ,LastUpdateTime
       ,LastUpdateUserID
-      FROM admin_Role
+      FROM admin_MemberRole
       <Include RefId="QueryParams"/>
       Order by ID ASC
     </Statement>
@@ -87,16 +87,16 @@
     <!--获取多条记录 -->
     <Statement Id="GetList">
       SELECT ID
-      ,Name
-      ,Description
-      ,IsActive
+      ,MemberID
+      ,RoleID
       ,TenantID
+      ,IsActive
       ,LastUpdateTime
       ,LastUpdateUserID
-      FROM admin_Role
+      FROM admin_MemberRole
       <Include RefId="QueryParams"/>
       Order by ID ASC
-  </Statement>
+    </Statement>
 
   </Statements>
 </SmartSqlMap>

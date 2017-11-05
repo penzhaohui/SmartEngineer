@@ -27,6 +27,8 @@ namespace SmartEngineer.ServiceClient.Adapters
 
         public bool UpdateConfigOptions(string configName, List<ConfigOption> options)
         {
+            if (options == null) return false;
+
             return SettingServiceClient.UpdateConfigOptions(configName, options.ToArray());
         }
     }

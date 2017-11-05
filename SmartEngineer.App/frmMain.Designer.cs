@@ -38,9 +38,8 @@
             this.logoutSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tenantsSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rolesSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.permissionSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jiraMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createSubTaskSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -151,42 +150,33 @@
             // accountsMenuItem
             // 
             this.accountsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tenantsSubMenuItem,
             this.userSubMenuItem,
-            this.rolesSubMenuItem,
-            this.groupSubMenuItem,
             this.permissionSubMenuItem});
             this.accountsMenuItem.Name = "accountsMenuItem";
             this.accountsMenuItem.Size = new System.Drawing.Size(69, 20);
             this.accountsMenuItem.Text = "Accounts";
             // 
+            // tenantsSubMenuItem
+            // 
+            this.tenantsSubMenuItem.Name = "tenantsSubMenuItem";
+            this.tenantsSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tenantsSubMenuItem.Tag = "Tenants";
+            this.tenantsSubMenuItem.Text = "Tenants";
+            this.tenantsSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
+            // 
             // userSubMenuItem
             // 
             this.userSubMenuItem.Name = "userSubMenuItem";
-            this.userSubMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.userSubMenuItem.Size = new System.Drawing.Size(152, 22);
             this.userSubMenuItem.Tag = "Users";
-            this.userSubMenuItem.Text = "Users";
+            this.userSubMenuItem.Text = "Members";
             this.userSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
-            // 
-            // rolesSubMenuItem
-            // 
-            this.rolesSubMenuItem.Name = "rolesSubMenuItem";
-            this.rolesSubMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.rolesSubMenuItem.Tag = "Roles";
-            this.rolesSubMenuItem.Text = "Roles";
-            this.rolesSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
-            // 
-            // groupSubMenuItem
-            // 
-            this.groupSubMenuItem.Name = "groupSubMenuItem";
-            this.groupSubMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.groupSubMenuItem.Tag = "Groups";
-            this.groupSubMenuItem.Text = "Groups";
-            this.groupSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
             // 
             // permissionSubMenuItem
             // 
             this.permissionSubMenuItem.Name = "permissionSubMenuItem";
-            this.permissionSubMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.permissionSubMenuItem.Size = new System.Drawing.Size(152, 22);
             this.permissionSubMenuItem.Tag = "Permissions";
             this.permissionSubMenuItem.Text = "Permissions";
             this.permissionSubMenuItem.Click += new System.EventHandler(this.SubMenuItem_Click);
@@ -467,9 +457,7 @@
         private System.Windows.Forms.ToolStripMenuItem databaseServerSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem emailServerSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountsMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rolesSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userSubMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem groupSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem permissionSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jiraMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salesforceMenuItem;
@@ -502,6 +490,7 @@
         private System.Windows.Forms.ToolStripMenuItem optionsSubMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem templatesSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tenantsSubMenuItem;
     }
 }
 

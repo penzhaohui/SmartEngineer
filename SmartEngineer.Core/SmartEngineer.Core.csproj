@@ -54,9 +54,11 @@
     <Compile Include="Adapter\IAccountAdapter.cs" />
     <Compile Include="Adapter\IConfigAdapter.cs" />
     <Compile Include="Adapter\IDatabaseAdapter.cs" />
+    <Compile Include="Adapter\IMemberAdapter.cs" />
     <Compile Include="Adapter\imp\ConfigAdapter.cs" />
     <Compile Include="Adapter\imp\DatabaseAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.Local.cs" />
+    <Compile Include="Adapter\imp\MemberAdapter.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapterV2.Local.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapterV2.cs" />
     <Compile Include="Adapter\ISalesforceAdapterV2.cs" />
@@ -65,23 +67,34 @@
     <Compile Include="Adapter\imp\AccountAdapter.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.cs" />
+    <Compile Include="DAO\IMemberRole.cs" />
+    <Compile Include="DAO\IMemberGroupDAO.cs" />
     <Compile Include="DAO\IConfigDAO.cs" />
     <Compile Include="DAO\IConfigOptionDAO.cs" />
+    <Compile Include="DAO\IGroupDAO.cs" />
     <Compile Include="DAO\IJiraIssueCommentDAO.cs" />
     <Compile Include="DAO\IJiraAccountDAO.cs" />
     <Compile Include="DAO\IJiraWorkLogDAO.cs" />
     <Compile Include="DAO\IJiraSubTaskDAO.cs" />
+    <Compile Include="DAO\IMemberDAO.cs" />
     <Compile Include="DAO\imp\ConfigDAO.cs" />
     <Compile Include="DAO\imp\ConfigOptionDAO.cs" />
+    <Compile Include="DAO\imp\GroupDAO.cs" />
     <Compile Include="DAO\imp\JiraIssueCommentDAO.cs" />
     <Compile Include="DAO\imp\JiraAccountDAO.cs" />
     <Compile Include="DAO\imp\JiraIssueDAO.cs" />
     <Compile Include="DAO\imp\JiraSubTaskDAO.cs" />
     <Compile Include="DAO\imp\JiraWorkLogDAO.cs" />
+    <Compile Include="DAO\imp\MemberGroupDAO.cs" />
+    <Compile Include="DAO\imp\MemberRoleDAO.cs" />
+    <Compile Include="DAO\imp\MemberDAO.cs" />
+    <Compile Include="DAO\imp\RoleDAO.cs" />
     <Compile Include="DAO\imp\SFAccountDAO.cs" />
     <Compile Include="DAO\imp\SFCaseCommentDAO.cs" />
     <Compile Include="DAO\imp\SFCaseDAO.cs" />
     <Compile Include="DAO\IJiraIssueDAO.cs" />
+    <Compile Include="DAO\imp\TenantDAO.cs" />
+    <Compile Include="DAO\IRoleDAO.cs" />
     <Compile Include="DAO\ISFAccountDAO.cs" />
     <Compile Include="DAO\ISFCaseCommentDAO.cs" />
     <Compile Include="DAO\ISFCaseDAO.cs" />
@@ -95,8 +108,13 @@
     <Compile Include="DAO\imp\IDStoreDAO.cs" />
     <Compile Include="DAO\imp\SequenceGenerator.cs" />
     <Compile Include="DAO\ISequenceGenerator.cs" />
+    <Compile Include="DAO\ITenantDAO.cs" />
     <Compile Include="Model\Account\Account.cs" />
     <Compile Include="Model\Account\AccountSession.cs" />
+    <Compile Include="Model\Account\Group.cs" />
+    <Compile Include="Model\Account\Member.cs" />
+    <Compile Include="Model\Account\MemberGroup.cs" />
+    <Compile Include="Model\Account\MemberRole.cs" />
     <Compile Include="Model\Account\Permission.cs" />
     <Compile Include="Model\Account\Role.cs" />
     <Compile Include="Model\Common\BasicDataModel.cs" />
@@ -175,6 +193,12 @@
     <Content Include="Config\Maps\ConfigOption.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Config\Maps\MemberRole.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\MemberGroup.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Config\Maps\JiraAccount.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -190,7 +214,19 @@
     <Content Include="Config\Maps\JiraIssue.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Config\Maps\Group.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Config\Maps\SFAccount.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\Member.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\Role.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\Maps\Tenant.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Config\Maps\SFCaseComment.xml">
@@ -206,9 +242,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Config\Maps\Permission.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Config\Maps\Role.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Config\Maps\Account.xml">

@@ -190,7 +190,7 @@
             this.dgvCaseList.Location = new System.Drawing.Point(6, 19);
             this.dgvCaseList.Name = "dgvCaseList";
             this.dgvCaseList.ReadOnly = true;
-            this.dgvCaseList.Size = new System.Drawing.Size(1176, 560);
+            this.dgvCaseList.Size = new System.Drawing.Size(1176, 550);
             this.dgvCaseList.TabIndex = 0;
             // 
             // No

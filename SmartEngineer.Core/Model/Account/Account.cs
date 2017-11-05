@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class Account
+    public class Account : BasicDataModel
     {
         [DataMember]
         public int ID { get; set; }

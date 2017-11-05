@@ -54,29 +54,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounts\frmGroups.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounts\frmGroups.Designer.cs">
-      <DependentUpon>frmGroups.cs</DependentUpon>
-    </Compile>
     <Compile Include="Accounts\frmPermissions.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounts\frmPermissions.Designer.cs">
       <DependentUpon>frmPermissions.cs</DependentUpon>
     </Compile>
-    <Compile Include="Accounts\frmRoles.cs">
+    <Compile Include="Accounts\frmTenants.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Accounts\frmRoles.Designer.cs">
-      <DependentUpon>frmRoles.cs</DependentUpon>
+    <Compile Include="Accounts\frmTenants.Designer.cs">
+      <DependentUpon>frmTenants.cs</DependentUpon>
     </Compile>
-    <Compile Include="Accounts\frmUsers.cs">
+    <Compile Include="Accounts\frmMembers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Accounts\frmUsers.Designer.cs">
-      <DependentUpon>frmUsers.cs</DependentUpon>
+    <Compile Include="Accounts\frmMembers.Designer.cs">
+      <DependentUpon>frmMembers.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
@@ -274,17 +268,14 @@
     <Compile Include="Settings\OptionSettings\UserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <EmbeddedResource Include="Accounts\frmGroups.resx">
-      <DependentUpon>frmGroups.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Accounts\frmPermissions.resx">
       <DependentUpon>frmPermissions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Accounts\frmRoles.resx">
-      <DependentUpon>frmRoles.cs</DependentUpon>
+    <EmbeddedResource Include="Accounts\frmTenants.resx">
+      <DependentUpon>frmTenants.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Accounts\frmUsers.resx">
-      <DependentUpon>frmUsers.cs</DependentUpon>
+    <EmbeddedResource Include="Accounts\frmMembers.resx">
+      <DependentUpon>frmMembers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>

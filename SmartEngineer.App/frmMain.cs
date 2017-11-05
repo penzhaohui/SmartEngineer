@@ -175,17 +175,13 @@ namespace SmartEngineer.Forms
                 {
                     form = new frmOptionSettings();
                 }
-                else if (funcTag == "Roles")
+                else if (funcTag == "Tenants")
                 {
-                    form = new frmRoles();
+                    form = new frmTenants();
                 }
                 else if (funcTag == "Users")
                 {
                     form = new frmUsers();
-                }
-                else if (funcTag == "Groups")
-                {
-                    form = new frmGroups();
                 }
                 else if (funcTag == "Permissions")
                 {

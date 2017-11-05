@@ -7,7 +7,7 @@ using System.Web;
 namespace SmartEngineer.Core.Models
 {
     [DataContract]
-    public class Role : BasicDataModel
+    public class Group : BasicDataModel
     {
         [DataMember]
         public int ID { get; set; }
@@ -18,6 +18,6 @@ namespace SmartEngineer.Core.Models
         [DataMember]
         public bool IsActive { get; set; }
         [DataMember]
-        public int ITenantID { get; set; }
+        public int TenantID { get; set; }
     }
 }
