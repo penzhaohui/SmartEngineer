@@ -181,7 +181,7 @@ namespace SmartEngineer.Forms
                 }
                 else if (funcTag == "Users")
                 {
-                    form = new frmUsers();
+                    form = new frmMembers();
                 }
                 else if (funcTag == "Permissions")
                 {
@@ -264,7 +264,13 @@ namespace SmartEngineer.Forms
                             child.Close();
                             child.Dispose();
                         }
-                                                
+
+                        IBasicForm basicForm = form as IBasicForm;
+                        if (basicForm != null)
+                        {
+                            basicForm.InitUserInterface(null);
+                        }
+
                         //form.Dock = DockStyle.Fill;
                         form.MdiParent = this;
                         form.ControlBox = true;

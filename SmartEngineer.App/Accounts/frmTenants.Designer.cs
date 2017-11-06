@@ -38,6 +38,7 @@
             this.DomainPattern = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegisterDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTenantID = new System.Windows.Forms.TextBox();
             this.txtDomainPattern = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -52,7 +53,6 @@
             this.txtTenantName = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSaveTenant = new System.Windows.Forms.Button();
-            this.txtTenantID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrTenantList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             this.btnForbiddenTenant.Name = "btnForbiddenTenant";
             this.btnForbiddenTenant.Size = new System.Drawing.Size(75, 23);
             this.btnForbiddenTenant.TabIndex = 10;
-            this.btnForbiddenTenant.Text = "Forbidden";
+            this.btnForbiddenTenant.Text = "Deactivate";
             this.btnForbiddenTenant.UseVisualStyleBackColor = true;
             this.btnForbiddenTenant.Click += new System.EventHandler(this.btnForbiddenTenant_Click);
             // 
@@ -103,6 +103,7 @@
             this.dgrTenantList.ReadOnly = true;
             this.dgrTenantList.Size = new System.Drawing.Size(334, 682);
             this.dgrTenantList.TabIndex = 13;
+            this.dgrTenantList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrTenantList_CellClick);
             this.dgrTenantList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrTenantList_CellContentClick);
             // 
             // Select
@@ -167,6 +168,14 @@
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Basic Information";
+            // 
+            // txtTenantID
+            // 
+            this.txtTenantID.Location = new System.Drawing.Point(238, 20);
+            this.txtTenantID.Name = "txtTenantID";
+            this.txtTenantID.Size = new System.Drawing.Size(100, 20);
+            this.txtTenantID.TabIndex = 32;
+            this.txtTenantID.Visible = false;
             // 
             // txtDomainPattern
             // 
@@ -287,14 +296,6 @@
             this.btnSaveTenant.Text = "Save";
             this.btnSaveTenant.UseVisualStyleBackColor = true;
             this.btnSaveTenant.Click += new System.EventHandler(this.btnSaveTenant_Click);
-            // 
-            // txtTenantID
-            // 
-            this.txtTenantID.Location = new System.Drawing.Point(238, 20);
-            this.txtTenantID.Name = "txtTenantID";
-            this.txtTenantID.Size = new System.Drawing.Size(100, 20);
-            this.txtTenantID.TabIndex = 32;
-            this.txtTenantID.Visible = false;
             // 
             // frmTenants
             // 

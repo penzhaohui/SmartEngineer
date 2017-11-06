@@ -191,6 +191,9 @@ namespace SmartEngineer.ServiceClient.MemberService {
         private int AccountIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AccountNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DisplayNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -203,6 +206,15 @@ namespace SmartEngineer.ServiceClient.MemberService {
         private string FirstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GitHubAccountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GitHubAccountIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GitHubPasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -212,7 +224,7 @@ namespace SmartEngineer.ServiceClient.MemberService {
         private string JiraAccountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int JiraAccountIDField;
+        private string JiraAccountIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string JiraPasswordField;
@@ -227,10 +239,13 @@ namespace SmartEngineer.ServiceClient.MemberService {
         private int TenantIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TenantNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TestRailAccountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TestRailAccountIDField;
+        private string TestRailAccountIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TestRailPasswordField;
@@ -247,6 +262,19 @@ namespace SmartEngineer.ServiceClient.MemberService {
                 if ((this.AccountIDField.Equals(value) != true)) {
                     this.AccountIDField = value;
                     this.RaisePropertyChanged("AccountID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AccountName {
+            get {
+                return this.AccountNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AccountNameField, value) != true)) {
+                    this.AccountNameField = value;
+                    this.RaisePropertyChanged("AccountName");
                 }
             }
         }
@@ -304,6 +332,45 @@ namespace SmartEngineer.ServiceClient.MemberService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GitHubAccount {
+            get {
+                return this.GitHubAccountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GitHubAccountField, value) != true)) {
+                    this.GitHubAccountField = value;
+                    this.RaisePropertyChanged("GitHubAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GitHubAccountID {
+            get {
+                return this.GitHubAccountIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GitHubAccountIDField, value) != true)) {
+                    this.GitHubAccountIDField = value;
+                    this.RaisePropertyChanged("GitHubAccountID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GitHubPassword {
+            get {
+                return this.GitHubPasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GitHubPasswordField, value) != true)) {
+                    this.GitHubPasswordField = value;
+                    this.RaisePropertyChanged("GitHubPassword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int ID {
             get {
                 return this.IDField;
@@ -343,12 +410,12 @@ namespace SmartEngineer.ServiceClient.MemberService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int JiraAccountID {
+        public string JiraAccountID {
             get {
                 return this.JiraAccountIDField;
             }
             set {
-                if ((this.JiraAccountIDField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.JiraAccountIDField, value) != true)) {
                     this.JiraAccountIDField = value;
                     this.RaisePropertyChanged("JiraAccountID");
                 }
@@ -408,6 +475,19 @@ namespace SmartEngineer.ServiceClient.MemberService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TenantName {
+            get {
+                return this.TenantNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TenantNameField, value) != true)) {
+                    this.TenantNameField = value;
+                    this.RaisePropertyChanged("TenantName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string TestRailAccount {
             get {
                 return this.TestRailAccountField;
@@ -421,12 +501,12 @@ namespace SmartEngineer.ServiceClient.MemberService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TestRailAccountID {
+        public string TestRailAccountID {
             get {
                 return this.TestRailAccountIDField;
             }
             set {
-                if ((this.TestRailAccountIDField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.TestRailAccountIDField, value) != true)) {
                     this.TestRailAccountIDField = value;
                     this.RaisePropertyChanged("TestRailAccountID");
                 }

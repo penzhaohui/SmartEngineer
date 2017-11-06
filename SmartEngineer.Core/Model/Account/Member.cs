@@ -10,7 +10,11 @@ namespace SmartEngineer.Core.Models
         [DataMember]
         public int AccountID { get; set; }
         [DataMember]
+        public string AccountName { get; set; }
+        [DataMember]
         public int TenantID { get; set; }
+        [DataMember]
+        public string TenantName { get; set; }
         [DataMember]
         public string UserName { get; set; }
         [DataMember]
@@ -20,25 +24,30 @@ namespace SmartEngineer.Core.Models
         [DataMember]
         public string LastName { get; set; }
         [DataMember]
-        public string Signature { get; set; }
+        public string Signature { get; set; }        
+        [DataMember]
+        public bool IsActive { get; set; }
         [DataMember]
         public string EmailAddress { get; set; }
         [DataMember]
         public string EmailPassword { get; set; }
         [DataMember]
-        public bool IsActive { get; set; }
-        [DataMember]
-        public int JiraAccountID { get; set; }
+        public string JiraAccountID { get; set; }
         [DataMember]
         public string JiraAccount { get; set; }
         [DataMember]
         public string JiraPassword { get; set; }
         [DataMember]
-        public int TestRailAccountID { get; set; }
+        public string TestRailAccountID { get; set; }
         [DataMember]
         public string TestRailAccount { get; set; }
         [DataMember]
         public string TestRailPassword { get; set; }
-
+        [DataMember]
+        public string GitHubAccountID { get; set; }
+        [DataMember]
+        public string GitHubAccount { get; set; }
+        [DataMember]
+        public string GitHubPassword { get; set; }
     }
 }

@@ -54,6 +54,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\frmAssignToRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\frmAssignToRole.Designer.cs">
+      <DependentUpon>frmAssignToRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\frmAssignToGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\frmAssignToGroup.Designer.cs">
+      <DependentUpon>frmAssignToGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\frmMemberNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\frmMemberNew.Designer.cs">
+      <DependentUpon>frmMemberNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accounts\frmPermissions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +293,15 @@
     <Compile Include="Settings\OptionSettings\UserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <EmbeddedResource Include="Accounts\frmAssignToRole.resx">
+      <DependentUpon>frmAssignToRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\frmAssignToGroup.resx">
+      <DependentUpon>frmAssignToGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\frmMemberNew.resx">
+      <DependentUpon>frmMemberNew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounts\frmPermissions.resx">
       <DependentUpon>frmPermissions.cs</DependentUpon>
     </EmbeddedResource>

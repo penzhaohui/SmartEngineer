@@ -70,29 +70,7 @@ namespace SmartEngineer.Forms
 
         private void dgrTenantList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rowindex = e.RowIndex;
-
-            DataTable table = this.dgrTenantList.DataSource as DataTable;
-            DataRow row = table.Rows[rowindex];
-            this.txtTenantID.Text = "" + row["TenantID"];
-            this.txtTenantName.Text = row["TenantName"] as string;
-            this.txtDescription.Text = row["Description"] as string;
-            this.txtDomainPattern.Text = row["DomainPattern"] as string;
-            this.chkIsActive.Checked = (bool)row["Active"];
-            string TimeZone = row["TimeZone"] as string;
-
-            int index = -1;
-            this.cmbTimeZone.SelectedIndex = -1;
-            foreach (ListItem item in this.cmbTimeZone.Items)
-            {
-                index++;
-                if (item.Value == TimeZone)
-                {
-                    this.cmbTimeZone.SelectedIndex = index;
-                    break;
-                }
-            }
-            this.txtMaxUserCount.Text = "" + row["MaxAccountNumber"];            
+            dgrTenantList_CellClick(sender, e);
         }
 
         private void btnSaveTenant_Click(object sender, EventArgs e)
@@ -146,6 +124,35 @@ namespace SmartEngineer.Forms
             {
                 SystemMessageBox.ShowInformation("Failed to save, please contact administrator.");
             }
+        }
+
+        private void dgrTenantList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowindex = e.RowIndex;
+
+            this.dgrTenantList.Rows[rowindex].Selected = true;
+
+            DataTable table = this.dgrTenantList.DataSource as DataTable;
+            DataRow row = table.Rows[rowindex];
+            this.txtTenantID.Text = "" + row["TenantID"];
+            this.txtTenantName.Text = row["TenantName"] as string;
+            this.txtDescription.Text = row["Description"] as string;
+            this.txtDomainPattern.Text = row["DomainPattern"] as string;
+            this.chkIsActive.Checked = (bool)row["Active"];
+            string TimeZone = row["TimeZone"] as string;
+
+            int index = -1;
+            this.cmbTimeZone.SelectedIndex = -1;
+            foreach (ListItem item in this.cmbTimeZone.Items)
+            {
+                index++;
+                if (item.Value == TimeZone)
+                {
+                    this.cmbTimeZone.SelectedIndex = index;
+                    break;
+                }
+            }
+            this.txtMaxUserCount.Text = "" + row["MaxAccountNumber"];
         }
     }
 }

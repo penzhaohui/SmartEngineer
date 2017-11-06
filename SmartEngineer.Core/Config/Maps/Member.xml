@@ -22,7 +22,7 @@
         <IsGreaterThan CompareValue="0" Property="TenantID" Prepend="And">
           TenantID = @TenantID
         </IsGreaterThan>
-        <IsNotEmpty Property="EmailAddress" Prepend="And" In="true">
+        <IsNotEmpty Property="EmailAddress" Prepend="And">
           EmailAddress = @EmailAddress
         </IsNotEmpty>
       </Dynamic>      
@@ -32,7 +32,7 @@
     <Statement Id="Insert">
       INSERT INTO admin_Member
       (ID
-      ,AccountID
+      ,AccountID      
       ,TenantID
       ,UserName
       ,DisplayName
@@ -48,6 +48,9 @@
       ,TestRailAccountID
       ,TestRailAccount
       ,TestRailPassword
+      ,GitHubAccountID
+      ,GitHubAccount
+      ,GitHubPassword
       ,LastUpdateTime
       ,LastUpdateUserID)
       VALUES
@@ -68,6 +71,9 @@
       ,@TestRailAccountID
       ,@TestRailAccount
       ,@TestRailPassword
+      ,@GitHubAccountID
+      ,@GitHubAccount
+      ,@GitHubPassword
       ,@LastUpdateTime
       ,@LastUpdateUserID);
     </Statement>
@@ -95,6 +101,9 @@
       TestRailAccountID=@TestRailAccountID,
       TestRailAccount=@TestRailAccount,
       TestRailPassword=@TestRailPassword,
+      GitHubAccountID=@GitHubAccountID,
+      GitHubAccount=@GitHubAccount,
+      GitHubPassword=@GitHubPassword,
       LastUpdateTime=@LastUpdateTime,
       LastUpdateUserID=@LastUpdateUserID
       <Where>
@@ -117,7 +126,9 @@
     <Statement Id="GetEntity">
       SELECT ID
       ,AccountID
+      ,(SELECT TOP 1 UserName FROM sys_Account WHERE ID = AccountID) as AccountName
       ,TenantID
+      ,(SELECT TOP 1 Name FROM sys_Tenant WHERE ID = TenantID) as TenantName
       ,UserName
       ,DisplayName
       ,FirstName
@@ -126,12 +137,15 @@
       ,EmailAddress
       ,EmailPassword
       ,IsActive
-      ,JiraAccountID
+      ,(SELECT TOP 1 Name FROM JiraAccount Jira WHERE Jira.EmailAddress=EmailAddress) as JiraAccountID
       ,JiraAccount
       ,JiraPassword
       ,TestRailAccountID
       ,TestRailAccount
       ,TestRailPassword
+      ,GitHubAccountID
+      ,GitHubAccount
+      ,GitHubPassword
       ,LastUpdateTime
       ,LastUpdateUserID
       FROM admin_Member
@@ -143,7 +157,9 @@
     <Statement Id="GetList">
       SELECT ID
       ,AccountID
+      ,(SELECT TOP 1 UserName FROM sys_Account WHERE ID = AccountID) as AccountName
       ,TenantID
+      ,(SELECT TOP 1 Name FROM sys_Tenant WHERE ID = TenantID) as TenantName
       ,UserName
       ,DisplayName
       ,FirstName
@@ -152,12 +168,15 @@
       ,EmailAddress
       ,EmailPassword
       ,IsActive
-      ,JiraAccountID
+      ,(SELECT TOP 1 Name FROM JiraAccount Jira WHERE Jira.EmailAddress=EmailAddress) as JiraAccountID
       ,JiraAccount
       ,JiraPassword
       ,TestRailAccountID
       ,TestRailAccount
       ,TestRailPassword
+      ,GitHubAccountID
+      ,GitHubAccount
+      ,GitHubPassword
       ,LastUpdateTime
       ,LastUpdateUserID
       FROM admin_Member

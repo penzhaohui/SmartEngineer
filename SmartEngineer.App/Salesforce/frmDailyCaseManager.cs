@@ -19,7 +19,6 @@ namespace SmartEngineer.Forms
 
         public void InitUserInterface(IShowMessage messager)
         {
-            throw new NotImplementedException();
         }
 
         private void btnGetNewCasesFromSalesforce_Click(object sender, EventArgs e)

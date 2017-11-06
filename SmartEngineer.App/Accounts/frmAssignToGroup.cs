@@ -7,21 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SmartEngineer.Notification;
 
 namespace SmartEngineer.Forms
 {
-    public partial class frmPermissions : Form, IBasicForm
+    public partial class frmAssignToGroup : Form
     {
-        public frmPermissions()
+        public frmAssignToGroup()
         {
             InitializeComponent();
-        }
-
-        public string FormName => throw new NotImplementedException();
-
-        public void InitUserInterface(IShowMessage messager)
-        {
         }
     }
 }
