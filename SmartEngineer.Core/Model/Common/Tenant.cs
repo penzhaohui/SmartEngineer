@@ -11,6 +11,8 @@ namespace SmartEngineer.Core.Models
         [DataMember]
         public string Name { get; set; }
         [DataMember]
+        public string Description { get; set; }
+        [DataMember]
         public string DomainPattern { get; set; }
         [DataMember]
         public DateTime CreateDate { get; set; }

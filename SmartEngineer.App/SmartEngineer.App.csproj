@@ -60,6 +60,12 @@
     <Compile Include="Accounts\frmPermissions.Designer.cs">
       <DependentUpon>frmPermissions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accounts\frmTenantNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\frmTenantNew.Designer.cs">
+      <DependentUpon>frmTenantNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accounts\frmTenants.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,7 @@
     <Compile Include="Accounts\frmMembers.Designer.cs">
       <DependentUpon>frmMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\ListItem.cs" />
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +277,9 @@
     </Compile>
     <EmbeddedResource Include="Accounts\frmPermissions.resx">
       <DependentUpon>frmPermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\frmTenantNew.resx">
+      <DependentUpon>frmTenantNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounts\frmTenants.resx">
       <DependentUpon>frmTenants.cs</DependentUpon>

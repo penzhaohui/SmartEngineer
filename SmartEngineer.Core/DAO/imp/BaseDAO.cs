@@ -37,6 +37,8 @@ namespace SmartEngineer.Core.DAOs
 
         public TEntity GetEntity(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
+            if (paramObj == null) paramObj = default(TEntity);
+
             var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
             if (TenantIDProperty != null)
             {
@@ -53,6 +55,8 @@ namespace SmartEngineer.Core.DAOs
 
         public IEnumerable<TResponse> GetList<TResponse>(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
+            if (paramObj == null) paramObj = (TEntity)Activator.CreateInstance(typeof(TEntity));
+
             var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
             if (TenantIDProperty != null)
             {
@@ -69,6 +73,8 @@ namespace SmartEngineer.Core.DAOs
 
         public IEnumerable<TResponse> GetListByPage<TResponse>(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
+            if (paramObj == null) paramObj = (TEntity)Activator.CreateInstance(typeof(TEntity));
+
             var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
             if (TenantIDProperty != null)
             {
@@ -85,6 +91,8 @@ namespace SmartEngineer.Core.DAOs
 
         public virtual TEntity Insert(TEntity entity)
         {
+            if (entity == null) entity = (TEntity)Activator.CreateInstance(typeof(TEntity));
+
             var lastUpdateTimeProperty = entity.GetType().GetProperty("LastUpdateTime");
             if (lastUpdateTimeProperty != null)
             {
@@ -112,9 +120,10 @@ namespace SmartEngineer.Core.DAOs
 
             return default(TEntity);
         }
-
         public bool IsExist(object paramObj, DataSourceChoice sourceChoice = DataSourceChoice.Read)
         {
+            if (paramObj == null) paramObj = (TEntity)Activator.CreateInstance(typeof(TEntity));
+
             var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
             if (TenantIDProperty != null)
             {
@@ -131,6 +140,8 @@ namespace SmartEngineer.Core.DAOs
 
         public int Update(TEntity entity)
         {
+            if (entity == null) entity = (TEntity)Activator.CreateInstance(typeof(TEntity));
+
             var TenantIDProperty = entity.GetType().GetProperty("TenantID");
             if (TenantIDProperty != null)
             {

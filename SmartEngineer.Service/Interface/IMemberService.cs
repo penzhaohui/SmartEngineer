@@ -56,7 +56,9 @@ namespace SmartEngineer.Service
         #region Permission Operation
         #endregion
 
+        [OperationContract]
         List<Role> GetAllRoles();
+        [OperationContract]
         List<Group> GetAllGroups();
     }
 }

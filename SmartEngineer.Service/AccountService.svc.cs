@@ -28,6 +28,9 @@ namespace SmartEngineer.Service
             }
             else
             {
+                account = new Account();
+                account.UserName = userName;
+                account.Password = Password;
                 account = accountAdapter.ValidateAccount(account);
             }
 

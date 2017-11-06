@@ -53,10 +53,12 @@
     <Compile Include="Adapters\IConfigAdapter.cs" />
     <Compile Include="Adapters\IDatabaseAdapter.cs" />
     <Compile Include="Adapters\IJiraAdapter.cs" />
+    <Compile Include="Adapters\IMemberAdapter.cs" />
     <Compile Include="Adapters\imp\AccountAdapter.cs" />
     <Compile Include="Adapters\imp\CaseAdapter.cs" />
     <Compile Include="Adapters\imp\ConfigAdapter.cs" />
     <Compile Include="Adapters\imp\DatabaseAdapter.cs" />
+    <Compile Include="Adapters\imp\MemberAdapter.cs" />
     <Compile Include="Adapters\IReportAdapter.cs" />
     <Compile Include="Adapters\ISalesforceAdapter.cs" />
     <Compile Include="Config\WebServiceConfig.cs" />
@@ -238,12 +240,34 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\MemberService\MemberService.wsdl" />
+    <None Include="Connected Services\MemberService\MemberService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MemberService\MemberService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MemberService\MemberService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\MemberService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\MemberService\SmartEngineer.ServiceClient.MemberService.Group.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MemberService\SmartEngineer.ServiceClient.MemberService.Member.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MemberService\SmartEngineer.ServiceClient.MemberService.Role.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MemberService\SmartEngineer.ServiceClient.MemberService.Tenant.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ReleaseService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -352,6 +376,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\DatabaseService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MemberService\MemberService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MemberService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MemberService\configuration.svcinfo" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,17 +9,712 @@
 //------------------------------------------------------------------------------
 
 namespace SmartEngineer.ServiceClient.MemberService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Tenant", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    public partial class Tenant : SmartEngineer.ServiceClient.MemberService.BasicDataModel {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DomainPatternField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaxAccountNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TimeZoneField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateDate {
+            get {
+                return this.CreateDateField;
+            }
+            set {
+                if ((this.CreateDateField.Equals(value) != true)) {
+                    this.CreateDateField = value;
+                    this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DomainPattern {
+            get {
+                return this.DomainPatternField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DomainPatternField, value) != true)) {
+                    this.DomainPatternField = value;
+                    this.RaisePropertyChanged("DomainPattern");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsActive {
+            get {
+                return this.IsActiveField;
+            }
+            set {
+                if ((this.IsActiveField.Equals(value) != true)) {
+                    this.IsActiveField = value;
+                    this.RaisePropertyChanged("IsActive");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaxAccountNumber {
+            get {
+                return this.MaxAccountNumberField;
+            }
+            set {
+                if ((this.MaxAccountNumberField.Equals(value) != true)) {
+                    this.MaxAccountNumberField = value;
+                    this.RaisePropertyChanged("MaxAccountNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TimeZone {
+            get {
+                return this.TimeZoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TimeZoneField, value) != true)) {
+                    this.TimeZoneField = value;
+                    this.RaisePropertyChanged("TimeZone");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BasicDataModel", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.MemberService.Member))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.MemberService.Role))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.MemberService.Group))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.MemberService.Tenant))]
+    public partial class BasicDataModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Member", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    public partial class Member : SmartEngineer.ServiceClient.MemberService.BasicDataModel {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AccountIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DisplayNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailPasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JiraAccountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int JiraAccountIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JiraPasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SignatureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TenantIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TestRailAccountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TestRailAccountIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TestRailPasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AccountID {
+            get {
+                return this.AccountIDField;
+            }
+            set {
+                if ((this.AccountIDField.Equals(value) != true)) {
+                    this.AccountIDField = value;
+                    this.RaisePropertyChanged("AccountID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DisplayName {
+            get {
+                return this.DisplayNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DisplayNameField, value) != true)) {
+                    this.DisplayNameField = value;
+                    this.RaisePropertyChanged("DisplayName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmailAddress {
+            get {
+                return this.EmailAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailAddressField, value) != true)) {
+                    this.EmailAddressField = value;
+                    this.RaisePropertyChanged("EmailAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmailPassword {
+            get {
+                return this.EmailPasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailPasswordField, value) != true)) {
+                    this.EmailPasswordField = value;
+                    this.RaisePropertyChanged("EmailPassword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsActive {
+            get {
+                return this.IsActiveField;
+            }
+            set {
+                if ((this.IsActiveField.Equals(value) != true)) {
+                    this.IsActiveField = value;
+                    this.RaisePropertyChanged("IsActive");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string JiraAccount {
+            get {
+                return this.JiraAccountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JiraAccountField, value) != true)) {
+                    this.JiraAccountField = value;
+                    this.RaisePropertyChanged("JiraAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int JiraAccountID {
+            get {
+                return this.JiraAccountIDField;
+            }
+            set {
+                if ((this.JiraAccountIDField.Equals(value) != true)) {
+                    this.JiraAccountIDField = value;
+                    this.RaisePropertyChanged("JiraAccountID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string JiraPassword {
+            get {
+                return this.JiraPasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JiraPasswordField, value) != true)) {
+                    this.JiraPasswordField = value;
+                    this.RaisePropertyChanged("JiraPassword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Signature {
+            get {
+                return this.SignatureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SignatureField, value) != true)) {
+                    this.SignatureField = value;
+                    this.RaisePropertyChanged("Signature");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TenantID {
+            get {
+                return this.TenantIDField;
+            }
+            set {
+                if ((this.TenantIDField.Equals(value) != true)) {
+                    this.TenantIDField = value;
+                    this.RaisePropertyChanged("TenantID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TestRailAccount {
+            get {
+                return this.TestRailAccountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TestRailAccountField, value) != true)) {
+                    this.TestRailAccountField = value;
+                    this.RaisePropertyChanged("TestRailAccount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TestRailAccountID {
+            get {
+                return this.TestRailAccountIDField;
+            }
+            set {
+                if ((this.TestRailAccountIDField.Equals(value) != true)) {
+                    this.TestRailAccountIDField = value;
+                    this.RaisePropertyChanged("TestRailAccountID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TestRailPassword {
+            get {
+                return this.TestRailPasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TestRailPasswordField, value) != true)) {
+                    this.TestRailPasswordField = value;
+                    this.RaisePropertyChanged("TestRailPassword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Role", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    public partial class Role : SmartEngineer.ServiceClient.MemberService.BasicDataModel {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ITenantIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ITenantID {
+            get {
+                return this.ITenantIDField;
+            }
+            set {
+                if ((this.ITenantIDField.Equals(value) != true)) {
+                    this.ITenantIDField = value;
+                    this.RaisePropertyChanged("ITenantID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsActive {
+            get {
+                return this.IsActiveField;
+            }
+            set {
+                if ((this.IsActiveField.Equals(value) != true)) {
+                    this.IsActiveField = value;
+                    this.RaisePropertyChanged("IsActive");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Group", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    public partial class Group : SmartEngineer.ServiceClient.MemberService.BasicDataModel {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TenantIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsActive {
+            get {
+                return this.IsActiveField;
+            }
+            set {
+                if ((this.IsActiveField.Equals(value) != true)) {
+                    this.IsActiveField = value;
+                    this.RaisePropertyChanged("IsActive");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TenantID {
+            get {
+                return this.TenantIDField;
+            }
+            set {
+                if ((this.TenantIDField.Equals(value) != true)) {
+                    this.TenantIDField = value;
+                    this.RaisePropertyChanged("TenantID");
+                }
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MemberService.IMemberService")]
     public interface IMemberService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/DoWork", ReplyAction="http://tempuri.org/IMemberService/DoWorkResponse")]
-        void DoWork();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetAllTenants", ReplyAction="http://tempuri.org/IMemberService/GetAllTenantsResponse")]
+        SmartEngineer.ServiceClient.MemberService.Tenant[] GetAllTenants();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/DoWork", ReplyAction="http://tempuri.org/IMemberService/DoWorkResponse")]
-        System.Threading.Tasks.Task DoWorkAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetAllTenants", ReplyAction="http://tempuri.org/IMemberService/GetAllTenantsResponse")]
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.MemberService.Tenant[]> GetAllTenantsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetTenantInfo", ReplyAction="http://tempuri.org/IMemberService/GetTenantInfoResponse")]
+        SmartEngineer.ServiceClient.MemberService.Tenant GetTenantInfo(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetTenantInfo", ReplyAction="http://tempuri.org/IMemberService/GetTenantInfoResponse")]
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.MemberService.Tenant> GetTenantInfoAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/UpdateTenant", ReplyAction="http://tempuri.org/IMemberService/UpdateTenantResponse")]
+        int UpdateTenant(SmartEngineer.ServiceClient.MemberService.Tenant tenant);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/UpdateTenant", ReplyAction="http://tempuri.org/IMemberService/UpdateTenantResponse")]
+        System.Threading.Tasks.Task<int> UpdateTenantAsync(SmartEngineer.ServiceClient.MemberService.Tenant tenant);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/CreateTenant", ReplyAction="http://tempuri.org/IMemberService/CreateTenantResponse")]
+        int CreateTenant(SmartEngineer.ServiceClient.MemberService.Tenant tenant);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/CreateTenant", ReplyAction="http://tempuri.org/IMemberService/CreateTenantResponse")]
+        System.Threading.Tasks.Task<int> CreateTenantAsync(SmartEngineer.ServiceClient.MemberService.Tenant tenant);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetAllMembers", ReplyAction="http://tempuri.org/IMemberService/GetAllMembersResponse")]
+        SmartEngineer.ServiceClient.MemberService.Member[] GetAllMembers(SmartEngineer.ServiceClient.MemberService.Member memberSearchCriteria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetAllMembers", ReplyAction="http://tempuri.org/IMemberService/GetAllMembersResponse")]
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.MemberService.Member[]> GetAllMembersAsync(SmartEngineer.ServiceClient.MemberService.Member memberSearchCriteria);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/CreateMember", ReplyAction="http://tempuri.org/IMemberService/CreateMemberResponse")]
+        int CreateMember(SmartEngineer.ServiceClient.MemberService.Member member);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/CreateMember", ReplyAction="http://tempuri.org/IMemberService/CreateMemberResponse")]
+        System.Threading.Tasks.Task<int> CreateMemberAsync(SmartEngineer.ServiceClient.MemberService.Member member);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/UpdateMember", ReplyAction="http://tempuri.org/IMemberService/UpdateMemberResponse")]
+        int UpdateMember(SmartEngineer.ServiceClient.MemberService.Member member);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/UpdateMember", ReplyAction="http://tempuri.org/IMemberService/UpdateMemberResponse")]
+        System.Threading.Tasks.Task<int> UpdateMemberAsync(SmartEngineer.ServiceClient.MemberService.Member member);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/ActivateMember", ReplyAction="http://tempuri.org/IMemberService/ActivateMemberResponse")]
+        bool ActivateMember(string emailAddress, bool active);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/ActivateMember", ReplyAction="http://tempuri.org/IMemberService/ActivateMemberResponse")]
+        System.Threading.Tasks.Task<bool> ActivateMemberAsync(string emailAddress, bool active);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/ResetPasswrord", ReplyAction="http://tempuri.org/IMemberService/ResetPasswrordResponse")]
+        bool ResetPasswrord(string emailAddress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/ResetPasswrord", ReplyAction="http://tempuri.org/IMemberService/ResetPasswrordResponse")]
+        System.Threading.Tasks.Task<bool> ResetPasswrordAsync(string emailAddress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToRole", ReplyAction="http://tempuri.org/IMemberService/LinkToRoleResponse")]
+        bool LinkToRole(string emailAddress, string role, bool isCancel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToRole", ReplyAction="http://tempuri.org/IMemberService/LinkToRoleResponse")]
+        System.Threading.Tasks.Task<bool> LinkToRoleAsync(string emailAddress, string role, bool isCancel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToGroup", ReplyAction="http://tempuri.org/IMemberService/LinkToGroupResponse")]
+        bool LinkToGroup(string emailAddress, string group, bool isCancel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToGroup", ReplyAction="http://tempuri.org/IMemberService/LinkToGroupResponse")]
+        System.Threading.Tasks.Task<bool> LinkToGroupAsync(string emailAddress, string group, bool isCancel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetAllRoles", ReplyAction="http://tempuri.org/IMemberService/GetAllRolesResponse")]
+        SmartEngineer.ServiceClient.MemberService.Role[] GetAllRoles();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetAllRoles", ReplyAction="http://tempuri.org/IMemberService/GetAllRolesResponse")]
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.MemberService.Role[]> GetAllRolesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetAllGroups", ReplyAction="http://tempuri.org/IMemberService/GetAllGroupsResponse")]
+        SmartEngineer.ServiceClient.MemberService.Group[] GetAllGroups();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetAllGroups", ReplyAction="http://tempuri.org/IMemberService/GetAllGroupsResponse")]
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.MemberService.Group[]> GetAllGroupsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +744,108 @@ namespace SmartEngineer.ServiceClient.MemberService {
                 base(binding, remoteAddress) {
         }
         
-        public void DoWork() {
-            base.Channel.DoWork();
+        public SmartEngineer.ServiceClient.MemberService.Tenant[] GetAllTenants() {
+            return base.Channel.GetAllTenants();
         }
         
-        public System.Threading.Tasks.Task DoWorkAsync() {
-            return base.Channel.DoWorkAsync();
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.MemberService.Tenant[]> GetAllTenantsAsync() {
+            return base.Channel.GetAllTenantsAsync();
+        }
+        
+        public SmartEngineer.ServiceClient.MemberService.Tenant GetTenantInfo(string name) {
+            return base.Channel.GetTenantInfo(name);
+        }
+        
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.MemberService.Tenant> GetTenantInfoAsync(string name) {
+            return base.Channel.GetTenantInfoAsync(name);
+        }
+        
+        public int UpdateTenant(SmartEngineer.ServiceClient.MemberService.Tenant tenant) {
+            return base.Channel.UpdateTenant(tenant);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateTenantAsync(SmartEngineer.ServiceClient.MemberService.Tenant tenant) {
+            return base.Channel.UpdateTenantAsync(tenant);
+        }
+        
+        public int CreateTenant(SmartEngineer.ServiceClient.MemberService.Tenant tenant) {
+            return base.Channel.CreateTenant(tenant);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateTenantAsync(SmartEngineer.ServiceClient.MemberService.Tenant tenant) {
+            return base.Channel.CreateTenantAsync(tenant);
+        }
+        
+        public SmartEngineer.ServiceClient.MemberService.Member[] GetAllMembers(SmartEngineer.ServiceClient.MemberService.Member memberSearchCriteria) {
+            return base.Channel.GetAllMembers(memberSearchCriteria);
+        }
+        
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.MemberService.Member[]> GetAllMembersAsync(SmartEngineer.ServiceClient.MemberService.Member memberSearchCriteria) {
+            return base.Channel.GetAllMembersAsync(memberSearchCriteria);
+        }
+        
+        public int CreateMember(SmartEngineer.ServiceClient.MemberService.Member member) {
+            return base.Channel.CreateMember(member);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateMemberAsync(SmartEngineer.ServiceClient.MemberService.Member member) {
+            return base.Channel.CreateMemberAsync(member);
+        }
+        
+        public int UpdateMember(SmartEngineer.ServiceClient.MemberService.Member member) {
+            return base.Channel.UpdateMember(member);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateMemberAsync(SmartEngineer.ServiceClient.MemberService.Member member) {
+            return base.Channel.UpdateMemberAsync(member);
+        }
+        
+        public bool ActivateMember(string emailAddress, bool active) {
+            return base.Channel.ActivateMember(emailAddress, active);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ActivateMemberAsync(string emailAddress, bool active) {
+            return base.Channel.ActivateMemberAsync(emailAddress, active);
+        }
+        
+        public bool ResetPasswrord(string emailAddress) {
+            return base.Channel.ResetPasswrord(emailAddress);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ResetPasswrordAsync(string emailAddress) {
+            return base.Channel.ResetPasswrordAsync(emailAddress);
+        }
+        
+        public bool LinkToRole(string emailAddress, string role, bool isCancel) {
+            return base.Channel.LinkToRole(emailAddress, role, isCancel);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LinkToRoleAsync(string emailAddress, string role, bool isCancel) {
+            return base.Channel.LinkToRoleAsync(emailAddress, role, isCancel);
+        }
+        
+        public bool LinkToGroup(string emailAddress, string group, bool isCancel) {
+            return base.Channel.LinkToGroup(emailAddress, group, isCancel);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LinkToGroupAsync(string emailAddress, string group, bool isCancel) {
+            return base.Channel.LinkToGroupAsync(emailAddress, group, isCancel);
+        }
+        
+        public SmartEngineer.ServiceClient.MemberService.Role[] GetAllRoles() {
+            return base.Channel.GetAllRoles();
+        }
+        
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.MemberService.Role[]> GetAllRolesAsync() {
+            return base.Channel.GetAllRolesAsync();
+        }
+        
+        public SmartEngineer.ServiceClient.MemberService.Group[] GetAllGroups() {
+            return base.Channel.GetAllGroups();
+        }
+        
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.MemberService.Group[]> GetAllGroupsAsync() {
+            return base.Channel.GetAllGroupsAsync();
         }
     }
 }

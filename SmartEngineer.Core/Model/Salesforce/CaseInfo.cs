@@ -100,13 +100,10 @@ namespace SmartEngineer.Core.Models
 
             #region Mobile App
 
-            if ("Inspector" == product || "Civic Hero" == product || "Code Officer" == product || "Work Crew" == product)
+            if ("Inspector" == product || "Civic Hero" == product || "Code Officer" == product || "Work Crew" == product
+                || "Inspector" == solution || "Civic Hero" == solution || "Code Officer" == solution || "Work Crew" == solution)
             {
-                productName = product;
-            }
-            if ("Inspector" == solution || "Civic Hero" == solution || "Code Officer" == solution || "Work Crew" == solution)
-            {
-                productName = solution;
+                productName = "Accela Mobile";
             }
 
             #endregion
