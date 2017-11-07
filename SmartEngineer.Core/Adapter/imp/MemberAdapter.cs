@@ -7,6 +7,7 @@ using SmartEngineer.Core.Models;
 using SmartEngineer.Framework.Logger;
 using log4net;
 using SmartEngineer.Core.DAOs;
+using SmartEngineer.Core.Cache;
 
 namespace SmartEngineer.Core.Adapter
 {
@@ -23,6 +24,7 @@ namespace SmartEngineer.Core.Adapter
         private static readonly IGroupDAO<Group> GroupDAO = new GroupDAO<Group>();
         private static readonly IMemberGroupDAO<MemberGroup> MemberGroupDAO = new MemberGroupDAO<MemberGroup>();
         private static readonly IMemberRoleDAO<MemberRole> MemberRoleDAO = new MemberRoleDAO<MemberRole>();
+        private static readonly SimpleMemoryCache SimpleMemoryCache = new SimpleMemoryCache();
 
         #region Tenant Operation
 
@@ -56,6 +58,41 @@ namespace SmartEngineer.Core.Adapter
         #endregion
 
         #region Member Operation
+
+        public List<Member> GetMemberByGroupName(string groupName)
+        {
+            List<Member> members = new List<Member>();
+            string tenantName = "Missionsky";
+            string cacheKey = $"{tenantName}@{groupName}";           
+
+            members = SimpleMemoryCache.GetCachedItem(cacheKey) as List<Member>;
+
+            if (members == null)
+            {
+                int groupID = 0;
+                int tenantID = 0;
+
+                var tenantEntity = TenantDAO.GetEntity(new { Name = tenantName });
+                tenantID = tenantEntity.ID;
+
+                var groupEntity = GroupDAO.GetEntity(new { Name = groupName, TenantID = tenantID, IsActive = true });
+                groupID = groupEntity.ID;
+
+                List<int> memberIDst = new List<int>();
+                var groupMembers = MemberGroupDAO.GetList<MemberGroup>(new { GroupID = groupID, TenantID = tenantID, IsActive = true});
+                foreach (MemberGroup groupMember in groupMembers)
+                {
+                    memberIDst.Add(groupMember.MemberID);
+                }
+
+                var result = MemberDAO.GetList<Member>(new { ID = memberIDst, TenantID = tenantID, IsActive = true });
+                members = result.ToList<Member>();
+
+                SimpleMemoryCache.AddToCache(cacheKey, members);
+            }
+
+            return members;
+        }
 
         public List<Member> GetAllMembers(Member memberSearchCriteria)
         {

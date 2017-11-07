@@ -1,4 +1,7 @@
-﻿SmartSql: https://github.com/Ahoo-Wang/SmartSql
+﻿DotNet 资源大全中文版（Awesome最新版）
+http://www.cnblogs.com/wuxl360/p/5889171.html
+
+SmartSql: https://github.com/Ahoo-Wang/SmartSql
 Zookeeper系列（一）： http://blog.csdn.net/tswisdom/article/details/41522069
 ZooKeeper系列（二）： http://blog.csdn.net/tswisdom/article/details/41522041
 ZooKeeper系列（三）： http://blog.csdn.net/tswisdom/article/details/41522099
@@ -89,3 +92,13 @@ http://blog.csdn.net/sinat_22013331/article/details/51613394
 http://download.csdn.net/download/sinat_22013331/9551006
 C#--关键词提取算法
 http://blog.csdn.net/liehuo123/article/details/2764364
+
+.NET缓存框架CacheManager
+http://www.cnblogs.com/wuxl360/p/5909343.html
+https://github.com/MichaCo/CacheManager
+https://github.com/enyim/EnyimMemcached
+在.NET项目中使用PostSharp，使用MemoryCache实现缓存的处理
+http://www.cnblogs.com/wuhuacong/p/6518748.html
+http://www.cnblogs.com/wuhuacong/p/3526335.html
+http://www.cnblogs.com/wuhuacong/p/6517137.html
+https://github.com/AntyaDev/KingAOP

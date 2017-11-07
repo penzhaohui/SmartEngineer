@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartEngineer.Core.Adapter;
+using System;
 using System.Runtime.Serialization;
 
 namespace SmartEngineer.Core.Models
@@ -19,7 +20,8 @@ namespace SmartEngineer.Core.Models
             this.CaseID = sfCaseComment.ParentId;
             this.CaseNumber = caseNumber;
             this.IsPublished = sfCaseComment.IsPublished;
-        }
+            this.CommentAuthor = GetCommentAuthor();
+        }        
 
         [DataMember]
         public int ID { get; set; }
@@ -45,5 +47,30 @@ namespace SmartEngineer.Core.Models
         public string CaseNumber { get; set; }
         [DataMember]
         public bool IsPublished { get; set; }
+        [DataMember]
+        public string CommentAuthor { get; set; }
+
+        private string GetCommentAuthor()
+        {
+            string author = "";
+            
+            if (CreatedByName != "Accela Support Team") return LastModifiedByName;
+            if (String.IsNullOrEmpty(CommentBody)) return LastModifiedByName;
+
+            IMemberAdapter MemberAdapter = new MemberAdapter();
+            var members = MemberAdapter.GetMemberByGroupName("Accle Support Team");
+            foreach (Member member in members)
+            {
+                if (CommentBody.EndsWith(member.FirstName, StringComparison.OrdinalIgnoreCase)
+                    || CommentBody.EndsWith($"{member.FirstName}.{member.LastName}", StringComparison.OrdinalIgnoreCase)
+                    || CommentBody.EndsWith($"{member.FirstName} {member.LastName}", StringComparison.OrdinalIgnoreCase))
+                {
+                    author = $"{member.FirstName} {member.LastName}";
+                    break;
+                }
+            }
+
+            return author;
+        }
     }
 }

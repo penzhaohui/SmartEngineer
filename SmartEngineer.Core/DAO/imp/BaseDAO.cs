@@ -40,9 +40,9 @@ namespace SmartEngineer.Core.DAOs
             if (paramObj == null) paramObj = default(TEntity);
 
             var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
-            if (TenantIDProperty != null)
+            if (TenantIDProperty != null && TenantIDProperty.SetMethod != null)
             {
-                TenantIDProperty.SetValue(paramObj, 1);
+                TenantIDProperty.SetValue(paramObj, 2);
             }
 
             return SQLMapper.QuerySingle<TEntity>(new RequestContext
@@ -58,9 +58,9 @@ namespace SmartEngineer.Core.DAOs
             if (paramObj == null) paramObj = (TEntity)Activator.CreateInstance(typeof(TEntity));
 
             var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
-            if (TenantIDProperty != null)
+            if (TenantIDProperty != null && TenantIDProperty.SetMethod != null)
             {
-                TenantIDProperty.SetValue(paramObj, 1);
+                TenantIDProperty.SetValue(paramObj, 2);
             }
 
             return SQLMapper.Query<TResponse>(new RequestContext
@@ -76,9 +76,9 @@ namespace SmartEngineer.Core.DAOs
             if (paramObj == null) paramObj = (TEntity)Activator.CreateInstance(typeof(TEntity));
 
             var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
-            if (TenantIDProperty != null)
+            if (TenantIDProperty != null && TenantIDProperty.SetMethod != null)
             {
-                TenantIDProperty.SetValue(paramObj, 1);
+                TenantIDProperty.SetValue(paramObj, 2);
             }
 
             return SQLMapper.Query<TResponse>(new RequestContext
@@ -106,9 +106,9 @@ namespace SmartEngineer.Core.DAOs
             }
 
             var TenantIDProperty = entity.GetType().GetProperty("TenantID");
-            if (TenantIDProperty != null)
+            if (TenantIDProperty != null && TenantIDProperty.SetMethod != null)
             {
-                TenantIDProperty.SetValue(entity, 1);
+                TenantIDProperty.SetValue(entity, 2);
             }
 
             SQLMapper.Execute(new RequestContext
@@ -127,7 +127,7 @@ namespace SmartEngineer.Core.DAOs
             var TenantIDProperty = paramObj.GetType().GetProperty("TenantID");
             if (TenantIDProperty != null)
             {
-                TenantIDProperty.SetValue(paramObj, 1);
+                TenantIDProperty.SetValue(paramObj, 2);
             }
 
             return SQLMapper.QuerySingle<int>(new RequestContext
@@ -145,7 +145,7 @@ namespace SmartEngineer.Core.DAOs
             var TenantIDProperty = entity.GetType().GetProperty("TenantID");
             if (TenantIDProperty != null)
             {
-                TenantIDProperty.SetValue(entity, 1);
+                TenantIDProperty.SetValue(entity, 2);
             }
 
             var lastUpdateTimeProperty = entity.GetType().GetProperty("LastUpdateTime");

@@ -88,15 +88,22 @@ namespace SmartEngineer.Core.Adapter
         public bool UpdateCaseCommentInfoToLocal(string caseNo)
         {
             CaseCommentInfo lastCaseCommentInfo = GetLatestCaseCommentByCaseNo(caseNo);
-            if (lastCaseCommentInfo == null
-                || DateTime.Now.Subtract(lastCaseCommentInfo.LastUpdateTime).TotalHours < 4)
+            
+            if (lastCaseCommentInfo != null
+                && DateTime.Now.Subtract(lastCaseCommentInfo.LastUpdateTime).TotalHours < 4)
             {
                 return false;
             }
 
             CaseInfo caseInfo = GetCaseInfoByCaseNo(caseNo);
-            IList<AccelaCaseComment> comments = PullCaseCommentsByParentID(caseInfo.CaseID, null, lastCaseCommentInfo.LastUpdateTime);
+            if (lastCaseCommentInfo == null)
+            {
+                lastCaseCommentInfo = new CaseCommentInfo();
+                lastCaseCommentInfo.LastUpdateTime = caseInfo.CreatedDate;
+            }
 
+            IList<AccelaCaseComment> comments = PullCaseCommentsByParentID(caseInfo.CaseID, null, lastCaseCommentInfo.LastUpdateTime);
+            
             foreach (AccelaCaseComment comment in comments)
             {
                 lastCaseCommentInfo.Initialize(caseNo, comment);

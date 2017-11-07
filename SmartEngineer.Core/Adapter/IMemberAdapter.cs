@@ -21,6 +21,7 @@ namespace SmartEngineer.Core.Adapter
 
         #region Member Operation
 
+        List<Member> GetMemberByGroupName(string groupName);
         List<Member> GetAllMembers(Member memberSearchCriteria);
 
         int SaveMember(Member member);

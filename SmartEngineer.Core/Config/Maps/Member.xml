@@ -16,6 +16,9 @@
         <IsGreaterThan CompareValue="0" Property="ID" Prepend="And">
           ID = @ID
         </IsGreaterThan>
+        <IsNotEmpty CompareValue="0" Property="ID" Prepend="And" In="true">
+          ID = @ID
+        </IsNotEmpty>
         <IsGreaterThan CompareValue="0" Property="AccountID" Prepend="And">
           AccountID = @AccountID
         </IsGreaterThan>
