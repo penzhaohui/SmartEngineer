@@ -32,9 +32,13 @@ namespace SmartEngineer.ServiceClient.Adapters
         
         bool ResetPasswrord(string emailAddress);
         
-        bool LinkToRole(string emailAddress, string role, bool isCancel);
+        bool LinkToRoles(string emailAddress, List<string> roleNameList, bool isCancel);
         
-        bool LinkToGroup(string emailAddress, string group, bool isCancel);
+        bool LinkToGroups(string emailAddress, List<string> groupNameList, bool isCancel);
+
+        List<int> GetLinkedRoles(string emailAddress);
+
+        List<int> GetLinkedGroups(string emailAddress);
 
         #endregion
 

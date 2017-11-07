@@ -46,10 +46,16 @@ namespace SmartEngineer.Service
         bool ResetPasswrord(string emailAddress);
 
         [OperationContract]
-        bool LinkToRole(string emailAddress, string role, bool isCancel);
+        bool LinkToRoles(string emailAddress, List<string> roleNameList, bool isCancel);
 
         [OperationContract]
-        bool LinkToGroup(string emailAddress, string group, bool isCancel);
+        List<int> GetLinkedRoles(string emailAddress);
+
+        [OperationContract]
+        bool LinkToGroups(string emailAddress, List<string> groupNameList, bool isCancel);
+
+        [OperationContract]
+        List<int> GetLinkedGroups(string emailAddress);
 
         #endregion
 

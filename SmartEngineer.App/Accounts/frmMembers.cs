@@ -185,15 +185,37 @@ namespace SmartEngineer.Forms
 
         private void btnAssignToRole_Click(object sender, EventArgs e)
         {
+            if (this.dgvMemberList.SelectedRows.Count != 1)
+            {
+                SystemMessageBox.ShowInformation("Please select one member only.");
+                return;
+            }
+
+            int index = this.dgvMemberList.SelectedRows[0].Index;
+            var members = this.dgvMemberList.DataSource as List<Member>;
+
             frmAssignToRole frmAssignToRole = new frmAssignToRole();
             frmAssignToRole.StartPosition = FormStartPosition.CenterParent;
+            frmAssignToRole.MemberEmailAddress = members[index].EmailAddress;
+            frmAssignToRole.InitUserInterface(null);
             frmAssignToRole.ShowDialog();
         }
 
         private void btnAssignToGroup_Click(object sender, EventArgs e)
         {
+            if (this.dgvMemberList.SelectedRows.Count != 1)
+            {
+                SystemMessageBox.ShowInformation("Please select one member only.");
+                return;
+            }
+
+            int index = this.dgvMemberList.SelectedRows[0].Index;
+            var members = this.dgvMemberList.DataSource as List<Member>;
+
             frmAssignToGroup frmAssignToGroup = new frmAssignToGroup();
             frmAssignToGroup.StartPosition = FormStartPosition.CenterParent;
+            frmAssignToGroup.MemberEmailAddress = members[index].EmailAddress;
+            frmAssignToGroup.InitUserInterface(null);
             frmAssignToGroup.ShowDialog();
         }
     }

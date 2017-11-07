@@ -250,6 +250,9 @@
     <None Include="Connected Services\MemberService\MemberService11.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\MemberService\MemberService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\MemberService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

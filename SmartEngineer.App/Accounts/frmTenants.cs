@@ -130,6 +130,8 @@ namespace SmartEngineer.Forms
         {
             int rowindex = e.RowIndex;
 
+            if (rowindex < 0) return;
+
             this.dgrTenantList.Rows[rowindex].Selected = true;
 
             DataTable table = this.dgrTenantList.DataSource as DataTable;

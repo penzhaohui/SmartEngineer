@@ -67,7 +67,7 @@
     <Compile Include="Adapter\imp\AccountAdapter.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.cs" />
-    <Compile Include="DAO\IMemberRole.cs" />
+    <Compile Include="DAO\IMemberRoleDAO.cs" />
     <Compile Include="DAO\IMemberGroupDAO.cs" />
     <Compile Include="DAO\IConfigDAO.cs" />
     <Compile Include="DAO\IConfigOptionDAO.cs" />

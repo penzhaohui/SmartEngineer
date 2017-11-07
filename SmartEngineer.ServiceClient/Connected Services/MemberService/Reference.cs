@@ -772,17 +772,29 @@ namespace SmartEngineer.ServiceClient.MemberService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/ResetPasswrord", ReplyAction="http://tempuri.org/IMemberService/ResetPasswrordResponse")]
         System.Threading.Tasks.Task<bool> ResetPasswrordAsync(string emailAddress);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToRole", ReplyAction="http://tempuri.org/IMemberService/LinkToRoleResponse")]
-        bool LinkToRole(string emailAddress, string role, bool isCancel);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToRoles", ReplyAction="http://tempuri.org/IMemberService/LinkToRolesResponse")]
+        bool LinkToRoles(string emailAddress, string[] roleNameList, bool isCancel);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToRole", ReplyAction="http://tempuri.org/IMemberService/LinkToRoleResponse")]
-        System.Threading.Tasks.Task<bool> LinkToRoleAsync(string emailAddress, string role, bool isCancel);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToRoles", ReplyAction="http://tempuri.org/IMemberService/LinkToRolesResponse")]
+        System.Threading.Tasks.Task<bool> LinkToRolesAsync(string emailAddress, string[] roleNameList, bool isCancel);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToGroup", ReplyAction="http://tempuri.org/IMemberService/LinkToGroupResponse")]
-        bool LinkToGroup(string emailAddress, string group, bool isCancel);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetLinkedRoles", ReplyAction="http://tempuri.org/IMemberService/GetLinkedRolesResponse")]
+        int[] GetLinkedRoles(string emailAddress);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToGroup", ReplyAction="http://tempuri.org/IMemberService/LinkToGroupResponse")]
-        System.Threading.Tasks.Task<bool> LinkToGroupAsync(string emailAddress, string group, bool isCancel);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetLinkedRoles", ReplyAction="http://tempuri.org/IMemberService/GetLinkedRolesResponse")]
+        System.Threading.Tasks.Task<int[]> GetLinkedRolesAsync(string emailAddress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToGroups", ReplyAction="http://tempuri.org/IMemberService/LinkToGroupsResponse")]
+        bool LinkToGroups(string emailAddress, string[] groupNameList, bool isCancel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/LinkToGroups", ReplyAction="http://tempuri.org/IMemberService/LinkToGroupsResponse")]
+        System.Threading.Tasks.Task<bool> LinkToGroupsAsync(string emailAddress, string[] groupNameList, bool isCancel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetLinkedGroups", ReplyAction="http://tempuri.org/IMemberService/GetLinkedGroupsResponse")]
+        int[] GetLinkedGroups(string emailAddress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetLinkedGroups", ReplyAction="http://tempuri.org/IMemberService/GetLinkedGroupsResponse")]
+        System.Threading.Tasks.Task<int[]> GetLinkedGroupsAsync(string emailAddress);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMemberService/GetAllRoles", ReplyAction="http://tempuri.org/IMemberService/GetAllRolesResponse")]
         SmartEngineer.ServiceClient.MemberService.Role[] GetAllRoles();
@@ -896,20 +908,36 @@ namespace SmartEngineer.ServiceClient.MemberService {
             return base.Channel.ResetPasswrordAsync(emailAddress);
         }
         
-        public bool LinkToRole(string emailAddress, string role, bool isCancel) {
-            return base.Channel.LinkToRole(emailAddress, role, isCancel);
+        public bool LinkToRoles(string emailAddress, string[] roleNameList, bool isCancel) {
+            return base.Channel.LinkToRoles(emailAddress, roleNameList, isCancel);
         }
         
-        public System.Threading.Tasks.Task<bool> LinkToRoleAsync(string emailAddress, string role, bool isCancel) {
-            return base.Channel.LinkToRoleAsync(emailAddress, role, isCancel);
+        public System.Threading.Tasks.Task<bool> LinkToRolesAsync(string emailAddress, string[] roleNameList, bool isCancel) {
+            return base.Channel.LinkToRolesAsync(emailAddress, roleNameList, isCancel);
         }
         
-        public bool LinkToGroup(string emailAddress, string group, bool isCancel) {
-            return base.Channel.LinkToGroup(emailAddress, group, isCancel);
+        public int[] GetLinkedRoles(string emailAddress) {
+            return base.Channel.GetLinkedRoles(emailAddress);
         }
         
-        public System.Threading.Tasks.Task<bool> LinkToGroupAsync(string emailAddress, string group, bool isCancel) {
-            return base.Channel.LinkToGroupAsync(emailAddress, group, isCancel);
+        public System.Threading.Tasks.Task<int[]> GetLinkedRolesAsync(string emailAddress) {
+            return base.Channel.GetLinkedRolesAsync(emailAddress);
+        }
+        
+        public bool LinkToGroups(string emailAddress, string[] groupNameList, bool isCancel) {
+            return base.Channel.LinkToGroups(emailAddress, groupNameList, isCancel);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LinkToGroupsAsync(string emailAddress, string[] groupNameList, bool isCancel) {
+            return base.Channel.LinkToGroupsAsync(emailAddress, groupNameList, isCancel);
+        }
+        
+        public int[] GetLinkedGroups(string emailAddress) {
+            return base.Channel.GetLinkedGroups(emailAddress);
+        }
+        
+        public System.Threading.Tasks.Task<int[]> GetLinkedGroupsAsync(string emailAddress) {
+            return base.Channel.GetLinkedGroupsAsync(emailAddress);
         }
         
         public SmartEngineer.ServiceClient.MemberService.Role[] GetAllRoles() {

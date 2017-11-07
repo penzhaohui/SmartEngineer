@@ -10,7 +10,7 @@ namespace SmartEngineer.Core.Models
     {
         public int ID { get; set; }
         public int MemberID { get; set; }
-        public int RoleID { get; set; }
+        public int GroupID { get; set; }
         public int TenantID { get; set; }
         public bool IsActive { get; set; }
     }

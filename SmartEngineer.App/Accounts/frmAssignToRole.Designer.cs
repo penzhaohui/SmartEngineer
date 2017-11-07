@@ -62,6 +62,7 @@
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -71,6 +72,7 @@
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnMoveToRight
             // 
@@ -80,6 +82,7 @@
             this.btnMoveToRight.TabIndex = 4;
             this.btnMoveToRight.Text = ">>";
             this.btnMoveToRight.UseVisualStyleBackColor = true;
+            this.btnMoveToRight.Click += new System.EventHandler(this.btnMoveToRight_Click);
             // 
             // btnMoveToLeft
             // 
@@ -89,11 +92,12 @@
             this.btnMoveToLeft.TabIndex = 5;
             this.btnMoveToLeft.Text = "<<";
             this.btnMoveToLeft.UseVisualStyleBackColor = true;
+            this.btnMoveToLeft.Click += new System.EventHandler(this.btnMoveToLeft_Click);
             // 
             // lblUnassignedRoles
             // 
             this.lblUnassignedRoles.AutoSize = true;
-            this.lblUnassignedRoles.Location = new System.Drawing.Point(33, 40);
+            this.lblUnassignedRoles.Location = new System.Drawing.Point(35, 40);
             this.lblUnassignedRoles.Name = "lblUnassignedRoles";
             this.lblUnassignedRoles.Size = new System.Drawing.Size(93, 13);
             this.lblUnassignedRoles.TabIndex = 6;
@@ -102,7 +106,7 @@
             // lblAssignedRoles
             // 
             this.lblAssignedRoles.AutoSize = true;
-            this.lblAssignedRoles.Location = new System.Drawing.Point(251, 40);
+            this.lblAssignedRoles.Location = new System.Drawing.Point(257, 40);
             this.lblAssignedRoles.Name = "lblAssignedRoles";
             this.lblAssignedRoles.Size = new System.Drawing.Size(80, 13);
             this.lblAssignedRoles.TabIndex = 7;

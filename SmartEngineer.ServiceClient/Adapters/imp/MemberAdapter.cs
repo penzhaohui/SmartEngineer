@@ -76,14 +76,32 @@ namespace SmartEngineer.ServiceClient.Adapters
             return MemberServiceClient.ResetPasswrord(emailAddress);
         }
 
-        public bool LinkToRole(string emailAddress, string role, bool isCancel)
+        public bool LinkToRoles(string emailAddress, List<string> roleNameList, bool isCancel)
         {
-            return MemberServiceClient.LinkToRole(emailAddress, role, isCancel);
+            return MemberServiceClient.LinkToRoles(emailAddress, roleNameList.ToArray(), isCancel);
         }
 
-        public bool LinkToGroup(string emailAddress, string group, bool isCancel)
+        public bool LinkToGroups(string emailAddress, List<string> groupNameList, bool isCancel)
         {
-            return MemberServiceClient.LinkToGroup(emailAddress, group, isCancel);
+            return MemberServiceClient.LinkToGroups(emailAddress, groupNameList.ToArray(), isCancel);
+        }
+
+        public List<int> GetLinkedRoles(string emailAddress)
+        {
+            List<int> linkedRoleIDList = new List<int>();
+            var linkedRoleIDs = MemberServiceClient.GetLinkedRoles(emailAddress);
+            linkedRoleIDList.AddRange(linkedRoleIDs);
+
+            return linkedRoleIDList;
+        }
+
+        public List<int> GetLinkedGroups(string emailAddress)
+        {
+            List<int> linkedGroupIDList = new List<int>();
+            var linkedGroupIDs = MemberServiceClient.GetLinkedGroups(emailAddress);
+            linkedGroupIDList.AddRange(linkedGroupIDs);
+
+            return linkedGroupIDList;
         }
 
         #endregion

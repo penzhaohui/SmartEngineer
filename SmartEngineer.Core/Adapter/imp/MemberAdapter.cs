@@ -21,6 +21,8 @@ namespace SmartEngineer.Core.Adapter
         private static readonly IAccountDAO<Account> AccountDAO = new AccountDAO<Account>();
         private static readonly IRoleDAO<Role> RoleDAO = new RoleDAO<Role>();
         private static readonly IGroupDAO<Group> GroupDAO = new GroupDAO<Group>();
+        private static readonly IMemberGroupDAO<MemberGroup> MemberGroupDAO = new MemberGroupDAO<MemberGroup>();
+        private static readonly IMemberRoleDAO<MemberRole> MemberRoleDAO = new MemberRoleDAO<MemberRole>();
 
         #region Tenant Operation
 
@@ -116,14 +118,106 @@ namespace SmartEngineer.Core.Adapter
             return false;
         }
 
-        public bool LinkToGroup(string emailAddress, string group, bool isCancel)
+        public bool LinkToGroups(string emailAddress, List<string> groupNameList, bool isCancel)
         {
-            throw new NotImplementedException();
+            var member = MemberDAO.GetEntity(new { EmailAddress = emailAddress });
+            if (member == null || member.ID < 0)
+            {
+                return false;
+            }
+
+            foreach (string groupName in groupNameList)
+            {
+                var group = GroupDAO.GetEntity(new { Name = groupName });
+                if (group == null || group.ID < 0)
+                {
+                    return false;
+                }
+
+                var memberGroup = new MemberGroup();
+                memberGroup.MemberID = member.ID;
+                memberGroup.GroupID = group.ID;
+                if (MemberGroupDAO.IsExist(memberGroup))
+                {
+                    memberGroup.IsActive = isCancel;
+                    MemberGroupDAO.Update(memberGroup);
+                }
+                else
+                {
+                    memberGroup.IsActive = isCancel;
+                    MemberGroupDAO.Insert(memberGroup);
+                }
+            }
+
+            return true;
         }
 
-        public bool LinkToRole(string emailAddress, string role, bool isCancel)
+        public bool LinkToRoles(string emailAddress, List<string> roleNameList, bool isCancel)
         {
-            throw new NotImplementedException();
+            var member = MemberDAO.GetEntity(new { EmailAddress = emailAddress });
+            if (member == null || member.ID < 0)
+            {
+                return false;
+            }
+
+            foreach (string roleName in roleNameList)
+            {
+                var role = RoleDAO.GetEntity(new { Name = roleName });
+                if (role == null || role.ID < 0)
+                {
+                    return false;
+                }
+
+                var memberRole = new MemberRole();
+                memberRole.MemberID = member.ID;
+                memberRole.RoleID = role.ID;
+                if (MemberRoleDAO.IsExist(memberRole))
+                {
+                    memberRole.IsActive = isCancel;
+                    MemberRoleDAO.Update(memberRole);
+                }
+                else
+                {
+                    memberRole.IsActive = isCancel;
+                    MemberRoleDAO.Insert(memberRole);
+                }
+            }
+
+            return true;
+        }
+
+        public List<int> GetLinkedRoles(string emailAddress)
+        {
+            var member = MemberDAO.GetEntity(new { EmailAddress = emailAddress });
+            if (member == null || member.ID < 0)
+            {
+                return null;
+            }
+
+            var memberRole = new MemberRole();
+            memberRole.MemberID = member.ID;
+            memberRole.IsActive = true;
+
+            var LinkedRoles = MemberRoleDAO.GetList<MemberRole>(memberRole);
+            var LinkedRoleIDs = LinkedRoles.Select(linkedRole => linkedRole.RoleID);
+            return LinkedRoleIDs.ToList<int>();
+        }
+
+        public List<int> GetLinkedGroups(string emailAddress)
+        {
+            var member = MemberDAO.GetEntity(new { EmailAddress = emailAddress });
+            if (member == null || member.ID < 0)
+            {
+                return null;
+            }
+
+            var memberGroup = new MemberGroup();
+            memberGroup.MemberID = member.ID;
+            memberGroup.IsActive = true;
+
+            var LinkedGroups = MemberGroupDAO.GetList<MemberGroup>(memberGroup);
+            var LinkedGroupIDs = LinkedGroups.Select(linkedGroup => linkedGroup.GroupID);
+            return LinkedGroupIDs.ToList<int>();
         }
 
         #endregion

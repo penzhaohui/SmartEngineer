@@ -25,6 +25,9 @@
         <IsGreaterThan CompareValue="0" Property="TenantID" Prepend="And">
           TenantID = @TenantID
         </IsGreaterThan>
+        <IsTrue Property="IsActive" Prepend="And">
+          IsActive = @IsActive
+        </IsTrue>
       </Dynamic>
     </Statement>
 
@@ -61,7 +64,20 @@
       IsActive=@IsActive,
       LastUpdateTime=@LastUpdateTime,
       LastUpdateUserID=@LastUpdateUserID
-      <Include RefId="QueryParams"/>
+      <Where>
+      <IsGreaterThan CompareValue="0" Property="ID" Prepend="And">
+        ID = @ID
+      </IsGreaterThan>
+      <IsGreaterThan CompareValue="0" Property="MemberID" Prepend="And">
+        MemberID = @MemberID
+      </IsGreaterThan>
+      <IsGreaterThan CompareValue="0" Property="RoleID" Prepend="And">
+        RoleID = @RoleID
+      </IsGreaterThan>
+      <IsGreaterThan CompareValue="0" Property="TenantID" Prepend="And">
+        TenantID = @TenantID
+      </IsGreaterThan>
+    </Where>
     </Statement>
 
     <!--是否存在该记录-->
