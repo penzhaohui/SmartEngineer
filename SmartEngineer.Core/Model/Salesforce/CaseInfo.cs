@@ -240,5 +240,9 @@ namespace SmartEngineer.Core.Models
         public bool GoLiveCritical { get; set; }
         [DataMember]
         public string ServicesRank { get; set; }
+        [DataMember]
+        public string LastEngineerComment { get; set; }
+        [DataMember]
+        public string LastEngineerReviewer { get; set; }
     }
 }

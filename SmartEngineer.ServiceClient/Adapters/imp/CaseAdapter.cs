@@ -110,7 +110,7 @@ namespace SmartEngineer.ServiceClient.Adapters
                         row["Origin"] = caseInfo.Origin;
                         row["OpenDate"] = caseInfo.CreatedDate.ToShortDateString();
                         row["Summary"] = caseInfo.Subject;
-                        row["LastReviewer"] = caseInfo.LastCommentAddedBy;
+                        row["LastReviewer"] = caseInfo.LastEngineerReviewer;
                         //row["CommentCount"] = ;
                         row["CaseOwner"] = caseInfo.CaseOwner;
                         row["CaseStatus"] = caseInfo.Status;

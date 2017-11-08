@@ -10,6 +10,6 @@ namespace SmartEngineer.Core.DAOs
 
         List<CaseCommentInfo> GetEntitiesByCaseId(List<string> CaseIDs);
 
-        List<CaseCommentInfo> GetEntitiesByAuthors(List<string> Authors);
+        List<CaseCommentInfo> GetEntitiesByAuthors(string caseNo, List<string> Authors);
     }
 }

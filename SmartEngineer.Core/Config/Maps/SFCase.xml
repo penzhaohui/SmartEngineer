@@ -67,8 +67,8 @@
       ,ReleaseNoteContent
       ,RankOrder
       ,GoLiveCritical
-      ,ServicesRank
-      ,LastUpdateTime
+      ,ServicesRank      
+      ,LastUpdateTime      
       ,LastUpdateUserID)
       VALUES
       (@ID
@@ -247,6 +247,8 @@
       ,RankOrder
       ,GoLiveCritical
       ,ServicesRank
+      ,(SELECT TOP 1 SC.CommentBody FROM SFCaseComment SC WHERE SC.CaseNumber = CaseNumber AND SC.CreatedByName = 'Accela Support Team' ORDER BY SC.LastModifiedDateTime DESC ) AS LastEngineerComment
+      ,(SELECT TOP 1 SC.CommentAuthor FROM SFCaseComment SC WHERE SC.CaseNumber = CaseNumber AND SC.CreatedByName = 'Accela Support Team' ORDER BY SC.LastModifiedDateTime DESC ) AS LastEngineerReviewer
       ,LastUpdateTime
       ,LastUpdateUserID
       FROM SFCase
@@ -302,9 +304,11 @@
       ,RankOrder
       ,GoLiveCritical
       ,ServicesRank
+      ,(SELECT TOP 1 SC.CommentBody FROM SFCaseComment SC WHERE SC.CaseNumber = SF.CaseNumber AND SC.CreatedByName = 'Accela Support Team' ORDER BY SC.LastModifiedDateTime DESC ) AS LastEngineerComment
+      ,(SELECT TOP 1 SC.CommentAuthor FROM SFCaseComment SC WHERE SC.CaseNumber = SF.CaseNumber AND SC.CreatedByName = 'Accela Support Team' ORDER BY SC.LastModifiedDateTime DESC ) AS LastEngineerReviewer
       ,LastUpdateTime
       ,LastUpdateUserID
-      FROM SFCase
+      FROM SFCase SF
       <Where>
         <IsNotEmpty Prepend="And" Property="CaseNumber" In="true"/>
       </Where>

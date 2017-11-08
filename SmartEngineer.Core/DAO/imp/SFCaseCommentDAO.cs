@@ -59,17 +59,21 @@ namespace SmartEngineer.Core.DAOs
             return caseCommentList;
         }
 
-        public List<CaseCommentInfo> GetEntitiesByAuthors(List<string> Authors)
+        public List<CaseCommentInfo> GetEntitiesByAuthors(string caseNo, List<string> Authors)
         {
             List<CaseCommentInfo> caseCommentList = new List<CaseCommentInfo>();
 
-            if (Authors == null || Authors.Count == 0) return caseCommentList;
+            if (caseNo == null || caseNo.Trim().Length == 0
+                || Authors == null || Authors.Count == 0)
+            {
+                return caseCommentList;
+            }
 
             var entities = SQLMapper.Query<CaseCommentInfo>(new RequestContext
             {
                 Scope = this.Scope,
                 SqlId = "GetEntities",
-                Request = new { CommentAuthor = Authors }
+                Request = new { CaseNumber = caseNo, CommentAuthor = Authors }
             });
 
             foreach (CaseCommentInfo entity in entities)

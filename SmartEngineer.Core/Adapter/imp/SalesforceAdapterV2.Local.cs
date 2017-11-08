@@ -12,13 +12,40 @@ namespace SmartEngineer.Core.Adapter
     {
         #region Internal Service
 
+        private static readonly IMemberAdapter MemberAdapter = new MemberAdapter();
         private static readonly ISFCaseDAO<CaseInfo> SFCaseDAO = new SFCaseDAO<CaseInfo>();
         private static readonly ISFCaseCommentDAO<CaseCommentInfo> SFCaseCommentDAO = new SFCaseCommentDAO<CaseCommentInfo>();
         private static readonly ISFAccountDAO<CaseAccountInfo> SFAccountDAO = new SFAccountDAO<CaseAccountInfo>();
 
         public List<CaseInfo> GetCaseInfoByCaseNos(List<string> caseNos)
-        {            
-            return SFCaseDAO.GetEntitys(caseNos);
+        {
+            List<Member> engineers = MemberAdapter.GetMemberByGroupName("Accela Support Team");
+            var entities = SFCaseDAO.GetEntitys(caseNos);
+            foreach (CaseInfo entity in entities)
+            {
+                if (entity.LastEngineerComment == null || entity.LastEngineerComment.Trim().Length == 0)
+                {
+                    continue;
+                }
+
+                entity.LastEngineerComment = entity.LastEngineerComment.Trim();
+
+                if (String.IsNullOrEmpty(entity.LastEngineerReviewer) || entity.LastEngineerReviewer.Trim().Length == 0)
+                {
+                    foreach (Member engineer in engineers)
+                    {
+                        if (entity.LastEngineerComment.EndsWith(engineer.Signature, StringComparison.OrdinalIgnoreCase)
+                            || entity.LastEngineerComment.EndsWith($"{engineer.FirstName} {engineer.LastName}", StringComparison.OrdinalIgnoreCase)
+                            || entity.LastEngineerComment.EndsWith($"{engineer.FirstName}.{engineer.LastName}", StringComparison.OrdinalIgnoreCase))
+                        {
+                            entity.LastEngineerReviewer = $"{engineer.FirstName} {engineer.LastName}";
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return entities;
         }
 
         public List<string> GetUnstoredLocalCases(List<string> caseNos)

@@ -42,8 +42,12 @@ namespace SmartSql.SqlMap.Tags
                                 strSql = strSql.Substring(prepend.Length);
                             }
                         }
-                        strSql = $" {Prepend} {strSql}";
-                        isFirstChild = false;
+
+                        if (!String.IsNullOrWhiteSpace(strSql))
+                        {
+                            isFirstChild = false;
+                            strSql = $" {Prepend} {strSql}";
+                        }
                     }
 
                     strBuilder.Append(strSql);

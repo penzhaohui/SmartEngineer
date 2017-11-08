@@ -209,8 +209,16 @@ namespace SmartEngineer.Core.Adapter
                 SyncCaseInfotToJira(caseInfo);
                 SyncCaseStatusToJira(caseInfo);
 
+                bool flagMoveTodayComment = false; // TO-DO
                 bool isUpdateSuccess = SalesforceAdapterV2.UpdateCaseCommentInfoToLocal(caseNo);
-                if (isUpdateSuccess)
+                if (flagMoveTodayComment)
+                {
+                    if (isUpdateSuccess)
+                    {
+                        SyncCaseCommentToJira(caseNo);
+                    }
+                }
+                else
                 {
                     SyncCaseCommentToJira(caseNo);
                 }
@@ -232,7 +240,7 @@ namespace SmartEngineer.Core.Adapter
                 Issue issue = PullIssue(jiraIssueInfo.JiraKey, JiraAccount, JiraPassword);
                 issue = caseInfo.MergeToIssue(issue);
                 List<string> Authors = new List<string>(); //TO-DO
-                List<CaseCommentInfo> caseCommentInfoList = SFCaseCommentDAO.GetEntitiesByAuthors(Authors);
+                List<CaseCommentInfo> caseCommentInfoList = SFCaseCommentDAO.GetEntitiesByAuthors(caseInfo.CaseNumber, Authors);
                 issue.fields.SFCommentCount = caseCommentInfoList.Count;
                 UpdateIssue(issue, JiraAccount, JiraPassword);
             }
@@ -267,21 +275,55 @@ namespace SmartEngineer.Core.Adapter
             var jiraIssueInfo = GetIssueInfoByCaseNo(caseNo);
             List<string> Authors = new List<string>(); // TO-DO
 
+            IMemberAdapter MemberAdapter = new MemberAdapter();
+            var members = MemberAdapter.GetMemberByGroupName("Accela Support Team");
+            foreach (Member member in members)
+            {
+                Authors.Add($"{member.FirstName} {member.LastName}");
+            }
+
             IssueRef issueRef = new IssueRef();
             issueRef.key = jiraIssueInfo.JiraKey;
             issueRef.id = jiraIssueInfo.JiraID;
 
+            bool flagMoveTodayComment = false; // TO-DO
             string jiraKey = jiraIssueInfo.JiraKey;
-            List<CaseCommentInfo> caseCommentInfoList = SFCaseCommentDAO.GetEntitiesByAuthors(Authors);
+            List<CaseCommentInfo> caseCommentInfoList = SFCaseCommentDAO.GetEntitiesByAuthors(caseNo, Authors);
             foreach (CaseCommentInfo caseCommentInfo in caseCommentInfoList)
             {
-                JiraIssueComment jiraIssueComment = new JiraIssueComment();                
-                jiraIssueComment.ParentJiraKey = jiraKey;
-                jiraIssueComment.SFCommentID = caseCommentInfo.CommentID;
+                JiraIssueComment jiraIssueComment = new JiraIssueComment();
+                jiraIssueComment.ParentJiraKey = jiraKey; 
 
-                if (!SFCaseCommentDAO.IsExist(jiraIssueComment))
+                if (flagMoveTodayComment)
+                {
+                    // Only move today's comment
+                    if (DateTime.Now.Subtract(caseCommentInfo.CreatedDateTime).TotalDays > 1)
+                    {
+                        continue;
+                    }
+
+                    jiraIssueComment.SFCommentID = caseCommentInfo.CommentID;
+                }
+                else
+                {
+                    jiraIssueComment.CommentBody = "Copied from salesforce:\n---------------------------------------------------------\n" + caseCommentInfo.CommentBody;
+                }
+
+                var localJiraIssueComment = JiraIssueCommentDAO.GetEntity(jiraIssueComment);
+
+                if (localJiraIssueComment == null)
                 {
                     CreateComment(issueRef, "Copied from salesforce:\n---------------------------------------------------------\n" + caseCommentInfo.CommentBody, JiraAccount, JiraPassword);
+                }
+                else
+                {
+                    // Just update the history jira issue comment
+                    if(String.IsNullOrEmpty(localJiraIssueComment.SFCommentID) 
+                        || localJiraIssueComment.SFCommentID.Trim().Length == 0)
+                    {
+                        localJiraIssueComment.SFCommentID = caseCommentInfo.CommentID;
+                        JiraIssueCommentDAO.Update(localJiraIssueComment);
+                    }
                 }
             }
 
@@ -339,23 +381,34 @@ namespace SmartEngineer.Core.Adapter
         {
             IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
 
-            var jiraComments = jira.GetComments(issueRef);
-            bool isFound = false;
             Comment jiraComment = null;
-            foreach (Comment temp in jiraComments)
-            {
-                if (temp.body.Equals(caseComment, System.StringComparison.InvariantCultureIgnoreCase))
-                {
-                    jiraComment = temp;
-                    isFound = true;
-                    break;
-                }
-            }
+            bool flagMoveTodayComment = true; // TO-DO
 
-            if (!isFound)
+            if (flagMoveTodayComment)
             {
                 jiraComment = jira.CreateComment(issueRef, caseComment);
             }
+            else
+            {
+                var jiraComments = jira.GetComments(issueRef);
+                bool isFound = false;
+                
+                foreach (Comment temp in jiraComments)
+                {
+                    if (temp.body.Equals(caseComment, System.StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        jiraComment = temp;
+                        isFound = true;
+                        break;
+                    }
+                }
+
+                if (!isFound)
+                {
+                    jiraComment = jira.CreateComment(issueRef, caseComment);
+                }
+            }
+           
 
             return jiraComment;
         }

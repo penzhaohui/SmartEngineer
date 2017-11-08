@@ -7,54 +7,64 @@
   </xs:complexType>
   <xs:element name="ArrayOfCaseInfo" nillable="true" type="tns:ArrayOfCaseInfo" />
   <xs:complexType name="CaseInfo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AgencyHosted" type="xs:boolean" />
-      <xs:element minOccurs="0" name="BZID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Blocked" type="xs:boolean" />
-      <xs:element minOccurs="0" name="CaseID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CaseNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CaseOwner" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CaseType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ContactPhone" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CreaedBy" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="CurrentOnMaintenance" type="xs:boolean" />
-      <xs:element minOccurs="0" name="CurrentVersion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DevLOEEConfidence" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EngineeringAssignment" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EngineeringComment" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EngineeringStatus" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EscalatedBy" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="GoLiveCritical" type="xs:boolean" />
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="InternalSeverity" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="InternalType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IssueCategory" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IssueType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="JiraIssueURL" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LastCommentAddedBy" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LastModifiedBy" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LastModifiedDateTime" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ParentCase" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PatchNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RankOrder" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ReleaseInfo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ReleaseNoteContent" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SensitiveClient" type="xs:boolean" />
-      <xs:element minOccurs="0" name="ServicesRank" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Solution" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TargetedRelease" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BasicDataModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AgencyHosted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BZID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Blocked" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CaseID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CaseNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CaseOwner" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CaseType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreaedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CurrentOnMaintenance" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CurrentVersion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DevLOEEConfidence" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EngineeringAssignment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EngineeringComment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EngineeringStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EscalatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GoLiveCritical" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="InternalSeverity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InternalType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IssueCategory" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IssueType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JiraIssueURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastCommentAddedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastEngineerComment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastEngineerReviewer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastModifiedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastModifiedDateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParentCase" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PatchNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RankOrder" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReleaseInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReleaseNoteContent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SensitiveClient" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ServicesRank" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Solution" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TargetedRelease" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="CaseInfo" nillable="true" type="tns:CaseInfo" />
+  <xs:complexType name="BasicDataModel">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="BasicDataModel" nillable="true" type="tns:BasicDataModel" />
 </xs:schema>

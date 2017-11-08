@@ -86,12 +86,15 @@
         <IsNotEmpty Property="SFCommentID" Prepend="And">
           SFCommentID = @SFCommentID
         </IsNotEmpty>
+        <IsNotEmpty Property="CommentBody" Prepend="And">
+          CommentBody LIKE Concat(@CommentBody, '%')
+        </IsNotEmpty>
       </Where>
     </Statement>
 
     <!--获取单条记录 -->
     <Statement Id="GetEntity">
-      SELECT ID
+      SELECT TOP 1  ID
       ,CommentBody
       ,CreatedByID
       ,CreatedByName
@@ -111,6 +114,12 @@
         </IsNotEmpty>
         <IsNotEmpty Property="SFCommentID" Prepend="And">
           SFCommentID = @SFCommentID
+        </IsNotEmpty>
+        <IsNotEmpty Property="CommentBody" Prepend="And">
+          CommentBody LIKE Concat(@CommentBody, '%')
+        </IsNotEmpty>
+        <IsNotEmpty Property="ParentJiraKey" Prepend="And">
+          ParentJiraKey = @ParentJiraKey
         </IsNotEmpty>
       </Where>
       Order by ID ASC

@@ -17,10 +17,7 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CaseInfo", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
     [System.SerializableAttribute()]
-    public partial class CaseInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+    public partial class CaseInfo : SmartEngineer.ServiceClient.SalesforceService.BasicDataModel {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AccountNameField;
@@ -113,6 +110,12 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
         private string LastCommentAddedByField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastEngineerCommentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastEngineerReviewerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastModifiedByField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -159,16 +162,6 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TargetedReleaseField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AccountName {
@@ -561,6 +554,32 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastEngineerComment {
+            get {
+                return this.LastEngineerCommentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastEngineerCommentField, value) != true)) {
+                    this.LastEngineerCommentField = value;
+                    this.RaisePropertyChanged("LastEngineerComment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastEngineerReviewer {
+            get {
+                return this.LastEngineerReviewerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastEngineerReviewerField, value) != true)) {
+                    this.LastEngineerReviewerField = value;
+                    this.RaisePropertyChanged("LastEngineerReviewer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string LastModifiedBy {
             get {
                 return this.LastModifiedByField;
@@ -765,6 +784,27 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
                     this.TargetedReleaseField = value;
                     this.RaisePropertyChanged("TargetedRelease");
                 }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BasicDataModel", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.SalesforceService.CaseInfo))]
+    public partial class BasicDataModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
             }
         }
         

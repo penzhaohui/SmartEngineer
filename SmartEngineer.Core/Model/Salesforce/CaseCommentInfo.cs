@@ -57,8 +57,10 @@ namespace SmartEngineer.Core.Models
             if (CreatedByName != "Accela Support Team") return LastModifiedByName;
             if (String.IsNullOrEmpty(CommentBody)) return LastModifiedByName;
 
+            CommentBody = CommentBody.Trim();
+
             IMemberAdapter MemberAdapter = new MemberAdapter();
-            var members = MemberAdapter.GetMemberByGroupName("Accle Support Team");
+            var members = MemberAdapter.GetMemberByGroupName("Accela Support Team");
             foreach (Member member in members)
             {
                 if (CommentBody.EndsWith(member.FirstName, StringComparison.OrdinalIgnoreCase)

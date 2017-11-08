@@ -13,16 +13,17 @@
   <Statements>
     <Statement Id="QueryParams">
       <Dynamic Prepend="Where">
-        <IsGreaterThan CompareValue="0" Property="CommentID" Prepend="And">
+        <IsNotEmpty Property="CommentID" Prepend="And">
           CommentID = @CommentID
-        </IsGreaterThan>
+        </IsNotEmpty>
         <IsNotEmpty Property="CaseNumber" Prepend="And">
           CaseNumber = @CaseNumber
         </IsNotEmpty>
-          <IsGreaterThan CompareValue="0" Property="CaseID" Prepend="And">
+        <IsNotEmpty Property="CaseID" Prepend="And">
           CaseID = @CaseID
-        </IsGreaterThan>
-      </Dynamic>      
+        </IsNotEmpty>
+      
+    </Dynamic>      
     </Statement>
     
     <!--新增-->
@@ -40,6 +41,7 @@
       ,CaseID
       ,CaseNumber
       ,IsPublished
+      ,CommentAuthor
       ,LastUpdateTime
       ,LastUpdateUserID)
       VALUES
@@ -55,6 +57,7 @@
       ,@CaseID
       ,@CaseNumber
       ,@IsPublished
+      ,@CommentAuthor
       ,@LastUpdateTime
       ,@LastUpdateUserID);
     </Statement>
@@ -80,6 +83,7 @@
       CaseID=@CaseID,
       CaseNumber=@CaseNumber,
       IsPublished=@IsPublished,
+      CommentAuthor=@CommentAuthor,
       LastUpdateTime=@LastUpdateTime,
       LastUpdateUserID=@LastUpdateUserID
       Where ID=@ID
@@ -105,6 +109,7 @@
       ,CaseID
       ,CaseNumber
       ,IsPublished
+      ,CommentAuthor
       ,LastUpdateTime
       ,LastUpdateUserID
       FROM SFCaseComment
@@ -126,12 +131,18 @@
       ,CaseID
       ,CaseNumber
       ,IsPublished
+      ,CommentAuthor
       ,LastUpdateTime
       ,LastUpdateUserID
       FROM SFCaseComment
       <Where>
-        <IsNotEmpty Prepend="And" Property="CaseNumber" In="true"/>
-        <IsNotEmpty Prepend="And" Property="CaseID" In="true"/>
+        <IsNotEmpty Prepend="And" Property="CaseNumber">
+          CaseNumber=@CaseNumber
+        </IsNotEmpty>
+        <IsNotEmpty Prepend="And" Property="CaseID">
+          CaseID=@CaseID
+        </IsNotEmpty>
+        <IsNotEmpty Prepend="And" Property="CommentAuthor" In="true"/>
       </Where>
     </Statement>
 
