@@ -22,7 +22,10 @@ namespace SmartSql.SqlMap.Tags
         {
             if (IsCondition(context.Request))
             {
-                if (In)
+                Type propertyType = context.Request.GetType().GetProperty(Property).PropertyType;
+
+                if (In && (propertyType.IsArray
+                    || propertyType.IsGenericType && propertyType.Name == "List`1"))
                 {
                     return $" {Prepend} {Property} In {parameterPrefix}{Property} ";
                 }

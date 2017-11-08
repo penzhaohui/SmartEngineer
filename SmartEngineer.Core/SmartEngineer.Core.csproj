@@ -68,8 +68,6 @@
     <Compile Include="Adapter\imp\AccountAdapter.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.cs" />
-    <Compile Include="Cache\MemoryCacheHelper.cs" />
-    <Compile Include="Cache\SimpleMemoryCache.cs" />
     <Compile Include="DAO\IMemberRoleDAO.cs" />
     <Compile Include="DAO\IMemberGroupDAO.cs" />
     <Compile Include="DAO\IConfigDAO.cs" />

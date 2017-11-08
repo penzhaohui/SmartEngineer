@@ -125,6 +125,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheManager.Memcached", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEngineer.UnitTests", "Cache\CacheManager.CoreTests\SmartEngineer.UnitTests.csproj", "{24B2A5CA-62EE-415B-A4F3-C9A914920EEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheManager.SystemRuntimeCaching", "Cache\CacheManager.SystemRuntimeCaching\CacheManager.SystemRuntimeCaching.csproj", "{369E741B-63F1-4721-9553-E8CB0C698D5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheManager.Microsoft.Extensions.Caching.Memory", "ClassLibrary2\CacheManager.Microsoft.Extensions.Caching.Memory.csproj", "{C915337D-8045-4B4A-9CA4-5254994A57AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheManager.Microsoft.Extensions.Configuration", "Cache\CacheManager.Microsoft.Extensions.Configuration\CacheManager.Microsoft.Extensions.Configuration.csproj", "{18EEEA93-E5AC-4B70-B156-F9BFB8F08FA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheManager.Microsoft.Extensions.Logging", "Cache\CacheManager.Microsoft.Extensions.Logging\CacheManager.Microsoft.Extensions.Logging.csproj", "{F338D57B-4C82-4A63-B1E5-1D22A38AECCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -299,6 +307,22 @@ Global
 		{24B2A5CA-62EE-415B-A4F3-C9A914920EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24B2A5CA-62EE-415B-A4F3-C9A914920EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24B2A5CA-62EE-415B-A4F3-C9A914920EEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{369E741B-63F1-4721-9553-E8CB0C698D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{369E741B-63F1-4721-9553-E8CB0C698D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{369E741B-63F1-4721-9553-E8CB0C698D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{369E741B-63F1-4721-9553-E8CB0C698D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C915337D-8045-4B4A-9CA4-5254994A57AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C915337D-8045-4B4A-9CA4-5254994A57AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C915337D-8045-4B4A-9CA4-5254994A57AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C915337D-8045-4B4A-9CA4-5254994A57AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18EEEA93-E5AC-4B70-B156-F9BFB8F08FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18EEEA93-E5AC-4B70-B156-F9BFB8F08FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18EEEA93-E5AC-4B70-B156-F9BFB8F08FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18EEEA93-E5AC-4B70-B156-F9BFB8F08FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F338D57B-4C82-4A63-B1E5-1D22A38AECCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F338D57B-4C82-4A63-B1E5-1D22A38AECCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F338D57B-4C82-4A63-B1E5-1D22A38AECCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F338D57B-4C82-4A63-B1E5-1D22A38AECCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -342,6 +366,10 @@ Global
 		{FDC1EFED-01F1-4B38-9C96-8D558AF781C2} = {67FAA74B-E464-4B6C-8C0E-30BA7A3125FC}
 		{49CACCB1-6E5B-4ACC-8078-931F976ECBAD} = {67FAA74B-E464-4B6C-8C0E-30BA7A3125FC}
 		{B1E3BBEF-E1A9-49A7-BBF1-A13454B2A6CF} = {67FAA74B-E464-4B6C-8C0E-30BA7A3125FC}
+		{369E741B-63F1-4721-9553-E8CB0C698D5A} = {67FAA74B-E464-4B6C-8C0E-30BA7A3125FC}
+		{C915337D-8045-4B4A-9CA4-5254994A57AF} = {67FAA74B-E464-4B6C-8C0E-30BA7A3125FC}
+		{18EEEA93-E5AC-4B70-B156-F9BFB8F08FA3} = {67FAA74B-E464-4B6C-8C0E-30BA7A3125FC}
+		{F338D57B-4C82-4A63-B1E5-1D22A38AECCC} = {67FAA74B-E464-4B6C-8C0E-30BA7A3125FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1D632EFC-C39B-45D7-9DE1-F8E000C7CDC3}

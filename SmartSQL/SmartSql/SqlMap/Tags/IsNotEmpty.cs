@@ -11,6 +11,10 @@ namespace SmartSql.SqlMap.Tags
 
         public override bool IsCondition(object paramObj)
         {
+            // For value type, it always has default value, so skip it.
+            if (paramObj.GetType().GetProperty(Property) != null
+                && paramObj.GetType().GetProperty(Property).PropertyType.IsValueType) return false;
+            
             Object reqVal = paramObj.GetValue(Property);
             return ((reqVal != null) && (reqVal.ToString().Length > 0));
         }

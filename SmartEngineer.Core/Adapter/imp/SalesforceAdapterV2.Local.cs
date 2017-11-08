@@ -85,6 +85,7 @@ namespace SmartEngineer.Core.Adapter
             return caseInfo;
         }
 
+        // Duplicated to public bool BatchStoreCaseCommentInfoToLocal(List<string> caseNos)
         public bool UpdateCaseCommentInfoToLocal(string caseNo)
         {
             CaseCommentInfo lastCaseCommentInfo = GetLatestCaseCommentByCaseNo(caseNo);
@@ -103,12 +104,13 @@ namespace SmartEngineer.Core.Adapter
             }
 
             IList<AccelaCaseComment> comments = PullCaseCommentsByParentID(caseInfo.CaseID, null, lastCaseCommentInfo.LastUpdateTime);
-            
+
             foreach (AccelaCaseComment comment in comments)
             {
                 lastCaseCommentInfo.Initialize(caseNo, comment);
                 SFCaseCommentDAO.Insert(lastCaseCommentInfo);
-            }
+                BatchStoreCaseAccountInfoToLocalSync(comment.CreatedBy);
+            } 
 
             return true;
         }
@@ -182,8 +184,17 @@ namespace SmartEngineer.Core.Adapter
                 CaseCommentInfo lastCommentInfo = GetLatestCaseCommentByCaseNo(caseNumber);
 
                 // The minimum update interval is 1 hour at least.
-                if (lastCommentInfo != null && DateTime.Now.Subtract(lastCommentInfo.LastUpdateTime).TotalHours < 1) continue;
+                if (lastCommentInfo != null && DateTime.Now.Subtract(lastCommentInfo.LastUpdateTime).TotalHours < 1)
+                {
+                    continue;
+                }
 
+                if (lastCommentInfo == null)
+                {
+                    lastCommentInfo = new CaseCommentInfo();
+                    lastCommentInfo.LastUpdateTime = caseInfo.CreatedDate;
+                }
+               
                 IList<AccelaCaseComment> caseCommentList = PullCaseCommentsByParentID(caseId, null, lastCommentInfo.LastUpdateTime, DateTime.Now);
                 foreach (AccelaCaseComment caseComment in caseCommentList)
                 {

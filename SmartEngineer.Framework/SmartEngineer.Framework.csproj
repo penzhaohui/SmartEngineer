@@ -49,6 +49,8 @@
       <HintPath>DLLs\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,8 +65,10 @@
     <Compile Include="Cache\CacheContext.cs" />
     <Compile Include="Cache\CacheKey.cs" />
     <Compile Include="Cache\ICacheProvider.cs" />
+    <Compile Include="Cache\MemoryCacheHelper.cs" />
     <Compile Include="Cache\Redis\RedisCacheProvider.cs" />
     <Compile Include="Cache\Redis\RedisManager.cs" />
+    <Compile Include="Cache\SimpleMemoryCache.cs" />
     <Compile Include="Constant\DBSettingConstant.cs" />
     <Compile Include="Constant\EmailSettingConstant.cs" />
     <Compile Include="Constant\SubTaskConstant.cs" />

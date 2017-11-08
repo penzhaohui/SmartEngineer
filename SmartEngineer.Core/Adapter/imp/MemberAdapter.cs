@@ -7,7 +7,7 @@ using SmartEngineer.Core.Models;
 using SmartEngineer.Framework.Logger;
 using log4net;
 using SmartEngineer.Core.DAOs;
-using SmartEngineer.Core.Cache;
+using SmartEngineer.Framework.Cache;
 
 namespace SmartEngineer.Core.Adapter
 {
