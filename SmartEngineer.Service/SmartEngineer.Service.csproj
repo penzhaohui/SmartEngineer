@@ -81,6 +81,7 @@
     <Content Include="DLLs\RestSharp.dll" />
     <Content Include="DLLs\TechTalk.JiraRestClient.dll" />
     <Content Include="GithubService.svc" />
+    <Content Include="Global.asax" />
     <Content Include="JiraService.svc" />
     <Content Include="JiraServiceForDatabase.svc" />
     <Content Include="JiraServiceForENGSupp.svc" />
@@ -101,6 +102,9 @@
     </Compile>
     <Compile Include="GithubService.svc.cs">
       <DependentUpon>GithubService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interface\IMemberService.cs" />
     <Compile Include="Interface\IJiraServiceForDatabase.cs" />

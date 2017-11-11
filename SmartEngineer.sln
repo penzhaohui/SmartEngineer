@@ -146,6 +146,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autofac.Multitenant.WcfExam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autofac.WcfExample", "IoC\Autofac.WcfExample\Autofac.WcfExample.csproj", "{C3466A5D-F81D-47AB-B1AB-80767BC95D19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autofac.Multitenant.ConsoleAppExample", "IoC\Autofac.Multitenant.ConsoleAppExample\Autofac.Multitenant.ConsoleAppExample.csproj", "{1D5902AD-D9D7-4398-B919-6D00BA8210EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -360,6 +362,10 @@ Global
 		{C3466A5D-F81D-47AB-B1AB-80767BC95D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3466A5D-F81D-47AB-B1AB-80767BC95D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3466A5D-F81D-47AB-B1AB-80767BC95D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D5902AD-D9D7-4398-B919-6D00BA8210EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D5902AD-D9D7-4398-B919-6D00BA8210EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D5902AD-D9D7-4398-B919-6D00BA8210EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D5902AD-D9D7-4398-B919-6D00BA8210EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -412,6 +418,7 @@ Global
 		{AFFA33CE-2F75-4079-8E52-39C5E0A605DD} = {F50DE2D4-11F8-43F6-B680-CE6ABE540C56}
 		{A658BF01-D082-42AA-B87F-468E2BD88603} = {F50DE2D4-11F8-43F6-B680-CE6ABE540C56}
 		{C3466A5D-F81D-47AB-B1AB-80767BC95D19} = {F50DE2D4-11F8-43F6-B680-CE6ABE540C56}
+		{1D5902AD-D9D7-4398-B919-6D00BA8210EE} = {F50DE2D4-11F8-43F6-B680-CE6ABE540C56}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1D632EFC-C39B-45D7-9DE1-F8E000C7CDC3}
