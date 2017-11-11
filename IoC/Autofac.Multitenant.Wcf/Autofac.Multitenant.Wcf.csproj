@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -63,12 +60,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AOP\Castle.Core\Castle.Core.csproj">
+      <Project>{5f791871-1484-45c5-9163-7e6c5d549cc6}</Project>
+      <Name>Castle.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Autofac.Integration.Wcf\Autofac.Integration.Wcf.csproj">
       <Project>{affa33ce-2f75-4079-8e52-39c5e0a605dd}</Project>
       <Name>Autofac.Integration.Wcf</Name>

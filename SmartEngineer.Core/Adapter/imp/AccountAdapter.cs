@@ -11,7 +11,7 @@ namespace SmartEngineer.Core.Adapter
         private static readonly IAccountDAO<Account> AccountDAO = new AccountDAO<Account>();
         private static readonly IAccountSessionDAO<AccountSession> AccountSessionDAO = new AccountSessionDAO<AccountSession>();
         
-        public Account ValidateAccount(Account account)
+        public virtual Account ValidateAccount(Account account)
         {
             if (!AccountDAO.IsExist(account))
             {

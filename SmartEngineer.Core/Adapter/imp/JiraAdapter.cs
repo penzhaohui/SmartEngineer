@@ -1,12 +1,10 @@
 ﻿using log4net;
 using SmartEngineer.Core.DAOs;
-using SmartEngineer.Core.Model;
 using SmartEngineer.Core.Models;
 using SmartEngineer.Framework.Logger;
 using SmartEngineer.Framework.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using TechTalk.JiraRestClient;

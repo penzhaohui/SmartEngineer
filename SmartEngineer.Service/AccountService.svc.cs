@@ -7,8 +7,14 @@ namespace SmartEngineer.Service
 {
     public class AccountService : IAccountService
     {
-        private static readonly IJiraAdapter jiraAdapter = new JiraAdapter();
-        private static readonly IAccountAdapter accountAdapter = new AccountAdapter();
+        public IJiraAdapter JiraAdapter { get; set; }
+        public IAccountAdapter AccountAdapter { get; set; }
+
+        public AccountService(IJiraAdapter jiraAdapter, IAccountAdapter accountAdapter)
+        {
+            JiraAdapter = jiraAdapter;
+            AccountAdapter = accountAdapter;
+        }
 
         #region IAccountService Implemtation
 
@@ -24,20 +30,20 @@ namespace SmartEngineer.Service
 
             if (accountType == AccountType.Jira)
             {
-                account = jiraAdapter.ValidateAccount(userName, Password);               
+                account = JiraAdapter.ValidateAccount(userName, Password);               
             }
             else
             {
                 account = new Account();
                 account.UserName = userName;
                 account.Password = Password;
-                account = accountAdapter.ValidateAccount(account);
+                account = AccountAdapter.ValidateAccount(account);
             }
 
             // Disable other access token associated to the current user                    
             // Generate one access token 
-            accountAdapter.DisableAccessToken(account.ID);
-            accessToken = accountAdapter.CreateAccessToken(account);
+            AccountAdapter.DisableAccessToken(account.ID);
+            accessToken = AccountAdapter.CreateAccessToken(account);
 
             System.Console.WriteLine("ServiceSecurityContext.Current. PrimaryIdentity.Name = " + ServiceSecurityContext.Current.PrimaryIdentity.Name);
             // ServiceSecurityContext.IsAnonymous returns true if the caller is not authenticated
@@ -48,12 +54,12 @@ namespace SmartEngineer.Service
 
         void IAccountService.Logout(string accessToken)
         {
-            accountAdapter.DisableAccessToken(accessToken);
+            AccountAdapter.DisableAccessToken(accessToken);
         }
 
         bool IAccountService.ValidateToken(string accessToken)
         {
-            return accountAdapter.ValidateToken(accessToken);
+            return AccountAdapter.ValidateToken(accessToken);
         }
 
         #endregion

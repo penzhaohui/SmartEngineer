@@ -1,12 +1,16 @@
-﻿using log4net;
+﻿using KingAOP;
+using log4net;
 using SalesforceSharp;
 using SalesforceSharp.Security;
 using SmartEngineer.Core.DAOs;
 using SmartEngineer.Core.Models;
+using SmartEngineer.Framework.AOP;
 using SmartEngineer.Framework.Logger;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Dynamic;
+using System.Linq.Expressions;
 
 namespace SmartEngineer.Core.Adapter
 {
@@ -263,9 +267,8 @@ namespace SmartEngineer.Core.Adapter
             }
 
             return caseNos;
-        }
+        }        
 
-        
         #endregion
     }
 }

@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+﻿using SmartEngineer.Core.Adapter;
 using SmartEngineer.Core.Models;
-using SmartEngineer.Core.Adapter;
+using System;
+using System.Collections.Generic;
 
 namespace SmartEngineer.Service
 {
     public class SalesforceService : ISalesforceService
     {
-        private static readonly ISalesforceAdapter salesforceAdapter = new SalesforceAdapter();
-        private static readonly ISalesforceAdapterV2 salesforceAdapterV2 = new SalesforceAdapterV2();
-        private static readonly IJiraAdapter jiraAdapter = new JiraAdapter();
+        public ISalesforceAdapterV2 SalesforceAdapter;
+        public IJiraAdapter JiraAdapter;
+
+        public SalesforceService(ISalesforceAdapterV2 salesforceAdapter, IJiraAdapter jiraAdapter)
+        {
+            SalesforceAdapter = salesforceAdapter;
+            JiraAdapter = jiraAdapter;
+        }
 
         public int GetCaseCommentCount(DateTime from, DateTime to)
         {
@@ -27,15 +28,15 @@ namespace SmartEngineer.Service
             List<string> unStoredCaseNoList = new List<string>();
             foreach (string caseNo in caseNOs)
             {
-                if (!salesforceAdapterV2.IsExistsLocalCase(caseNo))
+                if (!SalesforceAdapter.IsExistsLocalCase(caseNo))
                 {
                     unStoredCaseNoList.Add(caseNo);
                 }
             }
             
-            salesforceAdapterV2.BatchStoreCaseInfoToLocalSync(unStoredCaseNoList);
+            SalesforceAdapter.BatchStoreCaseInfoToLocalSync(unStoredCaseNoList);
 
-            IList<AccelaCase> engineerCases = salesforceAdapterV2.PullCasesByCaseNos(unStoredCaseNoList);
+            IList<AccelaCase> engineerCases = SalesforceAdapter.PullCasesByCaseNos(unStoredCaseNoList);
             foreach (AccelaCase engineerCase in engineerCases)
             {
                 caseNOs.Remove(engineerCase.CaseNumber);
@@ -44,7 +45,7 @@ namespace SmartEngineer.Service
                 caseList.Add(caseInfo);
             }
 
-            List<CaseInfo> localCaseList = salesforceAdapterV2.GetCaseInfoByCaseNos(caseNOs);
+            List<CaseInfo> localCaseList = SalesforceAdapter.GetCaseInfoByCaseNos(caseNOs);
             foreach (CaseInfo localCase in localCaseList)
             {
                 if (!unStoredCaseNoList.Contains(localCase.CaseNumber))
@@ -65,23 +66,23 @@ namespace SmartEngineer.Service
             // 3. Return the commented case list    
             List<string> commentedCaseList = new List<string>();
 
-            List<string> processedCaseNos = salesforceAdapterV2.GetProcessedCaseNOs(start, end, "Accela Support Team");
-            List<CaseInfo> caseInfoList = salesforceAdapterV2.GetCaseInfoByCaseNos(processedCaseNos);
+            List<string> processedCaseNos = SalesforceAdapter.GetProcessedCaseNOs(start, end, "Accela Support Team");
+            List<CaseInfo> caseInfoList = SalesforceAdapter.GetCaseInfoByCaseNos(processedCaseNos);
             foreach (CaseInfo caseInfo in caseInfoList)
             {
                 processedCaseNos.Remove(caseInfo.CaseNumber);
 
-                IList<AccelaCaseComment> caseComments = salesforceAdapterV2.PullCaseCommentsByParentID(caseInfo.CaseID, "00560000003Wzud", start, end);
+                IList<AccelaCaseComment> caseComments = SalesforceAdapter.PullCaseCommentsByParentID(caseInfo.CaseID, "00560000003Wzud", start, end);
                 if (caseComments.Count > 0)
                 {
                     commentedCaseList.Add(caseInfo.CaseNumber);
                 }
             }
 
-            IList<AccelaCase> accelaCaseList = salesforceAdapterV2.PullCasesByCaseNos(processedCaseNos);
+            IList<AccelaCase> accelaCaseList = SalesforceAdapter.PullCasesByCaseNos(processedCaseNos);
             foreach (AccelaCase accelaCase in accelaCaseList)
             {
-                IList<AccelaCaseComment> caseComments = salesforceAdapterV2.PullCaseCommentsByParentID(accelaCase.Id, "00560000003Wzud", start, end);
+                IList<AccelaCaseComment> caseComments = SalesforceAdapter.PullCaseCommentsByParentID(accelaCase.Id, "00560000003Wzud", start, end);
                 if (caseComments.Count > 0)
                 {
                     commentedCaseList.Add(accelaCase.CaseNumber);
@@ -89,7 +90,7 @@ namespace SmartEngineer.Service
             }
 
             // Update the commented case in local database
-            salesforceAdapterV2.BatchStoreCaseInfoToLocalSync(commentedCaseList);
+            SalesforceAdapter.BatchStoreCaseInfoToLocalSync(commentedCaseList);
 
             return commentedCaseList;
         }
@@ -104,7 +105,7 @@ namespace SmartEngineer.Service
 
             List<string> newCaseList = new List<string>();
 
-            IList<AccelaCase> engineerCases = salesforceAdapterV2.QueryCasesByEngineerQueue("Engineer");
+            IList<AccelaCase> engineerCases = SalesforceAdapter.QueryCasesByEngineerQueue("Engineer");
 
             if (engineerCases.Count == 0) return newCaseList;
 
@@ -114,33 +115,17 @@ namespace SmartEngineer.Service
             {
                 caseNos.Add(caseInfo.CaseNumber);
 
-                if (!salesforceAdapterV2.IsExistsLocalCase(caseInfo.CaseNumber))
+                if (!SalesforceAdapter.IsExistsLocalCase(caseInfo.CaseNumber))
                 {
                     unStoredCaseNoList.Add(caseInfo.CaseNumber);
                 }
             }
 
-            newCaseList = jiraAdapter.GetUnimportedCases(caseNos);
+            newCaseList = JiraAdapter.GetUnimportedCases(caseNos);
            
-            salesforceAdapterV2.BatchStoreCaseInfoToLocalSync(unStoredCaseNoList);
+            SalesforceAdapter.BatchStoreCaseInfoToLocalSync(unStoredCaseNoList);
 
             return newCaseList;
-        }
-
-        private void ImportAccelaCaseToLocalAndJira(AccelaCase caseInfo, string jiraAccount, string jiraPassword)
-        {
-            if (salesforceAdapter.IsExistsLocalCase(caseInfo.CaseNumber))
-            {
-                salesforceAdapter.UpdateLocalCaseInfo(caseInfo);
-            }
-            else
-            {
-                salesforceAdapter.StoreCaseInfoToLocal(caseInfo);
-                jiraAdapter.CreateIssue("ENGSUPP", "Case", null, jiraAccount, jiraPassword);
-            }
-
-            salesforceAdapter.AppendCaseAttachmentToLocalCase();
-            salesforceAdapter.AppendCaseCommentToLocaCase();
         }
 
         public List<CaseInfo> GetProcessedCase(DateTime from, DateTime to, List<string> sfAccounts)

@@ -150,6 +150,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AOP\KingAOP\KingAOP.csproj">
+      <Project>{ed8b42dc-f376-42a7-9281-452a026aa864}</Project>
+      <Name>KingAOP</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JIRA\ConfluenceClient\ConfluenceClient.csproj">
       <Project>{5148988b-be8a-4ac5-9f7e-93ddb73ed186}</Project>
       <Name>ConfluenceClient</Name>

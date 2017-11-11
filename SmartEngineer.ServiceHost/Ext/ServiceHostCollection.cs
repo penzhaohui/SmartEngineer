@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
 using System.Collections.ObjectModel;
+using Autofac.Integration.Wcf;
+using Autofac;
 
 namespace SmartEngineer.Ext
 {
@@ -26,10 +28,12 @@ namespace SmartEngineer.Ext
                 Array.ForEach<Type>(serviceTypes, serviceType => this.Add(new ServiceHost(serviceType)));
             }
         }
-        public void Open()
+        public void Open(IContainer container)
         {
             foreach (ServiceHost host in this)
             {
+                // http://blog.csdn.net/gulijiang2008/article/details/45747275
+                host.AddDependencyInjectionBehavior(host.Description.ServiceType, container);
                 host.Open();
             }
         }

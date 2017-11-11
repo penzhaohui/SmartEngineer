@@ -59,6 +59,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AOP\Castle.Core\Castle.Core.csproj">
+      <Project>{5f791871-1484-45c5-9163-7e6c5d549cc6}</Project>
+      <Name>Castle.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IoC\Autofac.Integration.Wcf\Autofac.Integration.Wcf.csproj">
+      <Project>{affa33ce-2f75-4079-8e52-39c5e0a605dd}</Project>
+      <Name>Autofac.Integration.Wcf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IoC\Autofac.Multitenant.Wcf\Autofac.Multitenant.Wcf.csproj">
+      <Project>{bf514010-d5f4-4e7f-a129-a402ca7ecccf}</Project>
+      <Name>Autofac.Multitenant.Wcf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IoC\Autofac.Multitenant\Autofac.Multitenant.csproj">
+      <Project>{0a925f3e-6e29-45a5-8118-751e4145d8d2}</Project>
+      <Name>Autofac.Multitenant</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IoC\Autofac\Autofac.csproj">
+      <Project>{06f733c8-dd56-4eeb-add5-3787a006a26c}</Project>
+      <Name>Autofac</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SFDC\ForceToolkitForNET\ForceToolkitForNET.csproj">
       <Project>{6B8131E1-EC47-4DEE-8FCF-436F21C684D1}</Project>
       <Name>ForceToolkitForNET</Name>
@@ -66,6 +86,10 @@
     <ProjectReference Include="..\SmartEngineer.Core\SmartEngineer.Core.csproj">
       <Project>{42D6CF47-7776-4EF5-ABD7-BB1A9330D143}</Project>
       <Name>SmartEngineer.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartEngineer.Framework\SmartEngineer.Framework.csproj">
+      <Project>{BE23DECA-79D2-4899-8D74-732F97B7A528}</Project>
+      <Name>SmartEngineer.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartEngineer.Service\SmartEngineer.Service.csproj">
       <Project>{39d6c65b-c2ec-4242-967a-9c95fa44d428}</Project>

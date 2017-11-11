@@ -9,7 +9,11 @@ namespace SmartEngineer.Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select MemberService.svc or MemberService.svc.cs at the Solution Explorer and start debugging.
     public class MemberService : IMemberService
     {
-        private static readonly IMemberAdapter MemberAdapter = new MemberAdapter();
+        public IMemberAdapter MemberAdapter { get; set; }
+        public MemberService(IMemberAdapter memberAdapter)
+        {
+            MemberAdapter = memberAdapter;
+        }
 
         #region Tenant Operation
 

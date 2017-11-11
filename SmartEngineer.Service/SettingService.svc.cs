@@ -6,7 +6,12 @@ namespace SmartEngineer.Service
 {
     public class SettingService : ISettingService
     {
-        private readonly IConfigAdapter ConfigAdapter = new ConfigAdapter();
+        public IConfigAdapter ConfigAdapter { get; set; }
+
+        public SettingService(IConfigAdapter configAdapter)
+        {
+            ConfigAdapter = configAdapter;
+        }
 
         public List<ConfigOption> GetAllConfigs()
         {

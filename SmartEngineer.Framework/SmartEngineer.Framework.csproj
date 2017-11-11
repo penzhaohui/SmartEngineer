@@ -86,6 +86,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AOP\AuditAOPFilter.cs" />
+    <Compile Include="AOP\AuditLogInterceptor.cs" />
+    <Compile Include="AOP\Filter\InterceptorFilter.cs" />
+    <Compile Include="AOP\Selector\InterceptorSelector.cs" />
     <Compile Include="Cache\CacheActionEventArgs.cs" />
     <Compile Include="Cache\CacheContext.cs" />
     <Compile Include="Cache\CacheKey.cs" />
@@ -114,6 +118,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\AOP\Castle.Core\Castle.Core.csproj">
+      <Project>{5f791871-1484-45c5-9163-7e6c5d549cc6}</Project>
+      <Name>Castle.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AOP\KingAOP\KingAOP.csproj">
+      <Project>{ed8b42dc-f376-42a7-9281-452a026aa864}</Project>
+      <Name>KingAOP</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Cache\CacheManager.Core\CacheManager.Core.csproj">
       <Project>{49caccb1-6e5b-4acc-8078-931f976ecbad}</Project>
       <Name>CacheManager.Core</Name>

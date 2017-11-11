@@ -8,6 +8,8 @@ using SmartEngineer.Core.Models;
 using SmartEngineer.Core.Adapter;
 using System.Configuration;
 using TechTalk.JiraRestClient;
+using Autofac.Integration.Wcf;
+using Autofac;
 
 namespace SmartEngineer.Service
 {
@@ -16,10 +18,17 @@ namespace SmartEngineer.Service
     /// </summary>
     public class JiraServiceForENGSupp : IJiraServiceForENGSupp
     {
-        private static readonly IJiraAdapter JiraAdapter = new JiraAdapter();
-        private static readonly ISalesforceAdapterV2 SalesforceAdapterV2 = new SalesforceAdapterV2();
         private static readonly string JiraAccount = ConfigurationManager.AppSettings["JiraAccount"];
         private static readonly string JiraPassword = ConfigurationManager.AppSettings["JiraPassword"];
+
+        public ISalesforceAdapterV2 SalesforceAdapter { get; set; }
+        public IJiraAdapter JiraAdapter { get; set; }
+
+        public JiraServiceForENGSupp(ISalesforceAdapterV2 salesforceAdapter, IJiraAdapter jiraAdapter)
+        {
+            SalesforceAdapter = salesforceAdapter;
+            JiraAdapter = jiraAdapter;
+        }
 
         public List<JiraIssue> GetIssuesByCaseNos(List<string> caseNOs)
         {
@@ -120,7 +129,7 @@ namespace SmartEngineer.Service
 
         public bool SyncSalesforceCaseToJiraIssue(List<string> caseNOs)
         {
-            ISalesforceService SalesforceService = new SalesforceService();
+            ISalesforceService SalesforceService = new SalesforceService(SalesforceAdapter, JiraAdapter);
             List<string> newCaseNoList = SalesforceService.GetNewCasesList();
 
             // C# .Net List<T>中Remove()、RemoveAt()、RemoveRange()、RemoveAll()的区别，List<T>删除汇总

@@ -28,7 +28,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\DLLs\Shared\</OutputPath>
+    <OutputPath>..\DLLs\Server\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -71,9 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AccountService.svc" />
-    <Content Include="Config\SmartSqlMapConfig.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="DatabaseService.svc" />
     <Content Include="DLLs\Microsoft.Extensions.Caching.Memory.dll" />
     <Content Include="DLLs\Microsoft.Practices.Unity.Configuration.dll" />
@@ -161,6 +158,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IoC\Autofac.Integration.Wcf\Autofac.Integration.Wcf.csproj">
+      <Project>{AFFA33CE-2F75-4079-8E52-39C5E0A605DD}</Project>
+      <Name>Autofac.Integration.Wcf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IoC\Autofac\Autofac.csproj">
+      <Project>{06F733C8-DD56-4EEB-ADD5-3787A006A26C}</Project>
+      <Name>Autofac</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JIRA\TechTalk.JiraRestClient\TechTalk.JiraRestClient.csproj">
       <Project>{210529FA-454E-4C32-A2C8-353ECBD4DA05}</Project>
       <Name>TechTalk.JiraRestClient</Name>
@@ -170,9 +175,7 @@
       <Name>SmartEngineer.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Config\Maps\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
