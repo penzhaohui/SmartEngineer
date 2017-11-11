@@ -22,7 +22,7 @@ namespace SmartEngineer.Forms
 
         public void InitUserInterface(IShowMessage messager)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

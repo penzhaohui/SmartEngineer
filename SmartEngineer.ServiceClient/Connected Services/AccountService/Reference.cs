@@ -8,19 +8,316 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SmartEngineer.ServiceClient.Services {
+namespace SmartEngineer.ServiceClient.AccountService {
     using System.Runtime.Serialization;
     using System;
+    
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountType", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    public enum AccountType : int {
         
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Normal = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Jira = 1,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BasicDataModel", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.AccountService.Tenant))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.AccountService.Account))]
+    public partial class BasicDataModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Tenant", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    public partial class Tenant : SmartEngineer.ServiceClient.AccountService.BasicDataModel {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DomainPatternField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaxAccountNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TimeZoneField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateDate {
+            get {
+                return this.CreateDateField;
+            }
+            set {
+                if ((this.CreateDateField.Equals(value) != true)) {
+                    this.CreateDateField = value;
+                    this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DomainPattern {
+            get {
+                return this.DomainPatternField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DomainPatternField, value) != true)) {
+                    this.DomainPatternField = value;
+                    this.RaisePropertyChanged("DomainPattern");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsActive {
+            get {
+                return this.IsActiveField;
+            }
+            set {
+                if ((this.IsActiveField.Equals(value) != true)) {
+                    this.IsActiveField = value;
+                    this.RaisePropertyChanged("IsActive");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaxAccountNumber {
+            get {
+                return this.MaxAccountNumberField;
+            }
+            set {
+                if ((this.MaxAccountNumberField.Equals(value) != true)) {
+                    this.MaxAccountNumberField = value;
+                    this.RaisePropertyChanged("MaxAccountNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TimeZone {
+            get {
+                return this.TimeZoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TimeZoneField, value) != true)) {
+                    this.TimeZoneField = value;
+                    this.RaisePropertyChanged("TimeZone");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    public partial class Account : SmartEngineer.ServiceClient.AccountService.BasicDataModel {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AccessTokenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DisplayNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SmartEngineer.ServiceClient.AccountService.Tenant[] TenantsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AccessToken {
+            get {
+                return this.AccessTokenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AccessTokenField, value) != true)) {
+                    this.AccessTokenField = value;
+                    this.RaisePropertyChanged("AccessToken");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DisplayName {
+            get {
+                return this.DisplayNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DisplayNameField, value) != true)) {
+                    this.DisplayNameField = value;
+                    this.RaisePropertyChanged("DisplayName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmailAddress {
+            get {
+                return this.EmailAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailAddressField, value) != true)) {
+                    this.EmailAddressField = value;
+                    this.RaisePropertyChanged("EmailAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SmartEngineer.ServiceClient.AccountService.Tenant[] Tenants {
+            get {
+                return this.TenantsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TenantsField, value) != true)) {
+                    this.TenantsField = value;
+                    this.RaisePropertyChanged("Tenants");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AccountService.IAccountService", CallbackContract=typeof(SmartEngineer.ServiceClient.Services.IAccountServiceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AccountService.IAccountService")]
     public interface IAccountService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountService/Login", ReplyAction="http://tempuri.org/IAccountService/LoginResponse")]
-        string Login(SmartEngineer.ServiceClient.Enums.AccountType accountType, string userName, string Password);
+        string Login(SmartEngineer.ServiceClient.AccountService.AccountType accountType, string userName, string Password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountService/Login", ReplyAction="http://tempuri.org/IAccountService/LoginResponse")]
-        System.Threading.Tasks.Task<string> LoginAsync(SmartEngineer.ServiceClient.Enums.AccountType accountType, string userName, string Password);
+        System.Threading.Tasks.Task<string> LoginAsync(SmartEngineer.ServiceClient.AccountService.AccountType accountType, string userName, string Password);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAccountService/Logout")]
         void Logout(string accessToken);
@@ -35,52 +332,44 @@ namespace SmartEngineer.ServiceClient.Services {
         System.Threading.Tasks.Task<bool> ValidateTokenAsync(string accessToken);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountService/GetAccountProfile", ReplyAction="http://tempuri.org/IAccountService/GetAccountProfileResponse")]
-        SmartEngineer.ServiceClient.Models.Account GetAccountProfile(string accessToken);
+        SmartEngineer.ServiceClient.AccountService.Account GetAccountProfile(string accessToken);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountService/GetAccountProfile", ReplyAction="http://tempuri.org/IAccountService/GetAccountProfileResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.Models.Account> GetAccountProfileAsync(string accessToken);
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.AccountService.Account> GetAccountProfileAsync(string accessToken);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAccountServiceCallback {
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAccountService/ValidateTokenCallback")]
-        void ValidateTokenCallback(bool result);
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAccountServiceChannel : SmartEngineer.ServiceClient.Services.IAccountService, System.ServiceModel.IClientChannel {
+    public interface IAccountServiceChannel : SmartEngineer.ServiceClient.AccountService.IAccountService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AccountServiceClient : System.ServiceModel.DuplexClientBase<SmartEngineer.ServiceClient.Services.IAccountService>, SmartEngineer.ServiceClient.Services.IAccountService
-    {
-        public AccountServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
-                base(callbackInstance) {
+    public partial class AccountServiceClient : System.ServiceModel.ClientBase<SmartEngineer.ServiceClient.AccountService.IAccountService>, SmartEngineer.ServiceClient.AccountService.IAccountService {
+        
+        public AccountServiceClient() {
         }
         
-        public AccountServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
-                base(callbackInstance, endpointConfigurationName) {
+        public AccountServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
         }
         
-        public AccountServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
-                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        public AccountServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AccountServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        public AccountServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AccountServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(callbackInstance, binding, remoteAddress) {
+        public AccountServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
         }
         
-        public string Login(SmartEngineer.ServiceClient.Enums.AccountType accountType, string userName, string Password) {
+        public string Login(SmartEngineer.ServiceClient.AccountService.AccountType accountType, string userName, string Password) {
             return base.Channel.Login(accountType, userName, Password);
         }
         
-        public System.Threading.Tasks.Task<string> LoginAsync(SmartEngineer.ServiceClient.Enums.AccountType accountType, string userName, string Password) {
+        public System.Threading.Tasks.Task<string> LoginAsync(SmartEngineer.ServiceClient.AccountService.AccountType accountType, string userName, string Password) {
             return base.Channel.LoginAsync(accountType, userName, Password);
         }
         
@@ -100,11 +389,11 @@ namespace SmartEngineer.ServiceClient.Services {
             return base.Channel.ValidateTokenAsync(accessToken);
         }
         
-        public SmartEngineer.ServiceClient.Models.Account GetAccountProfile(string accessToken) {
+        public SmartEngineer.ServiceClient.AccountService.Account GetAccountProfile(string accessToken) {
             return base.Channel.GetAccountProfile(accessToken);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.Models.Account> GetAccountProfileAsync(string accessToken) {
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.AccountService.Account> GetAccountProfileAsync(string accessToken) {
             return base.Channel.GetAccountProfileAsync(accessToken);
         }
     }

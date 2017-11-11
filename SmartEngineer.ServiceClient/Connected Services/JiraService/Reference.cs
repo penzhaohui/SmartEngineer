@@ -15,9 +15,515 @@ namespace SmartEngineer.ServiceClient.JiraService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="IssueInfo", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JiraIssue", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
     [System.SerializableAttribute()]
-    public partial class IssueInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class JiraIssue : SmartEngineer.ServiceClient.JiraService.BasicDataModel {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AssignedQAField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AssigneeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BuildVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CaseNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EstimatedEffortField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FixVersionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IssueCategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IssueTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JiraIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JiraKeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LabelsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PriorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProjectKeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ReporterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SFCommentCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFCurrentVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFCustomerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> SFLastModifiedDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> SFOpenedDateTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFOriginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFPriorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFSalesforceLinkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SFTargetedReleaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SeverityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SummaryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> UpdatedField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AssignedQA {
+            get {
+                return this.AssignedQAField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AssignedQAField, value) != true)) {
+                    this.AssignedQAField = value;
+                    this.RaisePropertyChanged("AssignedQA");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Assignee {
+            get {
+                return this.AssigneeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AssigneeField, value) != true)) {
+                    this.AssigneeField = value;
+                    this.RaisePropertyChanged("Assignee");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BuildVersion {
+            get {
+                return this.BuildVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BuildVersionField, value) != true)) {
+                    this.BuildVersionField = value;
+                    this.RaisePropertyChanged("BuildVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CaseNumber {
+            get {
+                return this.CaseNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CaseNumberField, value) != true)) {
+                    this.CaseNumberField = value;
+                    this.RaisePropertyChanged("CaseNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EstimatedEffort {
+            get {
+                return this.EstimatedEffortField;
+            }
+            set {
+                if ((this.EstimatedEffortField.Equals(value) != true)) {
+                    this.EstimatedEffortField = value;
+                    this.RaisePropertyChanged("EstimatedEffort");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FixVersions {
+            get {
+                return this.FixVersionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FixVersionsField, value) != true)) {
+                    this.FixVersionsField = value;
+                    this.RaisePropertyChanged("FixVersions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IssueCategory {
+            get {
+                return this.IssueCategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IssueCategoryField, value) != true)) {
+                    this.IssueCategoryField = value;
+                    this.RaisePropertyChanged("IssueCategory");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IssueType {
+            get {
+                return this.IssueTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IssueTypeField, value) != true)) {
+                    this.IssueTypeField = value;
+                    this.RaisePropertyChanged("IssueType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string JiraID {
+            get {
+                return this.JiraIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JiraIDField, value) != true)) {
+                    this.JiraIDField = value;
+                    this.RaisePropertyChanged("JiraID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string JiraKey {
+            get {
+                return this.JiraKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JiraKeyField, value) != true)) {
+                    this.JiraKeyField = value;
+                    this.RaisePropertyChanged("JiraKey");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Labels {
+            get {
+                return this.LabelsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LabelsField, value) != true)) {
+                    this.LabelsField = value;
+                    this.RaisePropertyChanged("Labels");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Priority {
+            get {
+                return this.PriorityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PriorityField, value) != true)) {
+                    this.PriorityField = value;
+                    this.RaisePropertyChanged("Priority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Product {
+            get {
+                return this.ProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
+                    this.ProductField = value;
+                    this.RaisePropertyChanged("Product");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProjectKey {
+            get {
+                return this.ProjectKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProjectKeyField, value) != true)) {
+                    this.ProjectKeyField = value;
+                    this.RaisePropertyChanged("ProjectKey");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Reporter {
+            get {
+                return this.ReporterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReporterField, value) != true)) {
+                    this.ReporterField = value;
+                    this.RaisePropertyChanged("Reporter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SFCommentCount {
+            get {
+                return this.SFCommentCountField;
+            }
+            set {
+                if ((this.SFCommentCountField.Equals(value) != true)) {
+                    this.SFCommentCountField = value;
+                    this.RaisePropertyChanged("SFCommentCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFCurrentVersion {
+            get {
+                return this.SFCurrentVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFCurrentVersionField, value) != true)) {
+                    this.SFCurrentVersionField = value;
+                    this.RaisePropertyChanged("SFCurrentVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFCustomer {
+            get {
+                return this.SFCustomerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFCustomerField, value) != true)) {
+                    this.SFCustomerField = value;
+                    this.RaisePropertyChanged("SFCustomer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> SFLastModifiedDate {
+            get {
+                return this.SFLastModifiedDateField;
+            }
+            set {
+                if ((this.SFLastModifiedDateField.Equals(value) != true)) {
+                    this.SFLastModifiedDateField = value;
+                    this.RaisePropertyChanged("SFLastModifiedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> SFOpenedDateTime {
+            get {
+                return this.SFOpenedDateTimeField;
+            }
+            set {
+                if ((this.SFOpenedDateTimeField.Equals(value) != true)) {
+                    this.SFOpenedDateTimeField = value;
+                    this.RaisePropertyChanged("SFOpenedDateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFOrigin {
+            get {
+                return this.SFOriginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFOriginField, value) != true)) {
+                    this.SFOriginField = value;
+                    this.RaisePropertyChanged("SFOrigin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFPriority {
+            get {
+                return this.SFPriorityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFPriorityField, value) != true)) {
+                    this.SFPriorityField = value;
+                    this.RaisePropertyChanged("SFPriority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFProduct {
+            get {
+                return this.SFProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFProductField, value) != true)) {
+                    this.SFProductField = value;
+                    this.RaisePropertyChanged("SFProduct");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFSalesforceLink {
+            get {
+                return this.SFSalesforceLinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFSalesforceLinkField, value) != true)) {
+                    this.SFSalesforceLinkField = value;
+                    this.RaisePropertyChanged("SFSalesforceLink");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SFTargetedRelease {
+            get {
+                return this.SFTargetedReleaseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SFTargetedReleaseField, value) != true)) {
+                    this.SFTargetedReleaseField = value;
+                    this.RaisePropertyChanged("SFTargetedRelease");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Severity {
+            get {
+                return this.SeverityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SeverityField, value) != true)) {
+                    this.SeverityField = value;
+                    this.RaisePropertyChanged("Severity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Summary {
+            get {
+                return this.SummaryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SummaryField, value) != true)) {
+                    this.SummaryField = value;
+                    this.RaisePropertyChanged("Summary");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Updated {
+            get {
+                return this.UpdatedField;
+            }
+            set {
+                if ((this.UpdatedField.Equals(value) != true)) {
+                    this.UpdatedField = value;
+                    this.RaisePropertyChanged("Updated");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BasicDataModel", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.JiraService.JiraWorkLog))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.JiraService.JiraSubTask))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.JiraService.JiraIssue))]
+    public partial class BasicDataModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -44,58 +550,398 @@ namespace SmartEngineer.ServiceClient.JiraService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WorkLog", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JiraWorkLog", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
     [System.SerializableAttribute()]
-    public partial class WorkLog : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class JiraWorkLog : SmartEngineer.ServiceClient.JiraService.BasicDataModel {
         
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CommentBodyField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedByIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedByNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedDateTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastModifiedByIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastModifiedByNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime LastModifiedDateTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ParentJiraKeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double TimeSpendSecondsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double TimeSpentHoursField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string WorklogIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CommentBody {
             get {
-                return this.extensionDataField;
+                return this.CommentBodyField;
             }
             set {
-                this.extensionDataField = value;
+                if ((object.ReferenceEquals(this.CommentBodyField, value) != true)) {
+                    this.CommentBodyField = value;
+                    this.RaisePropertyChanged("CommentBody");
+                }
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatedByID {
+            get {
+                return this.CreatedByIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatedByIDField, value) != true)) {
+                    this.CreatedByIDField = value;
+                    this.RaisePropertyChanged("CreatedByID");
+                }
+            }
+        }
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatedByName {
+            get {
+                return this.CreatedByNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatedByNameField, value) != true)) {
+                    this.CreatedByNameField = value;
+                    this.RaisePropertyChanged("CreatedByName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreatedDateTime {
+            get {
+                return this.CreatedDateTimeField;
+            }
+            set {
+                if ((this.CreatedDateTimeField.Equals(value) != true)) {
+                    this.CreatedDateTimeField = value;
+                    this.RaisePropertyChanged("CreatedDateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastModifiedByID {
+            get {
+                return this.LastModifiedByIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastModifiedByIDField, value) != true)) {
+                    this.LastModifiedByIDField = value;
+                    this.RaisePropertyChanged("LastModifiedByID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastModifiedByName {
+            get {
+                return this.LastModifiedByNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastModifiedByNameField, value) != true)) {
+                    this.LastModifiedByNameField = value;
+                    this.RaisePropertyChanged("LastModifiedByName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime LastModifiedDateTime {
+            get {
+                return this.LastModifiedDateTimeField;
+            }
+            set {
+                if ((this.LastModifiedDateTimeField.Equals(value) != true)) {
+                    this.LastModifiedDateTimeField = value;
+                    this.RaisePropertyChanged("LastModifiedDateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ParentJiraKey {
+            get {
+                return this.ParentJiraKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ParentJiraKeyField, value) != true)) {
+                    this.ParentJiraKeyField = value;
+                    this.RaisePropertyChanged("ParentJiraKey");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double TimeSpendSeconds {
+            get {
+                return this.TimeSpendSecondsField;
+            }
+            set {
+                if ((this.TimeSpendSecondsField.Equals(value) != true)) {
+                    this.TimeSpendSecondsField = value;
+                    this.RaisePropertyChanged("TimeSpendSeconds");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double TimeSpentHours {
+            get {
+                return this.TimeSpentHoursField;
+            }
+            set {
+                if ((this.TimeSpentHoursField.Equals(value) != true)) {
+                    this.TimeSpentHoursField = value;
+                    this.RaisePropertyChanged("TimeSpentHours");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string WorklogID {
+            get {
+                return this.WorklogIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WorklogIDField, value) != true)) {
+                    this.WorklogIDField = value;
+                    this.RaisePropertyChanged("WorklogID");
+                }
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SubTask", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JiraSubTask", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
     [System.SerializableAttribute()]
-    public partial class SubTask : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class JiraSubTask : SmartEngineer.ServiceClient.JiraService.BasicDataModel {
         
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AssigneeField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AssigneeQAField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JiraIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JiraKeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ParentJiraKeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProjectKeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SummaryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalTimeSpentHoursField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Assignee {
             get {
-                return this.extensionDataField;
+                return this.AssigneeField;
             }
             set {
-                this.extensionDataField = value;
+                if ((object.ReferenceEquals(this.AssigneeField, value) != true)) {
+                    this.AssigneeField = value;
+                    this.RaisePropertyChanged("Assignee");
+                }
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AssigneeQA {
+            get {
+                return this.AssigneeQAField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AssigneeQAField, value) != true)) {
+                    this.AssigneeQAField = value;
+                    this.RaisePropertyChanged("AssigneeQA");
+                }
+            }
+        }
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string JiraID {
+            get {
+                return this.JiraIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JiraIDField, value) != true)) {
+                    this.JiraIDField = value;
+                    this.RaisePropertyChanged("JiraID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string JiraKey {
+            get {
+                return this.JiraKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JiraKeyField, value) != true)) {
+                    this.JiraKeyField = value;
+                    this.RaisePropertyChanged("JiraKey");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ParentJiraKey {
+            get {
+                return this.ParentJiraKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ParentJiraKeyField, value) != true)) {
+                    this.ParentJiraKeyField = value;
+                    this.RaisePropertyChanged("ParentJiraKey");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProjectKey {
+            get {
+                return this.ProjectKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProjectKeyField, value) != true)) {
+                    this.ProjectKeyField = value;
+                    this.RaisePropertyChanged("ProjectKey");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Summary {
+            get {
+                return this.SummaryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SummaryField, value) != true)) {
+                    this.SummaryField = value;
+                    this.RaisePropertyChanged("Summary");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalTimeSpentHours {
+            get {
+                return this.TotalTimeSpentHoursField;
+            }
+            set {
+                if ((this.TotalTimeSpentHoursField.Equals(value) != true)) {
+                    this.TotalTimeSpentHoursField = value;
+                    this.RaisePropertyChanged("TotalTimeSpentHours");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
             }
         }
     }
@@ -105,10 +951,10 @@ namespace SmartEngineer.ServiceClient.JiraService {
     public interface IJiraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetIssuesByLabels", ReplyAction="http://tempuri.org/IJiraService/GetIssuesByLabelsResponse")]
-        SmartEngineer.ServiceClient.JiraService.IssueInfo[] GetIssuesByLabels(string[] labels);
+        SmartEngineer.ServiceClient.JiraService.JiraIssue[] GetIssuesByLabels(string[] labels);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetIssuesByLabels", ReplyAction="http://tempuri.org/IJiraService/GetIssuesByLabelsResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.IssueInfo[]> GetIssuesByLabelsAsync(string[] labels);
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.JiraIssue[]> GetIssuesByLabelsAsync(string[] labels);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/UpdateAssignee", ReplyAction="http://tempuri.org/IJiraService/UpdateAssigneeResponse")]
         bool UpdateAssignee(string jiraKey, string assignee);
@@ -123,16 +969,16 @@ namespace SmartEngineer.ServiceClient.JiraService {
         System.Threading.Tasks.Task<bool> UpdateAssigneeQAAsync(string jiraKey, string assignee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetUpdatedIssues", ReplyAction="http://tempuri.org/IJiraService/GetUpdatedIssuesResponse")]
-        SmartEngineer.ServiceClient.JiraService.IssueInfo[] GetUpdatedIssues(System.DateTime from, System.DateTime to, string[] assignees);
+        SmartEngineer.ServiceClient.JiraService.JiraIssue[] GetUpdatedIssues(System.DateTime from, System.DateTime to, string[] assignees);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetUpdatedIssues", ReplyAction="http://tempuri.org/IJiraService/GetUpdatedIssuesResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.IssueInfo[]> GetUpdatedIssuesAsync(System.DateTime from, System.DateTime to, string[] assignees);
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.JiraIssue[]> GetUpdatedIssuesAsync(System.DateTime from, System.DateTime to, string[] assignees);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetWorkLogs", ReplyAction="http://tempuri.org/IJiraService/GetWorkLogsResponse")]
-        SmartEngineer.ServiceClient.JiraService.WorkLog[] GetWorkLogs(string jiraKey);
+        SmartEngineer.ServiceClient.JiraService.JiraWorkLog[] GetWorkLogs(string jiraKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetWorkLogs", ReplyAction="http://tempuri.org/IJiraService/GetWorkLogsResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.WorkLog[]> GetWorkLogsAsync(string jiraKey);
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.JiraWorkLog[]> GetWorkLogsAsync(string jiraKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetCaseStudy", ReplyAction="http://tempuri.org/IJiraService/GetCaseStudyResponse")]
         string GetCaseStudy(string jiraKey, string options);
@@ -141,16 +987,16 @@ namespace SmartEngineer.ServiceClient.JiraService {
         System.Threading.Tasks.Task<string> GetCaseStudyAsync(string jiraKey, string options);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetSubTasks", ReplyAction="http://tempuri.org/IJiraService/GetSubTasksResponse")]
-        SmartEngineer.ServiceClient.JiraService.SubTask[] GetSubTasks(string jiraKey);
+        SmartEngineer.ServiceClient.JiraService.JiraSubTask[] GetSubTasks(string jiraKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/GetSubTasks", ReplyAction="http://tempuri.org/IJiraService/GetSubTasksResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.SubTask[]> GetSubTasksAsync(string jiraKey);
+        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.JiraSubTask[]> GetSubTasksAsync(string jiraKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/UpdateSubTasks", ReplyAction="http://tempuri.org/IJiraService/UpdateSubTasksResponse")]
-        bool UpdateSubTasks(string jiraKey, SmartEngineer.ServiceClient.JiraService.SubTask subTask);
+        bool UpdateSubTasks(string jiraKey, SmartEngineer.ServiceClient.JiraService.JiraSubTask subTask);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/UpdateSubTasks", ReplyAction="http://tempuri.org/IJiraService/UpdateSubTasksResponse")]
-        System.Threading.Tasks.Task<bool> UpdateSubTasksAsync(string jiraKey, SmartEngineer.ServiceClient.JiraService.SubTask subTask);
+        System.Threading.Tasks.Task<bool> UpdateSubTasksAsync(string jiraKey, SmartEngineer.ServiceClient.JiraService.JiraSubTask subTask);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraService/CloseSubTasks", ReplyAction="http://tempuri.org/IJiraService/CloseSubTasksResponse")]
         bool CloseSubTasks(string jiraKey);
@@ -186,11 +1032,11 @@ namespace SmartEngineer.ServiceClient.JiraService {
                 base(binding, remoteAddress) {
         }
         
-        public SmartEngineer.ServiceClient.JiraService.IssueInfo[] GetIssuesByLabels(string[] labels) {
+        public SmartEngineer.ServiceClient.JiraService.JiraIssue[] GetIssuesByLabels(string[] labels) {
             return base.Channel.GetIssuesByLabels(labels);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.IssueInfo[]> GetIssuesByLabelsAsync(string[] labels) {
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.JiraIssue[]> GetIssuesByLabelsAsync(string[] labels) {
             return base.Channel.GetIssuesByLabelsAsync(labels);
         }
         
@@ -210,19 +1056,19 @@ namespace SmartEngineer.ServiceClient.JiraService {
             return base.Channel.UpdateAssigneeQAAsync(jiraKey, assignee);
         }
         
-        public SmartEngineer.ServiceClient.JiraService.IssueInfo[] GetUpdatedIssues(System.DateTime from, System.DateTime to, string[] assignees) {
+        public SmartEngineer.ServiceClient.JiraService.JiraIssue[] GetUpdatedIssues(System.DateTime from, System.DateTime to, string[] assignees) {
             return base.Channel.GetUpdatedIssues(from, to, assignees);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.IssueInfo[]> GetUpdatedIssuesAsync(System.DateTime from, System.DateTime to, string[] assignees) {
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.JiraIssue[]> GetUpdatedIssuesAsync(System.DateTime from, System.DateTime to, string[] assignees) {
             return base.Channel.GetUpdatedIssuesAsync(from, to, assignees);
         }
         
-        public SmartEngineer.ServiceClient.JiraService.WorkLog[] GetWorkLogs(string jiraKey) {
+        public SmartEngineer.ServiceClient.JiraService.JiraWorkLog[] GetWorkLogs(string jiraKey) {
             return base.Channel.GetWorkLogs(jiraKey);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.WorkLog[]> GetWorkLogsAsync(string jiraKey) {
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.JiraWorkLog[]> GetWorkLogsAsync(string jiraKey) {
             return base.Channel.GetWorkLogsAsync(jiraKey);
         }
         
@@ -234,19 +1080,19 @@ namespace SmartEngineer.ServiceClient.JiraService {
             return base.Channel.GetCaseStudyAsync(jiraKey, options);
         }
         
-        public SmartEngineer.ServiceClient.JiraService.SubTask[] GetSubTasks(string jiraKey) {
+        public SmartEngineer.ServiceClient.JiraService.JiraSubTask[] GetSubTasks(string jiraKey) {
             return base.Channel.GetSubTasks(jiraKey);
         }
         
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.SubTask[]> GetSubTasksAsync(string jiraKey) {
+        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraService.JiraSubTask[]> GetSubTasksAsync(string jiraKey) {
             return base.Channel.GetSubTasksAsync(jiraKey);
         }
         
-        public bool UpdateSubTasks(string jiraKey, SmartEngineer.ServiceClient.JiraService.SubTask subTask) {
+        public bool UpdateSubTasks(string jiraKey, SmartEngineer.ServiceClient.JiraService.JiraSubTask subTask) {
             return base.Channel.UpdateSubTasks(jiraKey, subTask);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateSubTasksAsync(string jiraKey, SmartEngineer.ServiceClient.JiraService.SubTask subTask) {
+        public System.Threading.Tasks.Task<bool> UpdateSubTasksAsync(string jiraKey, SmartEngineer.ServiceClient.JiraService.JiraSubTask subTask) {
             return base.Channel.UpdateSubTasksAsync(jiraKey, subTask);
         }
         

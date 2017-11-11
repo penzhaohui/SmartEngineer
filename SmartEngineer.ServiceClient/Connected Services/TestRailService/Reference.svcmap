@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1df470a9-ee88-4967-9a11-f363b9e8d1ae" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="74303b60-79a7-492f-a65f-a1afa0008fc6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,9 +22,9 @@
     <MetadataSource Address="http://localhost:41200/TestRailService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="TestRailService.disco" MetadataType="Disco" ID="7a01b529-14b0-40e7-902a-813e3b785136" SourceId="1" SourceUrl="http://localhost:41200/TestRailService.svc?disco" />
-    <MetadataFile FileName="TestRailService.xsd" MetadataType="Schema" ID="7c72359f-5b79-41a8-83bc-4dd7c7913081" SourceId="1" SourceUrl="http://localhost:41200/TestRailService.svc?xsd=xsd0" />
-    <MetadataFile FileName="TestRailService.wsdl" MetadataType="Wsdl" ID="36208af5-fb82-489d-911c-59541762b7ac" SourceId="1" SourceUrl="http://localhost:41200/TestRailService.svc?wsdl" />
+    <MetadataFile FileName="TestRailService.disco" MetadataType="Disco" ID="9327cf57-22ef-4de4-b197-902e5da6666d" SourceId="1" SourceUrl="http://localhost:41200/TestRailService.svc?disco" />
+    <MetadataFile FileName="TestRailService.xsd" MetadataType="Schema" ID="9c36ee2b-98f2-45ea-884b-7d2a9f42690d" SourceId="1" SourceUrl="http://localhost:41200/TestRailService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TestRailService.wsdl" MetadataType="Wsdl" ID="f6b54c0f-4b1d-4163-a5db-ba7113099f8b" SourceId="1" SourceUrl="http://localhost:41200/TestRailService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -2,8 +2,8 @@
 using SmartEngineer.Framework.Context;
 using SmartEngineer.Framework.Logger;
 using SmartEngineer.Notification;
+using SmartEngineer.ServiceClient.AccountService;
 using SmartEngineer.ServiceClient.Adapters;
-using SmartEngineer.ServiceClient.Enums;
 using System;
 using System.Windows.Forms;
 

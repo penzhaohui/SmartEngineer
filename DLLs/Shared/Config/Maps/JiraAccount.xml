@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SmartSqlMap Scope="JiraAccount"  xmlns="http://SmartSql.net/schemas/SmartSqlMap.xsd">
+  <Caches>
+    <Cache Id="Account.RedisCache" Type="SmartSql.Cache.Redis.RedisCacheProvider,SmartSql.Cache.Redis">
+      <Parameter Key="CacheSize" Value="1000"/>
+      <Parameter Key="ConnectionString" Value="192.168.31.103"/>
+      <Parameter Key="DatabaseId" Value="0"/>
+      <FlushInterval Hours="24" Minutes="0" Seconds="0"/>
+      <FlushOnExecute Statement="JiraAccount.Insert"/>
+      <FlushOnExecute Statement="JiraAccount.Update"/>
+    </Cache>
+  </Caches>
+  <Statements>
+    <Statement Id="QueryParams">
+      <Dynamic Prepend="Where">
+        <IsNotEmpty Property="Name" Prepend="And">
+          Name = @Name
+        </IsNotEmpty>
+        <IsNotEmpty Property="EmailAddress" Prepend="And">
+          EmailAddress = @EmailAddress
+        </IsNotEmpty>
+      </Dynamic>      
+    </Statement>
+    
+    <!--新增-->
+    <Statement Id="Insert">
+      INSERT INTO JiraAccount
+      (ID
+      ,Name
+      ,EmailAddress
+      ,DisplayName
+      ,IsActive
+      ,LastUpdateTime
+      ,LastUpdateUserID)
+      VALUES
+      (@ID
+      ,@Name
+      ,@EmailAddress
+      ,@DisplayName
+      ,@IsActive
+      ,@LastUpdateTime
+      ,@LastUpdateUserID);
+    </Statement>
+
+    <!--删除-->
+    <Statement Id="Delete">
+      Delete JiraAccount
+      Where ID=@ID
+    </Statement>
+
+    <!--更新-->
+    <Statement Id="Update">
+      UPDATE JiraAccount
+      SET
+      Name=@Name
+      ,EmailAddress=@EmailAddress
+      ,DisplayName=@DisplayName
+      ,IsActive=@IsActive
+      ,LastUpdateTime=@LastUpdateTime
+      ,LastUpdateUserID=@LastUpdateUserID
+      Where ID=@ID
+    </Statement>
+   
+    <!--是否存在该记录-->
+    <Statement Id="IsExist">
+      Select Count(1) From JiraAccount
+      <Include RefId="QueryParams"/>
+    </Statement>
+
+    <!--获取单条记录 -->
+    <Statement Id="GetEntity">
+      SELECT ID
+      ,Name
+      ,EmailAddress
+      ,DisplayName
+      ,IsActive
+      ,LastUpdateTime
+      ,LastUpdateUserID
+      FROM JiraAccount
+      <Include RefId="QueryParams"/>
+      Order by ID ASC
+    </Statement>
+   
+  </Statements>
+</SmartSqlMap>

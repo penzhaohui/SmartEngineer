@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 
 namespace SmartEngineer.Framework.Cache.Redis
-{
+{/*
     public class RedisCacheProvider : ICacheProvider
     {
         private String connStr;
@@ -46,7 +46,7 @@ namespace SmartEngineer.Framework.Cache.Redis
         {
             get
             {
-                string cacheStr = cacheDB.StringGet(key.Key);
+                string cacheStr = cacheDB.StringGet(key.Key);        
                 if (String.IsNullOrEmpty(cacheStr)) { return null; }
                 return JsonConvert.DeserializeObject(cacheStr, type);
             }
@@ -73,4 +73,5 @@ namespace SmartEngineer.Framework.Cache.Redis
             return cacheDB.KeyDelete(key.Key);
         }
     }
+    */
 }

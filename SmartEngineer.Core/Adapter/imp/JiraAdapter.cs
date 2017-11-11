@@ -310,7 +310,6 @@ namespace SmartEngineer.Core.Adapter
                 }
 
                 var localJiraIssueComment = JiraIssueCommentDAO.GetEntity(jiraIssueComment);
-
                 if (localJiraIssueComment == null)
                 {
                     CreateComment(issueRef, "Copied from salesforce:\n---------------------------------------------------------\n" + caseCommentInfo.CommentBody, JiraAccount, JiraPassword);

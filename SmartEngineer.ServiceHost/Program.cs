@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ServiceModel;
+﻿using SmartEngineer.Core.Adapter;
 using SmartEngineer.Ext;
 using SmartEngineer.WCFService.Ext.Behaviors;
 using SmartEngineer.WCFService.Ext.Validators;
-using SmartEngineer.Core.Adapter;
+using System;
+using System.ServiceModel;
 
 namespace SmartEngineer
 {

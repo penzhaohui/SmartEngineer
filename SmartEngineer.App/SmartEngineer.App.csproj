@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SmartEngineer</RootNamespace>
     <AssemblyName>SmartEngineer</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -254,6 +254,12 @@
     <Compile Include="Settings\frmTemplateSettings.Designer.cs">
       <DependentUpon>frmTemplateSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\OptionSettings\MemcacheModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\OptionSettings\MemcacheModule.Designer.cs">
+      <DependentUpon>MemcacheModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\OptionSettings\AuditLogModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -389,6 +395,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\frmTemplateSettings.resx">
       <DependentUpon>frmTemplateSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\OptionSettings\MemcacheModule.resx">
+      <DependentUpon>MemcacheModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\OptionSettings\AuditLogModule.resx">
       <DependentUpon>AuditLogModule.cs</DependentUpon>

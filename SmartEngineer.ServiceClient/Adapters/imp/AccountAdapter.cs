@@ -1,13 +1,10 @@
 ﻿using log4net;
 using SmartEngineer.Common;
 using SmartEngineer.Framework.Logger;
-using SmartEngineer.ServiceClient.Enums;
-using SmartEngineer.ServiceClient.Models;
-using SmartEngineer.ServiceClient.Services;
+using SmartEngineer.ServiceClient.AccountService;
 using System;
 using System.Security.Principal;
 using System.ServiceModel;
-using System.ServiceModel.Channels;
 
 namespace SmartEngineer.ServiceClient.Adapters
 {
@@ -27,8 +24,8 @@ namespace SmartEngineer.ServiceClient.Adapters
         {
             Logger.Info("User Name:" + userName);
             System.Console.WriteLine("WindowsIdentity.GetCurrent().Name = " + WindowsIdentity.GetCurrent().Name);
-            InstanceContext callbackInstance = new InstanceContext(new AccountServiceCallback());
-            AccountServiceClient client = WSFactory.Instance.GetWCFClient<AccountServiceClient, IAccountService>(callbackInstance);
+            //InstanceContext callbackInstance = new InstanceContext(null);
+            AccountServiceClient client = WSFactory.Instance.GetWCFClient<AccountServiceClient, IAccountService>();
             return client.Login(accountType, userName, Password);
         }
 
@@ -38,14 +35,6 @@ namespace SmartEngineer.ServiceClient.Adapters
         }
 
         public bool ValidateToken(string accessToken)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class AccountServiceCallback : IAccountServiceCallback
-    {
-        public void ValidateTokenCallback(bool result)
         {
             throw new NotImplementedException();
         }

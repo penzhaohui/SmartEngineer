@@ -30,6 +30,9 @@ namespace SmartEngineer.Forms
                 case "Performance":
                     UserControl = new PerformanceModule();                    
                     break;
+                case "Memcache":
+                    UserControl = new MemcacheModule();
+                    break;
                 case "AuditLog":
                     UserControl = new AuditLogModule();
                     break;

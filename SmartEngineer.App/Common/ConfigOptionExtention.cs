@@ -1,10 +1,7 @@
-﻿using SmartEngineer.ServiceClient.Models;
-using SmartEngineer.ServiceClient.SettingService;
+﻿using SmartEngineer.ServiceClient.SettingService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmartEngineer.Common
 {

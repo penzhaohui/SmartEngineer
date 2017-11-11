@@ -1,16 +1,9 @@
-﻿using SmartEngineer.ServiceClient.Adapters;
+﻿using SmartEngineer.Notification;
+using SmartEngineer.ServiceClient.Adapters;
+using SmartEngineer.ServiceClient.MemberService;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using SmartEngineer.Notification;
-using SmartEngineer.ServiceClient.MemberService;
-using SmartEngineer.Common;
 
 namespace SmartEngineer.Forms
 {

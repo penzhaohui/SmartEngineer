@@ -17,10 +17,7 @@ namespace SmartEngineer.ServiceClient.SettingService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConfigOption", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
     [System.SerializableAttribute()]
-    public partial class ConfigOption : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+    public partial class ConfigOption : SmartEngineer.ServiceClient.SettingService.BasicDataModel {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ConfigExtraField;
@@ -42,16 +39,6 @@ namespace SmartEngineer.ServiceClient.SettingService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int TenantIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ConfigExtra {
@@ -141,6 +128,27 @@ namespace SmartEngineer.ServiceClient.SettingService {
                     this.TenantIDField = value;
                     this.RaisePropertyChanged("TenantID");
                 }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BasicDataModel", Namespace="http://schemas.datacontract.org/2004/07/SmartEngineer.Core.Models")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartEngineer.ServiceClient.SettingService.ConfigOption))]
+    public partial class BasicDataModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
             }
         }
         

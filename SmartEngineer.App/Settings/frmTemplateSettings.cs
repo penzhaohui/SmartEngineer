@@ -18,22 +18,21 @@ namespace SmartEngineer.Forms
             IconPanel iconPanel2 = new IconPanel();
             IconPanel iconPanel3 = new IconPanel();
 
-            outlookBar.AddBand("工具条A", iconPanel1);
-            outlookBar.AddBand("工具条B", iconPanel2);
-            outlookBar.AddBand("工具条C", iconPanel3);
+            outlookBar.AddBand("Sub Task Template", iconPanel1);
+            outlookBar.AddBand("Report Email Template", iconPanel2);
 
             // 总结C#获取当前路径的7种方法
             // http://www.cnblogs.com/Impulse/p/4494077.html
             //0
-            iconPanel1.AddIcon("信息查询", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory  + @"\Image\1.ico"), new EventHandler(PanelEventA));
+            iconPanel1.AddIcon("Case", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory  + @"\Image\1.ico"), new EventHandler(PanelEventA));
             //1
-            iconPanel1.AddIcon("购物车管理", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\2.ico"), new EventHandler(PanelEventA));
+            iconPanel1.AddIcon("Bug", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\2.ico"), new EventHandler(PanelEventA));
             //2
-            iconPanel2.AddIcon("电子邮件", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\3.ico"), new EventHandler(PanelEventB));
+            iconPanel2.AddIcon("Daily Case Review Report", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\3.ico"), new EventHandler(PanelEventB));
             //3
-            iconPanel2.AddIcon("密码管理", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\4.ico"), new EventHandler(PanelEventB));
+            iconPanel2.AddIcon("Daily Work Log Report", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\4.ico"), new EventHandler(PanelEventB));
             //4
-            iconPanel3.AddIcon("时间设置", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\4.ico"), new EventHandler(PanelEventC));
+            iconPanel2.AddIcon("Weekly Case Review Report", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\4.ico"), new EventHandler(PanelEventB));
             outlookBar.SelectBand(0);
             #endregion
         }
@@ -46,10 +45,10 @@ namespace SmartEngineer.Forms
             switch (panelIcon.Index)
             {
                 case 0:
-                    clickInfo = "信息查询";
+                    clickInfo = "Case";
                     break;
                 case 1:
-                    clickInfo = "购物车管理";
+                    clickInfo = "Bug";
                     break;
             }
             this.label1.Text = string.Format("您选择了 {0}", clickInfo);
@@ -64,24 +63,13 @@ namespace SmartEngineer.Forms
             switch (panelIcon.Index)
             {
                 case 0:
-                    clickInfo = "电子邮件";
+                    clickInfo = "Daily Case Review Report";
                     break;
                 case 1:
-                    clickInfo = "密码管理";
+                    clickInfo = "Daily Work Log Report";
                     break;
-            }
-            this.label1.Text = string.Format("您选择了 {0}", clickInfo);
-        }
-
-        public void PanelEventC(object sender, EventArgs e)
-        {
-            Control ctrl = (Control)sender;
-            PanelIcon panelIcon = ctrl.Tag as PanelIcon;
-            string clickInfo = string.Empty;
-            switch (panelIcon.Index)
-            {
-                case 0:
-                    clickInfo = "时间设置";
+                case 2:
+                    clickInfo = "Weekly Case Review Report";
                     break;
             }
             this.label1.Text = string.Format("您选择了 {0}", clickInfo);

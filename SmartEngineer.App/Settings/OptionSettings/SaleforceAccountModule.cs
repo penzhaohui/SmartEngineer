@@ -1,12 +1,8 @@
-﻿using SmartEngineer.ServiceClient.SettingService;
+﻿using SmartEngineer.Common;
+using SmartEngineer.Framework.Utils;
+using SmartEngineer.ServiceClient.SettingService;
 using System;
 using System.Collections.Generic;
-using SmartEngineer.Notification;
-using SmartEngineer.ServiceClient.SettingService;
-using SmartEngineer.ServiceClient.Adapters;
-using SmartEngineer.Common;
-using SmartEngineer.Framework.Constant;
-using SmartEngineer.Framework.Utils;
 
 namespace SmartEngineer.UserControls
 {

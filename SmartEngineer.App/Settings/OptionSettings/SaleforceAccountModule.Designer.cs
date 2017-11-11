@@ -46,11 +46,15 @@
             this.lblConsumerKey = new System.Windows.Forms.Label();
             this.txtSecurityToken = new System.Windows.Forms.TextBox();
             this.lblSecurityToken = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.grbSalesforceAccountSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbSalesforceAccountSetting
             // 
+            this.grbSalesforceAccountSetting.Controls.Add(this.checkBox1);
+            this.grbSalesforceAccountSetting.Controls.Add(this.label3);
             this.grbSalesforceAccountSetting.Controls.Add(this.cmbUpdateInterval);
             this.grbSalesforceAccountSetting.Controls.Add(this.lblUpdateInterbalUnit);
             this.grbSalesforceAccountSetting.Controls.Add(this.lblUpdateInterval);
@@ -241,6 +245,24 @@
             this.lblSecurityToken.TabIndex = 14;
             this.lblSecurityToken.Text = "Security Token:";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 248);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "Enable Cache:";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(106, 248);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 33;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // SaleforceAccountModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,5 +297,7 @@
         private System.Windows.Forms.Label lblUpdateInterbalUnit;
         private System.Windows.Forms.Label lblUpdateInterval;
         private System.Windows.Forms.ComboBox cmbUpdateInterval;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

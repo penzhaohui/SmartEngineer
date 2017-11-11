@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Performance");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Memcache");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Audit Log");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("System", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Performance");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("System", new System.Windows.Forms.TreeNode[] {
             treeNode1,
-            treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Salesforce");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Jira");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("GitHub");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("TestRail");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Synchronous", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Salesforce");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Jira");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("GitHub");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("TestRail");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Synchronous", new System.Windows.Forms.TreeNode[] {
             treeNode5,
             treeNode6,
-            treeNode7});
+            treeNode7,
+            treeNode8});
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.optionTree = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -67,34 +69,37 @@
             this.optionTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.optionTree.Location = new System.Drawing.Point(0, 0);
             this.optionTree.Name = "optionTree";
-            treeNode1.Name = "Performance";
-            treeNode1.Tag = "Performance";
-            treeNode1.Text = "Performance";
+            treeNode1.Name = "Memcache";
+            treeNode1.Tag = "Memcache";
+            treeNode1.Text = "Memcache";
             treeNode2.Name = "AuditLog";
             treeNode2.Tag = "AuditLog";
             treeNode2.Text = "Audit Log";
-            treeNode3.Name = "System";
-            treeNode3.Tag = "System";
-            treeNode3.Text = "System";
-            treeNode4.Name = "Salesforce";
-            treeNode4.Tag = "Salesforce";
-            treeNode4.Text = "Salesforce";
-            treeNode5.Name = "Jira";
-            treeNode5.Tag = "Jira";
-            treeNode5.Text = "Jira";
-            treeNode6.Name = "GitHub";
-            treeNode6.Tag = "GitHub";
-            treeNode6.Text = "GitHub";
-            treeNode6.ToolTipText = "GitHub";
-            treeNode7.Name = "TestRail";
-            treeNode7.Tag = "TestRail";
-            treeNode7.Text = "TestRail";
-            treeNode8.Name = "Synchronous";
-            treeNode8.Tag = "Synchronous";
-            treeNode8.Text = "Synchronous";
+            treeNode3.Name = "Performance";
+            treeNode3.Tag = "Performance";
+            treeNode3.Text = "Performance";
+            treeNode4.Name = "System";
+            treeNode4.Tag = "System";
+            treeNode4.Text = "System";
+            treeNode5.Name = "Salesforce";
+            treeNode5.Tag = "Salesforce";
+            treeNode5.Text = "Salesforce";
+            treeNode6.Name = "Jira";
+            treeNode6.Tag = "Jira";
+            treeNode6.Text = "Jira";
+            treeNode7.Name = "GitHub";
+            treeNode7.Tag = "GitHub";
+            treeNode7.Text = "GitHub";
+            treeNode7.ToolTipText = "GitHub";
+            treeNode8.Name = "TestRail";
+            treeNode8.Tag = "TestRail";
+            treeNode8.Text = "TestRail";
+            treeNode9.Name = "Synchronous";
+            treeNode9.Tag = "Synchronous";
+            treeNode9.Text = "Synchronous";
             this.optionTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode8});
+            treeNode4,
+            treeNode9});
             this.optionTree.Size = new System.Drawing.Size(189, 488);
             this.optionTree.TabIndex = 0;
             this.optionTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.optionTree_AfterSelect);

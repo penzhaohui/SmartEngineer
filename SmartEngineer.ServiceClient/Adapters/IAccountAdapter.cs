@@ -1,5 +1,4 @@
-﻿using SmartEngineer.ServiceClient.Enums;
-using SmartEngineer.ServiceClient.Models;
+﻿using SmartEngineer.ServiceClient.AccountService;
 
 namespace SmartEngineer.ServiceClient.Adapters
 {

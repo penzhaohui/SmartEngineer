@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SmartEngineer.ServiceClient</RootNamespace>
     <AssemblyName>SmartEngineer.ServiceClient</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -129,9 +130,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Enums\AccountTypecs.cs" />
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Tenant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +137,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AccountService\AccountService.wsdl" />
+    <None Include="Connected Services\AccountService\AccountService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AccountService\AccountService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AccountService\AccountService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AccountService\SmartEngineer.ServiceClient.AccountService.Account.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\GithubService\GithubService.wsdl" />
+    <None Include="Connected Services\GithubService\GithubService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TestRailService\TestRailService.wsdl" />
+    <None Include="Connected Services\TestRailService\TestRailService.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -155,12 +174,6 @@
     <WCFMetadataStorage Include="Connected Services\SalesforceService\" />
     <WCFMetadataStorage Include="Connected Services\SettingService\" />
     <WCFMetadataStorage Include="Connected Services\TestRailService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AccountService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Logger\Log4Net\log4net.vs2012.csproj">
@@ -228,6 +241,19 @@
     <None Include="Connected Services\JiraServiceForENGSupp\SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\JiraService\JiraService.wsdl" />
+    <None Include="Connected Services\JiraService\JiraService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JiraService\JiraService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JiraService\JiraService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JiraService\JiraService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\JiraService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -240,6 +266,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\JiraService\SmartEngineer.ServiceClient.JiraService.JiraIssue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\JiraService\SmartEngineer.ServiceClient.JiraService.JiraSubTask.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\JiraService\SmartEngineer.ServiceClient.JiraService.JiraWorkLog.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\MemberService\MemberService.wsdl" />
     <None Include="Connected Services\MemberService\MemberService.xsd">
       <SubType>Designer</SubType>
@@ -277,12 +312,35 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\ReleaseService\ReleaseService.wsdl" />
+    <None Include="Connected Services\ReleaseService\ReleaseService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReleaseService\ReleaseService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReleaseService\ReleaseService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReleaseService\SmartEngineer.ServiceClient.ReleaseService.JiraIssue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ReportService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\ReportService\ReportService.wsdl" />
+    <None Include="Connected Services\ReportService\ReportService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReportService\ReportService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ReportService\ReportService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SalesforceService\SalesforceService.wsdl" />
     <None Include="Connected Services\SalesforceService\SalesforceService.xsd">
       <SubType>Designer</SubType>
@@ -317,10 +375,6 @@
     </None>
     <None Include="Connected Services\SettingService\SmartEngineer.ServiceClient.SettingService.ConfigOption.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\TestRailService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -388,6 +442,76 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\MemberService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraService\JiraService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\JiraService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReleaseService\ReleaseService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReleaseService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReleaseService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReportService\ReportService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReportService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReportService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountService\AccountService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\GithubService\GithubService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\GithubService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\GithubService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestRailService\TestRailService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestRailService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestRailService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TestRailService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enums\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
