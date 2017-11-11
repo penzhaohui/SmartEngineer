@@ -958,7 +958,7 @@ namespace Enyim.Caching
 			// accept MaxValue as infinite
 			if (expiresAt == DateTime.MaxValue) return 0;
 
-			uint retval = (uint)(expiresAt.ToUniversalTime() - UnixEpoch).TotalSeconds;
+			uint retval = (uint)(expiresAt.ToUniversalTime() - DateTime.UtcNow).TotalSeconds;
 
 			return retval;
 		}
