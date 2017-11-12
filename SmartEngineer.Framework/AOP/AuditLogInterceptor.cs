@@ -2,6 +2,7 @@
 using SmartEngineer.Framework.Cache;
 using SmartEngineer.Framework.IoC;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SmartEngineer.Framework.AOP
@@ -51,22 +52,39 @@ namespace SmartEngineer.Framework.AOP
             {
                 for (int i = 0; i < invocation.Arguments.Length; i++)
                 {
-                    if (i != 0) Console.Write(", ");
+                    Type argType = invocation.Arguments[i].GetType();
+
+                    if (i != 0) key += ", ";
                     if (invocation.Arguments[i] == null)
                     {
                         key += "null";
                     }
-                    else if (invocation.Arguments[i].GetType().IsValueType)
+                    else if (argType.IsValueType)
                     {
                         key += invocation.Arguments[i].ToString();
                     }
-                    else if (invocation.Arguments[i].GetType() == typeof(string))
+                    else if (argType == typeof(string))
                     {
                         key += "\"" + invocation.Arguments[i].ToString() + "\"";
                     }
                     else
                     {
-                        key += invocation.Arguments[i].ToString();
+                        if (argType.IsGenericType && argType.Name == "List`1")
+                        {
+                            if (argType.GetGenericArguments()[0] == typeof(string))
+                            {
+                                List<string> argumentValues = invocation.Arguments[i] as List<string>;
+                                if (argumentValues != null)
+                                {
+                                    // C# 中奇妙的函数–7. String Split 和 Join - https://www.cnblogs.com/multiplesoftware/archive/2011/09/17/2179380.html
+                                    key += "[" + String.Join(",", argumentValues.ToArray()) + "]";
+                                }
+                            }
+                        }
+                        else
+                        {
+                            key += invocation.Arguments[i].ToString();
+                        }
                     }
                 }
             }

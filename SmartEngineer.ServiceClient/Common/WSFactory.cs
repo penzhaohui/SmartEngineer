@@ -154,7 +154,11 @@ namespace SmartEngineer.Common
                         // http://www.cnblogs.com/zgynhqf/archive/2013/06/28/3161042.html
                         EndpointAddress remoteAddress = new EndpointAddress(endpointUrl);
                         NetTcpBinding binding = new NetTcpBinding();
-                        binding.ReceiveTimeout = new TimeSpan(0, 5, 0);
+                        // Configuring Timeout Values on a Binding - https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/configuring-timeout-values-on-a-binding
+                        binding.OpenTimeout = new TimeSpan(0, 10, 0);
+                        binding.CloseTimeout = new TimeSpan(0, 10, 0);
+                        binding.SendTimeout = new TimeSpan(0, 10, 0);
+                        binding.ReceiveTimeout = new TimeSpan(0, 10, 0);
                         binding.MaxBufferSize = 2147483647;
                         binding.MaxBufferPoolSize = 2147483647;
                         binding.MaxReceivedMessageSize = 2147483647;

@@ -36,6 +36,8 @@
             this.btnMoveToLeft = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnMoveAllToRight = new System.Windows.Forms.Button();
+            this.btnMoveAllToLeft = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbxUnassignedGroups
@@ -80,7 +82,7 @@
             this.btnMoveToRight.Name = "btnMoveToRight";
             this.btnMoveToRight.Size = new System.Drawing.Size(48, 23);
             this.btnMoveToRight.TabIndex = 4;
-            this.btnMoveToRight.Text = ">>";
+            this.btnMoveToRight.Text = ">";
             this.btnMoveToRight.UseVisualStyleBackColor = true;
             this.btnMoveToRight.Click += new System.EventHandler(this.btnMoveToRight_Click);
             // 
@@ -90,7 +92,7 @@
             this.btnMoveToLeft.Name = "btnMoveToLeft";
             this.btnMoveToLeft.Size = new System.Drawing.Size(48, 23);
             this.btnMoveToLeft.TabIndex = 5;
-            this.btnMoveToLeft.Text = "<<";
+            this.btnMoveToLeft.Text = "<";
             this.btnMoveToLeft.UseVisualStyleBackColor = true;
             this.btnMoveToLeft.Click += new System.EventHandler(this.btnMoveToLeft_Click);
             // 
@@ -112,11 +114,33 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Assigned Groups";
             // 
+            // btnMoveAllToRight
+            // 
+            this.btnMoveAllToRight.Location = new System.Drawing.Point(186, 87);
+            this.btnMoveAllToRight.Name = "btnMoveAllToRight";
+            this.btnMoveAllToRight.Size = new System.Drawing.Size(48, 23);
+            this.btnMoveAllToRight.TabIndex = 8;
+            this.btnMoveAllToRight.Text = ">>";
+            this.btnMoveAllToRight.UseVisualStyleBackColor = true;
+            this.btnMoveAllToRight.Click += new System.EventHandler(this.btnMoveAllToRight_Click);
+            // 
+            // btnMoveAllToLeft
+            // 
+            this.btnMoveAllToLeft.Location = new System.Drawing.Point(186, 216);
+            this.btnMoveAllToLeft.Name = "btnMoveAllToLeft";
+            this.btnMoveAllToLeft.Size = new System.Drawing.Size(48, 23);
+            this.btnMoveAllToLeft.TabIndex = 9;
+            this.btnMoveAllToLeft.Text = "<<";
+            this.btnMoveAllToLeft.UseVisualStyleBackColor = true;
+            this.btnMoveAllToLeft.Click += new System.EventHandler(this.btnMoveAllToLeft_Click);
+            // 
             // frmAssignToGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 386);
+            this.Controls.Add(this.btnMoveAllToLeft);
+            this.Controls.Add(this.btnMoveAllToRight);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnMoveToLeft);
@@ -144,5 +168,7 @@
         private System.Windows.Forms.Button btnMoveToLeft;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnMoveAllToRight;
+        private System.Windows.Forms.Button btnMoveAllToLeft;
     }
 }

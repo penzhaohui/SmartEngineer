@@ -44,7 +44,11 @@ namespace SmartEngineer.ServiceClient.Adapters
 
         public List<string> GetPendingCasesForToday()
         {
-            throw new NotImplementedException();
+            List<string> caseNOs = new List<string>();
+            JiraServiceForENGSuppClient jiraServiceForENGSuppClient = WSFactory.Instance.GetWCFClient<JiraServiceForENGSuppClient, IJiraServiceForENGSupp>();
+            caseNOs.AddRange(jiraServiceForENGSuppClient.GetPendingCaseList());
+
+            return caseNOs;
         }
 
         public DataTable PullDetailedCaseInfo(List<string> caseNos)
@@ -108,7 +112,7 @@ namespace SmartEngineer.ServiceClient.Adapters
                         row["CaseType"] = caseInfo.CaseType;
                         row["Customer"] = (String.IsNullOrEmpty(caseInfo.AccountName) || String.IsNullOrWhiteSpace(caseInfo.AccountName) ? caseInfo.CustomerName : caseInfo.AccountName);
                         row["Origin"] = caseInfo.Origin;
-                        row["OpenDate"] = caseInfo.CreatedDate.ToShortDateString();
+                        row["OpenDate"] = caseInfo.CreatedDate.ToString("yyyy-MM-dd");
                         row["Summary"] = caseInfo.Subject;
                         row["LastReviewer"] = caseInfo.LastEngineerReviewer;
                         //row["CommentCount"] = ;
@@ -132,7 +136,7 @@ namespace SmartEngineer.ServiceClient.Adapters
                     row["CaseType"] = caseInfo.CaseType;
                     row["Customer"] = (String.IsNullOrEmpty(caseInfo.AccountName) || String.IsNullOrWhiteSpace(caseInfo.AccountName) ? caseInfo.CustomerName : caseInfo.AccountName);
                     row["Origin"] = caseInfo.Origin;
-                    row["OpenDate"] = caseInfo.CreatedDate.ToShortDateString();
+                    row["OpenDate"] = caseInfo.CreatedDate.ToString("yyyy-MM-dd");
                     row["Summary"] = caseInfo.Subject;
                     row["LastReviewer"] = caseInfo.LastCommentAddedBy;
                     //row["CommentCount"] = ;

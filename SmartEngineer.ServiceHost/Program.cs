@@ -70,7 +70,7 @@ namespace SmartEngineer
             */
 
             Proxy<IAccountAdapter, AccountAdapter>(builder, false);
-            Proxy<IJiraAdapter, JiraAdapter>(builder, false);
+            Proxy<IJiraAdapter, JiraAdapter>(builder, true);
             Proxy<ISalesforceAdapterV2, SalesforceAdapterV2>(builder, true);
             Proxy<IConfigAdapter, ConfigAdapter>(builder, false);
             Proxy<IDatabaseAdapter, DatabaseAdapter>(builder, false);

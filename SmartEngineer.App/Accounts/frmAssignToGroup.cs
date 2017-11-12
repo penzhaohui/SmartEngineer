@@ -34,6 +34,7 @@ namespace SmartEngineer.Forms
                 return;
             }
 
+            this.Text += " - " + MemberEmailAddress;
             var groups = MemberAdapter.GetAllGroups();
             var linkedGroups = MemberAdapter.GetLinkedGroups(MemberEmailAddress);
 
@@ -113,6 +114,44 @@ namespace SmartEngineer.Forms
         {
             this.DialogResult = DialogResult.Cancel; //成功
             this.Close();
+        }
+
+        private void btnMoveAllToRight_Click(object sender, EventArgs e)
+        {
+            if (this.lbxUnassignedGroups.Items.Count > 0)
+            {
+                List<string> unAssignedGroupNames = new List<string>();
+                for (int i = 0; i < this.lbxUnassignedGroups.Items.Count; i++)
+                {
+                    unAssignedGroupNames.Add(lbxUnassignedGroups.Items[i] as string);
+                }
+
+                for (int j = 0; j < unAssignedGroupNames.Count; j++)
+                {
+                    this.lbxAssignedGroups.Items.Add(unAssignedGroupNames[j]);
+                }
+
+                this.lbxUnassignedGroups.Items.Clear();
+            }
+        }
+
+        private void btnMoveAllToLeft_Click(object sender, EventArgs e)
+        {
+            if (this.lbxAssignedGroups.Items.Count > 0)
+            {
+                List<string> assignedGroupNames = new List<string>();
+                for (int i = 0; i < this.lbxAssignedGroups.Items.Count; i++)
+                {
+                    assignedGroupNames.Add(lbxAssignedGroups.Items[i] as string);
+                }
+
+                for (int j = 0; j < assignedGroupNames.Count; j++)
+                {
+                    this.lbxUnassignedGroups.Items.Add(assignedGroupNames[j]);
+                }
+
+                this.lbxAssignedGroups.Items.Clear();
+            }
         }
     }
 }

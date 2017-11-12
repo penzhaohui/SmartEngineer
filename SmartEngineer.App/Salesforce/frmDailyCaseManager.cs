@@ -45,7 +45,13 @@ namespace SmartEngineer.Forms
 
         private void btnGetPendingCasesFromJira_Click(object sender, EventArgs e)
         {
-            // List<IssueInfo> JiraServiceForENGSupp.GetIssuesByStatuses(List<string> statuses)
+            this.btnGetPendingCasesFromJira.Enabled = false;
+
+            ICaseAdapter caseAdapter = new CaseAdapter();
+            List<string> pengdingCaseNoList = caseAdapter.GetPendingCasesForToday();
+            this.txtInputCaseNOs.Text = string.Join(",", pengdingCaseNoList.ToArray());
+
+            this.btnGetPendingCasesFromJira.Enabled = true;
         }
 
         private void btnPullDetailedInfo_Click(object sender, EventArgs e)
@@ -124,7 +130,8 @@ namespace SmartEngineer.Forms
                     }
                     else
                     {
-                        throw new Exception($"Invalid Case NO: {caseId}");
+                        // Skip
+                        //throw new Exception($"Invalid Case NO: {caseId}");
                     }
                 }
             }
