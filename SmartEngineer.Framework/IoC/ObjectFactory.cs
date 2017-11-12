@@ -6,6 +6,75 @@ using System.Threading.Tasks;
 
 namespace SmartEngineer.Framework.IoC
 {
+    // https://insightfulcoder.wordpress.com/2011/08/08/c-generic-object-factory-8/
+    public sealed class ObjectFactory
+    {
+        private readonly static SortedList<string, object> _factories = new SortedList<string, object>();
+
+        /// <summary>
+        /// 注册不带参数的类工厂函数变量
+        /// </summary>
+        /// <typeparam name="TR">目标类实例类型</typeparam>
+        /// <param name="factory">工厂函数变量</param>
+        public static void RegisterFactory<TR>(Func<TR> factory)
+        {
+            Add<TR>(factory);
+        }
+
+        /// <summary>
+        /// 带1个参数的类工厂函数变量
+        /// </summary>
+        /// <typeparam name="T1">参数类型</typeparam>
+        /// <typeparam name="TR">目标类实例类型</typeparam>
+        /// <param name="factory">工厂函数变量</param>
+        public static void RegisterFactory<T1, TR>(Func<T1, TR> factory)
+        {
+            Add<TR>(factory);
+        }
+
+        /// <summary>
+        /// 私有函数
+        /// </summary>
+        /// <typeparam name="TR">目标类实例类型</typeparam>
+        /// <param name="factory">工厂函数变量</param>
+        private static void Add<TR>(object factory)
+        {
+            if (!_factories.ContainsKey(typeof(TR).FullName))
+                _factories.Add(typeof(TR).FullName, factory);
+        }
+
+        /// <summary>
+        /// 生成目标类型的类实例
+        /// </summary>
+        /// <typeparam name="TR">目标类实例类型</typeparam>
+        /// <returns>目标类型的类实例</returns>
+        public TR Create<TR>() where TR : new()
+        {
+            return new TR();
+        }
+
+        /// <summary>
+        /// 生成目标类型的类实例
+        /// </summary>
+        /// <typeparam name="T1">参数类型</typeparam>
+        /// <typeparam name="TR">目标类实例类型</typeparam>
+        /// <param name="t1"></param>
+        /// <returns>目标类型的类实例</returns>
+        public TR Create<T1, TR>(T1 t1)
+        {
+            object factory;
+            if (_factories.TryGetValue(typeof(TR).FullName, out factory))
+            {
+                ((Func<T1, TR>)factory).Invoke(t1);
+            }
+
+            return default(TR);
+        }
+    }
+
+    // 委托、事件与匿名方法 - http://www.cnblogs.com/r01cn/archive/2012/11/30/2795977.html#!comments
+    // 在现有条件下,建议尽量用Func和lambda解决函数变量问题,用var, dynamic来解决动态变量问题.以减少混用引起的混乱.
+
     /*
     public class ObjectFactory
     {

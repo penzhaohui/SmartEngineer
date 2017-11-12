@@ -19,6 +19,34 @@ namespace SmartEngineer
     /// </summary>
     public class Program
     {
+        public static void Proxy<TInterface, TImplementer>(ContainerBuilder builder, bool enableInterceptor) 
+            where TImplementer : TInterface, new()
+            where TInterface : class
+        {
+            if (enableInterceptor)
+            {
+                // .NET 通过 Autofac 和 DynamicProxy 实现AOP
+                // https://www.cnblogs.com/stulzq/p/6880394.html
+                // https://stackoverflow.com/questions/9709355/autofac-castle-dynamicproxy-order-of-interceptors
+                // .NET：动态代理的 “5 + 1” 模式 
+                // https://www.cnblogs.com/happyframework/p/3295853.html
+                ProxyGenerator generator = new ProxyGenerator();
+                var options = new ProxyGenerationOptions()
+                {
+                    Hook = new Framework.AOP.Filter.InterceptorFilter(),
+                    Selector = new Framework.AOP.Selector.InterceptorSelector()
+                };
+
+                TInterface adapter = new TImplementer();
+                var proxy = generator.CreateInterfaceProxyWithTarget<TInterface>(adapter, options, new Framework.AOP.AuditLogInterceptor());
+                builder.RegisterInstance(proxy).As<TInterface>().SingleInstance();
+            }
+            else
+            {
+                builder.RegisterType<TImplementer>().As<TInterface>().SingleInstance();
+            }
+        }
+
         public static void Main(string[] args)
         {
             LaunchServiceAsync();
@@ -32,30 +60,22 @@ namespace SmartEngineer
             // use named service types as well.
             var builder = new ContainerBuilder();
 
-            //builder.RegisterType<AccountAdapter>().As<IAccountAdapter>().SingleInstance();
-
-            // .NET 通过 Autofac 和 DynamicProxy 实现AOP
-            // https://www.cnblogs.com/stulzq/p/6880394.html
-            // https://stackoverflow.com/questions/9709355/autofac-castle-dynamicproxy-order-of-interceptors
-
-            ProxyGenerator generator = new ProxyGenerator();
-            var options = new ProxyGenerationOptions()
-            {
-                Hook = new Framework.AOP.Filter.InterceptorFilter(),
-                Selector = new Framework.AOP.Selector.InterceptorSelector()
-            };
-            IAccountAdapter adapter = new AccountAdapter();
-            var proxy = generator.CreateInterfaceProxyWithTarget<IAccountAdapter>(adapter, options, new Framework.AOP.AuditLogInterceptor());
-            builder.RegisterInstance(proxy).As<IAccountAdapter>().SingleInstance();
-
-           
+            /*
+            builder.RegisterType<AccountAdapter>().As<IAccountAdapter>().SingleInstance();
             builder.RegisterType<JiraAdapter>().As<IJiraAdapter>().SingleInstance();
-            builder.RegisterType<JiraAdapter>().As<IJiraAdapter>().SingleInstance();
+            builder.RegisterType<SalesforceAdapterV2>().As<ISalesforceAdapterV2>().SingleInstance();
             builder.RegisterType<ConfigAdapter>().As<IConfigAdapter>().SingleInstance();
             builder.RegisterType<DatabaseAdapter>().As<IDatabaseAdapter>().SingleInstance();
             builder.RegisterType<MemberAdapter>().As<IMemberAdapter>().SingleInstance();
-            builder.RegisterType<SalesforceAdapterV2>().As<ISalesforceAdapterV2>().SingleInstance();
-            
+            */
+
+            Proxy<IAccountAdapter, AccountAdapter>(builder, false);
+            Proxy<IJiraAdapter, JiraAdapter>(builder, false);
+            Proxy<ISalesforceAdapterV2, SalesforceAdapterV2>(builder, true);
+            Proxy<IConfigAdapter, ConfigAdapter>(builder, false);
+            Proxy<IDatabaseAdapter, DatabaseAdapter>(builder, false);
+            Proxy<IMemberAdapter, MemberAdapter>(builder, false);
+
             builder.RegisterType<AccountService>();
             builder.RegisterType<DatabaseService>();
             builder.RegisterType<GithubService>();
