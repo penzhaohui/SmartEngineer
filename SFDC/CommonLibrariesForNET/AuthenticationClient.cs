@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Salesforce.Common.Models;
 using Newtonsoft.Json;
+using System.Net;
 
 namespace Salesforce.Common
 {
@@ -64,6 +65,11 @@ namespace Salesforce.Common
 
             request.Headers.UserAgent.ParseAdd(string.Concat(UserAgent, "/", ApiVersion));
 
+            // https://help.salesforce.com/articleView?id=000221207&type=1#Inboundintegrations
+            // https://help.salesforce.com/articleView?id=000221207&type=1
+            if (request.RequestUri.Scheme == "https")
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
             var responseMessage = await _httpClient.SendAsync(request).ConfigureAwait(false);
             var response = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
 
@@ -115,6 +121,11 @@ namespace Salesforce.Common
 
             request.Headers.UserAgent.ParseAdd(string.Concat(UserAgent, "/", ApiVersion));
 
+            // https://help.salesforce.com/articleView?id=000221207&type=1#Inboundintegrations
+            // https://help.salesforce.com/articleView?id=000221207&type=1
+            if (request.RequestUri.Scheme == "https")
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
             var responseMessage = await _httpClient.SendAsync(request).ConfigureAwait(false);
             var response = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
 
@@ -154,6 +165,9 @@ namespace Salesforce.Common
             };
 
             request.Headers.UserAgent.ParseAdd(string.Concat(UserAgent, "/", ApiVersion));
+
+            if (request.RequestUri.Scheme == "https")
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             var responseMessage = await _httpClient.SendAsync(request).ConfigureAwait(false);
             var response = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);

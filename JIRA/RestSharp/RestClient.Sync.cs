@@ -1,5 +1,6 @@
 ﻿#if FRAMEWORK || PocketPC
 using System;
+using System.Net;
 
 namespace RestSharp
 {
@@ -64,6 +65,9 @@ namespace RestSharp
                 var http = HttpFactory.Create();
 
                 ConfigureHttp(request, http);
+
+                if (http.Url.Scheme == "https")
+                    System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
                 response = ConvertToRestResponse(request, getResponse(http, httpMethod));
                 response.Request = request;

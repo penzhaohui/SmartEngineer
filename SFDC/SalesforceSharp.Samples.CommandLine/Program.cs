@@ -45,15 +45,15 @@ namespace SalesforceSharp.Samples.CommandLine
             // See the SalesforceSetupWalkthrough.doc for information on how to configure your SalesForce account
 
             // from your setup >> create >> apps >> connected apps settings in SalesForce
-            const string sfdcConsumerKey = "3MVG9JZ_r.QzrS7gHCcJexYMP2UL45ZgzaagHsVXfYSjWwlhU7n2uaxzfsuBNvwjofV70lM9QtA_xYLTxXjgf";
-            const string sfdcConsumerSecret = "2968907211720668629";
+            const string sfdcConsumerKey = "3MVG9Y6d_Btp4xp4kLfHOzT8tOcRRx5yk9eHN9S152DEZpSXvCou5SaOwtUqNbwCKaGWBXEGK_W_7fx30GJjD";
+            const string sfdcConsumerSecret = "1509546651744945988";
 
             // your user credentials in salesforce
-            const string sfdcUserName = "SalesforceDemoAcct@gmail.com";
-            const string sfdcPassword = "Thi$IsMyPassw0rd!";
+            const string sfdcUserName = "accelasupport@accela.com";
+            const string sfdcPassword = "missionsky@123";
 
             // your security token form salesforce.  Name >> My Settings >> Personal >>  Reset My Security Token
-            const string sfdcToken = "w7UGcyJnOaWX8U7XRCEbIfLYw";
+            const string sfdcToken = "vmxRWNhqG2w6zko3XTIXqFHDb";
 
             var client = new SalesforceClient();
             var authFlow = new UsernamePasswordAuthenticationFlow(sfdcConsumerKey, sfdcConsumerSecret, sfdcUserName, sfdcPassword + sfdcToken);
@@ -68,6 +68,14 @@ namespace SalesforceSharp.Samples.CommandLine
                 Console.WriteLine("Authentication failed: {0} : {1}", ex.Error, ex.Message);
             }
 
+            // query records
+            var records = client.Query<SFCase>("SELECT id, casenumber, current_version__c, priority, go_live_critical__c, rank_order__c, services_rank__c FROM Case where CaseNumber='15ACC-12345' ");
+            foreach (var r in records)
+            {
+                Console.WriteLine("Query Records {0}: {1} {2}", r.id, r.CaseNumber, r.Subject);
+            }
+
+
             // create a record using a class instance
             SFCaseUpdate myCase = new SFCaseUpdate();
             myCase.Subject = "This is the subject of my salesforce case";
@@ -79,7 +87,7 @@ namespace SalesforceSharp.Samples.CommandLine
             string resultID = client.Create("Case", new { Subject = "This is the subject of another salesforce case", Description = "This is the description of that other salesforce case", Rank__c = 5 });
 
             // query records
-            var records = client.Query<SFCase>("SELECT id, CaseNumber, Subject, Description, Rank__c FROM Case");
+            records = client.Query<SFCase>("SELECT id, CaseNumber, Subject, Description, Rank__c FROM Case");
             foreach (var r in records)
             {
                 Console.WriteLine("Query Records {0}: {1} {2}", r.id, r.CaseNumber, r.Subject);

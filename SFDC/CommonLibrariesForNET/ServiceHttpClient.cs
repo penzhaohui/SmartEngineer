@@ -9,6 +9,7 @@ using Salesforce.Common.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Salesforce.Common.Serializer;
+using System.Net;
 
 namespace Salesforce.Common
 {
@@ -46,6 +47,9 @@ namespace Salesforce.Common
                 RequestUri = new Uri(url),
                 Method = HttpMethod.Get
             };
+
+            if (request.RequestUri.Scheme == "https")
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             var responseMessage = await _httpClient.SendAsync(request).ConfigureAwait(false);
             var response = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
@@ -108,6 +112,9 @@ namespace Salesforce.Common
                         Method = HttpMethod.Get
                     };
 
+                    if (request.RequestUri.Scheme == "https")
+                        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
                     var responseMessage = await _httpClient.SendAsync(request).ConfigureAwait(false);
                     response = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
 
@@ -137,6 +144,9 @@ namespace Salesforce.Common
                 RequestUri = uri,
                 Method = HttpMethod.Get
             };
+
+            if (request.RequestUri.Scheme == "https")
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             var responseMessage = await _httpClient.SendAsync(request).ConfigureAwait(false);
             var response = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
@@ -219,6 +229,9 @@ namespace Salesforce.Common
 
             request.Content = new StringContent(json, Encoding.UTF8, "application/json");
 
+            if (request.RequestUri.Scheme == "https")
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
             var responseMessage = await _httpClient.SendAsync(request).ConfigureAwait(false);
 
             if (responseMessage.IsSuccessStatusCode) {
@@ -247,6 +260,9 @@ namespace Salesforce.Common
                 RequestUri = new Uri(url),
                 Method = HttpMethod.Delete
             };
+
+            if (request.RequestUri.Scheme == "https")
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             var responseMessage = await _httpClient.SendAsync(request).ConfigureAwait(false);
 
