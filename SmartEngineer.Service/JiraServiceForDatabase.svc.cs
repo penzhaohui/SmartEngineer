@@ -2,6 +2,8 @@
 {
     public class JiraServiceForDatabase : IJiraServiceForDatabase
     {
+        public JiraServiceForDatabase() { }
+
         public void DoWork()
         {
         }

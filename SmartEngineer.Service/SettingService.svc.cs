@@ -8,6 +8,8 @@ namespace SmartEngineer.Service
     {
         public IConfigAdapter ConfigAdapter { get; set; }
 
+        public SettingService() { }
+
         public SettingService(IConfigAdapter configAdapter)
         {
             ConfigAdapter = configAdapter;

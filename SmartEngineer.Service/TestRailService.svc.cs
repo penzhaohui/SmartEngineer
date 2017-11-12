@@ -9,9 +9,10 @@ namespace SmartEngineer.Service
 {
     public class TestRailService : ITestRailService
     {
+        public TestRailService() { }
+
         public void DoWork()
         {
-            throw new NotImplementedException();
         }
     }
 }

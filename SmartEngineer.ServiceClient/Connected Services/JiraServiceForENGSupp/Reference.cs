@@ -556,6 +556,12 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabels", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabelsResponse")]
         System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[]> GetIssuesByLabelsAsync(string[] labels);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetPendingCaseList", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetPendingCaseListResponse")]
+        string[] GetPendingCaseList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetPendingCaseList", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetPendingCaseListResponse")]
+        System.Threading.Tasks.Task<string[]> GetPendingCaseListAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatuses", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatusesResponse")]
         SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[] GetIssuesByStatuses(string[] statuses);
         
@@ -650,6 +656,14 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         
         public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[]> GetIssuesByLabelsAsync(string[] labels) {
             return base.Channel.GetIssuesByLabelsAsync(labels);
+        }
+        
+        public string[] GetPendingCaseList() {
+            return base.Channel.GetPendingCaseList();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetPendingCaseListAsync() {
+            return base.Channel.GetPendingCaseListAsync();
         }
         
         public SmartEngineer.ServiceClient.JiraServiceForENGSupp.JiraIssue[] GetIssuesByStatuses(string[] statuses) {

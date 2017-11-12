@@ -15,12 +15,12 @@ namespace WcfExample
             // http://autofac.readthedocs.io/en/latest/integration/wcf.html
             var builder = new ContainerBuilder();
 
-            // Register your service implementations.
-            builder.RegisterType<HostFactoryService>();
-            builder.RegisterType<WebHostFactoryService>();
-
             // Register your dependencies.
             builder.RegisterType<Dependency>().As<IDependency>();
+
+            // Register your service implementations.
+            builder.RegisterType<HostFactoryService>();
+            builder.RegisterType<WebHostFactoryService>();           
 
             // Set the dependency resolver. This works for both regular
             // WCF services and REST-enabled services.

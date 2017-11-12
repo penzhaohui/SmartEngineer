@@ -1,17 +1,13 @@
-﻿using System;
+﻿using SmartEngineer.Core.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using SmartEngineer.Core.Models;
 
 namespace SmartEngineer.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "JiraService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select JiraService.svc or JiraService.svc.cs at the Solution Explorer and start debugging.
     public class JiraService : IJiraService
     {
+        public JiraService() { }
+
         public bool CloseSubTasks(string jiraKey)
         {
             throw new NotImplementedException();

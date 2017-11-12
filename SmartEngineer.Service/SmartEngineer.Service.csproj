@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{39D6C65B-C2EC-4242-967A-9C95FA44D428}</ProjectGuid>
+    <ProjectGuid>{5F226159-F8BF-48BE-B1A7-43BF1678C6B7}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -16,19 +16,18 @@
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <TargetFrameworkProfile />
-    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\DLLs\Server\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -42,21 +41,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Build.Utilities.v3.5, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>DLLs\Microsoft.Build.Utilities.v3.5.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="RestSharp, Version=105.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>DLLs\RestSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
@@ -72,11 +63,6 @@
   <ItemGroup>
     <Content Include="AccountService.svc" />
     <Content Include="DatabaseService.svc" />
-    <Content Include="DLLs\Microsoft.Extensions.Caching.Memory.dll" />
-    <Content Include="DLLs\Microsoft.Practices.Unity.Configuration.dll" />
-    <Content Include="DLLs\Microsoft.Practices.Unity.dll" />
-    <Content Include="DLLs\RestSharp.dll" />
-    <Content Include="DLLs\TechTalk.JiraRestClient.dll" />
     <Content Include="GithubService.svc" />
     <Content Include="Global.asax" />
     <Content Include="JiraService.svc" />
@@ -103,24 +89,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Interface\IMemberService.cs" />
-    <Compile Include="Interface\IJiraServiceForDatabase.cs" />
+    <Compile Include="Interface\IAccountService.cs" />
     <Compile Include="Interface\IDatabaseService.cs" />
-    <Compile Include="Interface\IReleaseService.cs" />
+    <Compile Include="Interface\IGithubService.cs" />
     <Compile Include="Interface\IJiraService.cs" />
+    <Compile Include="Interface\IJiraServiceForDatabase.cs" />
+    <Compile Include="Interface\IJiraServiceForENGSupp.cs" />
+    <Compile Include="Interface\IMemberService.cs" />
+    <Compile Include="Interface\IReleaseService.cs" />
+    <Compile Include="Interface\IReportService.cs" />
+    <Compile Include="Interface\ISalesforceService.cs" />
+    <Compile Include="Interface\ISettingService.cs" />
+    <Compile Include="Interface\ITestRailService.cs" />
     <Compile Include="JiraService.svc.cs">
       <DependentUpon>JiraService.svc</DependentUpon>
     </Compile>
     <Compile Include="JiraServiceForDatabase.svc.cs">
       <DependentUpon>JiraServiceForDatabase.svc</DependentUpon>
     </Compile>
-    <Compile Include="Interface\IAccountService.cs" />
-    <Compile Include="Interface\IGithubService.cs" />
-    <Compile Include="Interface\IJiraServiceForENGSupp.cs" />
-    <Compile Include="Interface\ISalesforceService.cs" />
-    <Compile Include="Interface\ITestRailService.cs" />
-    <Compile Include="Interface\ISettingService.cs" />
-    <Compile Include="Interface\IReportService.cs" />
     <Compile Include="JiraServiceForENGSupp.svc.cs">
       <DependentUpon>JiraServiceForENGSupp.svc</DependentUpon>
     </Compile>
@@ -145,11 +131,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Guthub.db" />
-    <Content Include="App_Data\Jira.db" />
-    <Content Include="App_Data\Salesforce.db" />
-    <Content Include="App_Data\SmartEngineer.db" />
-    <Content Include="App_Data\TestRail.db" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -159,15 +143,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IoC\Autofac.Integration.Wcf\Autofac.Integration.Wcf.csproj">
-      <Project>{AFFA33CE-2F75-4079-8E52-39C5E0A605DD}</Project>
+      <Project>{affa33ce-2f75-4079-8e52-39c5e0a605dd}</Project>
       <Name>Autofac.Integration.Wcf</Name>
     </ProjectReference>
     <ProjectReference Include="..\IoC\Autofac\Autofac.csproj">
-      <Project>{06F733C8-DD56-4EEB-ADD5-3787A006A26C}</Project>
+      <Project>{06f733c8-dd56-4eeb-add5-3787a006a26c}</Project>
       <Name>Autofac</Name>
     </ProjectReference>
     <ProjectReference Include="..\JIRA\TechTalk.JiraRestClient\TechTalk.JiraRestClient.csproj">
-      <Project>{210529FA-454E-4C32-A2C8-353ECBD4DA05}</Project>
+      <Project>{210529fa-454e-4c32-a2c8-353ecbd4da05}</Project>
       <Name>TechTalk.JiraRestClient</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartEngineer.Core\SmartEngineer.Core.csproj">
@@ -175,7 +159,6 @@
       <Name>SmartEngineer.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -189,7 +172,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>41200</DevelopmentServerPort>
+          <DevelopmentServerPort>4040</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:41200/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+﻿using SmartEngineer.Core.Adapter;
 using SmartEngineer.Core.Models;
-using SmartEngineer.Core.Adapter;
+using System;
+using System.Collections.Generic;
 using System.Configuration;
 using TechTalk.JiraRestClient;
-using Autofac.Integration.Wcf;
-using Autofac;
 
 namespace SmartEngineer.Service
 {
-    /// <summary>
-    /// TO DO: 
-    /// </summary>
     public class JiraServiceForENGSupp : IJiraServiceForENGSupp
     {
         private static readonly string JiraAccount = ConfigurationManager.AppSettings["JiraAccount"];
@@ -23,6 +14,12 @@ namespace SmartEngineer.Service
 
         public ISalesforceAdapterV2 SalesforceAdapter { get; set; }
         public IJiraAdapter JiraAdapter { get; set; }
+
+        /// <summary>
+        /// 缺省构造函数，确保在启动该项目时可以查看WCF Service的定义
+        /// https://stackoverflow.com/questions/43802845/how-to-resolve-system-servicemodel-servicehostingenvironment-serviceactivations
+        /// </summary>
+        public JiraServiceForENGSupp() { }
 
         public JiraServiceForENGSupp(ISalesforceAdapterV2 salesforceAdapter, IJiraAdapter jiraAdapter)
         {
@@ -73,9 +70,53 @@ namespace SmartEngineer.Service
             throw new NotImplementedException();
         }
 
+        public List<string> GetPendingCaseList()
+        {
+            List<string> pendingCaseNoList = new List<string>();
+            List<string> unStoredJiraKeyList = new List<string>();
+            List<string> pengingJiraStatus = new List<string>();
+
+            pengingJiraStatus.Add("In Development");
+            pengingJiraStatus.Add("In Progress");
+            pengingJiraStatus.Add("Open");
+            pengingJiraStatus.Add("Pending");
+            pengingJiraStatus.Add("Reopened");
+
+            var issues = JiraAdapter.PullIssueListByStatus(pengingJiraStatus, JiraAccount, JiraPassword);
+            foreach (Issue issue in issues)
+            {
+                string jiraKey = issue.key;
+                if (!JiraAdapter.IsExistsLocalIssue(jiraKey))
+                {
+                    unStoredJiraKeyList.Add(jiraKey);
+                }
+
+                string caseNO = issue.fields.CaseNumber;
+                if (!String.IsNullOrEmpty(caseNO))
+                {
+                    if (!pendingCaseNoList.Contains(caseNO))
+                    {
+                        pendingCaseNoList.Add(caseNO);
+                    }                   
+                }                
+            }
+
+            return pendingCaseNoList;
+        }
+
         public List<JiraIssue> GetIssuesByStatuses(List<string> statuses)
         {
-            throw new NotImplementedException();
+            List<JiraIssue> jiraIssues = new List<JiraIssue>();
+
+            var issues = JiraAdapter.PullIssueListByStatus(statuses, JiraAccount, JiraPassword);
+            foreach (Issue issue in issues)
+            {
+                JiraIssue issueInfo = new JiraIssue();
+                issueInfo.Initialize(issue);
+                jiraIssues.Add(issueInfo);
+            }
+
+            return jiraIssues;
         }
 
         public int GetNewIssueCount(DateTime from, DateTime to)

@@ -20,6 +20,7 @@ namespace SmartEngineer.Core.Adapter
 
         List<Issue> PullIssueList(List<string> CaseNoOrJiraKeyList, string jiraAccount, string jiraPassword);
         Issue PullIssue(string jiraKeyOrCaseNo, string jiraAccount, string jiraPassword);
+        List<Issue> PullIssueListByStatus(List<string> statusList, string jiraAccount, string jiraPassword);
         Issue CreateIssue(string project, string issueType, IssueFields fields, string jiraAccount, string jiraPassword);
         Task<Issue> UpdateIssue(Issue issue, string jiraAccount, string jiraPassword);
         List<Comment> PullComments(IssueRef issueRef, string jiraAccount, string jiraPassword);

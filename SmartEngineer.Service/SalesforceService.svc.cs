@@ -10,6 +10,8 @@ namespace SmartEngineer.Service
         public ISalesforceAdapterV2 SalesforceAdapter;
         public IJiraAdapter JiraAdapter;
 
+        public SalesforceService() { }
+
         public SalesforceService(ISalesforceAdapterV2 salesforceAdapter, IJiraAdapter jiraAdapter)
         {
             SalesforceAdapter = salesforceAdapter;

@@ -12,6 +12,9 @@ namespace SmartEngineer.Service
         List<JiraIssue> GetIssuesByLabels(List<string> labels);
 
         [OperationContract]
+        List<string> GetPendingCaseList();
+
+        [OperationContract]
         List<JiraIssue> GetIssuesByStatuses(List<string> statuses);
 
         [OperationContract]

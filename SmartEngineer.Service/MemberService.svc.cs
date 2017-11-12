@@ -1,6 +1,5 @@
 ﻿using SmartEngineer.Core.Adapter;
 using SmartEngineer.Core.Models;
-using System;
 using System.Collections.Generic;
 
 namespace SmartEngineer.Service
@@ -10,6 +9,9 @@ namespace SmartEngineer.Service
     public class MemberService : IMemberService
     {
         public IMemberAdapter MemberAdapter { get; set; }
+
+        public MemberService() { }
+
         public MemberService(IMemberAdapter memberAdapter)
         {
             MemberAdapter = memberAdapter;

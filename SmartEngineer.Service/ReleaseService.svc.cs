@@ -1,10 +1,6 @@
-﻿using System;
+﻿using SmartEngineer.Core.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using SmartEngineer.Core.Models;
 
 namespace SmartEngineer.Service
 {
@@ -12,6 +8,8 @@ namespace SmartEngineer.Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select ReleaseService.svc or ReleaseService.svc.cs at the Solution Explorer and start debugging.
     public class ReleaseService : IReleaseService
     {
+        public ReleaseService() { }
+
         public bool AddCodeBanch(int id, string product, string url)
         {
             throw new NotImplementedException();

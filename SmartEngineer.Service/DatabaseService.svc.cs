@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace SmartEngineer.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "DatabaseService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select DatabaseService.svc or DatabaseService.svc.cs at the Solution Explorer and start debugging.
     public class DatabaseService : IDatabaseService
     {
         public IDatabaseAdapter DatabaseAdapter { get; set; }
+
+        public DatabaseService() { }
 
         public DatabaseService(IDatabaseAdapter databaseAdapter)
         {

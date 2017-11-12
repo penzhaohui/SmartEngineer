@@ -14,6 +14,12 @@
   <wsdl:message name="IJiraServiceForENGSupp_GetIssuesByLabels_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetIssuesByLabelsResponse" />
   </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetPendingCaseList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendingCaseList" />
+  </wsdl:message>
+  <wsdl:message name="IJiraServiceForENGSupp_GetPendingCaseList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPendingCaseListResponse" />
+  </wsdl:message>
   <wsdl:message name="IJiraServiceForENGSupp_GetIssuesByStatuses_InputMessage">
     <wsdl:part name="parameters" element="tns:GetIssuesByStatuses" />
   </wsdl:message>
@@ -79,6 +85,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabels" message="tns:IJiraServiceForENGSupp_GetIssuesByLabels_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabelsResponse" message="tns:IJiraServiceForENGSupp_GetIssuesByLabels_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetPendingCaseList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetPendingCaseList" message="tns:IJiraServiceForENGSupp_GetPendingCaseList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetPendingCaseListResponse" message="tns:IJiraServiceForENGSupp_GetPendingCaseList_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetIssuesByStatuses">
       <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatuses" message="tns:IJiraServiceForENGSupp_GetIssuesByStatuses_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByStatusesResponse" message="tns:IJiraServiceForENGSupp_GetIssuesByStatuses_OutputMessage" />
@@ -124,6 +134,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetIssuesByLabels">
       <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetIssuesByLabels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingCaseList">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetPendingCaseList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

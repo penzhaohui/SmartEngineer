@@ -10,6 +10,8 @@ namespace SmartEngineer.Service
         public IJiraAdapter JiraAdapter { get; set; }
         public IAccountAdapter AccountAdapter { get; set; }
 
+        public AccountService() { }
+
         public AccountService(IJiraAdapter jiraAdapter, IAccountAdapter accountAdapter)
         {
             JiraAdapter = jiraAdapter;

@@ -119,6 +119,48 @@ namespace SmartEngineer.Core.Adapter
             return issueList;
         }
 
+        public List<Issue> PullIssueListByStatus(List<string> statusList, string jiraAccount, string jiraPassword)
+        {
+            List<Issue> issueList = new List<Issue>();
+
+            if (statusList == null || statusList.Count == 0) return issueList;
+
+            IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
+
+            string sql = "project = ENGSUPP AND issuetype not in (subTaskIssueTypes()) AND ";
+            bool isFirst = true;
+            foreach (string status in statusList)
+            {
+                if (!String.IsNullOrEmpty(status))
+                {
+                    if (isFirst)
+                    {
+                        sql += " status in ( \"" + status + "\" ";
+                        isFirst = false;
+                    }
+                    else
+                    {
+                        sql += ", \"" + status + "\" ";
+                    }
+                }
+            }
+
+            if (isFirst == false)
+            {
+                sql += " ) ";
+            }
+
+            sql += " AND reporter != EngToolIntegration ";
+
+            var issues = jira.GetIssuesByQuery("ENGSUPP", "", sql);
+            foreach (Issue issue in issues)
+            {
+                issueList.Add(issue);
+            }
+
+            return issueList;
+        }
+
         public Issue CreateIssue(string project, string issueType, IssueFields fields, string jiraAccount, string jiraPassword)
         {
             IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
