@@ -14,11 +14,23 @@
   <wsdl:message name="ISalesforceService_GetNewCasesList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNewCasesListResponse" />
   </wsdl:message>
+  <wsdl:message name="ISalesforceService_GetEngineerCasesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEngineerCasesList" />
+  </wsdl:message>
+  <wsdl:message name="ISalesforceService_GetEngineerCasesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEngineerCasesListResponse" />
+  </wsdl:message>
   <wsdl:message name="ISalesforceService_GetCommentedCaseList_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCommentedCaseList" />
   </wsdl:message>
   <wsdl:message name="ISalesforceService_GetCommentedCaseList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCommentedCaseListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISalesforceService_GetProductionBugList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductionBugList" />
+  </wsdl:message>
+  <wsdl:message name="ISalesforceService_GetProductionBugList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductionBugListResponse" />
   </wsdl:message>
   <wsdl:message name="ISalesforceService_GetCasesByCaseNOs_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCasesByCaseNOs" />
@@ -26,64 +38,41 @@
   <wsdl:message name="ISalesforceService_GetCasesByCaseNOs_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCasesByCaseNOsResponse" />
   </wsdl:message>
-  <wsdl:message name="ISalesforceService_GetProcessedCase_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetProcessedCase" />
-  </wsdl:message>
-  <wsdl:message name="ISalesforceService_GetProcessedCase_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetProcessedCaseResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISalesforceService_GetTotalNewCaseCount_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTotalNewCaseCount" />
-  </wsdl:message>
-  <wsdl:message name="ISalesforceService_GetTotalNewCaseCount_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTotalNewCaseCountResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISalesforceService_GetCaseCommentCount_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCaseCommentCount" />
-  </wsdl:message>
-  <wsdl:message name="ISalesforceService_GetCaseCommentCount_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCaseCommentCountResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISalesforceService_GetReviewedCaseCount_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetReviewedCaseCount" />
-  </wsdl:message>
-  <wsdl:message name="ISalesforceService_GetReviewedCaseCount_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetReviewedCaseCountResponse" />
-  </wsdl:message>
   <wsdl:portType name="ISalesforceService">
     <wsdl:operation name="GetNewCasesList">
       <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetNewCasesList" message="tns:ISalesforceService_GetNewCasesList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetNewCasesListResponse" message="tns:ISalesforceService_GetNewCasesList_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetEngineerCasesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetEngineerCasesList" message="tns:ISalesforceService_GetEngineerCasesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetEngineerCasesListResponse" message="tns:ISalesforceService_GetEngineerCasesList_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetCommentedCaseList">
       <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetCommentedCaseList" message="tns:ISalesforceService_GetCommentedCaseList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetCommentedCaseListResponse" message="tns:ISalesforceService_GetCommentedCaseList_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetProductionBugList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetProductionBugList" message="tns:ISalesforceService_GetProductionBugList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetProductionBugListResponse" message="tns:ISalesforceService_GetProductionBugList_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetCasesByCaseNOs">
       <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetCasesByCaseNOs" message="tns:ISalesforceService_GetCasesByCaseNOs_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetCasesByCaseNOsResponse" message="tns:ISalesforceService_GetCasesByCaseNOs_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetProcessedCase">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetProcessedCase" message="tns:ISalesforceService_GetProcessedCase_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetProcessedCaseResponse" message="tns:ISalesforceService_GetProcessedCase_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTotalNewCaseCount">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetTotalNewCaseCount" message="tns:ISalesforceService_GetTotalNewCaseCount_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetTotalNewCaseCountResponse" message="tns:ISalesforceService_GetTotalNewCaseCount_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCaseCommentCount">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetCaseCommentCount" message="tns:ISalesforceService_GetCaseCommentCount_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetCaseCommentCountResponse" message="tns:ISalesforceService_GetCaseCommentCount_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetReviewedCaseCount">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISalesforceService/GetReviewedCaseCount" message="tns:ISalesforceService_GetReviewedCaseCount_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISalesforceService/GetReviewedCaseCountResponse" message="tns:ISalesforceService_GetReviewedCaseCount_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISalesforceService" type="tns:ISalesforceService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetNewCasesList">
       <soap:operation soapAction="http://tempuri.org/ISalesforceService/GetNewCasesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEngineerCasesList">
+      <soap:operation soapAction="http://tempuri.org/ISalesforceService/GetEngineerCasesList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -100,44 +89,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProductionBugList">
+      <soap:operation soapAction="http://tempuri.org/ISalesforceService/GetProductionBugList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCasesByCaseNOs">
       <soap:operation soapAction="http://tempuri.org/ISalesforceService/GetCasesByCaseNOs" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetProcessedCase">
-      <soap:operation soapAction="http://tempuri.org/ISalesforceService/GetProcessedCase" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTotalNewCaseCount">
-      <soap:operation soapAction="http://tempuri.org/ISalesforceService/GetTotalNewCaseCount" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCaseCommentCount">
-      <soap:operation soapAction="http://tempuri.org/ISalesforceService/GetCaseCommentCount" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetReviewedCaseCount">
-      <soap:operation soapAction="http://tempuri.org/ISalesforceService/GetReviewedCaseCount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -16,7 +16,7 @@ namespace SmartEngineer.Core.Adapter
 
         string CreateCaseComment(AccelaCaseComment comment);
 
-        List<string> GetProcessedCaseNOs(DateTime from, DateTime end, string editor);
+        List<string> GetProcessedCaseNOs(DateTime from, DateTime end, string field, string editor);
 
         List<string> GetUnstoredLocalCases(List<string> caseNos);
 

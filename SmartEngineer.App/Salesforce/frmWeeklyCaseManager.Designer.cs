@@ -28,708 +28,710 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grnWeeklyPerformanceIndicator = new System.Windows.Forms.GroupBox();
+            this.txtlblInstaller = new System.Windows.Forms.TextBox();
+            this.lblInstaller = new System.Windows.Forms.Label();
+            this.txtBug = new System.Windows.Forms.TextBox();
+            this.lblBug = new System.Windows.Forms.Label();
+            this.txtDataRelated = new System.Windows.Forms.TextBox();
+            this.txtDocumentRelated = new System.Windows.Forms.TextBox();
+            this.txtEnviromentRelated = new System.Windows.Forms.TextBox();
+            this.txtEMSE = new System.Windows.Forms.TextBox();
+            this.txtUsability = new System.Windows.Forms.TextBox();
+            this.txtQuestionAndAnswer = new System.Windows.Forms.TextBox();
+            this.txtConfiguration = new System.Windows.Forms.TextBox();
+            this.lblDataRelated = new System.Windows.Forms.Label();
+            this.lblDocumentRelated = new System.Windows.Forms.Label();
+            this.lblEnviromentRelated = new System.Windows.Forms.Label();
+            this.lblEMSE = new System.Windows.Forms.Label();
+            this.lblUsability = new System.Windows.Forms.Label();
+            this.lblQuestionAndAnswer = new System.Windows.Forms.Label();
+            this.lblConfiguration = new System.Windows.Forms.Label();
+            this.txtOther = new System.Windows.Forms.TextBox();
+            this.txtExecuteTestCaseQA = new System.Windows.Forms.TextBox();
+            this.txtWriteTestCaseQA = new System.Windows.Forms.TextBox();
+            this.txtCodeFixDev = new System.Windows.Forms.TextBox();
+            this.txtResearchRootCauseDev = new System.Windows.Forms.TextBox();
+            this.txtReviewAndRecreateCaseQA = new System.Windows.Forms.TextBox();
+            this.txtReviewAndRecreateCaseDEV = new System.Windows.Forms.TextBox();
+            this.lblOther = new System.Windows.Forms.Label();
+            this.lblExecuteTestCaseQA = new System.Windows.Forms.Label();
+            this.lblWriteTestCaseQA = new System.Windows.Forms.Label();
+            this.lblCodeFixDev = new System.Windows.Forms.Label();
+            this.lblResearchRootCauseDev = new System.Windows.Forms.Label();
+            this.lblReviewAndRecreateCaseQA = new System.Windows.Forms.Label();
+            this.lblReviewAndRecreateCaseDEV = new System.Windows.Forms.Label();
+            this.txtSunday = new System.Windows.Forms.TextBox();
+            this.txtSaturday = new System.Windows.Forms.TextBox();
+            this.txtFriday = new System.Windows.Forms.TextBox();
+            this.txtThursday = new System.Windows.Forms.TextBox();
+            this.txtWendesday = new System.Windows.Forms.TextBox();
+            this.txtTuesday = new System.Windows.Forms.TextBox();
+            this.txtMonday = new System.Windows.Forms.TextBox();
+            this.lblSunday = new System.Windows.Forms.Label();
+            this.lblSaturday = new System.Windows.Forms.Label();
+            this.lblFriday = new System.Windows.Forms.Label();
+            this.lblThursday = new System.Windows.Forms.Label();
+            this.lblWendesday = new System.Windows.Forms.Label();
+            this.lblTuesday = new System.Windows.Forms.Label();
+            this.lblMonday = new System.Windows.Forms.Label();
+            this.txtTotalResolvedCaseCount = new System.Windows.Forms.TextBox();
+            this.txtActualCaseCount = new System.Windows.Forms.TextBox();
+            this.txtCaseCommentCount = new System.Windows.Forms.TextBox();
+            this.txtTotalProductionBugCount = new System.Windows.Forms.TextBox();
+            this.txtNewProductionBugCount = new System.Windows.Forms.TextBox();
+            this.txtTotalSFCaseCount = new System.Windows.Forms.TextBox();
+            this.txtNewSFCaseCount = new System.Windows.Forms.TextBox();
+            this.lblTotalResolvedCaseCount = new System.Windows.Forms.Label();
+            this.lblActualCaseCount = new System.Windows.Forms.Label();
+            this.lblCaseCommentCount = new System.Windows.Forms.Label();
+            this.lblTotalProductionBugCount = new System.Windows.Forms.Label();
+            this.lblTotalSFCaseCount = new System.Windows.Forms.Label();
+            this.lblNewProductionBugCount = new System.Windows.Forms.Label();
+            this.lblNewSFCaseCount = new System.Windows.Forms.Label();
+            this.lblYears = new System.Windows.Forms.Label();
+            this.cmbYears = new System.Windows.Forms.ComboBox();
+            this.lblMonths = new System.Windows.Forms.Label();
+            this.cmbWeeks = new System.Windows.Forms.ComboBox();
+            this.btnPull = new System.Windows.Forms.Button();
+            this.btnEmail = new System.Windows.Forms.Button();
+            this.lblQueryCondition = new System.Windows.Forms.Label();
+            this.grbDetailedQueryResult = new System.Windows.Forms.GroupBox();
+            this.dgvDetailedQueryResult = new System.Windows.Forms.DataGridView();
+            this.grnWeeklyPerformanceIndicator.SuspendLayout();
+            this.grbDetailedQueryResult.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetailedQueryResult)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textBox30);
-            this.groupBox1.Controls.Add(this.label33);
-            this.groupBox1.Controls.Add(this.textBox29);
-            this.groupBox1.Controls.Add(this.label32);
-            this.groupBox1.Controls.Add(this.textBox28);
-            this.groupBox1.Controls.Add(this.textBox27);
-            this.groupBox1.Controls.Add(this.textBox26);
-            this.groupBox1.Controls.Add(this.textBox25);
-            this.groupBox1.Controls.Add(this.textBox24);
-            this.groupBox1.Controls.Add(this.textBox23);
-            this.groupBox1.Controls.Add(this.textBox22);
-            this.groupBox1.Controls.Add(this.label31);
-            this.groupBox1.Controls.Add(this.label30);
-            this.groupBox1.Controls.Add(this.label29);
-            this.groupBox1.Controls.Add(this.label28);
-            this.groupBox1.Controls.Add(this.label27);
-            this.groupBox1.Controls.Add(this.label26);
-            this.groupBox1.Controls.Add(this.label25);
-            this.groupBox1.Controls.Add(this.textBox21);
-            this.groupBox1.Controls.Add(this.textBox20);
-            this.groupBox1.Controls.Add(this.textBox19);
-            this.groupBox1.Controls.Add(this.textBox18);
-            this.groupBox1.Controls.Add(this.textBox17);
-            this.groupBox1.Controls.Add(this.textBox16);
-            this.groupBox1.Controls.Add(this.textBox15);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.textBox14);
-            this.groupBox1.Controls.Add(this.textBox13);
-            this.groupBox1.Controls.Add(this.textBox12);
-            this.groupBox1.Controls.Add(this.textBox11);
-            this.groupBox1.Controls.Add(this.textBox10);
-            this.groupBox1.Controls.Add(this.textBox9);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 47);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1190, 208);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Weekly Key Performance Indicator";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "New SF Case Count:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "New Production Bug Count:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Total SF Case Count:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 102);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Total Production Bug Count:";
+            // grnWeeklyPerformanceIndicator
+            // 
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtlblInstaller);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblInstaller);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtBug);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblBug);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtDataRelated);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtDocumentRelated);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtEnviromentRelated);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtEMSE);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtUsability);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtQuestionAndAnswer);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtConfiguration);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblDataRelated);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblDocumentRelated);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblEnviromentRelated);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblEMSE);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblUsability);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblQuestionAndAnswer);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblConfiguration);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtOther);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtExecuteTestCaseQA);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtWriteTestCaseQA);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtCodeFixDev);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtResearchRootCauseDev);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtReviewAndRecreateCaseQA);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtReviewAndRecreateCaseDEV);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblOther);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblExecuteTestCaseQA);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblWriteTestCaseQA);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblCodeFixDev);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblResearchRootCauseDev);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblReviewAndRecreateCaseQA);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblReviewAndRecreateCaseDEV);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtSunday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtSaturday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtFriday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtThursday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtWendesday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtTuesday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtMonday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblSunday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblSaturday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblFriday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblThursday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblWendesday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblTuesday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblMonday);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtTotalResolvedCaseCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtActualCaseCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtCaseCommentCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtTotalProductionBugCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtNewProductionBugCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtTotalSFCaseCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.txtNewSFCaseCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblTotalResolvedCaseCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblActualCaseCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblCaseCommentCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblTotalProductionBugCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblTotalSFCaseCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblNewProductionBugCount);
+            this.grnWeeklyPerformanceIndicator.Controls.Add(this.lblNewSFCaseCount);
+            this.grnWeeklyPerformanceIndicator.Location = new System.Drawing.Point(12, 47);
+            this.grnWeeklyPerformanceIndicator.Name = "grnWeeklyPerformanceIndicator";
+            this.grnWeeklyPerformanceIndicator.Size = new System.Drawing.Size(1190, 208);
+            this.grnWeeklyPerformanceIndicator.TabIndex = 0;
+            this.grnWeeklyPerformanceIndicator.TabStop = false;
+            this.grnWeeklyPerformanceIndicator.Text = "Weekly Key Performance Indicator";
+            // 
+            // txtlblInstaller
+            // 
+            this.txtlblInstaller.Location = new System.Drawing.Point(1084, 47);
+            this.txtlblInstaller.Name = "txtlblInstaller";
+            this.txtlblInstaller.Size = new System.Drawing.Size(100, 20);
+            this.txtlblInstaller.TabIndex = 59;
+            // 
+            // lblInstaller
+            // 
+            this.lblInstaller.AutoSize = true;
+            this.lblInstaller.Location = new System.Drawing.Point(1032, 51);
+            this.lblInstaller.Name = "lblInstaller";
+            this.lblInstaller.Size = new System.Drawing.Size(46, 13);
+            this.lblInstaller.TabIndex = 58;
+            this.lblInstaller.Text = "Installer:";
+            // 
+            // txtBug
+            // 
+            this.txtBug.Location = new System.Drawing.Point(1084, 21);
+            this.txtBug.Name = "txtBug";
+            this.txtBug.Size = new System.Drawing.Size(100, 20);
+            this.txtBug.TabIndex = 57;
+            // 
+            // lblBug
+            // 
+            this.lblBug.AutoSize = true;
+            this.lblBug.Location = new System.Drawing.Point(1049, 24);
+            this.lblBug.Name = "lblBug";
+            this.lblBug.Size = new System.Drawing.Size(29, 13);
+            this.lblBug.TabIndex = 56;
+            this.lblBug.Text = "Bug:";
+            // 
+            // txtDataRelated
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 128);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Case Comment Count:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(47, 157);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Actual Case Count:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 183);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(140, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Total Resolved Case Count:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(151, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(151, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 8;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(151, 73);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 9;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(151, 99);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 10;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(151, 125);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 11;
-            // 
-            // textBox6
+            this.txtDataRelated.Location = new System.Drawing.Point(918, 173);
+            this.txtDataRelated.Name = "txtDataRelated";
+            this.txtDataRelated.Size = new System.Drawing.Size(100, 20);
+            this.txtDataRelated.TabIndex = 55;
             // 
-            this.textBox6.Location = new System.Drawing.Point(151, 154);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 12;
-            // 
-            // textBox7
+            // txtDocumentRelated
             // 
-            this.textBox7.Location = new System.Drawing.Point(151, 180);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 13;
+            this.txtDocumentRelated.Location = new System.Drawing.Point(918, 147);
+            this.txtDocumentRelated.Name = "txtDocumentRelated";
+            this.txtDocumentRelated.Size = new System.Drawing.Size(100, 20);
+            this.txtDocumentRelated.TabIndex = 54;
             // 
-            // label8
+            // txtEnviromentRelated
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(307, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Monday:";
+            this.txtEnviromentRelated.Location = new System.Drawing.Point(918, 123);
+            this.txtEnviromentRelated.Name = "txtEnviromentRelated";
+            this.txtEnviromentRelated.Size = new System.Drawing.Size(100, 20);
+            this.txtEnviromentRelated.TabIndex = 53;
             // 
-            // label9
+            // txtEMSE
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(304, 50);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Tuesday:";
+            this.txtEMSE.Location = new System.Drawing.Point(918, 98);
+            this.txtEMSE.Name = "txtEMSE";
+            this.txtEMSE.Size = new System.Drawing.Size(100, 20);
+            this.txtEMSE.TabIndex = 52;
             // 
-            // label10
+            // txtUsability
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(288, 77);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Wendesday:";
+            this.txtUsability.Location = new System.Drawing.Point(918, 73);
+            this.txtUsability.Name = "txtUsability";
+            this.txtUsability.Size = new System.Drawing.Size(100, 20);
+            this.txtUsability.TabIndex = 51;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(301, 105);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 13);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Thursday:";
+            // txtQuestionAndAnswer
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(317, 131);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(38, 13);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "Friday:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(301, 154);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 13);
-            this.label13.TabIndex = 19;
-            this.label13.Text = "Saturday:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(307, 180);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(46, 13);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "Sunday:";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(361, 21);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 21;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(361, 48);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 22;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(361, 76);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 23;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(361, 102);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 24;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(361, 128);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 25;
-            // 
-            // textBox13
+            this.txtQuestionAndAnswer.Location = new System.Drawing.Point(918, 47);
+            this.txtQuestionAndAnswer.Name = "txtQuestionAndAnswer";
+            this.txtQuestionAndAnswer.Size = new System.Drawing.Size(100, 20);
+            this.txtQuestionAndAnswer.TabIndex = 50;
             // 
-            this.textBox13.Location = new System.Drawing.Point(360, 154);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 26;
-            // 
-            // textBox14
+            // txtConfiguration
             // 
-            this.textBox14.Location = new System.Drawing.Point(360, 180);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 20);
-            this.textBox14.TabIndex = 27;
+            this.txtConfiguration.Location = new System.Drawing.Point(918, 21);
+            this.txtConfiguration.Name = "txtConfiguration";
+            this.txtConfiguration.Size = new System.Drawing.Size(100, 20);
+            this.txtConfiguration.TabIndex = 49;
             // 
-            // label15
+            // lblDataRelated
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(506, 24);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(170, 13);
-            this.label15.TabIndex = 28;
-            this.label15.Text = "Review And Recreate Case(DEV):";
+            this.lblDataRelated.AutoSize = true;
+            this.lblDataRelated.Location = new System.Drawing.Point(839, 176);
+            this.lblDataRelated.Name = "lblDataRelated";
+            this.lblDataRelated.Size = new System.Drawing.Size(73, 13);
+            this.lblDataRelated.TabIndex = 48;
+            this.lblDataRelated.Text = "Data Related:";
             // 
-            // label16
+            // lblDocumentRelated
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(513, 50);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(163, 13);
-            this.label16.TabIndex = 29;
-            this.label16.Text = "Review And Recreate Case(QA):";
+            this.lblDocumentRelated.AutoSize = true;
+            this.lblDocumentRelated.Location = new System.Drawing.Point(813, 151);
+            this.lblDocumentRelated.Name = "lblDocumentRelated";
+            this.lblDocumentRelated.Size = new System.Drawing.Size(99, 13);
+            this.lblDocumentRelated.TabIndex = 47;
+            this.lblDocumentRelated.Text = "Document Related:";
             // 
-            // label17
+            // lblEnviromentRelated
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(535, 73);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(141, 13);
-            this.label17.TabIndex = 30;
-            this.label17.Text = "Research Root Cause(Dev):";
+            this.lblEnviromentRelated.AutoSize = true;
+            this.lblEnviromentRelated.Location = new System.Drawing.Point(809, 128);
+            this.lblEnviromentRelated.Name = "lblEnviromentRelated";
+            this.lblEnviromentRelated.Size = new System.Drawing.Size(103, 13);
+            this.lblEnviromentRelated.TabIndex = 46;
+            this.lblEnviromentRelated.Text = "Enviroment Related:";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(596, 99);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(77, 13);
-            this.label18.TabIndex = 31;
-            this.label18.Text = "Code Fix(Dev):";
+            // lblEMSE
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(566, 125);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(107, 13);
-            this.label19.TabIndex = 32;
-            this.label19.Text = "Write Test Case(QA):";
-            // 
-            // label20
+            this.lblEMSE.AutoSize = true;
+            this.lblEMSE.Location = new System.Drawing.Point(872, 102);
+            this.lblEMSE.Name = "lblEMSE";
+            this.lblEMSE.Size = new System.Drawing.Size(40, 13);
+            this.lblEMSE.TabIndex = 45;
+            this.lblEMSE.Text = "EMSE:";
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(552, 154);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(121, 13);
-            this.label20.TabIndex = 33;
-            this.label20.Text = "Execute Test Case(QA):";
-            // 
-            // label21
+            // lblUsability
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(637, 180);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(36, 13);
-            this.label21.TabIndex = 34;
-            this.label21.Text = "Other:";
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(682, 21);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 20);
-            this.textBox15.TabIndex = 35;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(682, 47);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 20);
-            this.textBox16.TabIndex = 36;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(682, 74);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(100, 20);
-            this.textBox17.TabIndex = 37;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(682, 99);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(100, 20);
-            this.textBox18.TabIndex = 38;
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(682, 125);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(100, 20);
-            this.textBox19.TabIndex = 39;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(682, 151);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(100, 20);
-            this.textBox20.TabIndex = 40;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(682, 176);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(100, 20);
-            this.textBox21.TabIndex = 41;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(19, 18);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(32, 13);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "Year:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(57, 15);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(72, 21);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(135, 18);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(39, 13);
-            this.label23.TabIndex = 3;
-            this.label23.Text = "Week:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(180, 15);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(72, 21);
-            this.comboBox2.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(270, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Pull";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(351, 13);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Email";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(963, 18);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(228, 13);
-            this.label24.TabIndex = 7;
-            this.label24.Text = "Do query between 01/01/2017 to 01/10/2017";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(840, 24);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(72, 13);
-            this.label25.TabIndex = 42;
-            this.label25.Text = "Configuration:";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(881, 51);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(31, 13);
-            this.label26.TabIndex = 43;
-            this.label26.Text = "Q&&A:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(863, 77);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(49, 13);
-            this.label27.TabIndex = 44;
-            this.label27.Text = "Usability:";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(872, 102);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(40, 13);
-            this.label28.TabIndex = 45;
-            this.label28.Text = "EMSE:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(809, 128);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(103, 13);
-            this.label29.TabIndex = 46;
-            this.label29.Text = "Enviroment Related:";
-            // 
-            // label30
+            this.lblUsability.AutoSize = true;
+            this.lblUsability.Location = new System.Drawing.Point(863, 77);
+            this.lblUsability.Name = "lblUsability";
+            this.lblUsability.Size = new System.Drawing.Size(49, 13);
+            this.lblUsability.TabIndex = 44;
+            this.lblUsability.Text = "Usability:";
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(813, 151);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(99, 13);
-            this.label30.TabIndex = 47;
-            this.label30.Text = "Document Related:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(839, 176);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(73, 13);
-            this.label31.TabIndex = 48;
-            this.label31.Text = "Data Related:";
-            // 
-            // textBox22
-            // 
-            this.textBox22.Location = new System.Drawing.Point(918, 21);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(100, 20);
-            this.textBox22.TabIndex = 49;
-            // 
-            // textBox23
-            // 
-            this.textBox23.Location = new System.Drawing.Point(918, 47);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(100, 20);
-            this.textBox23.TabIndex = 50;
-            // 
-            // textBox24
-            // 
-            this.textBox24.Location = new System.Drawing.Point(918, 73);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(100, 20);
-            this.textBox24.TabIndex = 51;
-            // 
-            // textBox25
-            // 
-            this.textBox25.Location = new System.Drawing.Point(918, 98);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(100, 20);
-            this.textBox25.TabIndex = 52;
-            // 
-            // textBox26
-            // 
-            this.textBox26.Location = new System.Drawing.Point(918, 123);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(100, 20);
-            this.textBox26.TabIndex = 53;
-            // 
-            // textBox27
-            // 
-            this.textBox27.Location = new System.Drawing.Point(918, 147);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(100, 20);
-            this.textBox27.TabIndex = 54;
-            // 
-            // textBox28
-            // 
-            this.textBox28.Location = new System.Drawing.Point(918, 173);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(100, 20);
-            this.textBox28.TabIndex = 55;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(1049, 24);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(29, 13);
-            this.label32.TabIndex = 56;
-            this.label32.Text = "Bug:";
-            // 
-            // textBox29
-            // 
-            this.textBox29.Location = new System.Drawing.Point(1084, 21);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(100, 20);
-            this.textBox29.TabIndex = 57;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(1032, 51);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(46, 13);
-            this.label33.TabIndex = 58;
-            this.label33.Text = "Installer:";
-            // 
-            // textBox30
-            // 
-            this.textBox30.Location = new System.Drawing.Point(1084, 47);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(100, 20);
-            this.textBox30.TabIndex = 59;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 261);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1190, 488);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Detailed Query Result";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1169, 455);
-            this.dataGridView1.TabIndex = 0;
+            // lblQuestionAndAnswer
+            // 
+            this.lblQuestionAndAnswer.AutoSize = true;
+            this.lblQuestionAndAnswer.Location = new System.Drawing.Point(881, 51);
+            this.lblQuestionAndAnswer.Name = "lblQuestionAndAnswer";
+            this.lblQuestionAndAnswer.Size = new System.Drawing.Size(31, 13);
+            this.lblQuestionAndAnswer.TabIndex = 43;
+            this.lblQuestionAndAnswer.Text = "Q&&A:";
+            // 
+            // lblConfiguration
+            // 
+            this.lblConfiguration.AutoSize = true;
+            this.lblConfiguration.Location = new System.Drawing.Point(840, 24);
+            this.lblConfiguration.Name = "lblConfiguration";
+            this.lblConfiguration.Size = new System.Drawing.Size(72, 13);
+            this.lblConfiguration.TabIndex = 42;
+            this.lblConfiguration.Text = "Configuration:";
+            // 
+            // txtOther
+            // 
+            this.txtOther.Location = new System.Drawing.Point(682, 176);
+            this.txtOther.Name = "txtOther";
+            this.txtOther.Size = new System.Drawing.Size(100, 20);
+            this.txtOther.TabIndex = 41;
+            // 
+            // txtExecuteTestCaseQA
+            // 
+            this.txtExecuteTestCaseQA.Location = new System.Drawing.Point(682, 151);
+            this.txtExecuteTestCaseQA.Name = "txtExecuteTestCaseQA";
+            this.txtExecuteTestCaseQA.Size = new System.Drawing.Size(100, 20);
+            this.txtExecuteTestCaseQA.TabIndex = 40;
+            // 
+            // txtWriteTestCaseQA
+            // 
+            this.txtWriteTestCaseQA.Location = new System.Drawing.Point(682, 125);
+            this.txtWriteTestCaseQA.Name = "txtWriteTestCaseQA";
+            this.txtWriteTestCaseQA.Size = new System.Drawing.Size(100, 20);
+            this.txtWriteTestCaseQA.TabIndex = 39;
+            // 
+            // txtCodeFixDev
+            // 
+            this.txtCodeFixDev.Location = new System.Drawing.Point(682, 99);
+            this.txtCodeFixDev.Name = "txtCodeFixDev";
+            this.txtCodeFixDev.Size = new System.Drawing.Size(100, 20);
+            this.txtCodeFixDev.TabIndex = 38;
+            // 
+            // txtResearchRootCauseDev
+            // 
+            this.txtResearchRootCauseDev.Location = new System.Drawing.Point(682, 74);
+            this.txtResearchRootCauseDev.Name = "txtResearchRootCauseDev";
+            this.txtResearchRootCauseDev.Size = new System.Drawing.Size(100, 20);
+            this.txtResearchRootCauseDev.TabIndex = 37;
+            // 
+            // txtReviewAndRecreateCaseQA
+            // 
+            this.txtReviewAndRecreateCaseQA.Location = new System.Drawing.Point(682, 47);
+            this.txtReviewAndRecreateCaseQA.Name = "txtReviewAndRecreateCaseQA";
+            this.txtReviewAndRecreateCaseQA.Size = new System.Drawing.Size(100, 20);
+            this.txtReviewAndRecreateCaseQA.TabIndex = 36;
+            // 
+            // txtReviewAndRecreateCaseDEV
+            // 
+            this.txtReviewAndRecreateCaseDEV.Location = new System.Drawing.Point(682, 21);
+            this.txtReviewAndRecreateCaseDEV.Name = "txtReviewAndRecreateCaseDEV";
+            this.txtReviewAndRecreateCaseDEV.Size = new System.Drawing.Size(100, 20);
+            this.txtReviewAndRecreateCaseDEV.TabIndex = 35;
+            // 
+            // lblOther
+            // 
+            this.lblOther.AutoSize = true;
+            this.lblOther.Location = new System.Drawing.Point(637, 180);
+            this.lblOther.Name = "lblOther";
+            this.lblOther.Size = new System.Drawing.Size(36, 13);
+            this.lblOther.TabIndex = 34;
+            this.lblOther.Text = "Other:";
+            // 
+            // lblExecuteTestCaseQA
+            // 
+            this.lblExecuteTestCaseQA.AutoSize = true;
+            this.lblExecuteTestCaseQA.Location = new System.Drawing.Point(552, 154);
+            this.lblExecuteTestCaseQA.Name = "lblExecuteTestCaseQA";
+            this.lblExecuteTestCaseQA.Size = new System.Drawing.Size(121, 13);
+            this.lblExecuteTestCaseQA.TabIndex = 33;
+            this.lblExecuteTestCaseQA.Text = "Execute Test Case(QA):";
+            // 
+            // lblWriteTestCaseQA
+            // 
+            this.lblWriteTestCaseQA.AutoSize = true;
+            this.lblWriteTestCaseQA.Location = new System.Drawing.Point(566, 125);
+            this.lblWriteTestCaseQA.Name = "lblWriteTestCaseQA";
+            this.lblWriteTestCaseQA.Size = new System.Drawing.Size(107, 13);
+            this.lblWriteTestCaseQA.TabIndex = 32;
+            this.lblWriteTestCaseQA.Text = "Write Test Case(QA):";
+            // 
+            // lblCodeFixDev
+            // 
+            this.lblCodeFixDev.AutoSize = true;
+            this.lblCodeFixDev.Location = new System.Drawing.Point(596, 99);
+            this.lblCodeFixDev.Name = "lblCodeFixDev";
+            this.lblCodeFixDev.Size = new System.Drawing.Size(77, 13);
+            this.lblCodeFixDev.TabIndex = 31;
+            this.lblCodeFixDev.Text = "Code Fix(Dev):";
+            // 
+            // lblResearchRootCauseDev
+            // 
+            this.lblResearchRootCauseDev.AutoSize = true;
+            this.lblResearchRootCauseDev.Location = new System.Drawing.Point(535, 73);
+            this.lblResearchRootCauseDev.Name = "lblResearchRootCauseDev";
+            this.lblResearchRootCauseDev.Size = new System.Drawing.Size(141, 13);
+            this.lblResearchRootCauseDev.TabIndex = 30;
+            this.lblResearchRootCauseDev.Text = "Research Root Cause(Dev):";
+            // 
+            // lblReviewAndRecreateCaseQA
+            // 
+            this.lblReviewAndRecreateCaseQA.AutoSize = true;
+            this.lblReviewAndRecreateCaseQA.Location = new System.Drawing.Point(513, 50);
+            this.lblReviewAndRecreateCaseQA.Name = "lblReviewAndRecreateCaseQA";
+            this.lblReviewAndRecreateCaseQA.Size = new System.Drawing.Size(163, 13);
+            this.lblReviewAndRecreateCaseQA.TabIndex = 29;
+            this.lblReviewAndRecreateCaseQA.Text = "Review And Recreate Case(QA):";
+            // 
+            // lblReviewAndRecreateCaseDEV
+            // 
+            this.lblReviewAndRecreateCaseDEV.AutoSize = true;
+            this.lblReviewAndRecreateCaseDEV.Location = new System.Drawing.Point(506, 24);
+            this.lblReviewAndRecreateCaseDEV.Name = "lblReviewAndRecreateCaseDEV";
+            this.lblReviewAndRecreateCaseDEV.Size = new System.Drawing.Size(170, 13);
+            this.lblReviewAndRecreateCaseDEV.TabIndex = 28;
+            this.lblReviewAndRecreateCaseDEV.Text = "Review And Recreate Case(DEV):";
+            // 
+            // txtSunday
+            // 
+            this.txtSunday.Location = new System.Drawing.Point(360, 180);
+            this.txtSunday.Name = "txtSunday";
+            this.txtSunday.Size = new System.Drawing.Size(100, 20);
+            this.txtSunday.TabIndex = 27;
+            // 
+            // txtSaturday
+            // 
+            this.txtSaturday.Location = new System.Drawing.Point(360, 154);
+            this.txtSaturday.Name = "txtSaturday";
+            this.txtSaturday.Size = new System.Drawing.Size(100, 20);
+            this.txtSaturday.TabIndex = 26;
+            // 
+            // txtFriday
+            // 
+            this.txtFriday.Location = new System.Drawing.Point(361, 128);
+            this.txtFriday.Name = "txtFriday";
+            this.txtFriday.Size = new System.Drawing.Size(100, 20);
+            this.txtFriday.TabIndex = 25;
+            // 
+            // txtThursday
+            // 
+            this.txtThursday.Location = new System.Drawing.Point(361, 102);
+            this.txtThursday.Name = "txtThursday";
+            this.txtThursday.Size = new System.Drawing.Size(100, 20);
+            this.txtThursday.TabIndex = 24;
+            // 
+            // txtWendesday
+            // 
+            this.txtWendesday.Location = new System.Drawing.Point(361, 76);
+            this.txtWendesday.Name = "txtWendesday";
+            this.txtWendesday.Size = new System.Drawing.Size(100, 20);
+            this.txtWendesday.TabIndex = 23;
+            // 
+            // txtTuesday
+            // 
+            this.txtTuesday.Location = new System.Drawing.Point(361, 48);
+            this.txtTuesday.Name = "txtTuesday";
+            this.txtTuesday.Size = new System.Drawing.Size(100, 20);
+            this.txtTuesday.TabIndex = 22;
+            // 
+            // txtMonday
+            // 
+            this.txtMonday.Location = new System.Drawing.Point(361, 21);
+            this.txtMonday.Name = "txtMonday";
+            this.txtMonday.Size = new System.Drawing.Size(100, 20);
+            this.txtMonday.TabIndex = 21;
+            // 
+            // lblSunday
+            // 
+            this.lblSunday.AutoSize = true;
+            this.lblSunday.Location = new System.Drawing.Point(307, 180);
+            this.lblSunday.Name = "lblSunday";
+            this.lblSunday.Size = new System.Drawing.Size(46, 13);
+            this.lblSunday.TabIndex = 20;
+            this.lblSunday.Text = "Sunday:";
+            // 
+            // lblSaturday
+            // 
+            this.lblSaturday.AutoSize = true;
+            this.lblSaturday.Location = new System.Drawing.Point(301, 154);
+            this.lblSaturday.Name = "lblSaturday";
+            this.lblSaturday.Size = new System.Drawing.Size(52, 13);
+            this.lblSaturday.TabIndex = 19;
+            this.lblSaturday.Text = "Saturday:";
+            // 
+            // lblFriday
+            // 
+            this.lblFriday.AutoSize = true;
+            this.lblFriday.Location = new System.Drawing.Point(317, 131);
+            this.lblFriday.Name = "lblFriday";
+            this.lblFriday.Size = new System.Drawing.Size(38, 13);
+            this.lblFriday.TabIndex = 18;
+            this.lblFriday.Text = "Friday:";
+            // 
+            // lblThursday
+            // 
+            this.lblThursday.AutoSize = true;
+            this.lblThursday.Location = new System.Drawing.Point(301, 105);
+            this.lblThursday.Name = "lblThursday";
+            this.lblThursday.Size = new System.Drawing.Size(54, 13);
+            this.lblThursday.TabIndex = 17;
+            this.lblThursday.Text = "Thursday:";
+            // 
+            // lblWendesday
+            // 
+            this.lblWendesday.AutoSize = true;
+            this.lblWendesday.Location = new System.Drawing.Point(288, 77);
+            this.lblWendesday.Name = "lblWendesday";
+            this.lblWendesday.Size = new System.Drawing.Size(67, 13);
+            this.lblWendesday.TabIndex = 16;
+            this.lblWendesday.Text = "Wendesday:";
+            // 
+            // lblTuesday
+            // 
+            this.lblTuesday.AutoSize = true;
+            this.lblTuesday.Location = new System.Drawing.Point(304, 50);
+            this.lblTuesday.Name = "lblTuesday";
+            this.lblTuesday.Size = new System.Drawing.Size(51, 13);
+            this.lblTuesday.TabIndex = 15;
+            this.lblTuesday.Text = "Tuesday:";
+            // 
+            // lblMonday
+            // 
+            this.lblMonday.AutoSize = true;
+            this.lblMonday.Location = new System.Drawing.Point(307, 24);
+            this.lblMonday.Name = "lblMonday";
+            this.lblMonday.Size = new System.Drawing.Size(48, 13);
+            this.lblMonday.TabIndex = 14;
+            this.lblMonday.Text = "Monday:";
+            // 
+            // txtTotalResolvedCaseCount
+            // 
+            this.txtTotalResolvedCaseCount.Location = new System.Drawing.Point(151, 180);
+            this.txtTotalResolvedCaseCount.Name = "txtTotalResolvedCaseCount";
+            this.txtTotalResolvedCaseCount.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalResolvedCaseCount.TabIndex = 13;
+            // 
+            // txtActualCaseCount
+            // 
+            this.txtActualCaseCount.Location = new System.Drawing.Point(151, 154);
+            this.txtActualCaseCount.Name = "txtActualCaseCount";
+            this.txtActualCaseCount.Size = new System.Drawing.Size(100, 20);
+            this.txtActualCaseCount.TabIndex = 12;
+            // 
+            // txtCaseCommentCount
+            // 
+            this.txtCaseCommentCount.Location = new System.Drawing.Point(151, 125);
+            this.txtCaseCommentCount.Name = "txtCaseCommentCount";
+            this.txtCaseCommentCount.Size = new System.Drawing.Size(100, 20);
+            this.txtCaseCommentCount.TabIndex = 11;
+            // 
+            // txtTotalProductionBugCount
+            // 
+            this.txtTotalProductionBugCount.Location = new System.Drawing.Point(151, 99);
+            this.txtTotalProductionBugCount.Name = "txtTotalProductionBugCount";
+            this.txtTotalProductionBugCount.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalProductionBugCount.TabIndex = 10;
+            // 
+            // txtNewProductionBugCount
+            // 
+            this.txtNewProductionBugCount.Location = new System.Drawing.Point(151, 73);
+            this.txtNewProductionBugCount.Name = "txtNewProductionBugCount";
+            this.txtNewProductionBugCount.Size = new System.Drawing.Size(100, 20);
+            this.txtNewProductionBugCount.TabIndex = 9;
+            // 
+            // txtTotalSFCaseCount
+            // 
+            this.txtTotalSFCaseCount.Location = new System.Drawing.Point(151, 47);
+            this.txtTotalSFCaseCount.Name = "txtTotalSFCaseCount";
+            this.txtTotalSFCaseCount.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalSFCaseCount.TabIndex = 8;
+            // 
+            // txtNewSFCaseCount
+            // 
+            this.txtNewSFCaseCount.Location = new System.Drawing.Point(151, 21);
+            this.txtNewSFCaseCount.Name = "txtNewSFCaseCount";
+            this.txtNewSFCaseCount.Size = new System.Drawing.Size(100, 20);
+            this.txtNewSFCaseCount.TabIndex = 7;
+            // 
+            // lblTotalResolvedCaseCount
+            // 
+            this.lblTotalResolvedCaseCount.AutoSize = true;
+            this.lblTotalResolvedCaseCount.Location = new System.Drawing.Point(5, 183);
+            this.lblTotalResolvedCaseCount.Name = "lblTotalResolvedCaseCount";
+            this.lblTotalResolvedCaseCount.Size = new System.Drawing.Size(140, 13);
+            this.lblTotalResolvedCaseCount.TabIndex = 6;
+            this.lblTotalResolvedCaseCount.Text = "Total Resolved Case Count:";
+            // 
+            // lblActualCaseCount
+            // 
+            this.lblActualCaseCount.AutoSize = true;
+            this.lblActualCaseCount.Location = new System.Drawing.Point(47, 157);
+            this.lblActualCaseCount.Name = "lblActualCaseCount";
+            this.lblActualCaseCount.Size = new System.Drawing.Size(98, 13);
+            this.lblActualCaseCount.TabIndex = 5;
+            this.lblActualCaseCount.Text = "Actual Case Count:";
+            // 
+            // lblCaseCommentCount
+            // 
+            this.lblCaseCommentCount.AutoSize = true;
+            this.lblCaseCommentCount.Location = new System.Drawing.Point(33, 128);
+            this.lblCaseCommentCount.Name = "lblCaseCommentCount";
+            this.lblCaseCommentCount.Size = new System.Drawing.Size(112, 13);
+            this.lblCaseCommentCount.TabIndex = 4;
+            this.lblCaseCommentCount.Text = "Case Comment Count:";
+            // 
+            // lblTotalProductionBugCount
+            // 
+            this.lblTotalProductionBugCount.AutoSize = true;
+            this.lblTotalProductionBugCount.Location = new System.Drawing.Point(6, 102);
+            this.lblTotalProductionBugCount.Name = "lblTotalProductionBugCount";
+            this.lblTotalProductionBugCount.Size = new System.Drawing.Size(141, 13);
+            this.lblTotalProductionBugCount.TabIndex = 3;
+            this.lblTotalProductionBugCount.Text = "Total Production Bug Count:";
+            // 
+            // lblTotalSFCaseCount
+            // 
+            this.lblTotalSFCaseCount.AutoSize = true;
+            this.lblTotalSFCaseCount.Location = new System.Drawing.Point(39, 51);
+            this.lblTotalSFCaseCount.Name = "lblTotalSFCaseCount";
+            this.lblTotalSFCaseCount.Size = new System.Drawing.Size(108, 13);
+            this.lblTotalSFCaseCount.TabIndex = 2;
+            this.lblTotalSFCaseCount.Text = "Total SF Case Count:";
+            // 
+            // lblNewProductionBugCount
+            // 
+            this.lblNewProductionBugCount.AutoSize = true;
+            this.lblNewProductionBugCount.Location = new System.Drawing.Point(6, 76);
+            this.lblNewProductionBugCount.Name = "lblNewProductionBugCount";
+            this.lblNewProductionBugCount.Size = new System.Drawing.Size(139, 13);
+            this.lblNewProductionBugCount.TabIndex = 1;
+            this.lblNewProductionBugCount.Text = "New Production Bug Count:";
+            // 
+            // lblNewSFCaseCount
+            // 
+            this.lblNewSFCaseCount.AutoSize = true;
+            this.lblNewSFCaseCount.Location = new System.Drawing.Point(39, 24);
+            this.lblNewSFCaseCount.Name = "lblNewSFCaseCount";
+            this.lblNewSFCaseCount.Size = new System.Drawing.Size(106, 13);
+            this.lblNewSFCaseCount.TabIndex = 0;
+            this.lblNewSFCaseCount.Text = "New SF Case Count:";
+            // 
+            // lblYears
+            // 
+            this.lblYears.AutoSize = true;
+            this.lblYears.Location = new System.Drawing.Point(19, 18);
+            this.lblYears.Name = "lblYears";
+            this.lblYears.Size = new System.Drawing.Size(32, 13);
+            this.lblYears.TabIndex = 1;
+            this.lblYears.Text = "Year:";
+            // 
+            // cmbYears
+            // 
+            this.cmbYears.FormattingEnabled = true;
+            this.cmbYears.Location = new System.Drawing.Point(57, 15);
+            this.cmbYears.Name = "cmbYears";
+            this.cmbYears.Size = new System.Drawing.Size(72, 21);
+            this.cmbYears.TabIndex = 2;
+            // 
+            // lblMonths
+            // 
+            this.lblMonths.AutoSize = true;
+            this.lblMonths.Location = new System.Drawing.Point(135, 18);
+            this.lblMonths.Name = "lblMonths";
+            this.lblMonths.Size = new System.Drawing.Size(39, 13);
+            this.lblMonths.TabIndex = 3;
+            this.lblMonths.Text = "Week:";
+            // 
+            // cmbWeeks
+            // 
+            this.cmbWeeks.FormattingEnabled = true;
+            this.cmbWeeks.Location = new System.Drawing.Point(180, 15);
+            this.cmbWeeks.Name = "cmbWeeks";
+            this.cmbWeeks.Size = new System.Drawing.Size(72, 21);
+            this.cmbWeeks.TabIndex = 4;
+            // 
+            // btnPull
+            // 
+            this.btnPull.Location = new System.Drawing.Point(270, 12);
+            this.btnPull.Name = "btnPull";
+            this.btnPull.Size = new System.Drawing.Size(75, 23);
+            this.btnPull.TabIndex = 5;
+            this.btnPull.Text = "Pull";
+            this.btnPull.UseVisualStyleBackColor = true;
+            this.btnPull.Click += new System.EventHandler(this.btnPull_Click);
+            // 
+            // btnEmail
+            // 
+            this.btnEmail.Location = new System.Drawing.Point(351, 13);
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Size = new System.Drawing.Size(75, 23);
+            this.btnEmail.TabIndex = 6;
+            this.btnEmail.Text = "Email";
+            this.btnEmail.UseVisualStyleBackColor = true;
+            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
+            // 
+            // lblQueryCondition
+            // 
+            this.lblQueryCondition.AutoSize = true;
+            this.lblQueryCondition.Location = new System.Drawing.Point(963, 18);
+            this.lblQueryCondition.Name = "lblQueryCondition";
+            this.lblQueryCondition.Size = new System.Drawing.Size(228, 13);
+            this.lblQueryCondition.TabIndex = 7;
+            this.lblQueryCondition.Text = "Do query between 01/01/2017 to 01/10/2017";
+            // 
+            // grbDetailedQueryResult
+            // 
+            this.grbDetailedQueryResult.Controls.Add(this.dgvDetailedQueryResult);
+            this.grbDetailedQueryResult.Location = new System.Drawing.Point(12, 261);
+            this.grbDetailedQueryResult.Name = "grbDetailedQueryResult";
+            this.grbDetailedQueryResult.Size = new System.Drawing.Size(1190, 488);
+            this.grbDetailedQueryResult.TabIndex = 8;
+            this.grbDetailedQueryResult.TabStop = false;
+            this.grbDetailedQueryResult.Text = "Detailed Query Result";
+            // 
+            // dgvDetailedQueryResult
+            // 
+            this.dgvDetailedQueryResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetailedQueryResult.Location = new System.Drawing.Point(10, 19);
+            this.dgvDetailedQueryResult.Name = "dgvDetailedQueryResult";
+            this.dgvDetailedQueryResult.Size = new System.Drawing.Size(1169, 455);
+            this.dgvDetailedQueryResult.TabIndex = 0;
             // 
             // frmWeeklyCaseManager
             // 
@@ -737,24 +739,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 761);
             this.ControlBox = false;
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grbDetailedQueryResult);
+            this.Controls.Add(this.lblQueryCondition);
+            this.Controls.Add(this.btnEmail);
+            this.Controls.Add(this.btnPull);
+            this.Controls.Add(this.cmbWeeks);
+            this.Controls.Add(this.lblMonths);
+            this.Controls.Add(this.cmbYears);
+            this.Controls.Add(this.lblYears);
+            this.Controls.Add(this.grnWeeklyPerformanceIndicator);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmWeeklyCaseManager";
             this.ShowInTaskbar = false;
             this.Text = "Weekly Case Manager";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.grnWeeklyPerformanceIndicator.ResumeLayout(false);
+            this.grnWeeklyPerformanceIndicator.PerformLayout();
+            this.grbDetailedQueryResult.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetailedQueryResult)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -762,75 +764,75 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox grnWeeklyPerformanceIndicator;
+        private System.Windows.Forms.TextBox txtTotalResolvedCaseCount;
+        private System.Windows.Forms.TextBox txtActualCaseCount;
+        private System.Windows.Forms.TextBox txtCaseCommentCount;
+        private System.Windows.Forms.TextBox txtTotalProductionBugCount;
+        private System.Windows.Forms.TextBox txtNewProductionBugCount;
+        private System.Windows.Forms.TextBox txtTotalSFCaseCount;
+        private System.Windows.Forms.TextBox txtNewSFCaseCount;
+        private System.Windows.Forms.Label lblTotalResolvedCaseCount;
+        private System.Windows.Forms.Label lblActualCaseCount;
+        private System.Windows.Forms.Label lblCaseCommentCount;
+        private System.Windows.Forms.Label lblTotalProductionBugCount;
+        private System.Windows.Forms.Label lblTotalSFCaseCount;
+        private System.Windows.Forms.Label lblNewProductionBugCount;
+        private System.Windows.Forms.Label lblNewSFCaseCount;
+        private System.Windows.Forms.TextBox txtSunday;
+        private System.Windows.Forms.TextBox txtSaturday;
+        private System.Windows.Forms.TextBox txtFriday;
+        private System.Windows.Forms.TextBox txtThursday;
+        private System.Windows.Forms.TextBox txtWendesday;
+        private System.Windows.Forms.TextBox txtTuesday;
+        private System.Windows.Forms.TextBox txtMonday;
+        private System.Windows.Forms.Label lblSunday;
+        private System.Windows.Forms.Label lblSaturday;
+        private System.Windows.Forms.Label lblFriday;
+        private System.Windows.Forms.Label lblThursday;
+        private System.Windows.Forms.Label lblWendesday;
+        private System.Windows.Forms.Label lblTuesday;
+        private System.Windows.Forms.Label lblMonday;
+        private System.Windows.Forms.TextBox txtOther;
+        private System.Windows.Forms.TextBox txtExecuteTestCaseQA;
+        private System.Windows.Forms.TextBox txtWriteTestCaseQA;
+        private System.Windows.Forms.TextBox txtCodeFixDev;
+        private System.Windows.Forms.TextBox txtResearchRootCauseDev;
+        private System.Windows.Forms.TextBox txtReviewAndRecreateCaseQA;
+        private System.Windows.Forms.TextBox txtReviewAndRecreateCaseDEV;
+        private System.Windows.Forms.Label lblOther;
+        private System.Windows.Forms.Label lblExecuteTestCaseQA;
+        private System.Windows.Forms.Label lblWriteTestCaseQA;
+        private System.Windows.Forms.Label lblCodeFixDev;
+        private System.Windows.Forms.Label lblResearchRootCauseDev;
+        private System.Windows.Forms.Label lblReviewAndRecreateCaseQA;
+        private System.Windows.Forms.Label lblReviewAndRecreateCaseDEV;
+        private System.Windows.Forms.Label lblYears;
+        private System.Windows.Forms.ComboBox cmbYears;
+        private System.Windows.Forms.Label lblMonths;
+        private System.Windows.Forms.ComboBox cmbWeeks;
+        private System.Windows.Forms.Button btnPull;
+        private System.Windows.Forms.Button btnEmail;
+        private System.Windows.Forms.TextBox txtlblInstaller;
+        private System.Windows.Forms.Label lblInstaller;
+        private System.Windows.Forms.TextBox txtBug;
+        private System.Windows.Forms.Label lblBug;
+        private System.Windows.Forms.TextBox txtDataRelated;
+        private System.Windows.Forms.TextBox txtDocumentRelated;
+        private System.Windows.Forms.TextBox txtEnviromentRelated;
+        private System.Windows.Forms.TextBox txtEMSE;
+        private System.Windows.Forms.TextBox txtUsability;
+        private System.Windows.Forms.TextBox txtQuestionAndAnswer;
+        private System.Windows.Forms.TextBox txtConfiguration;
+        private System.Windows.Forms.Label lblDataRelated;
+        private System.Windows.Forms.Label lblDocumentRelated;
+        private System.Windows.Forms.Label lblEnviromentRelated;
+        private System.Windows.Forms.Label lblEMSE;
+        private System.Windows.Forms.Label lblUsability;
+        private System.Windows.Forms.Label lblQuestionAndAnswer;
+        private System.Windows.Forms.Label lblConfiguration;
+        private System.Windows.Forms.Label lblQueryCondition;
+        private System.Windows.Forms.GroupBox grbDetailedQueryResult;
+        private System.Windows.Forms.DataGridView dgvDetailedQueryResult;
     }
 }

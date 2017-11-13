@@ -241,6 +241,69 @@ namespace SmartEngineer.Core.Adapter
             return jiraKeyList;
         }
 
+        public List<Issue> GetIssueListByCreatedDate(DateTime start, DateTime end, string jiraAccount, string jiraPassword)
+        {
+            List<Issue> issueList = new List<Issue>();
+            IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
+            string sql = $"project = ENGSUPP AND issuetype in standardIssueTypes() AND \"Salesforce ID\" is not empty AND Reporter != EngToolIntegration AND Created >= {start.ToString("yyyy-MM-dd")} AND Created <= {end.ToString("yyyy-MM-dd")}";
+            var issues = jira.GetIssuesByQuery("ENGSUPP", "", sql);
+           
+            foreach (Issue issue in issues)
+            {
+                issueList.Add(issue);
+            }
+
+            return issueList;
+        }
+
+        public List<Issue> GetIssueListByResolutiondate(DateTime start, DateTime end, string jiraAccount, string jiraPassword)
+        {
+            List<Issue> issueList = new List<Issue>();
+            IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
+            string sql = $"project = ENGSUPP AND issuetype in standardIssueTypes() and status in (Closed, Resolved) and \"Salesforce ID\" is not empty AND Reporter != EngToolIntegration AND resolutiondate >= {start.ToString("yyyy-MM-dd")} AND resolutiondate <= {end.ToString("yyyy-MM-dd")}";
+            var issues = jira.GetIssuesByQuery("ENGSUPP", "", sql);
+
+            foreach (Issue issue in issues)
+            {
+                issueList.Add(issue);
+            }
+
+            return issueList;
+        }
+
+        public List<Issue> GetBugListByBugStatus(List<string> statusList, string jiraAccount, string jiraPassword)
+        {
+            List<Issue> issueList = new List<Issue>();
+            IJiraClient jira = new JiraClient(AccelaJiraUrl, jiraAccount, jiraPassword);
+            string sql = "project = ENGSUPP AND issuetype = Bug AND \"Salesforce ID\" is not empty and status in (";
+
+            bool isFirst = true;
+            foreach (string status in statusList)
+            {
+                if (string.IsNullOrEmpty(status)) continue;
+
+                if (isFirst)
+                {
+                    sql += $" \"{status}\" ";
+                    isFirst = false;
+                }
+                else
+                {
+                    sql += $", \"{status}\" ";
+                }
+            }
+
+            sql +=")  and fixVersion is empty AND Reporter != EngToolIntegration";
+            var issues = jira.GetIssuesByQuery("ENGSUPP", "", sql);
+
+            foreach (Issue issue in issues)
+            {
+                issueList.Add(issue);
+            }
+
+            return issueList;
+        }
+
         public bool SyncInformationFromSalesforce(List<string> caseNOs)
         {
             foreach (string caseNo in caseNOs)

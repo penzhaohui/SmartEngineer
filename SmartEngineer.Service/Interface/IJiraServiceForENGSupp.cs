@@ -33,21 +33,15 @@ namespace SmartEngineer.Service
         bool SyncSalesforceCaseToJiraIssue(List<string> caseNOs);
 
         [OperationContract]
-        int GetNewIssueCount(DateTime from, DateTime to);
+        List<string> GetNewIssues(DateTime from, DateTime to);
 
         [OperationContract]
-        int GetResolvedIssueCount(DateTime from, DateTime to);
+        List<string> GetResolvedIssues(DateTime from, DateTime to);
 
         [OperationContract]
-        int GetProductionBugCount(DateTime from, DateTime to);
-
-        //[OperationContract]
-        //int GetProductionBugCount();
+        List<string> GetProductionBugs();
 
         [OperationContract]
         int GetTotalTimeSpent(string subTaskKey, DateTime from, DateTime to);
-
-        //[OperationContract]
-        //int GetTotalTimeSpent(int category, DateTime from, DateTime to);
     }
 }

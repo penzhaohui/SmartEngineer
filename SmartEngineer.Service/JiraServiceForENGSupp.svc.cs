@@ -27,44 +27,6 @@ namespace SmartEngineer.Service
             JiraAdapter = jiraAdapter;
         }
 
-        public List<JiraIssue> GetIssuesByCaseNos(List<string> caseNOs)
-        {
-            List<JiraIssue> jiraIssues = new List<JiraIssue>();
-            
-            List<string> unStoredCaseNoList = new List<string>();
-            
-            foreach (string caseNo in caseNOs)
-            {
-                if (!JiraAdapter.IsExistsLocalIssue(caseNo))
-                {
-                    unStoredCaseNoList.Add(caseNo);
-                }
-            }
-
-            JiraAdapter.BatchStoreIssueInfoToLocalSync(unStoredCaseNoList);
-
-            List<Issue> issues = JiraAdapter.PullIssueList(unStoredCaseNoList, JiraAccount, JiraPassword);            
-            foreach (Issue issue in issues)
-            {
-                caseNOs.Remove(issue.fields.CaseNumber);
-
-                JiraIssue issueInfo = new JiraIssue();
-                issueInfo.Initialize(issue);
-                jiraIssues.Add(issueInfo);
-            }
-
-            List<JiraIssue> localIssueIList = JiraAdapter.GetIssueInfoByCaseNos(caseNOs);
-            foreach (JiraIssue localIssue in localIssueIList)
-            {
-                if (!unStoredCaseNoList.Contains(localIssue.CaseNumber))
-                {
-                    jiraIssues.Add(localIssue);
-                }
-            }
-
-            return jiraIssues;
-        }
-
         public List<JiraIssue> GetIssuesByLabels(List<string> labels)
         {
             throw new NotImplementedException();
@@ -97,8 +59,8 @@ namespace SmartEngineer.Service
                     if (!pendingCaseNoList.Contains(caseNO))
                     {
                         pendingCaseNoList.Add(caseNO);
-                    }                   
-                }                
+                    }
+                }
             }
 
             return pendingCaseNoList;
@@ -119,41 +81,43 @@ namespace SmartEngineer.Service
             return jiraIssues;
         }
 
-        public int GetNewIssueCount(DateTime from, DateTime to)
+        public List<JiraIssue> GetIssuesByCaseNos(List<string> caseNOs)
         {
-            throw new NotImplementedException();
-        }
+            List<JiraIssue> jiraIssues = new List<JiraIssue>();
 
-        public int GetProductionBugCount(DateTime from, DateTime to)
-        {
-            throw new NotImplementedException();
-        }
+            List<string> unStoredCaseNoList = new List<string>();
 
-        public int GetProductionBugCount()
-        {
-            throw new NotImplementedException();
-        }
+            foreach (string caseNo in caseNOs)
+            {
+                if (!JiraAdapter.IsExistsLocalIssue(caseNo))
+                {
+                    unStoredCaseNoList.Add(caseNo);
+                }
+            }
 
-        public int GetResolvedIssueCount(DateTime from, DateTime to)
-        {
-            throw new NotImplementedException();
-        }
+            JiraAdapter.BatchStoreIssueInfoToLocalSync(unStoredCaseNoList);
 
-        public int GetTotalTimeSpent(string subTaskKey, DateTime from, DateTime to)
-        {
-            throw new NotImplementedException();
-        }
+            List<Issue> issues = JiraAdapter.PullIssueList(unStoredCaseNoList, JiraAccount, JiraPassword);
+            foreach (Issue issue in issues)
+            {
+                caseNOs.Remove(issue.fields.CaseNumber);
 
-        public int GetTotalTimeSpent(int category, DateTime from, DateTime to)
-        {
-            throw new NotImplementedException();
-        }
+                JiraIssue issueInfo = new JiraIssue();
+                issueInfo.Initialize(issue);
+                jiraIssues.Add(issueInfo);
+            }
 
-        public bool ImportCaseComments(List<string> caseNOs)
-        {
-            throw new NotImplementedException();
-        }
+            List<JiraIssue> localIssueIList = JiraAdapter.GetIssueInfoByCaseNos(caseNOs);
+            foreach (JiraIssue localIssue in localIssueIList)
+            {
+                if (!unStoredCaseNoList.Contains(localIssue.CaseNumber))
+                {
+                    jiraIssues.Add(localIssue);
+                }
+            }
 
+            return jiraIssues;
+        }
         public bool ImportCaseNOs(List<string> caseNOs)
         {
             throw new NotImplementedException();
@@ -161,6 +125,11 @@ namespace SmartEngineer.Service
             // 1. Load Case Info from local database
             // 2. Create and Update Jira Issue
             // 
+        }
+
+        public bool ImportCaseComments(List<string> caseNOs)
+        {
+            throw new NotImplementedException();
         }
 
         public bool SyncIssueStatus(List<string> caseNOs)
@@ -184,7 +153,7 @@ namespace SmartEngineer.Service
                 {
                     caseNOs.Remove(newCaseNo);
                 }
-            }            
+            }
 
             // If it is one new case
             //      1. Create new jira issue
@@ -200,5 +169,58 @@ namespace SmartEngineer.Service
 
             return true;
         }
+
+        public List<string> GetNewIssues(DateTime from, DateTime to)
+        {
+            List<string> jiraKeyList = new List<string>();
+            var issues = JiraAdapter.GetIssueListByCreatedDate(from, to, JiraAccount, JiraPassword);
+            foreach (Issue issue in issues)
+            {
+                jiraKeyList.Add(issue.key);
+            }
+
+            return jiraKeyList;
+        }
+
+        public List<string> GetResolvedIssues(DateTime from, DateTime to)
+        {
+            List<string> jiraKeyList = new List<string>();
+            var issues = JiraAdapter.GetIssueListByResolutiondate(from, to, JiraAccount, JiraPassword);
+            foreach (Issue issue in issues)
+            {
+                jiraKeyList.Add(issue.key);
+            }
+
+            return jiraKeyList;
+        }
+
+        public List<string> GetProductionBugs()
+        {
+            List<string> jiraKeyList = new List<string>();
+            List<string> statusList = new List<string>();
+            statusList.Add("Open");
+            statusList.Add("In Progress");
+            statusList.Add("Reopened");
+            statusList.Add("Pending");
+            statusList.Add("Development in Progress");
+
+            var issues = JiraAdapter.GetBugListByBugStatus(statusList, JiraAccount, JiraPassword);
+            foreach (Issue issue in issues)
+            {
+                jiraKeyList.Add(issue.key);
+            }
+
+            return jiraKeyList;
+        } 
+
+        public int GetTotalTimeSpent(string subTaskKey, DateTime from, DateTime to)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetTotalTimeSpent(int category, DateTime from, DateTime to)
+        {
+            throw new NotImplementedException();
+        }        
     }
 }

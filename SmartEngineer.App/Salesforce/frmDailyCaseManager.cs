@@ -47,7 +47,7 @@ namespace SmartEngineer.Forms
         {
             this.btnGetPendingCasesFromJira.Enabled = false;
 
-            ICaseAdapter caseAdapter = new CaseAdapter();
+            IJiraAdapter caseAdapter = new JiraAdapter();
             List<string> pengdingCaseNoList = caseAdapter.GetPendingCasesForToday();
             this.txtInputCaseNOs.Text = string.Join(",", pengdingCaseNoList.ToArray());
 
@@ -88,7 +88,7 @@ namespace SmartEngineer.Forms
                 caseNoList.Add(caseNo);
             }
 
-            ICaseAdapter caseAdapter = new CaseAdapter();
+            IJiraAdapter caseAdapter = new JiraAdapter();
             caseAdapter.SyncSalesforceToJira(caseNoList);
 
             this.btnSyncSalesforceToJira.Enabled = true;

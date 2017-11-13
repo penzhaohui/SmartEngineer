@@ -59,6 +59,7 @@
     <Compile Include="Adapters\imp\CaseAdapter.cs" />
     <Compile Include="Adapters\imp\ConfigAdapter.cs" />
     <Compile Include="Adapters\imp\DatabaseAdapter.cs" />
+    <Compile Include="Adapters\imp\JiraAdapter.cs" />
     <Compile Include="Adapters\imp\MemberAdapter.cs" />
     <Compile Include="Adapters\IReportAdapter.cs" />
     <Compile Include="Adapters\ISalesforceAdapter.cs" />

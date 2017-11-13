@@ -19,14 +19,29 @@ namespace SmartEngineer.ServiceClient.Adapters
 
         public List<string> GetCommentedCasesForToday()
         {
-            List<string> caseNOList = new List<string>();            
-
             var chinaCurrentTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("China Standard Time"));
             var start = DateTime.UtcNow.AddHours(-chinaCurrentTime.Hour);
             var end = DateTime.UtcNow.AddHours(1);
 
+            return GetCommentedCases(start, end);
+        }
+
+        public List<string> GetCommentedCases(DateTime start, DateTime end)
+        {
+            List<string> caseNOList = new List<string>();
             SalesforceServiceClient client = WSFactory.Instance.GetWCFClient<SalesforceServiceClient, ISalesforceService>();
             string[] caseNOs = client.GetCommentedCaseList(start, end);
+
+            caseNOList.AddRange(caseNOs);
+
+            return caseNOList;
+        }
+
+        public List<string> GetProductionBugList(DateTime start, DateTime end)
+        {
+            List<string> caseNOList = new List<string>();
+            SalesforceServiceClient client = WSFactory.Instance.GetWCFClient<SalesforceServiceClient, ISalesforceService>();
+            string[] caseNOs = client.GetProductionBugList(start, end);
 
             caseNOList.AddRange(caseNOs);
 
@@ -42,12 +57,12 @@ namespace SmartEngineer.ServiceClient.Adapters
             return caseNOs;
         }
 
-        public List<string> GetPendingCasesForToday()
+        public List<string> GetEngineerCasesList()
         {
             List<string> caseNOs = new List<string>();
-            JiraServiceForENGSuppClient jiraServiceForENGSuppClient = WSFactory.Instance.GetWCFClient<JiraServiceForENGSuppClient, IJiraServiceForENGSupp>();
-            caseNOs.AddRange(jiraServiceForENGSuppClient.GetPendingCaseList());
 
+            SalesforceServiceClient client = WSFactory.Instance.GetWCFClient<SalesforceServiceClient, ISalesforceService>();
+            caseNOs.AddRange(client.GetEngineerCasesList());
             return caseNOs;
         }
 
@@ -149,13 +164,6 @@ namespace SmartEngineer.ServiceClient.Adapters
             }
 
             return table;
-        }
-
-        public bool SyncSalesforceToJira(List<string> caseNos)
-        {
-            JiraServiceForENGSuppClient jiraServiceForENGSuppClient = WSFactory.Instance.GetWCFClient<JiraServiceForENGSuppClient, IJiraServiceForENGSupp>();
-            
-            return jiraServiceForENGSuppClient.SyncSalesforceCaseToJiraIssue(caseNos.ToArray()); 
         }
     }
 }

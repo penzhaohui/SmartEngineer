@@ -56,23 +56,23 @@
   <wsdl:message name="IJiraServiceForENGSupp_SyncSalesforceCaseToJiraIssue_OutputMessage">
     <wsdl:part name="parameters" element="tns:SyncSalesforceCaseToJiraIssueResponse" />
   </wsdl:message>
-  <wsdl:message name="IJiraServiceForENGSupp_GetNewIssueCount_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetNewIssueCount" />
+  <wsdl:message name="IJiraServiceForENGSupp_GetNewIssues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewIssues" />
   </wsdl:message>
-  <wsdl:message name="IJiraServiceForENGSupp_GetNewIssueCount_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetNewIssueCountResponse" />
+  <wsdl:message name="IJiraServiceForENGSupp_GetNewIssues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewIssuesResponse" />
   </wsdl:message>
-  <wsdl:message name="IJiraServiceForENGSupp_GetResolvedIssueCount_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetResolvedIssueCount" />
+  <wsdl:message name="IJiraServiceForENGSupp_GetResolvedIssues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResolvedIssues" />
   </wsdl:message>
-  <wsdl:message name="IJiraServiceForENGSupp_GetResolvedIssueCount_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetResolvedIssueCountResponse" />
+  <wsdl:message name="IJiraServiceForENGSupp_GetResolvedIssues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResolvedIssuesResponse" />
   </wsdl:message>
-  <wsdl:message name="IJiraServiceForENGSupp_GetProductionBugCount_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetProductionBugCount" />
+  <wsdl:message name="IJiraServiceForENGSupp_GetProductionBugs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductionBugs" />
   </wsdl:message>
-  <wsdl:message name="IJiraServiceForENGSupp_GetProductionBugCount_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetProductionBugCountResponse" />
+  <wsdl:message name="IJiraServiceForENGSupp_GetProductionBugs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductionBugsResponse" />
   </wsdl:message>
   <wsdl:message name="IJiraServiceForENGSupp_GetTotalTimeSpent_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTotalTimeSpent" />
@@ -113,17 +113,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/SyncSalesforceCaseToJiraIssue" message="tns:IJiraServiceForENGSupp_SyncSalesforceCaseToJiraIssue_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/SyncSalesforceCaseToJiraIssueResponse" message="tns:IJiraServiceForENGSupp_SyncSalesforceCaseToJiraIssue_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetNewIssueCount">
-      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCount" message="tns:IJiraServiceForENGSupp_GetNewIssueCount_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCountResponse" message="tns:IJiraServiceForENGSupp_GetNewIssueCount_OutputMessage" />
+    <wsdl:operation name="GetNewIssues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssues" message="tns:IJiraServiceForENGSupp_GetNewIssues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssuesResponse" message="tns:IJiraServiceForENGSupp_GetNewIssues_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetResolvedIssueCount">
-      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCount" message="tns:IJiraServiceForENGSupp_GetResolvedIssueCount_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCountResponse" message="tns:IJiraServiceForENGSupp_GetResolvedIssueCount_OutputMessage" />
+    <wsdl:operation name="GetResolvedIssues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssues" message="tns:IJiraServiceForENGSupp_GetResolvedIssues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssuesResponse" message="tns:IJiraServiceForENGSupp_GetResolvedIssues_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetProductionBugCount">
-      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCount" message="tns:IJiraServiceForENGSupp_GetProductionBugCount_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCountResponse" message="tns:IJiraServiceForENGSupp_GetProductionBugCount_OutputMessage" />
+    <wsdl:operation name="GetProductionBugs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugs" message="tns:IJiraServiceForENGSupp_GetProductionBugs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugsResponse" message="tns:IJiraServiceForENGSupp_GetProductionBugs_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetTotalTimeSpent">
       <wsdl:input wsaw:Action="http://tempuri.org/IJiraServiceForENGSupp/GetTotalTimeSpent" message="tns:IJiraServiceForENGSupp_GetTotalTimeSpent_InputMessage" />
@@ -204,8 +204,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetNewIssueCount">
-      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCount" style="document" />
+    <wsdl:operation name="GetNewIssues">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssues" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -213,8 +213,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetResolvedIssueCount">
-      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCount" style="document" />
+    <wsdl:operation name="GetResolvedIssues">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssues" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -222,8 +222,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetProductionBugCount">
-      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCount" style="document" />
+    <wsdl:operation name="GetProductionBugs">
+      <soap:operation soapAction="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugs" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

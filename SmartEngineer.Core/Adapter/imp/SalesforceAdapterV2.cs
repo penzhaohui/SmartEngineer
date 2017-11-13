@@ -242,18 +242,21 @@ namespace SmartEngineer.Core.Adapter
             return comments;
         }
 
-        public List<string> GetProcessedCaseNOs(DateTime from, DateTime end, string editor)
+        public List<string> GetProcessedCaseNOs(DateTime from, DateTime end, string field, string editor)
         {
             List<string> caseNos = new List<string>();
 
-            string sql = @" select Id, CaseId, case.CaseNumber, CreatedById, CreatedBy.name, CreatedDate,NewValue, OldValue, IsDeleted
+            string sql = $@" select Id, CaseId, case.CaseNumber, CreatedById, CreatedBy.name, CreatedDate,NewValue, OldValue, IsDeleted
                             from CaseHistory
-                            where Field = 'Status' ";
+                            where Field = '{field}' ";
 
             // C# DateTime.ToString()的各种日期格式 http://www.cnblogs.com/johnblogs/p/5912632.html
             sql += $" AND CreatedDate >= {from.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss")}Z ";
             sql += $" AND CreatedDate <= {end.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss")}Z ";
-            sql += $" AND CreatedBy.name = '{editor}' ";
+            if (!String.IsNullOrEmpty(editor) && editor.Trim().Length > 0)
+            {
+                sql += $" AND CreatedBy.name = '{editor.Trim()}' ";
+            }
 
             var cases = new List<AccelaCaseHistory>();
             var caseHostories = Client.Query<AccelaCaseHistory>(sql);            

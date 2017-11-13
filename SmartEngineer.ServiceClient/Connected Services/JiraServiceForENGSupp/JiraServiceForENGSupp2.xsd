@@ -112,7 +112,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetNewIssueCount">
+  <xs:element name="GetNewIssues">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="from" type="xs:dateTime" />
@@ -120,14 +120,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetNewIssueCountResponse">
+  <xs:element name="GetNewIssuesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetNewIssueCountResult" type="xs:int" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetNewIssuesResult" nillable="true" type="q12:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetResolvedIssueCount">
+  <xs:element name="GetResolvedIssues">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="from" type="xs:dateTime" />
@@ -135,25 +135,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetResolvedIssueCountResponse">
+  <xs:element name="GetResolvedIssuesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetResolvedIssueCountResult" type="xs:int" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetResolvedIssuesResult" nillable="true" type="q13:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetProductionBugCount">
+  <xs:element name="GetProductionBugs">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="from" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="to" type="xs:dateTime" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetProductionBugCountResponse">
+  <xs:element name="GetProductionBugsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetProductionBugCountResult" type="xs:int" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetProductionBugsResult" nillable="true" type="q14:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -37,7 +37,7 @@ namespace SmartEngineer
                     Selector = new Framework.AOP.Selector.InterceptorSelector()
                 };
 
-                TInterface adapter = new TImplementer();
+                TInterface adapter = new TImplementer();                   
                 var proxy = generator.CreateInterfaceProxyWithTarget<TInterface>(adapter, options, new Framework.AOP.AuditLogInterceptor());
                 builder.RegisterInstance(proxy).As<TInterface>().SingleInstance();
             }

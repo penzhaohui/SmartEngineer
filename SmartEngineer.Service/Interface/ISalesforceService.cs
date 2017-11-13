@@ -15,24 +15,15 @@ namespace SmartEngineer.Service
         List<string> GetNewCasesList();
 
         [OperationContract]
+        List<string> GetEngineerCasesList();
+
+        [OperationContract]
         List<string> GetCommentedCaseList(DateTime start, DateTime end);
 
         [OperationContract]
+        List<string> GetProductionBugList(DateTime start, DateTime end);
+
+        [OperationContract]
         List<CaseInfo> GetCasesByCaseNOs(List<string> caseNOs);
-
-        [OperationContract]
-        List<CaseInfo> GetProcessedCase(DateTime from, DateTime to, List<string> sfAccounts);
-
-        [OperationContract]
-        int GetTotalNewCaseCount();
-
-        [OperationContract]
-        int GetCaseCommentCount(DateTime from, DateTime to);
-
-        [OperationContract]
-        int GetReviewedCaseCount(DateTime from, DateTime to);
-
-        // [OperationContract]
-        // int GetReviewedCaseCount(DateTime workday);
     }
 }

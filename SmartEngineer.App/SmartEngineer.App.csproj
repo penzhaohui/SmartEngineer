@@ -96,6 +96,7 @@
     <Compile Include="Accounts\frmMembers.Designer.cs">
       <DependentUpon>frmMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\DateTimeUtil.cs" />
     <Compile Include="Common\ListItem.cs" />
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>

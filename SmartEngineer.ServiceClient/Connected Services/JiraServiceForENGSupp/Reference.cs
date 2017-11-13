@@ -598,23 +598,23 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/SyncSalesforceCaseToJiraIssue", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/SyncSalesforceCaseToJiraIssueResponse")]
         System.Threading.Tasks.Task<bool> SyncSalesforceCaseToJiraIssueAsync(string[] caseNOs);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCountResponse")]
-        int GetNewIssueCount(System.DateTime from, System.DateTime to);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssues", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssuesResponse")]
+        string[] GetNewIssues(System.DateTime from, System.DateTime to);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssueCountResponse")]
-        System.Threading.Tasks.Task<int> GetNewIssueCountAsync(System.DateTime from, System.DateTime to);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssues", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetNewIssuesResponse")]
+        System.Threading.Tasks.Task<string[]> GetNewIssuesAsync(System.DateTime from, System.DateTime to);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCountResponse")]
-        int GetResolvedIssueCount(System.DateTime from, System.DateTime to);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssues", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssuesResponse")]
+        string[] GetResolvedIssues(System.DateTime from, System.DateTime to);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssueCountResponse")]
-        System.Threading.Tasks.Task<int> GetResolvedIssueCountAsync(System.DateTime from, System.DateTime to);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssues", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetResolvedIssuesResponse")]
+        System.Threading.Tasks.Task<string[]> GetResolvedIssuesAsync(System.DateTime from, System.DateTime to);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCountResponse")]
-        int GetProductionBugCount(System.DateTime from, System.DateTime to);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugs", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugsResponse")]
+        string[] GetProductionBugs();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCount", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugCountResponse")]
-        System.Threading.Tasks.Task<int> GetProductionBugCountAsync(System.DateTime from, System.DateTime to);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugs", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetProductionBugsResponse")]
+        System.Threading.Tasks.Task<string[]> GetProductionBugsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJiraServiceForENGSupp/GetTotalTimeSpent", ReplyAction="http://tempuri.org/IJiraServiceForENGSupp/GetTotalTimeSpentResponse")]
         int GetTotalTimeSpent(string subTaskKey, System.DateTime from, System.DateTime to);
@@ -714,28 +714,28 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
             return base.Channel.SyncSalesforceCaseToJiraIssueAsync(caseNOs);
         }
         
-        public int GetNewIssueCount(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetNewIssueCount(from, to);
+        public string[] GetNewIssues(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetNewIssues(from, to);
         }
         
-        public System.Threading.Tasks.Task<int> GetNewIssueCountAsync(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetNewIssueCountAsync(from, to);
+        public System.Threading.Tasks.Task<string[]> GetNewIssuesAsync(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetNewIssuesAsync(from, to);
         }
         
-        public int GetResolvedIssueCount(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetResolvedIssueCount(from, to);
+        public string[] GetResolvedIssues(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetResolvedIssues(from, to);
         }
         
-        public System.Threading.Tasks.Task<int> GetResolvedIssueCountAsync(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetResolvedIssueCountAsync(from, to);
+        public System.Threading.Tasks.Task<string[]> GetResolvedIssuesAsync(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetResolvedIssuesAsync(from, to);
         }
         
-        public int GetProductionBugCount(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetProductionBugCount(from, to);
+        public string[] GetProductionBugs() {
+            return base.Channel.GetProductionBugs();
         }
         
-        public System.Threading.Tasks.Task<int> GetProductionBugCountAsync(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetProductionBugCountAsync(from, to);
+        public System.Threading.Tasks.Task<string[]> GetProductionBugsAsync() {
+            return base.Channel.GetProductionBugsAsync();
         }
         
         public int GetTotalTimeSpent(string subTaskKey, System.DateTime from, System.DateTime to) {

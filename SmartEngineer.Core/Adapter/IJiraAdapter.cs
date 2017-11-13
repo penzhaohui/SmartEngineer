@@ -30,6 +30,10 @@ namespace SmartEngineer.Core.Adapter
         
         Task<bool> UpdateJiraStatus(IssueRef issueRef, string jiraStatus, string jiraNextStatus, string jiraAccount, string jiraPassword);
 
+        List<Issue> GetIssueListByCreatedDate(DateTime start, DateTime end, string jiraAccount, string jiraPassword);
+        List<Issue> GetIssueListByResolutiondate(DateTime start, DateTime end, string jiraAccount, string jiraPassword);
+        List<Issue> GetBugListByBugStatus(List<string> statusList, string jiraAccount, string jiraPassword);
+
         List<JiraIssue> GetIssueInfoByCaseNos(List<string> caseNos);
         List<JiraIssue> GetIssueInfoByJiraKeys(List<string> jiraKeys);
         List<string> GetUnimportedCases(List<string> caseNos);

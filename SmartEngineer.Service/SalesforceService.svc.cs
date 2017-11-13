@@ -18,11 +18,6 @@ namespace SmartEngineer.Service
             JiraAdapter = jiraAdapter;
         }
 
-        public int GetCaseCommentCount(DateTime from, DateTime to)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<CaseInfo> GetCasesByCaseNOs(List<string> caseNOs)
         {
             List<CaseInfo> caseList = new List<CaseInfo>();
@@ -68,7 +63,7 @@ namespace SmartEngineer.Service
             // 3. Return the commented case list    
             List<string> commentedCaseList = new List<string>();
 
-            List<string> processedCaseNos = SalesforceAdapter.GetProcessedCaseNOs(start, end, "Accela Support Team");
+            List<string> processedCaseNos = SalesforceAdapter.GetProcessedCaseNOs(start, end, "status", "Accela Support Team");
             List<CaseInfo> caseInfoList = SalesforceAdapter.GetCaseInfoByCaseNos(processedCaseNos);
             foreach (CaseInfo caseInfo in caseInfoList)
             {
@@ -95,6 +90,27 @@ namespace SmartEngineer.Service
             SalesforceAdapter.BatchStoreCaseInfoToLocalSync(commentedCaseList);
 
             return commentedCaseList;
+        }
+
+        public List<string> GetProductionBugList(DateTime start, DateTime end)
+        {
+            // 1. Get those cases with some change on Engineer Status field
+            List<string> processedCaseNos = SalesforceAdapter.GetProcessedCaseNOs(start, end, "Engineering_Status__c", null);
+
+            // 2. Check if they are real producton bug
+            if (processedCaseNos.Count > 0)
+            {
+                IList<AccelaCase> engineerCases = SalesforceAdapter.PullCasesByCaseNos(processedCaseNos);
+                foreach (AccelaCase engineerCase in engineerCases)
+                {
+                    if (String.IsNullOrEmpty(engineerCase.BZID))
+                    {
+                        processedCaseNos.Remove(engineerCase.CaseNumber);
+                    }
+                }
+            }
+
+            return processedCaseNos;
         }
 
         public List<string> GetNewCasesList()
@@ -130,26 +146,17 @@ namespace SmartEngineer.Service
             return newCaseList;
         }
 
-        public List<CaseInfo> GetProcessedCase(DateTime from, DateTime to, List<string> sfAccounts)
+        public List<string> GetEngineerCasesList()
         {
-            throw new NotImplementedException();
-        }
+            List<string> newCaseList = new List<string>();
 
-        public int GetReviewedCaseCount(DateTime from, DateTime to)
-        {
-            throw new NotImplementedException();
-        }
+            IList<AccelaCase> engineerCases = SalesforceAdapter.QueryCasesByEngineerQueue("Engineer");
+            foreach (AccelaCase caseInfo in engineerCases)
+            {
+                newCaseList.Add(caseInfo.CaseNumber);
+            }
 
-        /*
-        public int GetReviewedCaseCount(DateTime workday)
-        {
-            throw new NotImplementedException();
-        }
-        */
-
-        public int GetTotalNewCaseCount()
-        {
-            throw new NotImplementedException();
+            return newCaseList;
         }
     }
 }

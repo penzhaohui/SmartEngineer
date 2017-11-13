@@ -828,41 +828,29 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetNewCasesList", ReplyAction="http://tempuri.org/ISalesforceService/GetNewCasesListResponse")]
         System.Threading.Tasks.Task<string[]> GetNewCasesListAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetEngineerCasesList", ReplyAction="http://tempuri.org/ISalesforceService/GetEngineerCasesListResponse")]
+        string[] GetEngineerCasesList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetEngineerCasesList", ReplyAction="http://tempuri.org/ISalesforceService/GetEngineerCasesListResponse")]
+        System.Threading.Tasks.Task<string[]> GetEngineerCasesListAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetCommentedCaseList", ReplyAction="http://tempuri.org/ISalesforceService/GetCommentedCaseListResponse")]
         string[] GetCommentedCaseList(System.DateTime start, System.DateTime end);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetCommentedCaseList", ReplyAction="http://tempuri.org/ISalesforceService/GetCommentedCaseListResponse")]
         System.Threading.Tasks.Task<string[]> GetCommentedCaseListAsync(System.DateTime start, System.DateTime end);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetProductionBugList", ReplyAction="http://tempuri.org/ISalesforceService/GetProductionBugListResponse")]
+        string[] GetProductionBugList(System.DateTime start, System.DateTime end);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetProductionBugList", ReplyAction="http://tempuri.org/ISalesforceService/GetProductionBugListResponse")]
+        System.Threading.Tasks.Task<string[]> GetProductionBugListAsync(System.DateTime start, System.DateTime end);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetCasesByCaseNOs", ReplyAction="http://tempuri.org/ISalesforceService/GetCasesByCaseNOsResponse")]
         SmartEngineer.ServiceClient.SalesforceService.CaseInfo[] GetCasesByCaseNOs(string[] caseNOs);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetCasesByCaseNOs", ReplyAction="http://tempuri.org/ISalesforceService/GetCasesByCaseNOsResponse")]
         System.Threading.Tasks.Task<SmartEngineer.ServiceClient.SalesforceService.CaseInfo[]> GetCasesByCaseNOsAsync(string[] caseNOs);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetProcessedCase", ReplyAction="http://tempuri.org/ISalesforceService/GetProcessedCaseResponse")]
-        SmartEngineer.ServiceClient.SalesforceService.CaseInfo[] GetProcessedCase(System.DateTime from, System.DateTime to, string[] sfAccounts);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetProcessedCase", ReplyAction="http://tempuri.org/ISalesforceService/GetProcessedCaseResponse")]
-        System.Threading.Tasks.Task<SmartEngineer.ServiceClient.SalesforceService.CaseInfo[]> GetProcessedCaseAsync(System.DateTime from, System.DateTime to, string[] sfAccounts);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetTotalNewCaseCount", ReplyAction="http://tempuri.org/ISalesforceService/GetTotalNewCaseCountResponse")]
-        int GetTotalNewCaseCount();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetTotalNewCaseCount", ReplyAction="http://tempuri.org/ISalesforceService/GetTotalNewCaseCountResponse")]
-        System.Threading.Tasks.Task<int> GetTotalNewCaseCountAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetCaseCommentCount", ReplyAction="http://tempuri.org/ISalesforceService/GetCaseCommentCountResponse")]
-        int GetCaseCommentCount(System.DateTime from, System.DateTime to);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetCaseCommentCount", ReplyAction="http://tempuri.org/ISalesforceService/GetCaseCommentCountResponse")]
-        System.Threading.Tasks.Task<int> GetCaseCommentCountAsync(System.DateTime from, System.DateTime to);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetReviewedCaseCount", ReplyAction="http://tempuri.org/ISalesforceService/GetReviewedCaseCountResponse")]
-        int GetReviewedCaseCount(System.DateTime from, System.DateTime to);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISalesforceService/GetReviewedCaseCount", ReplyAction="http://tempuri.org/ISalesforceService/GetReviewedCaseCountResponse")]
-        System.Threading.Tasks.Task<int> GetReviewedCaseCountAsync(System.DateTime from, System.DateTime to);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -900,6 +888,14 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
             return base.Channel.GetNewCasesListAsync();
         }
         
+        public string[] GetEngineerCasesList() {
+            return base.Channel.GetEngineerCasesList();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetEngineerCasesListAsync() {
+            return base.Channel.GetEngineerCasesListAsync();
+        }
+        
         public string[] GetCommentedCaseList(System.DateTime start, System.DateTime end) {
             return base.Channel.GetCommentedCaseList(start, end);
         }
@@ -908,44 +904,20 @@ namespace SmartEngineer.ServiceClient.SalesforceService {
             return base.Channel.GetCommentedCaseListAsync(start, end);
         }
         
+        public string[] GetProductionBugList(System.DateTime start, System.DateTime end) {
+            return base.Channel.GetProductionBugList(start, end);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetProductionBugListAsync(System.DateTime start, System.DateTime end) {
+            return base.Channel.GetProductionBugListAsync(start, end);
+        }
+        
         public SmartEngineer.ServiceClient.SalesforceService.CaseInfo[] GetCasesByCaseNOs(string[] caseNOs) {
             return base.Channel.GetCasesByCaseNOs(caseNOs);
         }
         
         public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.SalesforceService.CaseInfo[]> GetCasesByCaseNOsAsync(string[] caseNOs) {
             return base.Channel.GetCasesByCaseNOsAsync(caseNOs);
-        }
-        
-        public SmartEngineer.ServiceClient.SalesforceService.CaseInfo[] GetProcessedCase(System.DateTime from, System.DateTime to, string[] sfAccounts) {
-            return base.Channel.GetProcessedCase(from, to, sfAccounts);
-        }
-        
-        public System.Threading.Tasks.Task<SmartEngineer.ServiceClient.SalesforceService.CaseInfo[]> GetProcessedCaseAsync(System.DateTime from, System.DateTime to, string[] sfAccounts) {
-            return base.Channel.GetProcessedCaseAsync(from, to, sfAccounts);
-        }
-        
-        public int GetTotalNewCaseCount() {
-            return base.Channel.GetTotalNewCaseCount();
-        }
-        
-        public System.Threading.Tasks.Task<int> GetTotalNewCaseCountAsync() {
-            return base.Channel.GetTotalNewCaseCountAsync();
-        }
-        
-        public int GetCaseCommentCount(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetCaseCommentCount(from, to);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetCaseCommentCountAsync(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetCaseCommentCountAsync(from, to);
-        }
-        
-        public int GetReviewedCaseCount(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetReviewedCaseCount(from, to);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetReviewedCaseCountAsync(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetReviewedCaseCountAsync(from, to);
         }
     }
 }
