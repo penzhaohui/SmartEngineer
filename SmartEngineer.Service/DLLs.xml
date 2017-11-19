@@ -381,6 +381,11 @@
             SF-Targeted Release
             </summary>
         </member>
+        <member name="P:TechTalk.JiraRestClient.IssueFields.SelfRating">
+            <summary>
+            M.E.O Options
+            </summary>
+        </member>
         <member name="M:TechTalk.JiraRestClient.JiraClient`1.GetMySelf">
             Returns the currently logged user
         </member>

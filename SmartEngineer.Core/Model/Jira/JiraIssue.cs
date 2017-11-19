@@ -18,7 +18,7 @@ namespace SmartEngineer.Core.Models
             this.Status = jiraIssue.fields.Status.name;
             this.Priority = jiraIssue.fields.Priority.name;
             this.Labels = String.Join(",", jiraIssue.fields.Labels);
-            this.Description = jiraIssue.fields.Description;            
+            this.Description = jiraIssue.fields.Description;
             this.FixVersions = String.Join(",", jiraIssue.fields.FixVersions.Select(version => version.name).ToArray());
             this.Reporter = jiraIssue.fields.Reporter.name;
             this.Assignee = jiraIssue.fields.Assignee.name;
@@ -36,12 +36,12 @@ namespace SmartEngineer.Core.Models
             this.SFProduct = jiraIssue.fields.SFProduct;
             this.SFSalesforceLink = jiraIssue.fields.SFSalesforceLink;
             this.SFOpenedDateTime = null;
-            this.SFOpenedDateTime =jiraIssue.fields.SFOpenedDateTime;
+            this.SFOpenedDateTime = jiraIssue.fields.SFOpenedDateTime;
             if (this.SFOpenedDateTime == DateTime.MinValue)
             {
                 this.SFOpenedDateTime = null;
             }
-            
+
             this.SFLastModifiedDate = jiraIssue.fields.SFLastModifiedDate;
             if (this.SFLastModifiedDate == DateTime.MinValue)
             {
@@ -49,13 +49,37 @@ namespace SmartEngineer.Core.Models
             }
             this.SFOrigin = (jiraIssue.fields.SFOrigin == null ? null : jiraIssue.fields.SFOrigin.value);
             this.SFTargetedRelease = jiraIssue.fields.SFTargetedRelease;
-            this.Updated = jiraIssue.fields.Updated;
-            if (this.Updated == DateTime.MinValue)
+
+            this.CreatedDate = jiraIssue.fields.UpdatedDate;
+            if (this.CreatedDate == DateTime.MinValue)
             {
-                this.Updated = null;
+                this.CreatedDate = null;
             }
+            this.UpdatedDate = jiraIssue.fields.UpdatedDate;
+            if (this.UpdatedDate == DateTime.MinValue)
+            {
+                this.UpdatedDate = null;
+            }
+            this.Resolutiondate = jiraIssue.fields.UpdatedDate;
+            if (this.Resolutiondate == DateTime.MinValue)
+            {
+                this.Resolutiondate = null;
+            }
+
+            this.TimeSpent = jiraIssue.fields.TimeSpent;
+            this.TimeEstimate = jiraIssue.fields.TimeEstimate;
+            this.AggregateTimeSpent = jiraIssue.fields.AggregateTimeSpent;
+            this.AggregateTimeOriginalEstimate = jiraIssue.fields.AggregateTimeOriginalEstimate;
+            this.Environment = jiraIssue.fields.Environment;
+            this.Components = jiraIssue.fields.Component?.value;
+            if (jiraIssue.fields.comments != null)
+            {
+                this.Components += string.Join(",", this.Components);
+            }
+
+            this.SelfRating = jiraIssue.fields.SelfRating?.value;
         }
-        
+
         [DataMember]
         public int ID { get; set; }
         [DataMember]
@@ -116,7 +140,27 @@ namespace SmartEngineer.Core.Models
         public string SFOrigin { get; set; }
         [DataMember]
         public string SFTargetedRelease { get; set; }
+
         [DataMember]
-        public DateTime? Updated { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        [DataMember]
+        public DateTime? UpdatedDate { get; set; }
+        [DataMember]
+        public DateTime? Resolutiondate { get; set; }
+
+        [DataMember]
+        public int TimeSpent { get; set; }
+        [DataMember]
+        public int TimeEstimate { get; set; }
+        [DataMember]
+        public int AggregateTimeSpent { get; set; }
+        [DataMember]
+        public string AggregateTimeOriginalEstimate { get; set; }
+        [DataMember]
+        public string Environment { get; set; }
+        [DataMember]
+        public string Components { get; set; }
+        [DataMember]
+        public string SelfRating { get; set; }
     }
 }

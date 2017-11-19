@@ -22,6 +22,7 @@ namespace TechTalk.JiraRestClient
             Product = new List<IssueProduct>();
             IssueCategory = new List<IssueCategory>();
             BuildVersion = new List<string>();
+            Components = new List<string>();
         }
 
         #region Jira Basic Information
@@ -229,8 +230,26 @@ namespace TechTalk.JiraRestClient
         #endregion
 
         public Timetracking TimeTracking { get; set; }
+        public int TimeSpent { get; set; }
+        public int TimeEstimate { get; set; }
+        public int AggregateTimeSpent { get; set; }
+        public string AggregateTimeOriginalEstimate { get; set; }
+        //public int AggregateProgress { get; set; }
+        public string Environment { get; set; }
+        public List<string> Components { get; set; }
+        public IssueComponent Component { get; set; }
         
-        public DateTime Updated { get; set; }
+        [DeserializeAs(Name = "Created")]
+        public DateTime CreatedDate { get; set; }
+        [DeserializeAs(Name = "Updated")]
+        public DateTime UpdatedDate { get; set; }
+        [DeserializeAs(Name = "Resolutiondate")]
+        public DateTime Resolutiondate { get; set; }
+        /// <summary>
+        /// M.E.O Options
+        /// </summary>
+        [DeserializeAs(Name = "customfield_14101")]
+        public MEOOption SelfRating { get; set; }
         
         public List<JiraUser> watchers { get; set; }
 

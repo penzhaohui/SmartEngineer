@@ -134,6 +134,9 @@ namespace SmartEngineer.Forms
                 allCaseNoList.AddRange(sundayCaseNoList.Where(c => !allCaseNoList.Contains(c)).Select(c => c).ToList<string>());
 
                 this.txtActualCaseCount.Text = allCaseNoList.Count.ToString();
+                               
+                dgvCaseList.AutoGenerateColumns = false;
+                dgvCaseList.DataSource = caseAdapter.PullDetailedCaseInfo(allCaseNoList);
             }
 
             this.btnPull.Enabled = true;

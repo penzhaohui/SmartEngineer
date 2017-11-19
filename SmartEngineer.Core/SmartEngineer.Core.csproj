@@ -55,6 +55,7 @@
     <Compile Include="Adapter\IAccountAdapter.cs" />
     <Compile Include="Adapter\IConfigAdapter.cs" />
     <Compile Include="Adapter\IDatabaseAdapter.cs" />
+    <Compile Include="Adapter\IEmailAdapter.cs" />
     <Compile Include="Adapter\IMemberAdapter.cs" />
     <Compile Include="Adapter\imp\ConfigAdapter.cs" />
     <Compile Include="Adapter\imp\DatabaseAdapter.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Adapter\imp\AccountAdapter.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.cs" />
+    <Compile Include="Adapter\ITemplateAdapter.cs" />
     <Compile Include="DAO\IMemberRoleDAO.cs" />
     <Compile Include="DAO\IMemberGroupDAO.cs" />
     <Compile Include="DAO\IConfigDAO.cs" />
@@ -255,6 +257,15 @@
     <Content Include="Config\SmartSqlMapConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Templates\Report\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Templates\Email\DailyCaseReview.cshtml" />
+    <None Include="Templates\Email\DailyWorkLog.cshtml" />
+    <None Include="Templates\Email\WeeklyProjectStatus.cshtml" />
+    <None Include="Templates\Email\_DefaultLayout.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,3 +12,6 @@ File: C:\Windows\System32\drivers\etc\host
 
 makecert -n "CN=SmartEngineer_Release" -ic D:\SmartEngineerCA.cer -iv D:\SmartEngineerCA.pvk -sr CurrentUser -ss My -pe -sky exchange
 makecert -n "CN=SmartEngineer_Test" -ic D:\SmartEngineerCA.cer -iv D:\SmartEngineerCA.pvk -sr CurrentUser -ss My -pe -sky exchange
+
+
+cer, pfx 创建，并且读取公钥/密钥，加解密 （C#程序实现） - http://blog.csdn.net/zj510/article/details/39964533

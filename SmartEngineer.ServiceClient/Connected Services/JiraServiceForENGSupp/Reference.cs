@@ -20,6 +20,12 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
     public partial class JiraIssue : SmartEngineer.ServiceClient.JiraServiceForENGSupp.BasicDataModel {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AggregateTimeOriginalEstimateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AggregateTimeSpentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AssignedQAField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -32,7 +38,16 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         private string CaseNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ComponentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CreatedDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EnvironmentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int EstimatedEffortField;
@@ -71,6 +86,9 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         private string ReporterField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> ResolutiondateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int SFCommentCountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -101,6 +119,9 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         private string SFTargetedReleaseField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SelfRatingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SeverityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -110,7 +131,39 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         private string SummaryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> UpdatedField;
+        private int TimeEstimateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TimeSpentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> UpdatedDateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AggregateTimeOriginalEstimate {
+            get {
+                return this.AggregateTimeOriginalEstimateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AggregateTimeOriginalEstimateField, value) != true)) {
+                    this.AggregateTimeOriginalEstimateField = value;
+                    this.RaisePropertyChanged("AggregateTimeOriginalEstimate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AggregateTimeSpent {
+            get {
+                return this.AggregateTimeSpentField;
+            }
+            set {
+                if ((this.AggregateTimeSpentField.Equals(value) != true)) {
+                    this.AggregateTimeSpentField = value;
+                    this.RaisePropertyChanged("AggregateTimeSpent");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AssignedQA {
@@ -165,6 +218,32 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Components {
+            get {
+                return this.ComponentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ComponentsField, value) != true)) {
+                    this.ComponentsField = value;
+                    this.RaisePropertyChanged("Components");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreatedDate {
+            get {
+                return this.CreatedDateField;
+            }
+            set {
+                if ((this.CreatedDateField.Equals(value) != true)) {
+                    this.CreatedDateField = value;
+                    this.RaisePropertyChanged("CreatedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description {
             get {
                 return this.DescriptionField;
@@ -173,6 +252,19 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
                 if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
                     this.DescriptionField = value;
                     this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Environment {
+            get {
+                return this.EnvironmentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EnvironmentField, value) != true)) {
+                    this.EnvironmentField = value;
+                    this.RaisePropertyChanged("Environment");
                 }
             }
         }
@@ -334,6 +426,19 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Resolutiondate {
+            get {
+                return this.ResolutiondateField;
+            }
+            set {
+                if ((this.ResolutiondateField.Equals(value) != true)) {
+                    this.ResolutiondateField = value;
+                    this.RaisePropertyChanged("Resolutiondate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int SFCommentCount {
             get {
                 return this.SFCommentCountField;
@@ -464,6 +569,19 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SelfRating {
+            get {
+                return this.SelfRatingField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SelfRatingField, value) != true)) {
+                    this.SelfRatingField = value;
+                    this.RaisePropertyChanged("SelfRating");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Severity {
             get {
                 return this.SeverityField;
@@ -503,14 +621,40 @@ namespace SmartEngineer.ServiceClient.JiraServiceForENGSupp {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> Updated {
+        public int TimeEstimate {
             get {
-                return this.UpdatedField;
+                return this.TimeEstimateField;
             }
             set {
-                if ((this.UpdatedField.Equals(value) != true)) {
-                    this.UpdatedField = value;
-                    this.RaisePropertyChanged("Updated");
+                if ((this.TimeEstimateField.Equals(value) != true)) {
+                    this.TimeEstimateField = value;
+                    this.RaisePropertyChanged("TimeEstimate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TimeSpent {
+            get {
+                return this.TimeSpentField;
+            }
+            set {
+                if ((this.TimeSpentField.Equals(value) != true)) {
+                    this.TimeSpentField = value;
+                    this.RaisePropertyChanged("TimeSpent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UpdatedDate {
+            get {
+                return this.UpdatedDateField;
+            }
+            set {
+                if ((this.UpdatedDateField.Equals(value) != true)) {
+                    this.UpdatedDateField = value;
+                    this.RaisePropertyChanged("UpdatedDate");
                 }
             }
         }

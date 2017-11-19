@@ -48,6 +48,8 @@
     <Compile Include="CommentsContainer.cs" />
     <Compile Include="Compatibility.cs" />
     <Compile Include="IssueCategory.cs" />
+    <Compile Include="IssueComponent.cs" />
+    <Compile Include="MEOOption.cs" />
     <Compile Include="SubTaskContainer.cs" />
     <Compile Include="IssueFixVersion.cs" />
     <Compile Include="IssueOrigin.cs" />

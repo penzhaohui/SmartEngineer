@@ -1,0 +1,42 @@
+﻿图解Memcached的安装与简单操作
+https://jingyan.baidu.com/article/d2b1d102a136ad5c7e37d491.html
+Memcached 教程
+http://www.runoob.com/memcached/memcached-tutorial.html
+Memcached常用命令及使用说明
+https://www.cnblogs.com/jeffwongishandsome/archive/2011/11/06/2238265.html
+#Memcached系列#（6）使用Enyim.Caching访问Memcached的一个C#控制台程序
+http://lsieun.blog.51cto.com/9210464/1741208
+
+Microsoft NLayerApp案例理论与实践
+http://www.uml.org.cn/zjjs/201302221.asp#8
+MicrosoftNLayerApp-63638 (V2.0.02)
+http://download.csdn.net/download/longfy1818/3609702
+
+Aop开源框架KingAOP初体验
+https://www.cnblogs.com/hunanzp/articles/6481186.html
+.NET 通过 Autofac 和 DynamicProxy 实现AOP
+http://blog.csdn.net/slowlifes/article/details/72616343
+基于Autofac, Castle.DynamicProxy的动态WCF解决方案(原创)
+https://www.cnblogs.com/nickppa/p/4562347.html
+.NET：动态代理的 “5 + 1” 模式 
+https://www.cnblogs.com/happyframework/p/3295853.html
+C#中那些[举手之劳]的性能优化
+https://www.cnblogs.com/blqw/p/3619132.html
+C#微信开发之旅
+http://www.cnblogs.com/hetring/p/4029245.html
+
+C# 使用Parallel并行开发Parallel.For、Parallel.Foreach实例
+http://blog.csdn.net/smartsmile2012/article/details/51645240
+C#并行编程
+http://www.cnblogs.com/woxpp/category/605758.html
+
+https://github.com/cosullivan/SmtpServer
+
+MSBuild入门 - http://www.cnblogs.com/linianhui/archive/2012/08/30/msbuid-introduction-1.html
+MSBuild入门（续） - http://www.cnblogs.com/linianhui/archive/2012/09/01/msbuid-introduction-2.html
+随笔分类 - iTextSharp - https://www.cnblogs.com/CareySon/category/332146.html
+https://github.com/RazorAnt/RazorPDF
+https://github.com/volkovku/RazorTemplates
+
+Multiple Models in a View in ASP.NET MVC 4 / MVC 5 - https://www.codeproject.com/Articles/687061/Using-Multiple-Models-in-a-View-in-ASP-NET-MVC-4
+在ASP.NET MVC 模型中 选择最好的方法将多个model传递到视图 - http://blog.csdn.net/rachael_rq/article/details/39184979

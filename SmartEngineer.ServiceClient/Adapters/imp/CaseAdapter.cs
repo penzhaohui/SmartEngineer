@@ -82,6 +82,8 @@ namespace SmartEngineer.ServiceClient.Adapters
             table.Columns.Add("Summary", typeof(string));
             table.Columns.Add("LastReviewer", typeof(string));
             table.Columns.Add("CommentCount", typeof(string));
+            table.Columns.Add("TimeSpent", typeof(int));
+            table.Columns.Add("BugID", typeof(string));
             table.Columns.Add("CaseOwner", typeof(string));
             table.Columns.Add("CaseStatus", typeof(string));
             table.Columns.Add("JiraKey", typeof(string));
@@ -124,13 +126,15 @@ namespace SmartEngineer.ServiceClient.Adapters
                         row["CaseNo"] = caseInfo.CaseNumber;
                         row["Serverity"] = caseInfo.Priority;
                         row["Version"] = caseInfo.CurrentVersion;
-                        row["CaseType"] = caseInfo.CaseType;
+                        row["CaseType"] = jiraIssue.IssueCategory;
                         row["Customer"] = (String.IsNullOrEmpty(caseInfo.AccountName) || String.IsNullOrWhiteSpace(caseInfo.AccountName) ? caseInfo.CustomerName : caseInfo.AccountName);
                         row["Origin"] = caseInfo.Origin;
                         row["OpenDate"] = caseInfo.CreatedDate.ToString("yyyy-MM-dd");
                         row["Summary"] = caseInfo.Subject;
                         row["LastReviewer"] = caseInfo.LastEngineerReviewer;
-                        //row["CommentCount"] = ;
+                        //row["CommentCount"] = ;   
+                        row["TimeSpent"] = jiraIssue.AggregateTimeSpent /3600;
+                        row["BugID"] = caseInfo.BZID;
                         row["CaseOwner"] = caseInfo.CaseOwner;
                         row["CaseStatus"] = caseInfo.Status;
                         row["JiraKey"] = jiraIssue.JiraKey;
@@ -155,6 +159,7 @@ namespace SmartEngineer.ServiceClient.Adapters
                     row["Summary"] = caseInfo.Subject;
                     row["LastReviewer"] = caseInfo.LastCommentAddedBy;
                     //row["CommentCount"] = ;
+                    row["BugID"] = "";
                     row["CaseOwner"] = caseInfo.CaseOwner;
                     row["CaseStatus"] = caseInfo.Status;
                     table.Rows.Add(row);

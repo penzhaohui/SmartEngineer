@@ -10,11 +10,16 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BasicDataModel">
         <xs:sequence>
+          <xs:element minOccurs="0" name="AggregateTimeOriginalEstimate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AggregateTimeSpent" type="xs:int" />
           <xs:element minOccurs="0" name="AssignedQA" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Assignee" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="BuildVersion" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CaseNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Components" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Environment" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="EstimatedEffort" type="xs:int" />
           <xs:element minOccurs="0" name="FixVersions" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ID" type="xs:int" />
@@ -27,6 +32,7 @@
           <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ProjectKey" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Reporter" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Resolutiondate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="SFCommentCount" type="xs:int" />
           <xs:element minOccurs="0" name="SFCurrentVersion" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SFCustomer" nillable="true" type="xs:string" />
@@ -37,10 +43,13 @@
           <xs:element minOccurs="0" name="SFProduct" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SFSalesforceLink" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SFTargetedRelease" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SelfRating" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Severity" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Updated" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TimeEstimate" type="xs:int" />
+          <xs:element minOccurs="0" name="TimeSpent" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

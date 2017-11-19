@@ -97,10 +97,29 @@
             this.btnEmail = new System.Windows.Forms.Button();
             this.lblQueryCondition = new System.Windows.Forms.Label();
             this.grbDetailedQueryResult = new System.Windows.Forms.GroupBox();
-            this.dgvDetailedQueryResult = new System.Windows.Forms.DataGridView();
+            this.dgvCaseList = new System.Windows.Forms.DataGridView();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CaseNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JiraKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serverity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CaseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Origin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OpenDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Summary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastReviewer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeSpent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CommentCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BugID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CaseOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CaseStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JiraStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JiraNextStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grnWeeklyPerformanceIndicator.SuspendLayout();
             this.grbDetailedQueryResult.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetailedQueryResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaseList)).BeginInit();
             this.SuspendLayout();
             // 
             // grnWeeklyPerformanceIndicator
@@ -717,7 +736,7 @@
             // 
             // grbDetailedQueryResult
             // 
-            this.grbDetailedQueryResult.Controls.Add(this.dgvDetailedQueryResult);
+            this.grbDetailedQueryResult.Controls.Add(this.dgvCaseList);
             this.grbDetailedQueryResult.Location = new System.Drawing.Point(12, 261);
             this.grbDetailedQueryResult.Name = "grbDetailedQueryResult";
             this.grbDetailedQueryResult.Size = new System.Drawing.Size(1190, 488);
@@ -725,13 +744,169 @@
             this.grbDetailedQueryResult.TabStop = false;
             this.grbDetailedQueryResult.Text = "Detailed Query Result";
             // 
-            // dgvDetailedQueryResult
+            // dgvCaseList
             // 
-            this.dgvDetailedQueryResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetailedQueryResult.Location = new System.Drawing.Point(10, 19);
-            this.dgvDetailedQueryResult.Name = "dgvDetailedQueryResult";
-            this.dgvDetailedQueryResult.Size = new System.Drawing.Size(1169, 455);
-            this.dgvDetailedQueryResult.TabIndex = 0;
+            this.dgvCaseList.AllowUserToAddRows = false;
+            this.dgvCaseList.AllowUserToDeleteRows = false;
+            this.dgvCaseList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCaseList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.No,
+            this.Product,
+            this.CaseNo,
+            this.JiraKey,
+            this.Serverity,
+            this.Version,
+            this.CaseType,
+            this.Customer,
+            this.Origin,
+            this.OpenDate,
+            this.Summary,
+            this.LastReviewer,
+            this.TimeSpent,
+            this.CommentCount,
+            this.BugID,
+            this.CaseOwner,
+            this.CaseStatus,
+            this.JiraStatus,
+            this.JiraNextStatus});
+            this.dgvCaseList.Location = new System.Drawing.Point(7, 19);
+            this.dgvCaseList.Name = "dgvCaseList";
+            this.dgvCaseList.ReadOnly = true;
+            this.dgvCaseList.Size = new System.Drawing.Size(1176, 463);
+            this.dgvCaseList.TabIndex = 1;
+            // 
+            // No
+            // 
+            this.No.DataPropertyName = "No";
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            // 
+            // Product
+            // 
+            this.Product.DataPropertyName = "Product";
+            this.Product.HeaderText = "Product";
+            this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
+            // 
+            // CaseNo
+            // 
+            this.CaseNo.DataPropertyName = "CaseNo";
+            this.CaseNo.HeaderText = "Case No";
+            this.CaseNo.Name = "CaseNo";
+            this.CaseNo.ReadOnly = true;
+            // 
+            // JiraKey
+            // 
+            this.JiraKey.DataPropertyName = "JiraKey";
+            this.JiraKey.HeaderText = "Jira Key";
+            this.JiraKey.Name = "JiraKey";
+            this.JiraKey.ReadOnly = true;
+            // 
+            // Serverity
+            // 
+            this.Serverity.DataPropertyName = "Serverity";
+            this.Serverity.HeaderText = "Serverity";
+            this.Serverity.Name = "Serverity";
+            this.Serverity.ReadOnly = true;
+            // 
+            // Version
+            // 
+            this.Version.DataPropertyName = "Version";
+            this.Version.HeaderText = "Version";
+            this.Version.Name = "Version";
+            this.Version.ReadOnly = true;
+            // 
+            // CaseType
+            // 
+            this.CaseType.DataPropertyName = "CaseType";
+            this.CaseType.HeaderText = "Case Type";
+            this.CaseType.Name = "CaseType";
+            this.CaseType.ReadOnly = true;
+            // 
+            // Customer
+            // 
+            this.Customer.DataPropertyName = "Customer";
+            this.Customer.HeaderText = "Customer";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            // 
+            // Origin
+            // 
+            this.Origin.DataPropertyName = "Origin";
+            this.Origin.HeaderText = "Origin";
+            this.Origin.Name = "Origin";
+            this.Origin.ReadOnly = true;
+            // 
+            // OpenDate
+            // 
+            this.OpenDate.DataPropertyName = "OpenDate";
+            this.OpenDate.HeaderText = "Open Date";
+            this.OpenDate.Name = "OpenDate";
+            this.OpenDate.ReadOnly = true;
+            // 
+            // Summary
+            // 
+            this.Summary.DataPropertyName = "Summary";
+            this.Summary.HeaderText = "Summary";
+            this.Summary.Name = "Summary";
+            this.Summary.ReadOnly = true;
+            // 
+            // LastReviewer
+            // 
+            this.LastReviewer.DataPropertyName = "LastReviewer";
+            this.LastReviewer.HeaderText = "Last Reviewer";
+            this.LastReviewer.Name = "LastReviewer";
+            this.LastReviewer.ReadOnly = true;
+            // 
+            // TimeSpent
+            // 
+            this.TimeSpent.DataPropertyName = "TimeSpent";
+            this.TimeSpent.HeaderText = "Time Spent";
+            this.TimeSpent.Name = "TimeSpent";
+            this.TimeSpent.ReadOnly = true;
+            // 
+            // CommentCount
+            // 
+            this.CommentCount.DataPropertyName = "CommentCount";
+            this.CommentCount.HeaderText = "Comment Count";
+            this.CommentCount.Name = "CommentCount";
+            this.CommentCount.ReadOnly = true;
+            // 
+            // BugID
+            // 
+            this.BugID.DataPropertyName = "BugID";
+            this.BugID.HeaderText = "BUG";
+            this.BugID.Name = "BugID";
+            this.BugID.ReadOnly = true;
+            // 
+            // CaseOwner
+            // 
+            this.CaseOwner.DataPropertyName = "CaseOwner";
+            this.CaseOwner.HeaderText = "Case Owner";
+            this.CaseOwner.Name = "CaseOwner";
+            this.CaseOwner.ReadOnly = true;
+            // 
+            // CaseStatus
+            // 
+            this.CaseStatus.DataPropertyName = "CaseStatus";
+            this.CaseStatus.HeaderText = "Case Status";
+            this.CaseStatus.Name = "CaseStatus";
+            this.CaseStatus.ReadOnly = true;
+            // 
+            // JiraStatus
+            // 
+            this.JiraStatus.DataPropertyName = "JiraStatus";
+            this.JiraStatus.HeaderText = "Jira Status";
+            this.JiraStatus.Name = "JiraStatus";
+            this.JiraStatus.ReadOnly = true;
+            // 
+            // JiraNextStatus
+            // 
+            this.JiraNextStatus.DataPropertyName = "JiraNextStatus";
+            this.JiraNextStatus.HeaderText = "Jira Next Status";
+            this.JiraNextStatus.Name = "JiraNextStatus";
+            this.JiraNextStatus.ReadOnly = true;
             // 
             // frmWeeklyCaseManager
             // 
@@ -756,7 +931,7 @@
             this.grnWeeklyPerformanceIndicator.ResumeLayout(false);
             this.grnWeeklyPerformanceIndicator.PerformLayout();
             this.grbDetailedQueryResult.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetailedQueryResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaseList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -833,6 +1008,25 @@
         private System.Windows.Forms.Label lblConfiguration;
         private System.Windows.Forms.Label lblQueryCondition;
         private System.Windows.Forms.GroupBox grbDetailedQueryResult;
-        private System.Windows.Forms.DataGridView dgvDetailedQueryResult;
+        private System.Windows.Forms.DataGridView dgvCaseList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CaseNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JiraKey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Serverity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Version;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CaseType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Origin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OpenDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Summary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastReviewer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeSpent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CommentCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BugID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CaseOwner;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CaseStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JiraStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JiraNextStatus;
     }
 }

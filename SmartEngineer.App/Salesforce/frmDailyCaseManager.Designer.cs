@@ -52,6 +52,7 @@
             this.Summary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastReviewer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CommentCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BugID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CaseOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CaseStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JiraStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -183,6 +184,7 @@
             this.Summary,
             this.LastReviewer,
             this.CommentCount,
+            this.BugID,
             this.CaseOwner,
             this.CaseStatus,
             this.JiraStatus,
@@ -284,6 +286,13 @@
             this.CommentCount.Name = "CommentCount";
             this.CommentCount.ReadOnly = true;
             // 
+            // BugID
+            // 
+            this.BugID.DataPropertyName = "BugID";
+            this.BugID.HeaderText = "BUG";
+            this.BugID.Name = "BugID";
+            this.BugID.ReadOnly = true;
+            // 
             // CaseOwner
             // 
             this.CaseOwner.DataPropertyName = "CaseOwner";
@@ -364,6 +373,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Summary;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastReviewer;
         private System.Windows.Forms.DataGridViewTextBoxColumn CommentCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BugID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CaseOwner;
         private System.Windows.Forms.DataGridViewTextBoxColumn CaseStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn JiraStatus;

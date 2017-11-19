@@ -1,6 +1,7 @@
 ﻿using Castle.DynamicProxy;
 using SmartEngineer.Framework.Cache;
 using SmartEngineer.Framework.IoC;
+using SmartEngineer.Framework.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -96,7 +97,17 @@ namespace SmartEngineer.Framework.AOP
 
             if (Cache.Exists(key))
             {
-                invocation.ReturnValue = Cache.Get(key);
+                object cacheValue = Cache.Get(key);
+                System.Diagnostics.Debug.WriteLine($"Get key:{key}, count: {(cacheValue as List<string>)?.Count}");
+                if (cacheValue is List<string>)
+                {
+                    List<string> cacheStringList = ObjectUtil.Clone<string>(cacheValue);
+                    invocation.ReturnValue = cacheStringList;
+                }
+                else
+                {
+                    invocation.ReturnValue = cacheValue;
+                }
             }
             else
             {
@@ -123,7 +134,7 @@ namespace SmartEngineer.Framework.AOP
                     {
                         if (returnValueType.GetGenericArguments()[0] == typeof(string))
                         {
-                            List<string> cacheStringList = Clone<string>(invocation.ReturnValue);
+                            List<string> cacheStringList = ObjectUtil.Clone<string>(invocation.ReturnValue);
                             if (!Cache.Exists(key))
                             {
                                 Cache.Add(cacheStringList, key, 5);
@@ -139,23 +150,6 @@ namespace SmartEngineer.Framework.AOP
 
             PostProceed(invocation);
         }
-
-        /// <summary>
-        /// Clones the specified list.
-        /// C# List的深复制 - https://www.cnblogs.com/tianxue/p/3859214.html
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="List">The list.</param>
-        /// <returns>List{``0}.</returns>
-        public static List<T> Clone<T>(object List)
-        {
-            using (Stream objectStream = new MemoryStream())
-            {
-                IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(objectStream, List);
-                objectStream.Seek(0, SeekOrigin.Begin);
-                return formatter.Deserialize(objectStream) as List<T>;
-            }
-        }
+        
     }
 }

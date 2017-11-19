@@ -4,9 +4,9 @@ F:\MyWorkspace\SmartEngineer\IoC\Autofac.Multitenant\bin\Debug\Autofac.dll
 F:\MyWorkspace\SmartEngineer\IoC\Autofac.Multitenant\bin\Debug\Autofac.pdb
 F:\MyWorkspace\SmartEngineer\DLLs\Server\Autofac.Multitenant.dll
 F:\MyWorkspace\SmartEngineer\DLLs\Server\Autofac.Multitenant.pdb
-F:\MyWorkspace\SmartEngineer\IoC\Autofac.Multitenant\obj\Debug\Autofac.Multitenant.csprojResolveAssemblyReference.cache
 F:\MyWorkspace\SmartEngineer\IoC\Autofac.Multitenant\obj\Debug\Autofac.Multitenant.Properties.Resources.resources
 F:\MyWorkspace\SmartEngineer\IoC\Autofac.Multitenant\obj\Debug\Autofac.Multitenant.csproj.GenerateResource.Cache
 F:\MyWorkspace\SmartEngineer\IoC\Autofac.Multitenant\obj\Debug\Autofac.Multitenant.csproj.CoreCompileInputs.cache
 F:\MyWorkspace\SmartEngineer\IoC\Autofac.Multitenant\obj\Debug\Autofac.Multitenant.dll
 F:\MyWorkspace\SmartEngineer\IoC\Autofac.Multitenant\obj\Debug\Autofac.Multitenant.pdb
+F:\MyWorkspace\SmartEngineer\IoC\Autofac.Multitenant\obj\Debug\Autofac.Multitenant.csprojResolveAssemblyReference.cache
