@@ -15,7 +15,10 @@ namespace SmartEngineer.Framework.Constant
         public static readonly string EMAIL_PASSWORD = "Email Password";
         public static readonly string ACCOUNT_TYPE = "Account Type";
         public static readonly string INCOMING_MAIL_SERVER = "Incoming Mail Server";
+        public static readonly string INCOMING_MAIL_SERVER_PORT = "Incoming Mail Server Port";
         public static readonly string OUTGOING_MAIL_SERVER = "Outgoing Mail Server";
+        public static readonly string OUTGOING_MAIL_SERVER_PORT = "Outgoing Mail Server Port";
         public static readonly string SECURITY_PASSWORD_AUTHENTICATION = "Security Password Authentication";
+        public static readonly string ENABLE_HTML_CONTENT = "Enable HTML Content";
     }
 }

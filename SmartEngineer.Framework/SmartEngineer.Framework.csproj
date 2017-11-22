@@ -105,6 +105,7 @@
     <Compile Include="Cache\SimpleMemoryCache.cs" />
     <Compile Include="Constant\DBSettingConstant.cs" />
     <Compile Include="Constant\EmailSettingConstant.cs" />
+    <Compile Include="Constant\ReportConstant.cs" />
     <Compile Include="Constant\SubTaskConstant.cs" />
     <Compile Include="Context\SmartContext.cs" />
     <Compile Include="IoC\ObjectFactory.cs" />

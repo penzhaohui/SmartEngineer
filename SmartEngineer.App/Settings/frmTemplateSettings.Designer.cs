@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.templatePanel = new System.Windows.Forms.Panel();
             this.outlookBar = new SmartEngineer.OutlookBar.OutlookBar();
             this.SuspendLayout();
             // 
@@ -41,6 +42,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
+            // templatePanel
+            // 
+            this.templatePanel.Location = new System.Drawing.Point(218, 12);
+            this.templatePanel.Name = "templatePanel";
+            this.templatePanel.Size = new System.Drawing.Size(984, 747);
+            this.templatePanel.TabIndex = 2;
+            // 
             // outlookBar
             // 
             this.outlookBar.ButtonHeight = 25;
@@ -50,15 +58,16 @@
             this.outlookBar.Size = new System.Drawing.Size(200, 100);
             this.outlookBar.TabIndex = 0;
             // 
-            // frmOptionSettings
+            // frmTemplateSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1088, 505);
+            this.ClientSize = new System.Drawing.Size(1214, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.templatePanel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.outlookBar);
-            this.Name = "frmOptionSettings";
+            this.Name = "frmTemplateSettings";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Options";
@@ -71,5 +80,6 @@
 
         private OutlookBar.OutlookBar outlookBar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel templatePanel;
     }
 }

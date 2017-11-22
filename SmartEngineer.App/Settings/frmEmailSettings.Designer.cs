@@ -38,6 +38,10 @@
             this.lblEmailAddress = new System.Windows.Forms.Label();
             this.lblDisplayName = new System.Windows.Forms.Label();
             this.grbServerInformation = new System.Windows.Forms.GroupBox();
+            this.lblColon2 = new System.Windows.Forms.Label();
+            this.lblColon1 = new System.Windows.Forms.Label();
+            this.txtIncomingMailServerPort = new System.Windows.Forms.TextBox();
+            this.txtOutgoingMailServerPort = new System.Windows.Forms.TextBox();
             this.txtOutgoingMailServer = new System.Windows.Forms.TextBox();
             this.txtIncomingMailServer = new System.Windows.Forms.TextBox();
             this.cmbAccountType = new System.Windows.Forms.ComboBox();
@@ -48,6 +52,7 @@
             this.btnTestEmailAccount = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.chkEnableHtmlContent = new System.Windows.Forms.CheckBox();
             this.grbUserInformation.SuspendLayout();
             this.grbServerInformation.SuspendLayout();
             this.SuspendLayout();
@@ -136,6 +141,10 @@
             // 
             // grbServerInformation
             // 
+            this.grbServerInformation.Controls.Add(this.lblColon2);
+            this.grbServerInformation.Controls.Add(this.lblColon1);
+            this.grbServerInformation.Controls.Add(this.txtIncomingMailServerPort);
+            this.grbServerInformation.Controls.Add(this.txtOutgoingMailServerPort);
             this.grbServerInformation.Controls.Add(this.txtOutgoingMailServer);
             this.grbServerInformation.Controls.Add(this.txtIncomingMailServer);
             this.grbServerInformation.Controls.Add(this.cmbAccountType);
@@ -148,6 +157,38 @@
             this.grbServerInformation.TabIndex = 1;
             this.grbServerInformation.TabStop = false;
             this.grbServerInformation.Text = "Server Information";
+            // 
+            // lblColon2
+            // 
+            this.lblColon2.AutoSize = true;
+            this.lblColon2.Location = new System.Drawing.Point(295, 81);
+            this.lblColon2.Name = "lblColon2";
+            this.lblColon2.Size = new System.Drawing.Size(10, 13);
+            this.lblColon2.TabIndex = 13;
+            this.lblColon2.Text = ":";
+            // 
+            // lblColon1
+            // 
+            this.lblColon1.AutoSize = true;
+            this.lblColon1.Location = new System.Drawing.Point(295, 55);
+            this.lblColon1.Name = "lblColon1";
+            this.lblColon1.Size = new System.Drawing.Size(10, 13);
+            this.lblColon1.TabIndex = 12;
+            this.lblColon1.Text = ":";
+            // 
+            // txtIncomingMailServerPort
+            // 
+            this.txtIncomingMailServerPort.Location = new System.Drawing.Point(308, 52);
+            this.txtIncomingMailServerPort.Name = "txtIncomingMailServerPort";
+            this.txtIncomingMailServerPort.Size = new System.Drawing.Size(40, 20);
+            this.txtIncomingMailServerPort.TabIndex = 11;
+            // 
+            // txtOutgoingMailServerPort
+            // 
+            this.txtOutgoingMailServerPort.Location = new System.Drawing.Point(308, 78);
+            this.txtOutgoingMailServerPort.Name = "txtOutgoingMailServerPort";
+            this.txtOutgoingMailServerPort.Size = new System.Drawing.Size(40, 20);
+            this.txtOutgoingMailServerPort.TabIndex = 9;
             // 
             // txtOutgoingMailServer
             // 
@@ -210,7 +251,7 @@
             // 
             // btnTestEmailAccount
             // 
-            this.btnTestEmailAccount.Location = new System.Drawing.Point(21, 279);
+            this.btnTestEmailAccount.Location = new System.Drawing.Point(21, 280);
             this.btnTestEmailAccount.Name = "btnTestEmailAccount";
             this.btnTestEmailAccount.Size = new System.Drawing.Size(98, 23);
             this.btnTestEmailAccount.TabIndex = 3;
@@ -219,7 +260,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(433, 279);
+            this.btnOk.Location = new System.Drawing.Point(433, 280);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(63, 23);
             this.btnOk.TabIndex = 4;
@@ -229,7 +270,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(502, 279);
+            this.btnCancel.Location = new System.Drawing.Point(502, 280);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(63, 23);
             this.btnCancel.TabIndex = 5;
@@ -237,11 +278,22 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // chkEnableHtmlContent
+            // 
+            this.chkEnableHtmlContent.AutoSize = true;
+            this.chkEnableHtmlContent.Location = new System.Drawing.Point(21, 257);
+            this.chkEnableHtmlContent.Name = "chkEnableHtmlContent";
+            this.chkEnableHtmlContent.Size = new System.Drawing.Size(132, 17);
+            this.chkEnableHtmlContent.TabIndex = 8;
+            this.chkEnableHtmlContent.Text = "Enable HTML Content";
+            this.chkEnableHtmlContent.UseVisualStyleBackColor = true;
+            // 
             // frmEmailSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 314);
+            this.Controls.Add(this.chkEnableHtmlContent);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnTestEmailAccount);
@@ -283,5 +335,10 @@
         private System.Windows.Forms.Button btnTestEmailAccount;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.CheckBox chkEnableHtmlContent;
+        private System.Windows.Forms.Label lblColon2;
+        private System.Windows.Forms.Label lblColon1;
+        private System.Windows.Forms.TextBox txtIncomingMailServerPort;
+        private System.Windows.Forms.TextBox txtOutgoingMailServerPort;
     }
 }

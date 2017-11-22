@@ -35,6 +35,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SmartEngineer.Service\DLLs\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -44,6 +47,9 @@
     </Reference>
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,10 +65,12 @@
     <Compile Include="Adapter\IMemberAdapter.cs" />
     <Compile Include="Adapter\imp\ConfigAdapter.cs" />
     <Compile Include="Adapter\imp\DatabaseAdapter.cs" />
+    <Compile Include="Adapter\imp\EmailAdapter.cs" />
     <Compile Include="Adapter\imp\JiraAdapter.Local.cs" />
     <Compile Include="Adapter\imp\MemberAdapter.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapterV2.Local.cs" />
     <Compile Include="Adapter\imp\SalesforceAdapterV2.cs" />
+    <Compile Include="Adapter\imp\TemplateAdapter.cs" />
     <Compile Include="Adapter\ISalesforceAdapterV2.cs" />
     <Compile Include="Adapter\ISalesforceAdapter.cs" />
     <Compile Include="Adapter\IJiraAdapter.cs" />
@@ -184,6 +192,10 @@
       <Project>{0ea33e69-d046-42af-9bf3-4b0f49eea1d6}</Project>
       <Name>SalesforceSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SmartEmail\SmartEmail\SmartEmail.csproj">
+      <Project>{13150fe6-c7a9-4655-bbd4-49ea9cc834ba}</Project>
+      <Name>SmartEmail</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SmartEngineer.Framework\SmartEngineer.Framework.csproj">
       <Project>{be23deca-79d2-4899-8d74-732f97b7a528}</Project>
       <Name>SmartEngineer.Framework</Name>
@@ -262,10 +274,19 @@
     <Folder Include="Templates\Report\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Templates\Email\DailyCaseReview.cshtml" />
-    <None Include="Templates\Email\DailyWorkLog.cshtml" />
-    <None Include="Templates\Email\WeeklyProjectStatus.cshtml" />
-    <None Include="Templates\Email\_DefaultLayout.cshtml" />
+    <None Include="packages.config" />
+    <None Include="Templates\Email\DailyCaseReview.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Email\DailyWorkLog.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Email\WeeklyProjectStatus.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Email\_DefaultLayout.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

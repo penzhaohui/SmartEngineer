@@ -7,7 +7,7 @@
     <ProjectGuid>{A512954C-3CAC-4D2C-9DA1-22DDC0FF7E3F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SmartEngineer</RootNamespace>
-    <AssemblyName>SmartEngineer</AssemblyName>
+    <AssemblyName>SmartEngineer.Client</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -300,6 +300,24 @@
     <Compile Include="Settings\OptionSettings\UserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Settings\Templates\SubTaskModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\Templates\SubTaskModule.Designer.cs">
+      <DependentUpon>SubTaskModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Templates\ReportEmailModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\Templates\ReportEmailModule.Designer.cs">
+      <DependentUpon>ReportEmailModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Templates\SubTaskTemplate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\Templates\SubTaskTemplate.Designer.cs">
+      <DependentUpon>SubTaskTemplate.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Accounts\frmAssignToRole.resx">
       <DependentUpon>frmAssignToRole.cs</DependentUpon>
     </EmbeddedResource>
@@ -417,6 +435,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\OptionSettings\TestRailModule.resx">
       <DependentUpon>TestRailModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Templates\SubTaskModule.resx">
+      <DependentUpon>SubTaskModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Templates\ReportEmailModule.resx">
+      <DependentUpon>ReportEmailModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Templates\SubTaskTemplate.resx">
+      <DependentUpon>SubTaskTemplate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

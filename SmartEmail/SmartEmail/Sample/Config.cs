@@ -5,8 +5,6 @@ namespace SmartEmail.Sample
 {
     public static class Config
     {
-
-        public static EmailType TestEmailType = EmailType.QQ_Exmail;
         /// <summary>
         /// 测试发送地址
         /// </summary>

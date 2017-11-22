@@ -9,14 +9,15 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SmartEmail</RootNamespace>
     <AssemblyName>SmartEmail</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\SmartEngineer.Service\DLLs\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -46,11 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="enum\EmailAddrType.cs" />
-    <Compile Include="enum\EmailType.cs" />
-    <Compile Include="enum\MailInfoType.cs" />
+    <Compile Include="enum\EmailMessageType.cs" />
     <Compile Include="Helper\MailValidatorHelper.cs" />
-    <Compile Include="MailHelper.cs" />
-    <Compile Include="MailInfoHelper.cs" />
+    <Compile Include="MailClient.cs" />
+    <Compile Include="MailMessageHelper.cs" />
     <Compile Include="MailUserState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resource.Designer.cs">
@@ -66,9 +66,10 @@
     <Compile Include="Sample\SendMail.Designer.cs">
       <DependentUpon>SendMail.cs</DependentUpon>
     </Compile>
-    <Compile Include="SmtpHelper.cs" />
+    <Compile Include="SmtpClientHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Sample\App.config" />
   </ItemGroup>
   <ItemGroup>

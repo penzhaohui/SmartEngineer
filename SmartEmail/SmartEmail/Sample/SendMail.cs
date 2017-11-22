@@ -69,7 +69,7 @@ namespace SmartEmail.Sample
             if (this.rdoOne.Checked)
             {
                 #region 实验一：单条邮件同步和异步发送（可通过添加大附件来观察同步异步效果）
-                MailHelper mail = new MailHelper(isAsync);
+                MailClient mail = new MailClient(isAsync);
 
                 #region 发送单封邮件 中 加入图片链接示例。
                 // 发送单封邮件 中 加入图片链接示例。
@@ -99,7 +99,7 @@ namespace SmartEmail.Sample
                 #region 实验二：批量邮件同步和异步发送（单个线程，单个SmtpClient实例，SendAsync()）
 
                 long count = long.Parse(this.cbbNumber.Text);
-                MailHelper mail = new MailHelper(isAsync);
+                MailClient mail = new MailClient(isAsync);
 
                 if (isReuse)
                 {
@@ -167,7 +167,7 @@ namespace SmartEmail.Sample
                             Debug.WriteLine("开始一个分组，当前分组数为：" + fenzu.ToString());
                             ParallelInitObj initObj = new ParallelInitObj()
                             {
-                                mail = new MailHelper(isAsync),
+                                mail = new MailClient(isAsync),
                                 SumCount = 0,
                             };
                             return initObj;
@@ -175,7 +175,7 @@ namespace SmartEmail.Sample
                         , (i, loop, initObj) =>
                         {
                             ParallelInitObj curInitObj = initObj;
-                            MailHelper mail = curInitObj.mail;
+                            MailClient mail = curInitObj.mail;
 
                             Interlocked.Increment(ref sendCount);
                             string shiyan = String.Format("({0})实验三", Thread.CurrentThread.ManagedThreadId);
@@ -253,7 +253,7 @@ namespace SmartEmail.Sample
                            Debug.WriteLine("开始一个分组，当前分组数为：" + fenzu.ToString());
                            ParallelInitObj initObj = new ParallelInitObj()
                            {
-                               mail = new MailHelper(),
+                               mail = new MailClient(),
                                SumCount = 0,
                            };
                            return initObj;
@@ -261,7 +261,7 @@ namespace SmartEmail.Sample
                        , (source, loop, loopIndex, initObj) =>
                        {
                            ParallelInitObj curInitObj = initObj;
-                           MailHelper mail = curInitObj.mail;
+                           MailClient mail = curInitObj.mail;
 
                            string shiyan = String.Format("({0})实验四", Thread.CurrentThread.ManagedThreadId);
 
@@ -321,14 +321,14 @@ namespace SmartEmail.Sample
         /// <param name="isSimple">是否只发送一条</param>
         /// <param name="autoReleaseSmtp">是否自动释放SmtpClient</param>
         /// <param name="isReuse">是否重用SmtpClient</param>
-        private void SendMessage(MailHelper mail, bool isSimple, string shiyan, string msgCount, bool autoReleaseSmtp, bool isReuse)
+        private void SendMessage(MailClient mail, bool isSimple, string shiyan, string msgCount, bool autoReleaseSmtp, bool isReuse)
         {
             AppendReplyMsg(String.Format("{0}：{1}\"同步\"邮件开始。{2}{3}", shiyan, msgCount, watch.ElapsedMilliseconds, Environment.NewLine));
 
             if (!isReuse || !mail.ExistsSmtpClient())
             {
                 mail.SetSmtpClient(
-                       new SmtpHelper(Config.TestEmailType, false, Config.TestUserName, Config.TestPassword).SmtpClient
+                       new SmtpClientHelper("smtp.exmail.qq.com", 25, false, Config.TestUserName, Config.TestPassword).SmtpClient
                        , autoReleaseSmtp
                        );
             }
@@ -359,11 +359,11 @@ namespace SmartEmail.Sample
                 }
             }
 
-            Dictionary<MailInfoType, string> dic = mail.CheckSendMail();
-            if (dic.Count > 0 && MailInfoHelper.ExistsError(dic))
+            Dictionary<EmailMessageType, string> dic = mail.CheckSendMail();
+            if (dic.Count > 0 && MailMessageHelper.ExistsError(dic))
             {
                 // 反馈“错误+提示”信息
-                AppendReplyMsg(MailInfoHelper.GetMailInfoStr(dic));
+                AppendReplyMsg(MailMessageHelper.GetMailInfoStr(dic));
             }
             else
             {
@@ -371,7 +371,7 @@ namespace SmartEmail.Sample
                 if (dic.Count > 0)
                 {
                     // 反馈“提示”信息
-                    msg = MailInfoHelper.GetMailInfoStr(dic);
+                    msg = MailMessageHelper.GetMailInfoStr(dic);
                 }
 
                 try
@@ -409,13 +409,13 @@ namespace SmartEmail.Sample
         /// <param name="isSimple">是否只发送一条</param>
         /// <param name="autoReleaseSmtp">是否自动释放SmtpClient</param>
         /// <param name="isReuse">是否重用SmtpClient</param>
-        private void SendMessageAsync(MailHelper mail, bool isSimple, string shiyan, string msgCount, bool autoReleaseSmtp, bool isReuse)
+        private void SendMessageAsync(MailClient mail, bool isSimple, string shiyan, string msgCount, bool autoReleaseSmtp, bool isReuse)
         {
             AppendReplyMsg(String.Format("{0}：{1}\"异步\"邮件开始。{2}{3}", shiyan, msgCount, watch.ElapsedMilliseconds, Environment.NewLine));
 
             if (!isReuse || !mail.ExistsSmtpClient())
             {
-                SmtpClient client = new SmtpHelper(Config.TestEmailType, false, Config.TestUserName, Config.TestPassword).SmtpClient;
+                SmtpClient client = new SmtpClientHelper("smtp.exmail.qq.com", 25, false, Config.TestUserName, Config.TestPassword).SmtpClient;
                 mail.AsycUserState = String.Format("{0}：{1}\"异步\"邮件", shiyan, msgCount);
                 client.SendCompleted += (send, args) =>
                 {
@@ -469,11 +469,11 @@ namespace SmartEmail.Sample
                 }
             }
 
-            Dictionary<MailInfoType, string> dic = mail.CheckSendMail();
-            if (dic.Count > 0 && MailInfoHelper.ExistsError(dic))
+            Dictionary<EmailMessageType, string> dic = mail.CheckSendMail();
+            if (dic.Count > 0 && MailMessageHelper.ExistsError(dic))
             {
                 // 反馈“错误+提示”信息
-                AppendReplyMsg(MailInfoHelper.GetMailInfoStr(dic));
+                AppendReplyMsg(MailMessageHelper.GetMailInfoStr(dic));
             }
             else
             {
@@ -481,7 +481,7 @@ namespace SmartEmail.Sample
                 if (dic.Count > 0)
                 {
                     // 反馈“提示”信息
-                    msg = MailInfoHelper.GetMailInfoStr(dic);
+                    msg = MailMessageHelper.GetMailInfoStr(dic);
                 }
 
                 try
@@ -592,7 +592,7 @@ namespace SmartEmail.Sample
 
     public class ParallelInitObj
     {
-        public MailHelper mail { get; set; }
+        public MailClient mail { get; set; }
         public long SumCount { get; set; }
     }
 }

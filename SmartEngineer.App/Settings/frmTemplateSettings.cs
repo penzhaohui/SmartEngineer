@@ -1,12 +1,20 @@
-﻿using SmartEngineer.OutlookBar;
+﻿using SmartEngineer.Notification;
+using SmartEngineer.OutlookBar;
+using SmartEngineer.ServiceClient.Adapters;
+using SmartEngineer.ServiceClient.SettingService;
+using SmartEngineer.UserControls;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SmartEngineer.Forms
 {
     public partial class frmTemplateSettings : Form
     {
+        private static readonly IConfigAdapter ConfigAdapter = new ConfigAdapter();
+
         public frmTemplateSettings()
         {
             InitializeComponent();
@@ -28,11 +36,11 @@ namespace SmartEngineer.Forms
             //1
             iconPanel1.AddIcon("Bug", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\2.ico"), new EventHandler(PanelEventA));
             //2
-            iconPanel2.AddIcon("Daily Case Review Report", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\3.ico"), new EventHandler(PanelEventB));
+            iconPanel2.AddIcon("Daily Case", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\3.ico"), new EventHandler(PanelEventB));
             //3
-            iconPanel2.AddIcon("Daily Work Log Report", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\4.ico"), new EventHandler(PanelEventB));
+            iconPanel2.AddIcon("Daily Worklog", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\4.ico"), new EventHandler(PanelEventB));
             //4
-            iconPanel2.AddIcon("Weekly Case Review Report", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\4.ico"), new EventHandler(PanelEventB));
+            iconPanel2.AddIcon("Weekly Case", Image.FromFile(System.AppDomain.CurrentDomain.BaseDirectory + @"\Image\4.ico"), new EventHandler(PanelEventB));
             outlookBar.SelectBand(0);
             #endregion
         }
@@ -52,6 +60,18 @@ namespace SmartEngineer.Forms
                     break;
             }
             this.label1.Text = string.Format("您选择了 {0}", clickInfo);
+            // Project = ENGSUPP; IssueType = Case; IsDefaultSubTask = Yes
+            List<ConfigOption> options = ConfigAdapter.GetConfigOptions("Jira Sub Task Template");
+            // Linq中where查询 - http://www.studyofnet.com/news/269.html
+            var queryResult = from ConfigOption option in options
+                      where option.ConfigExtra.Contains(clickInfo)
+                      select option;
+
+            this.templatePanel.Controls.Clear();
+            SubTaskModule subTaskModule = new SubTaskModule();
+            subTaskModule.IssueType = clickInfo;
+            subTaskModule.Initialize(queryResult.ToList<ConfigOption>());
+            this.templatePanel.Controls.Add(subTaskModule);
         }
 
         public void PanelEventB(object sender, EventArgs e)
@@ -59,20 +79,46 @@ namespace SmartEngineer.Forms
             Control ctrl = (Control)sender;
             PanelIcon panelIcon = ctrl.Tag as PanelIcon;
             string clickInfo = string.Empty;
-
+            
             switch (panelIcon.Index)
             {
                 case 0:
-                    clickInfo = "Daily Case Review Report";
+                    clickInfo = "Daily Case";
+                    
                     break;
                 case 1:
-                    clickInfo = "Daily Work Log Report";
+                    clickInfo = "Daily Worklog";
                     break;
                 case 2:
-                    clickInfo = "Weekly Case Review Report";
+                    clickInfo = "Weekly Case";
                     break;
             }
             this.label1.Text = string.Format("您选择了 {0}", clickInfo);
+
+            string optionName = $"{clickInfo} Report Email Setting";
+            List<ConfigOption> options = ConfigAdapter.GetConfigOptions(optionName);
+
+            this.templatePanel.Controls.Clear();
+            ReportEmailModule reportEmailModule = new ReportEmailModule();
+            reportEmailModule.ReportName = clickInfo;
+            reportEmailModule.SaveFunc = SaveFunc;
+            reportEmailModule.Initialize(options);
+            this.templatePanel.Controls.Add(reportEmailModule);
+        }
+
+        public bool SaveFunc(string optionName, UserControls.UserControl userControl)
+        {
+            List<ConfigOption> options = userControl.CollectOption();
+            bool isUpdateSuccess = ConfigAdapter.UpdateConfigOptions(optionName, options);
+            if (isUpdateSuccess)
+            {
+                SystemMessageBox.ShowInformation("Save successfully.");
+            }
+            else
+            {
+                SystemMessageBox.ShowInformation("Failed to save, please contact administrator.");
+            }
+            return true;
         }
     }
 }

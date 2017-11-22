@@ -40,8 +40,11 @@ namespace SmartEngineer.Forms
 
             this.cmbAccountType.SelectedItem = options.GetOptionValue(EmailSettingConstant.ACCOUNT_TYPE);
             this.txtIncomingMailServer.Text = options.GetOptionValue(EmailSettingConstant.INCOMING_MAIL_SERVER);
+            this.txtIncomingMailServerPort.Text = options.GetOptionValue(EmailSettingConstant.INCOMING_MAIL_SERVER_PORT);
             this.txtOutgoingMailServer.Text = options.GetOptionValue(EmailSettingConstant.OUTGOING_MAIL_SERVER);
+            this.txtOutgoingMailServerPort.Text = options.GetOptionValue(EmailSettingConstant.OUTGOING_MAIL_SERVER_PORT);
             this.chkRequireSPA .Checked = CommonUtil.IsTrue(options.GetOptionValue(EmailSettingConstant.SECURITY_PASSWORD_AUTHENTICATION));
+            this.chkEnableHtmlContent.Checked = CommonUtil.IsTrue(options.GetOptionValue(EmailSettingConstant.ENABLE_HTML_CONTENT));
         }
 
         public string FormName => throw new NotImplementedException();
@@ -79,8 +82,11 @@ namespace SmartEngineer.Forms
             string password = this.txtPassword.Text;
             string accountType = this.cmbAccountType.SelectedItem as string;
             string incomingMailServer = this.txtIncomingMailServer.Text;
+            string incomingMailServerPort = this.txtIncomingMailServerPort.Text;
             string outGoingMailServer = this.txtOutgoingMailServer.Text;
+            string outGoingMailServerPort = this.txtOutgoingMailServerPort.Text;
             string spa = this.chkRequireSPA.Checked.ToString();
+            string enableHtml = this.chkEnableHtmlContent.Checked.ToString();
 
 
             List<ConfigOption> options = new List<ConfigOption>();
@@ -90,8 +96,11 @@ namespace SmartEngineer.Forms
             options.Add(CreateConfigOption(EmailSettingConstant.EMAIL_PASSWORD, password));
             options.Add(CreateConfigOption(EmailSettingConstant.ACCOUNT_TYPE, accountType));
             options.Add(CreateConfigOption(EmailSettingConstant.INCOMING_MAIL_SERVER, incomingMailServer));
+            options.Add(CreateConfigOption(EmailSettingConstant.INCOMING_MAIL_SERVER_PORT, incomingMailServerPort));
             options.Add(CreateConfigOption(EmailSettingConstant.OUTGOING_MAIL_SERVER, outGoingMailServer));
+            options.Add(CreateConfigOption(EmailSettingConstant.OUTGOING_MAIL_SERVER_PORT, outGoingMailServerPort));
             options.Add(CreateConfigOption(EmailSettingConstant.SECURITY_PASSWORD_AUTHENTICATION, spa));
+            options.Add(CreateConfigOption(EmailSettingConstant.ENABLE_HTML_CONTENT, enableHtml));
 
             return options;
         }

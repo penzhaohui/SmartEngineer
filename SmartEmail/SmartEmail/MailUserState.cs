@@ -7,7 +7,7 @@ namespace SmartEmail
     /// <summary>
     /// 异步发送邮件时保存的信息，用于释放和传递数据
     /// </summary>
-    public class MailUserState
+    internal class MailUserState
     {
         #region 由MailHelper内部的SendCompleted注册的事件使用
 

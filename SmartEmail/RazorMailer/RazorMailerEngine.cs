@@ -59,7 +59,8 @@ namespace RazorMailer.Core
 
             var config = new TemplateServiceConfiguration
             {
-                TemplateManager = new ResolvePathTemplateManager(new[] { webPath, libraryPath })
+                TemplateManager = new ResolvePathTemplateManager(new[] { webPath, libraryPath }),
+                DisableTempFileLocking = true
             };
 
             _service = RazorEngineService.Create(config);

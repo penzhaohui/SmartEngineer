@@ -19,8 +19,11 @@ namespace SmartEngineer.Core.Models
             if (this.LastCommentAddedBy != null)
             {
                 int index = sfCase.LastCommentCreatedBy.IndexOf(":");
-                this.LastModifiedBy = sfCase.LastCommentCreatedBy.Substring(0, index).Trim();
-                this.LastModifiedDateTime = Convert.ToDateTime(sfCase.LastCommentCreatedBy.Substring(index + 1).Trim());
+                if (index > 0)
+                {
+                    this.LastModifiedBy = sfCase.LastCommentCreatedBy.Substring(0, index).Trim();
+                    this.LastModifiedDateTime = Convert.ToDateTime(sfCase.LastCommentCreatedBy.Substring(index + 1).Trim());
+                }
             }
             this.Origin = sfCase.Origin;
             this.CurrentOnMaintenance = sfCase.CurrentOnMaintenance;
