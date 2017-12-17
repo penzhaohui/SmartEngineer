@@ -75,12 +75,12 @@ namespace SmartEmail
         IEmailMessage AppendAttachment(string fieldPath, string fileName);
 
         /// <summary>
-        /// Add attachments
+        /// Add inline attachments
         /// </summary>
         /// <param name="fieldPath">file path</param>
         /// <param name="cidName">cid name</param>
         /// <returns>Self Email Message</returns>
-        IEmailMessage AppendAttachment(string fieldPath, string cidName);
+        IEmailMessage AppendInlineAttachment(string fieldPath, string cidName);
 
         /// <summary>
         /// Add one alternate view

@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace SmartEmail
 {
-    public class EmailMessageBase : IEmailMessage
+    public abstract class EmailMessageBase : IEmailMessage
     {
-        private MailMessage message = new MailMessage();
-        private Dictionary<string, string> toAddresses = new Dictionary<string, string>();
-        private Dictionary<string, string> ccAddresses = new Dictionary<string, string>();
-        private Dictionary<string, string> bccAddresses = new Dictionary<string, string>();        
+        protected MailMessage message = new MailMessage();
+        protected Dictionary<string, string> toAddresses = new Dictionary<string, string>();
+        protected Dictionary<string, string> ccAddresses = new Dictionary<string, string>();
+        protected Dictionary<string, string> bccAddresses = new Dictionary<string, string>();        
 
         /// <summary>
         /// Set Email Subject
@@ -134,12 +134,12 @@ namespace SmartEmail
         }
 
         /// <summary>
-        /// Add attachments
+        /// Add inline attachments
         /// </summary>
         /// <param name="fieldPath">file path</param>
         /// <param name="cidName">cid name</param>
         /// <returns>Self Email Message</returns>
-        public IEmailMessage AppendAttachment(string fieldPath, string cidName)
+        public IEmailMessage AppendInlineAttachment(string fieldPath, string cidName)
         {
             AddAttachment(fieldPath, String.Empty, true, cidName);
             return this;
@@ -240,7 +240,7 @@ namespace SmartEmail
         /// Build Email Message List
         /// </summary>
         /// <returns>Email Message List</returns>
-        public virtual List<MailMessage> Build();
+        public abstract List<MailMessage> Build();
 
         /// <summary>
         /// Reset Email Message

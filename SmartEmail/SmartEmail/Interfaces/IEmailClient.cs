@@ -13,11 +13,27 @@ namespace SmartEmail
         /// <summary>
         /// The flag to indicates which method is preferred, send or sendasync
         /// </summary>
-        bool IsSendAsync { get; private set; }
+        bool IsSendAsync { get;}
+
+        /// <summary>
+        /// The user state when invoke sendAsyc()
+        /// </summary>
+        object AsycUserState { get; set; }
+
+        /// <summary>
+        /// The count of emails planed to be sent out
+        /// </summary>
+        long PlanedSendCount { get; }
+
+        /// <summary>
+        /// The count of emails already finished to be sent out
+        /// </summary>
+        long CompletedSendCount { get; }
+        
         /// <summary>
         /// Return the original SMTP Client
         /// </summary>
-        SmtpClient EmailClient { get; private set; }
+        SmtpClient EmailClient { get; }
 
         /// <summary>
         /// Initialize one Smtp Client Instance
@@ -30,6 +46,12 @@ namespace SmartEmail
         /// <param name="password">User Password</param>
         /// <returns>Self Email Client</returns>
         IEmailClient Initialized(string host, int port, bool ssl, bool enableHtml, string userName, string password);
+
+        /// <summary>
+        /// Initialize one Smtp Client Instance
+        /// </summary>
+        /// <returns>Self Email Client</returns>
+        IEmailClient Initialized();
 
         /// <summary>
         /// Set the time out value for SmtpClient.Send()
@@ -64,7 +86,7 @@ namespace SmartEmail
         /// New Email Message
         /// </summary>
         /// <returns>One Email Message</returns>
-        IEmailMessage NewEmailMessage();
+        IEmailMessage NewEmailMessage<T>() where T : EmailMessageBase, new();
 
         /// <summary>
         /// Send Email

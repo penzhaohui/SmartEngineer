@@ -1,21 +1,20 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.Concurrent;
 using System.Threading;
-using System.ComponentModel;
-using System.Diagnostics;
 
 namespace SmartEmail
 {
     public class EmailClientBase : IEmailClient
     {
+        protected Stopwatch watch = new Stopwatch();
+
         /// <summary>
         /// The flag to indicates which method is preferred, send or sendasync
         /// </summary>
@@ -25,6 +24,25 @@ namespace SmartEmail
         /// Return the original SMTP Client
         /// </summary>
         public SmtpClient EmailClient { get; private set; }
+
+        /// <summary>
+        /// The user state when invoke sendAsyc()
+        /// </summary>
+        public object AsycUserState { get; set; }
+
+        /// <summary>
+        /// Initialize one Smtp Client Instance
+        /// </summary>
+        /// <returns>Self Email Client</returns>
+        public IEmailClient Initialized()
+        {
+            if (EmailClient == null)
+            {
+                EmailClient = new SmtpClient();
+            }
+
+            return this;
+        }
 
         /// <summary>
         /// Initialize one Smtp Client Instance
@@ -38,12 +56,15 @@ namespace SmartEmail
         /// <returns>Self Email Client</returns>
         public IEmailClient Initialized(string host, int port, bool ssl, bool enableHtml, string userName, string password)
         {
-            EmailClient = new SmtpClient(host, port);
-            EmailClient.EnableSsl = ssl;
-            EmailClient.UseDefaultCredentials = false;
-            EmailClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            EmailClient.Credentials = new NetworkCredential(userName, password);
-            EmailClient.Timeout = 100000;
+            if (EmailClient == null)
+            {
+                EmailClient = new SmtpClient(host, port);
+                EmailClient.EnableSsl = ssl;
+                EmailClient.UseDefaultCredentials = false;
+                EmailClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                EmailClient.Credentials = new NetworkCredential(userName, password);
+                EmailClient.Timeout = 100000;
+            }
 
             return this;
         }
@@ -123,9 +144,9 @@ namespace SmartEmail
         /// New Email Message
         /// </summary>
         /// <returns>One Email Message</returns>
-        public IEmailMessage NewEmailMessage()
+        public IEmailMessage NewEmailMessage<T>() where T : EmailMessageBase, new()
         {
-            IEmailMessage newMessage = new EmailMessageBase();
+            IEmailMessage newMessage = new T();
             return newMessage;
         }
 
@@ -183,23 +204,63 @@ namespace SmartEmail
         }
 
         /// <summary>
-        /// The user state when invoke sendAsyc()
-        /// </summary>
-        public object AsycUserState { get; set; }
-
-        /// <summary>
         /// Send Email
         /// </summary>
         /// <param name="emailMessage">Email Message</param>
         /// <returns>success or failed</returns>
         public bool Send(IEmailMessage emailMessage)
         {
-            IsSendAsync = false;
+            watch.Reset();
+            watch.Start();
+
+            IsSendAsync = false;            
 
             List<MailMessage> messages = emailMessage.Build();
-            foreach(MailMessage message in messages)
+
+            PlanedSendCount = messages.Count;
+
+            foreach (MailMessage message in messages)
             {
-                EmailClient.Send(message);
+                try
+                {
+                    EmailClient.Send(message);
+
+                    CompletedSendCount++;
+                }
+                catch (ObjectDisposedException smtpObjectDisposedEx)
+                {
+#if DEBUG
+                    Debug.WriteLine("Failed to send one email. " + smtpObjectDisposedEx);
+#endif
+                }
+                catch (InvalidOperationException smtpInvalidOperationEx)
+                {
+#if DEBUG
+                    Debug.WriteLine("Failed to send one email. " + smtpInvalidOperationEx);
+#endif
+                }
+                catch (SmtpFailedRecipientsException smtpFailedRecipientsEx)
+                {
+#if DEBUG
+                    Debug.WriteLine("Failed to send one email. " + smtpFailedRecipientsEx);
+#endif
+                }
+                catch (SmtpException smtpEx)
+                {
+#if DEBUG
+                    Debug.WriteLine("Failed to send one email. " + smtpEx);
+#endif
+                }
+                catch (Exception ex)
+                {
+#if DEBUG
+                    Debug.WriteLine("Failed to send one email. " + ex);
+#endif
+                }
+                finally
+                {
+                    DisposeMessage(message);
+                }
             }
 
             return true;
@@ -212,6 +273,8 @@ namespace SmartEmail
         /// <returns>success or failed</returns>
         public bool SendAsync(IEmailMessage message)
         {
+            watch.Reset();
+            watch.Start();
             IsSendAsync = true;
 
             List<MailMessage> messages = message.Build();
@@ -300,6 +363,7 @@ namespace SmartEmail
                 };
 
                 MessageQueue.Enqueue(mailMessageItem);
+                Interlocked.Increment(ref messageQueueItemCount);
             }
 
             if (SendMailThread == null)
@@ -456,6 +520,7 @@ namespace SmartEmail
 
                 planedSendCount = 0;
                 completedSendCount = 0;
+                watch.Stop();
             }
         }
         
