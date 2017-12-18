@@ -120,7 +120,7 @@ namespace SmartEmail.Sample
             }
 
             string attachment2 = this.txtAttachment2.Text;
-            if (!String.IsNullOrEmpty(attachment1))
+            if (!String.IsNullOrEmpty(attachment2))
             {
                 emailMessage.AppendAttachment(attachment2, "attachment2");
             }

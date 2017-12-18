@@ -181,6 +181,41 @@ namespace SmartEmail
             message.Attachments.Add(data);
         }
 
+        protected Attachment CloneAttachment(Attachment attachment)
+        {
+            // 1. SMTPException One of the streams has already been used and can't be reset to the origin
+            // https://stackoverflow.com/questions/33342212/smtpexception-one-of-the-streams-has-already-been-used-and-cant-be-reset-to-the            
+            MemoryStream stream = new MemoryStream();
+            CopyStream(attachment.ContentStream, stream);            
+            attachment.ContentStream.Position = 0;
+            stream.Position = 0;
+
+            Attachment newAttachment = new Attachment(stream, attachment.Name);
+
+            ContentDisposition disposition = newAttachment.ContentDisposition;
+            disposition.Inline = attachment.ContentDisposition.Inline;
+            newAttachment.ContentId = attachment.ContentId;
+            disposition.CreationDate = attachment.ContentDisposition.CreationDate;
+            disposition.ModificationDate = attachment.ContentDisposition.ModificationDate;
+            disposition.ReadDate = attachment.ContentDisposition.ReadDate;
+            disposition.FileName = attachment.ContentDisposition.FileName;
+
+            return newAttachment;
+        }
+
+        
+        private void CopyStream(Stream input, Stream output)
+        {
+            // 1. How to get a MemoryStream from a Stream in .NET?
+            // https://stackoverflow.com/questions/3212707/how-to-get-a-memorystream-from-a-stream-in-net
+            byte[] buffer = new byte[16 * 1024];
+            int read;
+            while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                output.Write(buffer, 0, read);
+            }
+        }
+
         /// <summary>
         /// Add one alternate view
         /// </summary>

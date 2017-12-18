@@ -68,7 +68,7 @@ namespace SmartEmail
 
             return this;
         }
-        
+
         /// <summary>
         /// Set the time out value for SmtpClient.Send()
         /// </summary>
@@ -130,10 +130,10 @@ namespace SmartEmail
                     {
                         return true;
                     }
-                    
+
                     return false;
                 });
-            
+
             X509Certificate cert = new X509Certificate(certPath, password);
             AddClientCertificate(cert);
 
@@ -210,12 +210,39 @@ namespace SmartEmail
         /// <returns>success or failed</returns>
         public bool Send(IEmailMessage emailMessage)
         {
+            List<MailMessage> messages = emailMessage.Build();
+
+            return Send(messages);
+        }
+
+        /// <summary>
+        /// Batch Send Email
+        /// </summary>
+        /// <param name="emailMessageCollection">Email Message Collection</param>
+        /// <returns></returns>
+        public bool Send(MailMessageCollectionBase emailMessageCollection)
+        {
+            List<MailMessage> messages = new List<MailMessage>();
+
+            foreach (IEmailMessage emailMessage in emailMessageCollection)
+            {
+                messages.AddRange(emailMessage.Build());
+            }
+
+            return Send(messages);
+        }
+
+        /// <summary>
+        /// Sending mail synchronously
+        /// </summary>
+        /// <param name="messages">Mail Message Array</param>
+        /// <returns>Success or failure</returns>
+        private bool Send(List<MailMessage> messages)
+        {
             watch.Reset();
             watch.Start();
 
-            IsSendAsync = false;            
-
-            List<MailMessage> messages = emailMessage.Build();
+            IsSendAsync = false;
 
             PlanedSendCount = messages.Count;
 
@@ -270,14 +297,43 @@ namespace SmartEmail
         /// Send Email
         /// </summary>
         /// <param name="message">Email Message</param>
-        /// <returns>success or failed</returns>
+        /// <returns>Success or failure</returns>
         public bool SendAsync(IEmailMessage message)
+        {
+            List<MailMessage> messages = message.Build();
+
+            return SendAsync(messages);
+        }
+
+
+        /// <summary>
+        /// Batch Send Email
+        /// </summary>
+        /// <param name="emailMessageCollection">Email Message Collection</param>
+        /// <returns>Success or failure</returns>
+        public bool SendAsync(MailMessageCollectionBase emailMessageCollection)
+        {
+            List<MailMessage> messages = new List<MailMessage>();
+
+            foreach (IEmailMessage emailMessage in emailMessageCollection)
+            {
+                messages.AddRange(emailMessage.Build());
+            }
+
+            return SendAsync(messages);
+        }
+
+        /// <summary>
+        /// Sending mail asynchronously
+        /// </summary>
+        /// <param name="messages">Email Message Collection</param>
+        /// <returns>Success or failure</returns>
+        private bool SendAsync(List<MailMessage> messages)
         {
             watch.Reset();
             watch.Start();
             IsSendAsync = true;
 
-            List<MailMessage> messages = message.Build();
             planedSendCount = messages.Count;
             EmailClient.SendCompleted += new SendCompletedEventHandler(this.SendCompleted4Dispose);
 
@@ -301,7 +357,7 @@ namespace SmartEmail
                     else
                     {
                         throw new Exception("No SMTP Client is set.");
-                    }                  
+                    }
 
                 }, mailMessageItem);
             }

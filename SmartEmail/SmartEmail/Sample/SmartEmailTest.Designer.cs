@@ -227,7 +227,7 @@
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(284, 20);
             this.txtTo.TabIndex = 19;
-            this.txtTo.Text = "peter.peng@missionsky.com";
+            this.txtTo.Text = "peter.peng@missionsky.com;451127509@qq.com;pen_zhaohui@126.com";
             // 
             // txtCC
             // 

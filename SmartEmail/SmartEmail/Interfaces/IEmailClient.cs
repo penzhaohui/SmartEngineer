@@ -96,11 +96,25 @@ namespace SmartEmail
         bool Send(IEmailMessage emailMessage);
 
         /// <summary>
+        /// Batch Send Email
+        /// </summary>
+        /// <param name="emailMessageCollection">Email Message Collection</param>
+        /// <returns></returns>
+        bool Send(MailMessageCollectionBase emailMessageCollection);
+
+        /// <summary>
         /// Send Email
         /// </summary>
         /// <param name="message">Email Message</param>
         /// <returns>success or failed</returns>
         bool SendAsync(IEmailMessage message);
+
+        /// <summary>
+        /// Batch Send Email
+        /// </summary>
+        /// <param name="emailMessageCollection">Email Message Collection</param>
+        /// <returns></returns>
+        bool SendAsync(MailMessageCollectionBase emailMessageCollection);
 
         /// <summary>
         /// Cancel Send email
