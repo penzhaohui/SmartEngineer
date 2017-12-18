@@ -10,6 +10,6 @@ namespace SmartEngineer.Core.Adapter
 {
     public interface IEmailAdapter
     {
-        MailClient GetEmailClientInstance(string emailKey);
+        IEmailClient GetEmailClientInstance(string emailKey);
     }
 }

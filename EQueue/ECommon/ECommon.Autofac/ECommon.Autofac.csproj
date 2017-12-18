@@ -46,8 +46,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Autofac\Autofac.csproj">
-      <Project>{ef675c96-fc86-40f2-bdb1-af53e570a61e}</Project>
+    <ProjectReference Include="..\..\..\IoC\Autofac\Autofac.csproj">
+      <Project>{06f733c8-dd56-4eeb-add5-3787a006a26c}</Project>
       <Name>Autofac</Name>
     </ProjectReference>
     <ProjectReference Include="..\ECommon\ECommon.csproj">

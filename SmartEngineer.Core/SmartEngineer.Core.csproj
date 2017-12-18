@@ -193,7 +193,7 @@
       <Name>SalesforceSharp</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartEmail\SmartEmail\SmartEmail.csproj">
-      <Project>{13150fe6-c7a9-4655-bbd4-49ea9cc834ba}</Project>
+      <Project>{3456962a-c00d-497b-a79d-636bb128d269}</Project>
       <Name>SmartEmail</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartEngineer.Framework\SmartEngineer.Framework.csproj">

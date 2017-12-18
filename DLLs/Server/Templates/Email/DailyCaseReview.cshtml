@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "_DefaultLayout";
+}
+
+<p>Hi @ViewBag.Recipient</p>
+<p>@ViewBag.Introduce</p>
+<table id="tblDailyCaseReviewDetail" class="tableStyle">
+    <tr>
+        <th class="tableHeader">No</th>                 <!-- 1. No -->
+        <th class="tableHeader">Product</th>            <!-- 2. Product -->
+        <th class="tableHeader">Case Number</th>        <!-- 3. SF# -->
+        <th class="tableHeader">Jira Key</th>           <!-- 4. Jira# -->
+        <th class="tableHeader">Severity</th>           <!-- 5. Severity -->
+        <th class="tableHeader">Version</th>            <!-- 6. Version -->
+        <th class="tableHeader">Category</th>           <!-- 7. Issue Category -->
+        <th class="tableHeader">Customer</th>           <!-- 8. Customer -->
+        <th class="tableHeader">Orgin</th>              <!-- 9. Orgin -->
+        <th class="tableHeader">Open Date</th>          <!-- 10. Open Date -->      
+        <th class="tableHeader">Summary</th>            <!-- 11. Summary -->
+        <th class="tableHeader">Engineer Comment#</th>  <!-- 12. Engineer Comment# -->
+        <th class="tableHeader">Engineer Reviewer</th>  <!-- 13. Engineer Reviewer -->
+        <th class="tableHeader">Comments</th>           <!-- 14. Comments -->
+    </tr>
+    @{ int index = 1;}
+    @foreach (var item in ViewBag.CaseList)
+    {
+        <tr>
+            <!-- 1. No -->
+            <td class="tableCell">@index++</td>
+            <!-- 2. Product -->
+            <td class="tableCell">@item.Product</td>
+            <!-- 3. SF# -->
+            <td class="tableCell"><a href="@item.CaseID">@item.CaseNumber</a></td>
+            <!-- 4. Jira# -->
+            <td class="tableCell"><a href="@item.JiraKey">@item.JiraKey</a></td>
+            <!-- 5. Severity -->
+            <td class="tableCell">@item.Severity</td>
+            <!-- 6. Version -->
+            <td class="tableCell">@item.Version</td>
+            <!-- 7. Issue Category -->
+            <td class="tableCell">@item.IssueCategory</td>
+            <!-- 8. Customer -->
+            <td class="tableCell">@item.Customer</td>
+            <!-- 9. Orgin -->
+            <td class="tableCell">@item.Orgin</td>
+            <!-- 10. Open Date -->
+            <td class="tableCell">@item.OpenDate</td>
+            <!-- 11. Summary -->
+            <td class="tableCell">@item.Summary</td>
+            <!-- 12. Engineer Comment# -->
+            <td class="tableCell">@item.EngineerCommentsCount</td>
+            <!-- 13. Engineer Reviewer -->
+            <td class="tableCell">@item.EngineerReviewer</td>
+            <!-- 14. Comments -->
+            <td class="tableCell">@item.Comments</td>
+        </tr>
+
+    }
+</table>
+<p>@ViewBag.Remarks</p>
